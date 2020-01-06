@@ -1,0 +1,168 @@
+{% extends 'km/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'km/css/penelitian.css' %}">
+{% endblock %}
+
+{% block content %}
+
+          <div class="col-3 filter-section">
+            <h4>Knowledge Management</h4>
+            <h3>Peningkatan Kapasitas</h3>
+
+            <div class="clearfix">
+              <div class="filter float-left"><img class="icon-filter" src="{% static 'km/icon/filter-results-button.svg' %}" alt="filter">Filter</div>
+              <div  class="clear float-right"><button type="button" class="uncheck">Clear</button></div> 
+                           
+            </div>
+            <hr class="batas"> 
+
+            <div id="accordion" class="accordion">
+              <div class="card mb-0">
+
+                  <!-- Katergori -->
+                  <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseDua">
+                      <a class="card-title">
+                        Kategori
+                      </a>
+                  </div>
+                  <div id="collapseDua" class="card-body collapse" data-parent="#accordion" >
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" checked> <span class="label-text">Lecture Series</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Workshop dan Pelatihan</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Pertemuan dan Seminar</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Kursus Online</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Fun Sharing Day</span>
+                      </label>
+                    </div>
+                  </div>
+                  <!-- Tahun Mulai -->
+                  <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTiga">
+                      <a class="card-title">
+                        Tahun Mulai
+                      </a>
+                  </div>
+                  <div id="collapseTiga" class="collapse" data-parent="#accordion" >
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">2019</span>
+                      </label>
+                    </div>
+                      <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">2020</span>
+                      </label>
+                    </div>
+                  </div>
+                  <!-- Sumber Daya -->
+                  <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                      <a class="card-title">
+                        Sumber Dana
+                      </a>
+                  </div>
+                  <div id="collapseFour" class="collapse" data-parent="#accordion" >
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Pribadi</span>
+                      </label>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <hr class="batas">   
+          </div>
+
+          
+          <div class="col-7 tabel-group ">
+            <div class="row">
+              <div class="col-9 search-group">
+                <div class="input-group flex-nowrap search">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa fa-search" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Search File" aria-label="" aria-describedby="addon-wrapping">
+                </div>                  
+              </div>
+              <div class="col-3">
+                {% if user.is_authenticated %}
+                <img class="account float-left" src="{% static 'km/img/img-account.png' %}" alt="">
+                  <div class="nama fleat-rigt">Hi {{user.username}}!</div>
+                {% endif %}
+              </div>
+            </div>
+
+            <table id="penelitian" class="table table-striped radius-tabel" style="width:100%">
+              <thead>
+                  <tr>
+                      <th>Judul Kegiatan</th>
+                      <th>Kategori</th>
+                      <th>Tanggal Mulai</th>
+                      <th>Tanggal Selesai </th>
+                      <th>Sumber Dana</th>
+                  </tr>
+              </thead>
+              <tbody>
+                {% for B in peningkatan %}
+                  <tr>
+                      <td class="tbl-keg" ><a href="/km/peningkatan-kapasitas/{{B.judul | slugify}}">{{B.judul}}</a></td>
+                      <td>{{B.kategori}}</td>
+                      <td>{{B.pmulai}}</td>
+                      <td>{{B.pselesai}}</td>
+                      <td>{% for A in B.sumber_dana.all %}
+                                <li>{{A}}</li>
+                          {% endfor %}
+                      </td>
+                  </tr>
+                {% endfor %}
+              </tbody>   
+          </table>
+          </div>
+       {% endblock %}
+
+{% block js %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!-- plugin datatables -->
+    <script>
+        $(document).ready(function() {
+            $('#penelitian').DataTable();
+        } );
+      </script>
+      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+      <script>
+          $(document).ready(function(){
+              $(".check").click(function(){
+                  $("#ceklis").prop("checked", true);
+              });
+              $(".uncheck").click(function(){
+                  $("#ceklis").prop("checked", false);
+              });
+          });
+        </script>
+  
+ {% endblock  %}

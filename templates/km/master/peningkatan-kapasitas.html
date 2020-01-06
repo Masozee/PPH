@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+
+     <!-- FontAwseme -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+    <!-- tabel -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/penelitian.css">
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+    
+    <style>
+    @font-face {
+        font-family: 'silkaregular';
+    src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkabold';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkalight';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkamedium';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkasemibold';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkaregular_italic';
+        src: url('font/Silka-Complete-Webfont/Silka-Italic-Webfont/silka-regularitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+    </style>
+    <title>Peningkatan Kapasitas</title>
+  </head>
+  <body>
+
+    <!-- sidebar -->
+    <div class="section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-2 side-nav">
+              <div class="logo"><a href="penelitian.html"><img src="logo/logo.png" alt=""></img></div>
+              
+                <div class="accordion" id="side-nav">
+                  <div class="card">
+                    <div class="card-header collapsed" data-toggle="collapse" href="#nav-1">
+                        <a class="card-title"> <span><img class="icon-side-nav" src="icon/001-writing.svg" alt="" srcset=""></span>
+                          Kegiatan
+                        </a>
+                    </div>
+  
+                
+                    <div id="nav-1" class="collapse show" aria-labelledby="headingOne" data-parent="#side-nav">
+                      <div class="card-body">
+                        <ul class="list-unstyled">
+                          <li class="list-untyled"><a href="">Penelitian</a></li>
+                          <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header collapsed" data-toggle="collapse" href="#nav-2">
+                        <a class="card-title"> <span><img class="icon-side-nav" src="icon/002-id-card.svg" alt="" srcset=""></span>
+                          Staf
+                        </a>
+                    </div>
+                    <div id="nav-2" class="collapse" aria-labelledby="headingTwo" data-parent="#side-nav">
+                      <div class="card-body">
+                        <ul class="list-unstyled">
+                          <li class="list-untyled"><a href="">Penelitian</a></li>
+                          <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                        </ul>                    
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header collapsed" data-toggle="collapse" href="#nav-3">
+                        <a class="card-title"> <span><img class="icon-side-nav" src="icon/004-archive.svg" alt="" srcset=""></span>
+                          Inventaris
+                        </a>
+                    </div>
+                    <div id="nav-3" class="collapse" aria-labelledby="headingThree" data-parent="#side-nav">
+                      <div class="card-body">
+                        <ul class="list-unstyled">
+                          <li class="list-untyled"><a href="">Penelitian</a></li>
+                          <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                        </ul>                    
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header collapsed" data-toggle="collapse" href="#nav-4">
+                        <a class="card-title"> <span><img class="icon-side-nav" src="icon/006-contacts.svg" alt="" srcset=""></span>
+                          Kontak
+                        </a>
+                    </div>
+                    <div id="nav-4" class="collapse" aria-labelledby="headingFour" data-parent="#side-nav">
+                      <div class="card-body">
+                        <ul class="list-unstyled">
+                          <li class="list-untyled"><a href="">Penelitian</a></li>
+                          <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                        </ul>                    
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header collapsed" data-toggle="collapse" href="#nav-5">
+                        <a class="card-title"> <span><img class="icon-side-nav"  src="icon/007-recycle-sign.svg" alt="" srcset=""></span>
+                          Media
+                        </a>
+                    </div>
+                    <div id="nav-5" class="collapse" aria-labelledby="headingFive" data-parent="#side-nav">
+                      <div class="card-body">
+                        <ul class="list-unstyled">
+                          <li class="list-untyled"><a href="">Penelitian</a></li>
+                          <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                        </ul>                    
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header collapsed" data-toggle="collapse" href="#nav-6">
+                        <a class="card-title"> <span><img class="icon-side-nav" src="icon/011-quality.svg" alt="" srcset=""></span>
+                          Evaluate
+                        </a>
+                    </div>
+                    <div id="nav-6" class="collapse" aria-labelledby="headingSix" data-parent="#side-nav">
+                      <div class="card-body">
+                        <ul class="list-unstyled">
+                          <li class="list-untyled"><a href="">Penelitian</a></li>
+                          <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                        </ul>                    
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header collapsed" data-toggle="collapse" href="#nav-7">
+                        <a class="card-title"> <span><img class="icon-side-nav"  src="icon/009-book.svg" alt="" srcset=""></span>
+                          Pelaporan
+                        </a>
+                    </div>
+                    <div id="nav-7" class="collapse" aria-labelledby="headingSeven" data-parent="#side-nav">
+                      <div class="card-body">
+                        <ul class="list-unstyled">
+                          <li class="list-untyled"><a href="">Penelitian</a></li>
+                          <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                        </ul>                    
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header collapsed" data-toggle="collapse" href="#nav-8">
+                        <a class="card-title"> <span><img class="icon-side-nav" src="icon/calendar-with-spring-binder-and-date-blocks.svg"alt="" srcset=""></span>
+                          Kalender
+                        </a>
+                    </div>
+                    <div id="nav-8" class="collapse" aria-labelledby="headingEight" data-parent="#side-nav">
+                      <div class="card-body">
+                        <ul class="list-unstyled">
+                          <li class="list-untyled"><a href="">Penelitian</a></li>
+                          <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                        </ul>                    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+            
+
+          <div class="col-3 filter-section">
+            <h4>Knowledge Management</h4>
+            <h3>Peningkatan Kapasitas</h3>
+
+            <div class="clearfix">
+              <div class="filter float-left"><img class="icon-filter" src="icon/filter-results-button.svg" alt="filter">Filter</div>
+              <div  class="clear float-right"><button type="button" class="uncheck">Clear</button></div> 
+                           
+            </div>
+            <hr class="batas"> 
+
+            <div id="accordion" class="accordion">
+              <div class="card mb-0">
+                  <!-- Jenis Kegiatan -->
+                  <div class="card-header collapsed" data-toggle="collapse" href="#collapseSatu">
+                      <a class="card-title">
+                          Jenis Kegiatan
+                      </a>
+                  </div>
+                  <div id="collapseSatu" class="card-body collapse" data-parent="#accordion" >
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" checked> <span class="label-text">Option 01</span>
+                      </label>
+                    </div>
+                  </div>
+                  <!-- Katergori -->
+                  <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseDua">
+                      <a class="card-title">
+                        Katergori
+                      </a>
+                  </div>
+                  <div id="collapseDua" class="card-body collapse" data-parent="#accordion" >
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" checked> <span class="label-text">Tampilkan Semua</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Kebijakan</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Bio-Medis</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Sosial-Perilaku</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Lecture-Series</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Workshop</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Pelatihan</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Fun Sharing Day</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Khursus Online</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Pertemuan</span>
+                      </label>
+                    </div>
+                  </div>
+                  <!-- Tahun Mulai -->
+                  <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTiga">
+                      <a class="card-title">
+                        Tahun Mulai
+                      </a>
+                  </div>
+                  <div id="collapseTiga" class="collapse" data-parent="#accordion" >
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Pertemuan</span>
+                      </label>
+                    </div>
+                  </div>
+                  <!-- Sumber Daya -->
+                  <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                      <a class="card-title">
+                        Sumber Daya
+                      </a>
+                  </div>
+                  <div id="collapseFour" class="collapse" data-parent="#accordion" >
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" > <span class="label-text">Pertemuan</span>
+                      </label>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <hr class="batas">   
+          </div>
+
+          
+          <div class="col-7 tabel-group ">
+            <div class="row">
+              <div class="col-9 search-group">
+                <div class="input-group flex-nowrap search">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa fa-search" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Search File" aria-label="" aria-describedby="addon-wrapping">
+                </div>                  
+              </div>
+              <div class="col-3">
+                <img class="account float-left" src="img/img-account.png" alt="">
+                  <div class="nama fleat-rigt">Hi Marry Anne!</div>
+              </div>
+            </div>
+
+
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <table id="penelitian" class="table table-striped radius-tabel" style="width:100%">
+              <thead>
+                  <tr>
+                      <th>Judul Kegiatan</th>
+                      <th>Jenis Kegiatan</th>
+                      <th>Kategori</th>
+                      <th>Tahun Mulai</th>
+                      <th>Tahun Selesai</th>
+                      <th>sumber Dana</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class="tbl-keg" >Tiger Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>$320,800</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Garrett Winters</td>
+                      <td>Accountant</td>
+                      <td>Tokyo</td>
+                      <td>63</td>
+                      <td>2011/07/25</td>
+                      <td>$170,750</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Ashton Cox</td>
+                      <td>Junior Technical Author</td>
+                      <td>San Francisco</td>
+                      <td>66</td>
+                      <td>2009/01/12</td>
+                      <td>$86,000</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Cedric Kelly</td>
+                      <td>Senior Javascript Developer</td>
+                      <td>Edinburgh</td>
+                      <td>22</td>
+                      <td>2012/03/29</td>
+                      <td>$433,060</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Airi Satou</td>
+                      <td>Accountant</td>
+                      <td>Tokyo</td>
+                      <td>33</td>
+                      <td>2008/11/28</td>
+                      <td>$162,700</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Brielle Williamson</td>
+                      <td>Integration Specialist</td>
+                      <td>New York</td>
+                      <td>61</td>
+                      <td>2012/12/02</td>
+                      <td>$372,000</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Herrod Chandler</td>
+                      <td>Sales Assistant</td>
+                      <td>San Francisco</td>
+                      <td>59</td>
+                      <td>2012/08/06</td>
+                      <td>$137,500</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Rhona Davidson</td>
+                      <td>Integration Specialist</td>
+                      <td>Tokyo</td>
+                      <td>55</td>
+                      <td>2010/10/14</td>
+                      <td>$327,900</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Colleen Hurst</td>
+                      <td>Javascript Developer</td>
+                      <td>San Francisco</td>
+                      <td>39</td>
+                      <td>2009/09/15</td>
+                      <td>$205,500</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Sonya Frost</td>
+                      <td>Software Engineer</td>
+                      <td>Edinburgh</td>
+                      <td>23</td>
+                      <td>2008/12/13</td>
+                      <td>$103,600</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Jena Gaines</td>
+                      <td>Office Manager</td>
+                      <td>London</td>
+                      <td>30</td>
+                      <td>2008/12/19</td>
+                      <td>$90,560</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Quinn Flynn</td>
+                      <td>Support Lead</td>
+                      <td>Edinburgh</td>
+                      <td>22</td>
+                      <td>2013/03/03</td>
+                      <td>$342,000</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Charde Marshall</td>
+                      <td>Regional Director</td>
+                      <td>San Francisco</td>
+                      <td>36</td>
+                      <td>2008/10/16</td>
+                      <td>$470,600</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Haley Kennedy</td>
+                      <td>Senior Marketing Designer</td>
+                      <td>London</td>
+                      <td>43</td>
+                      <td>2012/12/18</td>
+                      <td>$313,500</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Tatyana Fitzpatrick</td>
+                      <td>Regional Director</td>
+                      <td>London</td>
+                      <td>19</td>
+                      <td>2010/03/17</td>
+                      <td>$385,750</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Michael Silva</td>
+                      <td>Marketing Designer</td>
+                      <td>London</td>
+                      <td>66</td>
+                      <td>2012/11/27</td>
+                      <td>$198,500</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Paul Byrd</td>
+                      <td>Chief Financial Officer (CFO)</td>
+                      <td>New York</td>
+                      <td>64</td>
+                      <td>2010/06/09</td>
+                      <td>$725,000</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Gloria Little</td>
+                      <td>Systems Administrator</td>
+                      <td>New York</td>
+                      <td>59</td>
+                      <td>2009/04/10</td>
+                      <td>$237,500</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Bradley Greer</td>
+                      <td>Software Engineer</td>
+                      <td>London</td>
+                      <td>41</td>
+                      <td>2012/10/13</td>
+                      <td>$132,000</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Dai Rios</td>
+                      <td>Personnel Lead</td>
+                      <td>Edinburgh</td>
+                      <td>35</td>
+                      <td>2012/09/26</td>
+                      <td>$217,500</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Jenette Caldwell</td>
+                      <td>Development Lead</td>
+                      <td>New York</td>
+                      <td>30</td>
+                      <td>2011/09/03</td>
+                      <td>$345,000</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Yuri Berry</td>
+                      <td>Chief Marketing Officer (CMO)</td>
+                      <td>New York</td>
+                      <td>40</td>
+                      <td>2009/06/25</td>
+                      <td>$675,000</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Caesar Vance</td>
+                      <td>Pre-Sales Support</td>
+                      <td>New York</td>
+                      <td>21</td>
+                      <td>2011/12/12</td>
+                      <td>$106,450</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Doris Wilder</td>
+                      <td>Sales Assistant</td>
+                      <td>Sidney</td>
+                      <td>23</td>
+                      <td>2010/09/20</td>
+                      <td>$85,600</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Angelica Ramos</td>
+                      <td>Chief Executive Officer (CEO)</td>
+                      <td>London</td>
+                      <td>47</td>
+                      <td>2009/10/09</td>
+                      <td>$1,200,000</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Gavin Joyce</td>
+                      <td>Developer</td>
+                      <td>Edinburgh</td>
+                      <td>42</td>
+                      <td>2010/12/22</td>
+                      <td>$92,575</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Jennifer Chang</td>
+                      <td>Regional Director</td>
+                      <td>Singapore</td>
+                      <td>28</td>
+                      <td>2010/11/14</td>
+                      <td>$357,650</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Brenden Wagner</td>
+                      <td>Software Engineer</td>
+                      <td>San Francisco</td>
+                      <td>28</td>
+                      <td>2011/06/07</td>
+                      <td>$206,850</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Fiona Green</td>
+                      <td>Chief Operating Officer (COO)</td>
+                      <td>San Francisco</td>
+                      <td>48</td>
+                      <td>2010/03/11</td>
+                      <td>$850,000</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Shou Itou</td>
+                      <td>Regional Marketing</td>
+                      <td>Tokyo</td>
+                      <td>20</td>
+                      <td>2011/08/14</td>
+                      <td>$163,000</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Michelle House</td>
+                      <td>Integration Specialist</td>
+                      <td>Sidney</td>
+                      <td>37</td>
+                      <td>2011/06/02</td>
+                      <td>$95,400</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Suki Burks</td>
+                      <td>Developer</td>
+                      <td>London</td>
+                      <td>53</td>
+                      <td>2009/10/22</td>
+                      <td>$114,500</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Prescott Bartlett</td>
+                      <td>Technical Author</td>
+                      <td>London</td>
+                      <td>27</td>
+                      <td>2011/05/07</td>
+                      <td>$145,000</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Gavin Cortez</td>
+                      <td>Team Leader</td>
+                      <td>San Francisco</td>
+                      <td>22</td>
+                      <td>2008/10/26</td>
+                      <td>$235,500</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Martena Mccray</td>
+                      <td>Post-Sales support</td>
+                      <td>Edinburgh</td>
+                      <td>46</td>
+                      <td>2011/03/09</td>
+                      <td>$324,050</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Unity Butler</td>
+                      <td>Marketing Designer</td>
+                      <td>San Francisco</td>
+                      <td>47</td>
+                      <td>2009/12/09</td>
+                      <td>$85,675</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Howard Hatfield</td>
+                      <td>Office Manager</td>
+                      <td>San Francisco</td>
+                      <td>51</td>
+                      <td>2008/12/16</td>
+                      <td>$164,500</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Hope Fuentes</td>
+                      <td>Secretary</td>
+                      <td>San Francisco</td>
+                      <td>41</td>
+                      <td>2010/02/12</td>
+                      <td>$109,850</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Vivian Harrell</td>
+                      <td>Financial Controller</td>
+                      <td>San Francisco</td>
+                      <td>62</td>
+                      <td>2009/02/14</td>
+                      <td>$452,500</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Timothy Mooney</td>
+                      <td>Office Manager</td>
+                      <td>London</td>
+                      <td>37</td>
+                      <td>2008/12/11</td>
+                      <td>$136,200</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Jackson Bradshaw</td>
+                      <td>Director</td>
+                      <td>New York</td>
+                      <td>65</td>
+                      <td>2008/09/26</td>
+                      <td>$645,750</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Olivia Liang</td>
+                      <td>Support Engineer</td>
+                      <td>Singapore</td>
+                      <td>64</td>
+                      <td>2011/02/03</td>
+                      <td>$234,500</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Bruno Nash</td>
+                      <td>Software Engineer</td>
+                      <td>London</td>
+                      <td>38</td>
+                      <td>2011/05/03</td>
+                      <td>$163,500</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Sakura Yamamoto</td>
+                      <td>Support Engineer</td>
+                      <td>Tokyo</td>
+                      <td>37</td>
+                      <td>2009/08/19</td>
+                      <td>$139,575</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Thor Walton</td>
+                      <td>Developer</td>
+                      <td>New York</td>
+                      <td>61</td>
+                      <td>2013/08/11</td>
+                      <td>$98,540</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Finn Camacho</td>
+                      <td>Support Engineer</td>
+                      <td>San Francisco</td>
+                      <td>47</td>
+                      <td>2009/07/07</td>
+                      <td>$87,500</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Serge Baldwin</td>
+                      <td>Data Coordinator</td>
+                      <td>Singapore</td>
+                      <td>64</td>
+                      <td>2012/04/09</td>
+                      <td>$138,575</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Zenaida Frank</td>
+                      <td>Software Engineer</td>
+                      <td>New York</td>
+                      <td>63</td>
+                      <td>2010/01/04</td>
+                      <td>$125,250</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Zorita Serrano</td>
+                      <td>Software Engineer</td>
+                      <td>San Francisco</td>
+                      <td>56</td>
+                      <td>2012/06/01</td>
+                      <td>$115,000</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Jennifer Acosta</td>
+                      <td>Junior Javascript Developer</td>
+                      <td>Edinburgh</td>
+                      <td>43</td>
+                      <td>2013/02/01</td>
+                      <td>$75,650</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Cara Stevens</td>
+                      <td>Sales Assistant</td>
+                      <td>New York</td>
+                      <td>46</td>
+                      <td>2011/12/06</td>
+                      <td>$145,600</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Hermione Butler</td>
+                      <td>Regional Director</td>
+                      <td>London</td>
+                      <td>47</td>
+                      <td>2011/03/21</td>
+                      <td>$356,250</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Lael Greer</td>
+                      <td>Systems Administrator</td>
+                      <td>London</td>
+                      <td>21</td>
+                      <td>2009/02/27</td>
+                      <td>$103,500</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Jonas Alexander</td>
+                      <td>Developer</td>
+                      <td>San Francisco</td>
+                      <td>30</td>
+                      <td>2010/07/14</td>
+                      <td>$86,500</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Shad Decker</td>
+                      <td>Regional Director</td>
+                      <td>Edinburgh</td>
+                      <td>51</td>
+                      <td>2008/11/13</td>
+                      <td>$183,000</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Michael Bruce</td>
+                      <td>Javascript Developer</td>
+                      <td>Singapore</td>
+                      <td>29</td>
+                      <td>2011/06/27</td>
+                      <td>$183,000</td>
+                  </tr>
+                  <tr>
+                      <td class="tbl-keg">Donna Snider</td>
+                      <td>Customer Support</td>
+                      <td>New York</td>
+                      <td>27</td>
+                      <td>2011/01/25</td>
+                      <td>$112,000</td>
+                  </tr>
+              </tbody>   
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!-- plugin datatables -->
+    <script>
+        $(document).ready(function() {
+            $('#penelitian').DataTable();
+        } );
+      </script>
+      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+      <script>
+          $(document).ready(function(){
+              $(".check").click(function(){
+                  $("#ceklis").prop("checked", true);
+              });
+              $(".uncheck").click(function(){
+                  $("#ceklis").prop("checked", false);
+              });
+          });
+        </script>
+  
+  
+  </body>
+</html>

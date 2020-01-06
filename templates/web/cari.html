@@ -1,0 +1,100 @@
+{% extends 'web/base.html' %}
+{% load class_name %}
+{% load static %}
+
+{% block css %}
+<link href="{% static 'web/css/cari.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+
+             <!-- cari  -->
+    <section>
+      <div class="container search-result">
+        <h4 class="text-search">Search Result for {{query}} </h4><hr>
+
+    {% for objects in object_list %}
+        {% with objects|class_name as klass %}
+
+          {% if klass == 'Staff' %}
+        <div class="row content">
+          <div class="col">            
+            <div class="media">
+              <img class="mr-4 gambar" src="/media/{{ objects.foto }}" alt="">
+              <div class="media-body">
+                <h5 class="mt-0 judul">{{objects.nama}}</h5>
+                <p class="isi f-os">{{objects.deskripsi_singkat}}</p>
+                <a href="{% url 'Tentang-Kami' %}" class="link">www.pph.ac.id/tentangkami/….</a>
+              </div>
+            </div>
+          </div>
+        </div>
+           {% elif klass == 'Berita' %}
+        <div class="row content">
+              <div class="col">            
+                <div class="media">
+                  <img class="mr-4 gambar" src="/media/{{ objects.gambar }}" alt="">
+                  <div class="media-body">
+                    <h5 class="mt-0 judul">{{objects.judul}}</h5>
+                    <p class="isi f-os">{{objects.isi | truncatechars:"100" |safe}}</p>
+                    <a href="/berita/{{objects.Kategori |lower}}/{{ objects.judul|slugify }}" class="link">www.pph.ac.id/berita/….</a>
+                  </div>
+                </div>
+              </div>
+        </div>
+        {% elif klass == 'Acara' %}
+        <div class="row content">
+              <div class="col">            
+                <div class="media">
+                  <img class="mr-4 gambar" src="/media/{{ objects.gambar }}" alt="">
+                  <div class="media-body">
+                    <h5 class="mt-0 judul">{{objects.judul}}</h5>
+                    <p class="isi f-os">{{objects.waktu_mulai}} - {{objects.waktu_selesai}}</p>
+                    <a href="{% url 'event-list' %}" class="link">www.pph.ac.id/events/….</a>
+                  </div>
+                </div>
+              </div>
+        </div>
+            {% endif %}
+        {% endwith %}
+        {% empty %}
+    {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- tutup cari -->
+
+    <div class="container garis-bawah">
+        <hr>
+    </div>
+
+    <!-- atur halaman -->
+   
+    <nav class="">
+      <ul class="pagination justify-content-center f-os fossb">
+          {% if page_obj.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Prev</a></li>
+          {% endif %}
+
+          {% if page_obj.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}  ">Next</a></li>
+          {% endif %}
+      </ul>
+    </nav>
+
+    <div class="container">
+        <hr>
+    </div>
+               
+            
+    </div>
+
+</div>
+
+{% endblock content %}
+
+
+
+

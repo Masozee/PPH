@@ -1,0 +1,180 @@
+{% extends 'km/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'km/css/penelitian.css' %}">
+{% endblock %}
+
+{% block content %}
+            
+
+          <div class="col-3 filter-section">
+            <h4>Knowledge Management</h4>
+            <h3>Inventaris</h3>
+
+            <div class="clearfix">
+              <div class="filter float-left"><img class="icon-filter" src="{% static  'km/icon/filter-results-button.svg' %}" alt="filter">Filter</div>
+              <div  class="clear float-right"><button type="button" class="uncheck">Clear</button></div> 
+                           
+            </div>
+            <hr class="batas"> 
+
+            <div id="accordion" class="accordion">
+              <div class="card mb-0">
+                  <!-- Kategori Barang -->
+                  <div class="card-header collapsed" data-toggle="collapse" href="#collapseSatu">
+                      <a class="card-title">
+                        Kategori Barang
+                      </a>
+                  </div>
+                  <div id="collapseSatu" class="card-body collapse" data-parent="#accordion" >
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" checked> <span class="label-text">Hardware</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" checked> <span class="label-text">Software</span>
+                      </label>
+                    </div>
+                  </div>
+                  <!-- Jenis Barang -->
+                  <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseDua">
+                      <a class="card-title">
+                        Jenis Barang
+                      </a>
+                  </div>
+                  <div id="collapseDua" class="card-body collapse" data-parent="#accordion" >
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" checked> <span class="label-text">Tampilkan Semua</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" checked> <span class="label-text">Recorder</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" checked> <span class="label-text">laptop</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" checked> <span class="label-text">Desktop</span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label>
+                        <input type="checkbox" name="check" checked> <span class="label-text">Lainnya</span>
+                      </label>
+                    </div>
+                  </div>
+                  
+              </div>
+            </div>
+            <hr class="batas">
+            
+
+          </div>
+
+          
+          <div class="col-7 tabel-group ">
+            <div class="row">
+              <div class="col-9 search-group">
+                <div class="input-group flex-nowrap search">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa fa-search" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Search File" aria-label="" aria-describedby="addon-wrapping">
+                </div>                  
+              </div>
+              <div class="col-3">
+               {% if user.is_authenticated %}
+                <img class="account float-left" src="{% static 'km/img/img-account.png' %}" alt="">
+                  <div class="nama fleat-rigt">Hi {{user.username}}!</div>
+                {% endif %}
+              </div>
+            </div>
+
+
+            <!--div class="alert alert-warning alert-dismissible fade show" role="alert">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div-->
+
+            <table id="penelitian" class="table table-striped radius-tabel" style="width:100%">
+              <thead>
+                  <tr>
+                      <!--th>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" name="check" ><span class="label-text"></span>
+                          </label>
+                        </div>
+                      </th-->
+                      <th>Nama Barang</th>
+                      <th>Kategori Barang</th>
+                      <th>Jenis Barang</th>
+                      <th>Deskripsi</th>
+                      <th>Status</th>
+                  </tr>
+              </thead>
+              <tbody>
+              {% for A in inventory %}
+                  <tr>
+                      <!--td>
+                        <div class="form-check">
+                          <label>
+                            <input type="checkbox" name="check" ><span class="label-text"></span>
+                          </label>
+                        </div>
+                      </td-->
+                      <td>{{A.nama_barang}}</td>
+                      <td>{{A.kategori}}</td>
+                      <td>{{A.jenis_barang}}</td>
+                      <td>{{A.deskripsi}}</td>
+                      <td>{{A.Tersedia}}</td>
+                  </tr>
+              {% endfor %}
+
+              </tbody>   
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}
+
+    {% block js %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!-- plugin datatables -->
+    <script>
+        $(document).ready(function() {
+            $('#penelitian').DataTable();
+        } );
+      </script>
+      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+      <script>
+          $(document).ready(function(){
+              $(".check").click(function(){
+                  $("#ceklis").prop("checked", true);
+              });
+              $(".uncheck").click(function(){
+                  $("#ceklis").prop("checked", false);
+              });
+          });
+        </script>
+  {% endblock %}

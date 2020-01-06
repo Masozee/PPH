@@ -1,0 +1,68 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link href="{% static 'web/css/detail-artikel.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block meta %}
+<meta property="og:title" content="{{object.judul}} ">
+<meta property="og:type" content="{{object.kategori}}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:site_name" content="PPH UNIKA Atma Jaya">
+<meta property="og:image" content="/media/{{ object.gambar }} ">
+{% endblock %}
+
+{% block content %}
+<section class="artikel">
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-md-7">
+                <h6 class="f-12 f-bm f-os fossb">{{ object.Agenda }}</h6>
+                <h2 class="judul-artikel">{{ object.judul }}</h2>
+                <ul class="list-unstyled list-inline">
+                    <li class="list-inline-item f-12 f-os f-at fossb">By {{ object.penulis }}</li>
+                    <li class="list-inline-item f-12 f-os f-am">{{ object.thn }}</li>
+                </ul>
+                <img class="py-3 img-artikel w-100" src="/media/{{ object.gambar }}" alt="" srcset="">
+                <h6 class="f-12 f-am f-os pb-3">{{object.ket_gambar}} </h6>
+                <div class="f-15 f-os f-at">
+                    {{ object.isi |safe }}
+                </div>
+
+                
+                <ul class="list-unstyled list-inline icon-sosmed">
+                    <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"><img class="py-1" src="{% static 'web/icon/004-facebook-logo-button.svg' %}" alt=""></a></li>
+                    <li class="list-inline-item"><a href="https://twitter.com/share?&url={{ request.build_absolute_uri }}/"><img class="py-1" src="{% static 'web/icon/003-twitter-logo-button.svg' %}" alt=""></a></li>
+                    <li class="list-inline-item" data-clipboard-target="{{ request.build_absolute_uri }}" id="sharepph"><a href="#"><img class="py-1" src="{% static 'web/icon/009-share.svg' %}" alt="Copy to clipboard"></a></li>
+                    <li class="list-inline-item"><a href="/media/{{ object.download }}" target= "_blank"><img class="py-1" src="{% static 'web/icon/008-down-arrow-in-a-circle.svg' %}" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 news ">
+                <h3 class="f-18 fssb">Related News</h3>
+                <hr>
+                {% for A in related %}
+                <h5 class="f-15 fssb"><a href="/berita/{{ A.Kategori | slugify}}/{{ A.judul | slugify }}">{{A.judul}}</a></h5>
+                <h6 class="f-12 f-os f-at fossb">By {{ A.penulis }}</h6>
+                <hr>    <!-- batas antar berita -->
+                {% endfor %}
+            </div>
+        </div><hr>
+    </div>
+</section>
+
+
+{% endblock %}
+
+{% block js %}
+<script>
+    function Copy() {
+        var Url = document.getElementById("{{ request.build_absolute_uri }}");
+        Url.innerHTML = window.location.href;
+        console.log(Url.innerHTML)
+        Url.select();
+        document.execCommand("copy");
+    }
+</script>
+{% endblock %}

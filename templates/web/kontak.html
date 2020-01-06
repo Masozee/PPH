@@ -1,0 +1,88 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+
+{% block css %}
+<link href="{% static 'web/css/kontak.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+
+    <!-- landing -->
+    <div class="jumbotron" style="background-image: url({% static '/web/images/kontak/landing.png' %})">
+        <div class="container text-white">
+            <div class="col-md-7 justify-content-start">
+                <h1 class="display-4 fsb pt-5">Hubungi Kami! </h1>
+                <p class="lead f-os f-14 pr-5 pt-3">Epremolupit venime nonsed quibusci dolorru mquatur am  volupti tenis repe optamusae nis estem. Et adia qui demquos  delento dolorum esecatem reius natur. Et adia qui demquos  delento dolo.</p>                
+            </div>  
+        </div>
+    </div>
+        <!--form action='/kontak/' method="POST">
+            {% csrf_token %}
+                {{form.as_table}}
+        <button type="submit">submit</button>
+        </form-->
+        
+    <!-- tutup landing -->
+ <section class="kontak">
+    <div class="container">
+        <form method="POST">
+            
+            <div class="row bg-white rounded-lg shadow">
+                <div class="col-md-8 p-3">
+                    <h2 class="teks-kontak pl-3 fssb">Pesan Untuk Kami</h2>
+                    <div class="form-row p-3">
+                            {% csrf_token %}
+                        <div class="form-group col-md-8">
+                            <label for="id_nama_kntk" class="f-12 f-at f-os">Nama</label>
+                            <input type="text" class="form-control" name="nama_kntk" id="id_nama_kntk">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="id_email_kntk" class="f-12 f-at f-os">Email</label>
+                            <input type="text" class="form-control" name="email_kntk" id="id_email_kntk">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="id_telp_kntk" class="f-12 f-at f-os">No Telepon</label>
+                            <input type="text" class="form-control" name="telp_kntk" id="id_telp_kntk">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="id_org_kntk" class="f-12 f-at f-os">Organisasi</label>
+                            <input type="text" class="form-control" name="org_kntk" id="id_org_kntk" placeholder="">
+                        </div>
+                        <div class="form-group col-md-11">
+                            <label for="id_pesan_kntk" class="f-12 f-at f-os">Pesan</label>
+                            <input type="text" class="form-control" name="pesan_kntk" id="id_pesan_kntk">
+                        </div>
+                        <div class="form-group col-md-1">
+                            <button type="submit" class="btn mt-4">
+                                <img src="{% static 'web/images/kontak/send.png' %}" alt="" srcset="" >
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 text-white pl-5 kontak-informasi rounded-right">
+                    <h2 class="pt-3 fssb">Kontak Informasi</h2>
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <p class="f-12 f-os">Universitas Katolik Indonesia Atma Jaya <br>
+                            Gedung K2, Ruang K21.08 <br>
+                            Jl. Jenderal Sudirman 51 <br>
+                            Jakarta 12930 Indonesia</p>
+
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <h6 class="f-12 f-os">(+62-21) 570 3306</h6>
+                    <h6 class="f-12 f-os">(+62-21) 572 7615 ext.624, 425</h6>
+                    <h6 class="f-12 f-os">(+62-21) 578 54227s</h6>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <h6 class="f-12 f-os">pph@atmajaya.ac.id</h6>
+                </div>
+            </div>
+        </form>
+    </div>
+</section-->
+
+{% endblock %}

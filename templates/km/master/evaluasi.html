@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+
+     <!-- FontAwseme -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+    <!-- tabel -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/penelitian.css">
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+    
+    <style>
+    @font-face {
+        font-family: 'silkaregular';
+    src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkabold';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkalight';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkamedium';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkasemibold';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkaregular_italic';
+        src: url('font/Silka-Complete-Webfont/Silka-Italic-Webfont/silka-regularitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+    </style>
+    <title>Evaluasi</title>
+  </head>
+  <body>
+
+    <!-- sidebar -->
+    <div class="section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-2 side-nav">
+            <div class="logo"><a href="penelitian.html"><img src="logo/logo.png" alt=""></img></div>
+            
+              <div class="accordion" id="side-nav">
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" href="#nav-1">
+                      <a class="card-title"> <span><img class="icon-side-nav" src="icon/001-writing.svg" alt="" srcset=""></span>
+                        Kegiatan
+                      </a>
+                  </div>
+
+              
+                  <div id="nav-1" class="collapse show" aria-labelledby="headingOne" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="penelitian.html">Penelitian</a></li>
+                        <li class="list-untyled"><a href="peningkatan-kapasitas.html">Peningkatan Kapasitas</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" href="#nav-2">
+                      <a class="card-title"> <span><img class="icon-side-nav" src="icon/002-id-card.svg" alt="" srcset=""></span>
+                        Staf
+                      </a>
+                  </div>
+                  <div id="nav-2" class="collapse" aria-labelledby="headingTwo" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="">Penelitian</a></li>
+                        <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" href="#nav-3">
+                      <a class="card-title"> <span><img class="icon-side-nav" src="icon/004-archive.svg" alt="" srcset=""></span>
+                        Inventaris
+                      </a>
+                  </div>
+                  <div id="nav-3" class="collapse" aria-labelledby="headingThree" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="">Penelitian</a></li>
+                        <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+                <div class="card">                    
+                  <div class="card-header collapsed" data-toggle="collapse" > <!--     href="#nav-4" -->
+                      <a  href="kontak.html" class="card-title"> <span><img class="icon-side-nav" src="icon/006-contacts.svg" alt="" srcset=""></span>
+                        Kontak
+                      </a>
+                  </div>
+                  <div id="nav-4" class="collapse" aria-labelledby="headingFour" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="">Penelitian</a></li>
+                        <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" >
+                      <a href="media.html" class="card-title"> <span><img class="icon-side-nav"  src="icon/007-recycle-sign.svg" alt="" srcset=""></span>
+                        Media
+                      </a>
+                  </div>
+                  <div id="nav-5" class="collapse" aria-labelledby="headingFive" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="">Penelitian</a></li>
+                        <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" href="#nav-6">
+                      <a class="card-title"> <span><img class="icon-side-nav" src="icon/011-quality.svg" alt="" srcset=""></span>
+                        Evaluate
+                      </a>
+                  </div>
+                  <div id="nav-6" class="collapse" aria-labelledby="headingSix" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="">Penelitian</a></li>
+                        <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" href="#nav-7">
+                      <a class="card-title"> <span><img class="icon-side-nav"  src="icon/009-book.svg" alt="" srcset=""></span>
+                        Pelaporan
+                      </a>
+                  </div>
+                  <div id="nav-7" class="collapse" aria-labelledby="headingSeven" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="">Penelitian</a></li>
+                        <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" href="#nav-8">
+                      <a class="card-title"> <span><img class="icon-side-nav" src="icon/calendar-with-spring-binder-and-date-blocks.svg"alt="" srcset=""></span>
+                        Kalender
+                      </a>
+                  </div>
+                  <div id="nav-8" class="collapse" aria-labelledby="headingEight" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="">Penelitian</a></li>
+                        <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            
+
+          <div class="col-3 filter-section">
+            <h4>Knowledge Management</h4>
+            <h3>Evaluasi</h3>
+
+            <div class="clearfix">
+              <div class="filter float-left"><img class="icon-filter" src="icon/filter-results-button.svg" alt="filter">Filter</div>
+              <div  class="clear float-right"><button type="button" class="uncheck">Clear</button></div>               
+            </div>
+            <hr class="batas"> 
+
+              <div class="evaluasi-filter">
+                <h6>Kategori Formulir</h6>
+                <select class="form-control">
+                  <option>Evaluasi Kepuasan Kerja</option>
+                  <option>Lorem, ipsum.</option>
+                </select>
+
+                <h6>Nama Staff</h6>
+                <select class="form-control">
+                  <option>Pilih Nama Staff</option>
+                  <option >Lorem, ipsum dolor.</option>
+                </select>
+
+                <h6>Tahun</h6>
+                <select class="form-control">
+                  <option>Pilih Tahun</option>
+                  <option>Lorem ipsum dolor sit.</option>
+                </select>
+
+              </div>
+
+              <div class="evaluasi-komentar">
+                <div class="form-group">
+                  <textarea rows="6"  class="form-control" id="komentar" rows="3" placeholder="Komentar"></textarea>
+                </div>
+                <button type="submit" class="btn float-right"><img class="submit-komentar" src="img/submit-komentar.png" alt="" srcset=""></button>
+              </div>
+
+          </div>
+
+          
+          <div class="col-7 tabel-group ">
+            <div class="row">
+              <div class="col-9 search-group">
+                <div class="input-group flex-nowrap search">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa fa-search" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Search File" aria-label="" aria-describedby="addon-wrapping">
+                </div>                  
+              </div>
+              <div class="col-3">
+                <img class="account float-left" src="img/img-account.png" alt="">
+                  <div class="nama fleat-rigt">Hi Marry Anne!</div>
+              </div>
+            </div>
+
+
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <table id="penelitian" class="table table-striped radius-tabel" style="width:100%">
+              <thead>
+                  <tr>
+                      <th>No.</th>
+                      <th>Nama Surat</th>
+                      <th>STS</th>
+                      <th>TS</th>
+                      <th>S</th>
+                      <th>SS</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td >Tiger Nixon</td>
+                      <td class="tbl-keg">System Architect</td>
+                      <td>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="sts11" checked disabled>
+                          <label class="custom-control-label" for="sts11"></label>
+                        </div>
+                        <td>
+                          <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="sts21"  disabled>
+                          <label class="custom-control-label" for="sts21"></label>
+                        </div>
+                        </td>
+                        <td>
+                          <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="sts31"  disabled>
+                          <label class="custom-control-label" for="sts31"></label>
+                        </div>
+                        </td>
+                        <td>
+                          <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="stas41"  disabled>
+                          <label class="custom-control-label" for="stas41"></label>
+                        </div>
+                        </td>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Garrett Winters</td>
+                      <td class="tbl-keg">Accountant</td>
+                      <td>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="sts12" checked disabled>
+                          <label class="custom-control-label" for="sts12"></label>
+                        </div>
+                        <td>
+                          <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="sts22" checked disabled>
+                          <label class="custom-control-label" for="sts22"></label>
+                        </div>
+                        </td>
+                        <td>
+                          <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="sts32"  disabled>
+                          <label class="custom-control-label" for="sts32"></label>
+                        </div>
+                        </td>
+                        <td>
+                          <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="stas42" checked disabled>
+                          <label class="custom-control-label" for="stas42"></label>
+                        </div>
+                        </td>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Ashton Cox</td>
+                      <td class="tbl-keg">Junior Technical Author</td>
+                      <td>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="sts13"  disabled>
+                          <label class="custom-control-label" for="sts13"></label>
+                        </div>
+                        <td>
+                          <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="sts23" checked disabled>
+                          <label class="custom-control-label" for="sts23"></label>
+                        </div>
+                        </td>
+                        <td>
+                          <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="sts33" checked disabled>
+                          <label class="custom-control-label" for="sts33"></label>
+                        </div>
+                        </td>
+                        <td>
+                          <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="stas43"  disabled>
+                          <label class="custom-control-label" for="stas43"></label>
+                        </div>
+                        </td>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Cedric Kelly</td>
+                      <td class="tbl-keg">Senior Javascript Developer</td>
+                      <td>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="sts14" checked disabled>
+                          <label class="custom-control-label" for="sts14"></label>
+                        </div>
+                        <td>
+                          <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="sts24"  disabled>
+                          <label class="custom-control-label" for="sts24"></label>
+                        </div>
+                        </td>
+                        <td>
+                          <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="sts34"  disabled>
+                          <label class="custom-control-label" for="sts34"></label>
+                        </div>
+                        </td>
+                        <td>
+                          <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="stas44" checked disabled>
+                          <label class="custom-control-label" for="stas44"></label>
+                        </div>
+                        </td>
+                      </td>
+                  </tr>
+                  <tr>
+                    <td>Cedric Kelly</td>
+                    <td class="tbl-keg">Senior Javascript Developer</td>
+                    <td>
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="sts14" checked disabled>
+                        <label class="custom-control-label" for="sts14"></label>
+                      </div>
+                      <td>
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="sts24"  disabled>
+                        <label class="custom-control-label" for="sts24"></label>
+                      </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="sts34"  disabled>
+                        <label class="custom-control-label" for="sts34"></label>
+                      </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="stas44" checked disabled>
+                        <label class="custom-control-label" for="stas44"></label>
+                      </div>
+                      </td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Cedric Kelly</td>
+                    <td class="tbl-keg">Senior Javascript Developer</td>
+                    <td>
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="sts14" checked disabled>
+                        <label class="custom-control-label" for="sts14"></label>
+                      </div>
+                      <td>
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="sts24"  disabled>
+                        <label class="custom-control-label" for="sts24"></label>
+                      </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="sts34"  disabled>
+                        <label class="custom-control-label" for="sts34"></label>
+                      </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="stas44" checked disabled>
+                        <label class="custom-control-label" for="stas44"></label>
+                      </div>
+                      </td>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Cedric Kelly</td>
+                    <td class="tbl-keg">Senior Javascript Developer</td>
+                    <td>
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="sts14" checked disabled>
+                        <label class="custom-control-label" for="sts14"></label>
+                      </div>
+                      <td>
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="sts24"  disabled>
+                        <label class="custom-control-label" for="sts24"></label>
+                      </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="sts34"  disabled>
+                        <label class="custom-control-label" for="sts34"></label>
+                      </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="stas44" checked disabled>
+                        <label class="custom-control-label" for="stas44"></label>
+                      </div>
+                      </td>
+                    </td>
+                  </tr>
+                  
+              </tbody>   
+          </table>
+
+          <!-- <div class="evaluasi-komentar">
+            <div class="form-group">
+              <textarea class="form-control" id="komentar" rows="3" placeholder="Komentar"></textarea>
+            </div>
+            <button type="submit" class="btn float-right"><img class="submit-komentar" src="img/submit-komentar.png" alt="" srcset=""></button>
+          </div> -->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!-- plugin datatables -->
+    <script>
+        $(document).ready(function() {
+            $('#penelitian').DataTable();
+        } );
+      </script>
+      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+      <script>
+          $(document).ready(function(){
+              $(".check").click(function(){
+                  $("#ceklis").prop("checked", true);
+              });
+              $(".uncheck").click(function(){
+                  $("#ceklis").prop("checked", false);
+              });
+          });
+        </script>
+  
+  
+  </body>
+</html>

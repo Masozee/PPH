@@ -1,0 +1,331 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block meta %}
+
+    {% endblock %}
+    <title>PPH UNIKA Atmajaya</title>
+    <link rel="icon" type="image/ico" href="{% static 'web/logo/pph.png' %}" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <!-- my css -->
+    {% block css %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'web/css/header-footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header-footer.css' %}">
+
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'silkaregular';
+        src: url(' {% static 'web/font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-regular-webfont.woff' %}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'silkabold';
+            src: url('{% static 'web/font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-bold-webfont.woff' %}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'silkalight';
+            src: url('{% static 'web/font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-light-webfont.woff' %}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'silkamedium';
+            src: url('{% static 'web/font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-medium-webfont.woff'%}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'silkasemibold';
+            src: url('{% static 'web/font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-semibold-webfont.woff'%}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'silkaregular_italic';
+            src: url('{% static 'web/font/Silka-Complete-Webfont/Silka-Italic-Webfont/silka-regularitalic-webfont.woff'%}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+        </style>
+
+
+</head>
+
+
+
+    <!-- penutup nav-->
+
+    <body>
+        <header>
+        <nav class="navbar fixed-top navbar-expand-md justify-content-center opaque-navbar f-14 fssb" >
+            <div class="container">
+                <a class="navbar-brand pt-3" href="{% url 'home-web' %}"><img src="{% static 'web/logo/LogoPPH-01.png' %}" width="90" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><i class="fa fa-bars f-bt" aria-hidden="true"></i></span>
+                    <span class="navbar-toggler-icon"> <i class="fa fa-user-circle f-bt" aria-hidden="true"></i></span>
+                </button>
+                <!-- <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsingNavbar2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><img src="images/navbar-account.png" alt="" srcset=""></span>
+                </button> -->
+                <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+                    <ul class="navbar-nav text-center">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'Tentang-Kami' %}">tentang kami <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'kegiatan' %}">kegiatan</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">berita</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item f-at f-14 fsm j-dd" href="{% url 'dokumentasi' %}">Dokumentasi</a>
+                                <a class="dropdown-item f-at f-14 fsm j-dd" href="{% url 'artikel-list' %}">Artikel</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'event-list' %}">event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'pustaka' %}">pustaka</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Kesehatanjiwa' %}">kesehatan jiwa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'kontak' %}">kontak</a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav navbar-nav flex-row justify-content-center flex-nowrap">
+                        <li class="nav-item">
+                          <div class="icon-cari">
+                            <form method="GET" class="search" action="/cari/">
+                              <input class="inputCari"  type="text" name="q"placeholder="ketik kata kunci">
+                              <i class="cari fa fa-search"></i>
+                            </form>
+                          </div>
+                        </li>
+                        <li class="nav-item"><img class="batasAkun" src="{% static 'web/images/Line 1.png' %}" alt="" srcset=""></li>
+                        <li class="nav-item "><div class=" linkAkun"><img class="gambar-acount" src="{% static 'web/icon/account-24px.svg' %}" alt="" srcset=""><a href="{% url 'KM-Staff' %}">KM PPH</a></div> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- penutup nav-->
+        <!-- navbar -->
+
+    
+        {% block content %}
+
+        {% endblock %}
+
+
+        <!-- Footer section -->
+    <div class="section" id="footer">
+        <div class="container">
+            <div class="row">
+                <!-- footer baris ke 1 kolom ke 1 -->
+
+                <div class="col-md-3">
+                        <img id="footer-logo" src="{% static 'web/logo/LogoPPH-01-01.svg' %}">
+                        <p class="text-logo">PPH melaksanakan penelitian, pendidikan, dan pengembangan masyarakat berbasis HIV AIDS secara interdisipliner dan terpadu, yang mengarah pada pengembangan kebijakan kesehatan terkait HIV AIDS yang lebih baik.</p>
+                    </div>
+                    <div class="col-md-9">
+
+                        <!-- footer baris ke 1 kolem ke 2 -->
+                        <div class="row justify-content-around">
+                            <div class="col-md-2" id="hide-footer">
+                                <ul class="list-unstyled">
+                                    <li><a class="footer-head" href="{% url 'Tentang-Kami' %}">tentang kami</a></li>
+                                    <li><a class="footer-item" href="{% url 'Tentang-Kami' %}#sejarah">sejarah</a></li>
+                                    <li><a class="footer-item" href="{% url 'Tentang-Kami' %}#visi">visi dan misi</a></li>
+                                    <li><a class="footer-item" href="{% url 'Tentang-Kami' %}#tim">tim kami</a></li>
+                                    <li><a class="footer-item" href="{% url 'Tentang-Kami' %}#patner">mitra</a></li>
+                                </ul>
+                            </div>
+                            <!-- id="hide-footer" -->
+                            <div class="col-md-3  " id="hide-footer"  >
+                                <ul class="list-unstyled">
+                                    <li><a class="footer-head" href="{% url 'kegiatan' %}">kegiatan</a></li>
+                                    <li><a class="footer-item" href="{% url 'artikel-penelitian' %}">penelitian</a></li>
+                                    <li><a class="footer-item" href="{% url 'artikel-advokasi' %}">advokasi</a></li>
+                                    <li><a class="footer-item" href="{% url 'artikel-peningkatan' %}">peningkatan kapasitas</a></li>
+                                    <li><a class="footer-item" href="{% url 'artikel-pelayanan' %}">pelayanan komunitas</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-2" id="hide-footer">
+                                <ul class="list-unstyled">
+                                    <li><a class="footer-head" href="#">berita</a></li>
+                                    <li><a class="footer-item" href="{% url 'dokumentasi' %}">dokumentasi</a></li>
+                                    <li><a class="footer-item" href="{% url 'artikel-list' %}">artikel</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <ul class="list-unstyled">
+                                    <li><a class="footer-head" href="">kontak</a></li>
+                                    <li class="f-item-contact"><img class="mr-1" src="{% static 'web/images/phone-icon.png' %}" alt="" srcset=""> +62-21 570 3306, 575 7615 ext.624,425</li>
+                                    <li class="f-item-mail"><img class="mr-1" src="{% static 'web/images/mail-icon.png' %}" alt="" srcset=""></i> pph@atmajaya.ac.id</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- footer baris ke 2  kolom ke 2 -->
+                        <div class="row justify-content-around">
+                            <div class="col-md-2" id="hide-footer">
+                                <ul class="list-unstyled">
+                                  <li><a class="footer-head" href="{% url 'event-list' %}">event</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3" id="hide-footer">
+                                <ul class="list-unstyled">
+                                    <li><a class="footer-head" href="{% url 'pustaka' %}">pustaka</a></li>
+                                    <li><a class="footer-item" href="{% url 'pustaka' %}">hiv & aids</a></li>
+                                    <li><a class="footer-item" href="{% url 'pustaka' %}">publikasi</a></li>
+                                    <li><a class="footer-item" href="{% url 'pustaka' %}">regulasi</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-2" id="hide-footer">
+                                <ul class="list-unstyled">
+                                  <li><a class="footer-head" href="{% url 'Kesehatanjiwa' %}">kesehatan jiwa</a></li>
+                                </ul>
+                            </div>
+                        <div class="col-md-4">
+                            <ul class="list-unstyled">
+                                <li><a class="footer-head" href="">Folow Us</a></li>
+                                <a href="#"> <img class="icon-sn" src="icon/004-facebook-logo-button.svg" alt="" srcset="" ></a>
+                                <a href="#"> <img class="icon-sn" src="icon/003-twitter-logo-button.svg" alt="" srcset=""></a>
+                                <a href="#"> <img class="icon-sn" src="icon/002-instagram.svg" alt="" srcset=""></a>
+                                <br>
+                                <br>
+                                <h5 class="subscribe"> Subscribe Now.</h5>
+                                <form action="" class="form-sub">
+                                    <input  type="email" name="email" id="email" placeholder="enter your email here">
+                                    <button  type="submit"><img src="{% static 'web/images/sub-icon.png' %}" class="" alt="" srcset=""></button>
+                                </form>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr><!-- pembatas -->
+        </div>
+    </div>
+    <!-- tutup footer section -->
+            <!-- Footer section -->
+    
+        <footer class="">
+            <div class="container">
+                <div class="d-flex">
+                  <div class="p-2 mr-auto f-at f-11">2019 © pusat penelitian hiv aids unika atma jaya. All rights reserved.</div>
+                  <div class="p-2 f-at f-11" id="hide-footer">FAQ</div>
+                  <div class="p-2 f-at f-11" id="hide-footer">Privacy</div>
+                  <div class="p-2 f-at f-11" id="hide-footer">Terms & Condition</div>
+                </div>
+            </div>
+        </footer>
+    
+    
+        <!-- bootsrap -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+        {% block ga %}
+            {% include "web/ga.html" with ga_tracking_id=ga_tracking_id %}
+        {% endblock ga %}
+        
+        <!-- scrol navbar trasnparan ke solid -->
+        <script src="{% static 'web/js/scroll-nav.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+        {% block js %}
+        {% endblock %}
+        <script>
+        $('#subscribe').submit(function(e){
+            e.preventDefault();
+            var email_id = $("#email_id").val();
+            if(email_id){
+              var csrfmiddlewaretoken = csrftoken;
+              var email_data = {"email_id": email_id, 
+                                "csrfmiddlewaretoken" : csrfmiddlewaretoken};
+              $.ajax({
+                type : 'POST',
+                url :  '/subscribe/',
+                data : email_data,
+                success : function(response){
+                  $('#email_id').val(''); 
+                  if(response.status == "404"){
+                    alert("This Email is already been subscribed!");
+                  }
+                  else{
+                    alert("Thank you for Subscribing! Please Check your Email to Confirm the Subscription");
+                  }
+                },
+                error: function(response) {
+                  alert("Sorry Something went Wrong");
+                  $('#email_id').val(''); 
+                }
+              });
+              return false;
+            }
+            else{
+              alert("Please provide correct email!");
+            }
+        });
+       
+      
+      function getCookie(name) {
+          var cookieValue = null;
+          if (document.cookie && document.cookie !== '') {
+              var cookies = document.cookie.split(';');
+              for (var i = 0; i < cookies.length; i++) {
+                  var cookie = jQuery.trim(cookies[i]);
+                  if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                      cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                      break;
+                  }
+              }
+          }
+          return cookieValue;
+      }
+      var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+      
+      function csrfSafeMethod(method) {
+          return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+      }
+      $.ajaxSetup({
+          beforeSend: function(xhr, settings) {
+              if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                  xhr.setRequestHeader("X-CSRFToken", csrftoken);
+              }
+          }
+      })
+    </script>
+
+    </html>
+</html>

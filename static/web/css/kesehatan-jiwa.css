@@ -1,0 +1,159 @@
+body{
+    font-family: 'silka';
+}
+.jumbotron{
+    margin-top: -100px;
+    background-size: cover;
+    background-image: url(/images/kesehatanjiwa/landing-kesehatan-jiwa.png);
+    height: 720px;;
+    /* z-index: -1; */
+}
+
+.landing{
+    margin-top: 150px;
+}
+
+/* border artikel */
+.rounded {
+    border-radius: 25px !important;
+}
+
+.gambar1{
+object-fit: cover;
+	/* 		sumbu 		x,y		jika tudak di atuh maka akan fokus ke tengah */
+	/* object-position: 50% 100%; */
+	width: 347px;
+	height: 484px;
+  }
+
+  .gambar2{
+	object-fit: cover;
+
+	/* 		sumbu 		x,y		jika tudak di atuh maka akan fokus ke tengah */
+	/* object-position: 100% 0; */
+	
+	width: 347px;
+	height: 218px;
+  }
+
+  @media(max-width:576px){
+    .jumbotron{
+        /* margin-top: -500px; */
+        background-size: cover;
+        background-image: url(/images/kesehatanjiwa/kes-mob.png);
+        /* z-index: -1; */
+        background-position: 55% 30%;
+        background-repeat: no-repeat;
+        height: 500px;
+        background-color: transparent;
+    }
+
+      .landing h1{
+        font-family: 'silkabold';
+        font-size: 63px;
+        line-height: 1;
+        letter-spacing: -1.26px;
+        text-align: left;
+        color: #0083ca;
+      }
+
+      .landing p{
+          display: none;
+      }
+
+      .sejarah h3{
+        font-family: 'silkabold';
+        font-size: 18px;
+        text-align: left;
+        color: #0083ca;
+      }
+
+      .sejarah p{
+        font-family: 'Open Sans';
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 1.58;
+        letter-spacing: -0.12px;
+        text-align: left;
+        color: #707070;
+      }
+
+      .sejarah .p2{
+        font-family: 'silkabold';
+        font-size: 14px;
+        line-height: 1.29;
+        letter-spacing: -0.14px;
+        text-align: left;
+        color: #0083ca;
+      }
+
+      .sejarah img{
+        width: 100%;
+        height: 227px;
+        object-fit: cover;
+        border-radius: 20px;
+        object-position: center;
+      }
+
+      .media img{
+        width: 98px;
+        height: 93px;
+        object-fit: cover;
+        border-radius: 10px !important;
+      
+      }
+
+      .media .pl-5{
+          padding: unset !important;
+      }
+
+      .media .mr-5{
+          margin-right: 22px !important;
+      }
+
+      .media-body h6{
+        font-family: 'Open Sans';
+        font-size: 10px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.4;
+        letter-spacing: 0.1px;
+        text-align: left;
+        color: #0083ca;
+      }
+
+      .media-body h3{
+        font-family: 'silkasemibold';
+        font-size: 14px;
+        line-height: 1.29;
+        letter-spacing: -0.07px;
+        text-align: left;
+        color: #000000;
+      }
+
+      .media-body p{
+          display: none;
+      }
+
+      .media-body .penulis{
+        font-family: 'Open Sans';
+        font-size: 10px;
+        font-weight: 600;
+        line-height: 1.4;
+        text-align: left;
+        color: #707070;
+      }
+
+    .media-body .tanggal{
+        font-family: 'Open Sans';
+        font-size: 10px;
+        line-height: 1.4;
+        text-align: left;
+        color: #707070;
+    }
+    
+    .media-body .pt-4{
+        padding: 0 !important;
+    }
+  }

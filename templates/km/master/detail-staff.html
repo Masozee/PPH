@@ -1,0 +1,1389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+
+     <!-- FontAwseme -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+    <!-- tabel -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/penelitian.css">
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+    
+    <style>
+    @font-face {
+        font-family: 'silkaregular';
+    src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkabold';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkalight';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkamedium';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkasemibold';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkaregular_italic';
+        src: url('font/Silka-Complete-Webfont/Silka-Italic-Webfont/silka-regularitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+    </style>
+    <title>Detail Staff</title>
+  </head>
+  <body>
+
+    <!-- sidebar -->
+    <div class="section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-2 side-nav">
+            <div class="logo"><a href="penelitian.html"><img src="logo/logo.png" alt=""></img></div>
+            
+              <div class="accordion" id="side-nav">
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" href="#nav-1">
+                      <a class="card-title"> <span><img class="icon-side-nav" src="icon/001-writing.svg" alt="" srcset=""></span>
+                        Kegiatan
+                      </a>
+                  </div>
+
+              
+                  <div id="nav-1" class="collapse show" aria-labelledby="headingOne" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="penelitian.html">Penelitian</a></li>
+                        <li class="list-untyled"><a href="peningkatan-kapasitas.html">Peningkatan Kapasitas</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" href="#nav-2">
+                      <a class="card-title"> <span><img class="icon-side-nav" src="icon/002-id-card.svg" alt="" srcset=""></span>
+                        Staf
+                      </a>
+                  </div>
+                  <div id="nav-2" class="collapse" aria-labelledby="headingTwo" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="">Penelitian</a></li>
+                        <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" href="#nav-3">
+                      <a class="card-title"> <span><img class="icon-side-nav" src="icon/004-archive.svg" alt="" srcset=""></span>
+                        Inventaris
+                      </a>
+                  </div>
+                  <div id="nav-3" class="collapse" aria-labelledby="headingThree" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="">Penelitian</a></li>
+                        <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+                <div class="card">                    
+                  <div class="card-header collapsed" data-toggle="collapse" > <!--     href="#nav-4" -->
+                      <a  href="kontak.html" class="card-title"> <span><img class="icon-side-nav" src="icon/006-contacts.svg" alt="" srcset=""></span>
+                        Kontak
+                      </a>
+                  </div>
+                  <div id="nav-4" class="collapse" aria-labelledby="headingFour" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="">Penelitian</a></li>
+                        <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" >
+                      <a href="media.html" class="card-title"> <span><img class="icon-side-nav"  src="icon/007-recycle-sign.svg" alt="" srcset=""></span>
+                        Media
+                      </a>
+                  </div>
+                  <div id="nav-5" class="collapse" aria-labelledby="headingFive" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="">Penelitian</a></li>
+                        <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" href="#nav-6">
+                      <a class="card-title"> <span><img class="icon-side-nav" src="icon/011-quality.svg" alt="" srcset=""></span>
+                        Evaluate
+                      </a>
+                  </div>
+                  <div id="nav-6" class="collapse" aria-labelledby="headingSix" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="">Penelitian</a></li>
+                        <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" href="#nav-7">
+                      <a class="card-title"> <span><img class="icon-side-nav"  src="icon/009-book.svg" alt="" srcset=""></span>
+                        Pelaporan
+                      </a>
+                  </div>
+                  <div id="nav-7" class="collapse" aria-labelledby="headingSeven" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="">Penelitian</a></li>
+                        <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" href="#nav-8">
+                      <a class="card-title"> <span><img class="icon-side-nav" src="icon/calendar-with-spring-binder-and-date-blocks.svg"alt="" srcset=""></span>
+                        Kalender
+                      </a>
+                  </div>
+                  <div id="nav-8" class="collapse" aria-labelledby="headingEight" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="">Penelitian</a></li>
+                        <li class="list-untyled"><a href="">Peningkatan Kapasitas</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            
+
+          <div class="col-3 d-staff-section">
+            <h3 class="judul">Knowledge Management</h3>
+              <div class="media">
+                <img src="img/staff.jpg" class="mr-3 img-staff" alt="...">
+                <div class="media-body ">
+                  <h3 class="mb-auto">Edwin Sutamto </h4>
+                  <h4>NIK <span>2017/2017</span></h4>
+                </div>
+              </div>
+
+              <div class="data-staff">
+                <h4>Data</h4>
+
+                <h6>E-mail</h6>
+                <h5>edwin.sutamto@gmail.com <span>edwin.sutamto@atmajaya.ac.id</span></h5>
+
+                <h6>Jabatan/Golongan</h6>
+                <h5>Manajer Pengembangan & Pengetahuan Peneliti Muda</h5>
+
+                <h6>Fokus Area</h6>
+                <h5>Psikometrik Statistik</h5>
+
+                <h6>Tanggal Bergabung</h6>
+                <h5>17 September 2017</h5>
+              </div>
+
+              <div class="d-staff-pendidikan">
+                <h4>Pendidikan</h4>
+                <h6>Strata I</h6>
+                <h5>Jurusan Psikologi, Universitas Katolik Indonesia Atma Jaya</h5>
+              </div>
+               
+          </div>
+
+          
+          <div class="col-7 tabel-group ">
+            <div class="row">
+              <div class="col-9 search-group">
+                <div class="input-group flex-nowrap search">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa fa-search" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Search File" aria-label="" aria-describedby="addon-wrapping">
+                </div>                  
+              </div>
+              <div class="col-3">
+                <img class="account float-left" src="img/img-account.png" alt="">
+                  <div class="nama fleat-rigt">Hi Marry Anne!</div>
+              </div>
+            </div>
+
+
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="pills-penelitian-tab" data-toggle="pill" href="#pills-penelitian" role="tab" aria-controls="pills-penelitian" aria-selected="true">penelitian</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="pills-pnkt-kpsts-tab" data-toggle="pill" href="#pills-pnkt-kpsts" role="tab" aria-controls="pills-pnkt-kpsts" aria-selected="false">Peningkatan Kapasitas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="pills-publikasi-tab" data-toggle="pill" href="#pills-publikasi" role="tab" aria-controls="pills-publikasi" aria-selected="false">publikasi</a>
+              </li>
+            </ul>
+
+
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show active" id="pills-penelitian" role="tabpanel" aria-labelledby="pills-penelitian-tab">
+                <table id="penelitian" class="table table-striped radius-tabel" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Tahun</th>
+                        <th>Judul</th>
+                        <th>Kategori</th>
+                        <th>Posisi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td >Tiger Nixon</td>
+                        <td class="tbl-keg">System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>61</td>
+                    </tr>
+                    <tr>
+                        <td>Garrett Winters</td>
+                        <td class="tbl-keg">Accountant</td>
+                        <td>Tokyo</td>
+                        <td>63</td>
+                    </tr>
+                    <tr>
+                        <td>Ashton Cox</td>
+                        <td class="tbl-keg">Junior Technical Author</td>
+                        <td>San Francisco</td>
+                        <td>66</td>
+                    </tr>
+                    <tr>
+                        <td>Cedric Kelly</td>
+                        <td class="tbl-keg">Senior Javascript Developer</td>
+                        <td>Edinburgh</td>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td>Airi Satou</td>
+                        <td class="tbl-keg">Accountant</td>
+                        <td>Tokyo</td>
+                        <td>33</td>
+                    </tr>
+                    <tr>
+                        <td>Brielle Williamson</td>
+                        <td class="tbl-keg">Integration Specialist</td>
+                        <td>New York</td>
+                        <td>61</td>
+                    </tr>
+                    <tr>
+                        <td>Herrod Chandler</td>
+                        <td class="tbl-keg">Sales Assistant</td>
+                        <td>San Francisco</td>
+                        <td>59</td>
+                    </tr>
+                    <tr>
+                        <td>Rhona Davidson</td>
+                        <td class="tbl-keg">Integration Specialist</td>
+                        <td>Tokyo</td>
+                        <td>55</td>
+                    </tr>
+                    <tr>
+                        <td>Colleen Hurst</td>
+                        <td class="tbl-keg">Javascript Developer</td>
+                        <td>San Francisco</td>
+                        <td>39</td>
+                    </tr>
+                    <tr>
+                        <td>Sonya Frost</td>
+                        <td class="tbl-keg">Software Engineer</td>
+                        <td>Edinburgh</td>
+                        <td>23</td>
+                    </tr>
+                    <tr>
+                        <td>Jena Gaines</td>
+                        <td class="tbl-keg">Office Manager</td>
+                        <td>London</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>Quinn Flynn</td>
+                        <td class="tbl-keg">Support Lead</td>
+                        <td>Edinburgh</td>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td>Charde Marshall</td>
+                        <td class="tbl-keg">Regional Director</td>
+                        <td>San Francisco</td>
+                        <td>36</td>
+                    </tr>
+                    <tr>
+                        <td>Haley Kennedy</td>
+                        <td class="tbl-keg">Senior Marketing Designer</td>
+                        <td>London</td>
+                        <td>43</td>
+                    </tr>
+                    <tr>
+                        <td>Tatyana Fitzpatrick</td>
+                        <td class="tbl-keg">Regional Director</td>
+                        <td>London</td>
+                        <td>19</td>
+                    </tr>
+                    <tr>
+                        <td>Michael Silva</td>
+                        <td class="tbl-keg">Marketing Designer</td>
+                        <td>London</td>
+                        <td>66</td>
+                    </tr>
+                    <tr>
+                        <td>Paul Byrd</td>
+                        <td class="tbl-keg">Chief Financial Officer (CFO)</td>
+                        <td>New York</td>
+                        <td>64</td>
+                    </tr>
+                    <tr>
+                        <td>Gloria Little</td>
+                        <td class="tbl-keg">Systems Administrator</td>
+                        <td>New York</td>
+                        <td>59</td>
+                    </tr>
+                    <tr>
+                        <td>Bradley Greer</td>
+                        <td class="tbl-keg">Software Engineer</td>
+                        <td>London</td>
+                        <td>41</td>
+                    </tr>
+                    <tr>
+                        <td>Dai Rios</td>
+                        <td class="tbl-keg">Personnel Lead</td>
+                        <td>Edinburgh</td>
+                        <td>35</td>
+                    </tr>
+                    <tr>
+                        <td>Jenette Caldwell</td>
+                        <td class="tbl-keg">Development Lead</td>
+                        <td>New York</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>Yuri Berry</td>
+                        <td class="tbl-keg">Chief Marketing Officer (CMO)</td>
+                        <td>New York</td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <td>Caesar Vance</td>
+                        <td class="tbl-keg">Pre-Sales Support</td>
+                        <td>New York</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>Doris Wilder</td>
+                        <td class="tbl-keg">Sales Assistant</td>
+                        <td>Sidney</td>
+                        <td>23</td>
+                    </tr>
+                    <tr>
+                        <td>Angelica Ramos</td>
+                        <td class="tbl-keg">Chief Executive Officer (CEO)</td>
+                        <td>London</td>
+                        <td>47</td>
+                    </tr>
+                    <tr>
+                        <td>Gavin Joyce</td>
+                        <td class="tbl-keg">Developer</td>
+                        <td>Edinburgh</td>
+                        <td>42</td>
+                    </tr>
+                    <tr>
+                        <td>Jennifer Chang</td>
+                        <td class="tbl-keg">Regional Director</td>
+                        <td>Singapore</td>
+                        <td>28</td>
+                    </tr>
+                    <tr>
+                        <td>Brenden Wagner</td>
+                        <td class="tbl-keg">Software Engineer</td>
+                        <td>San Francisco</td>
+                        <td>28</td>
+                    </tr>
+                    <tr>
+                        <td>Fiona Green</td>
+                        <td class="tbl-keg">Chief Operating Officer (COO)</td>
+                        <td>San Francisco</td>
+                        <td>48</td>
+                    </tr>
+                    <tr>
+                        <td>Shou Itou</td>
+                        <td class="tbl-keg">Regional Marketing</td>
+                        <td>Tokyo</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Michelle House</td>
+                        <td class="tbl-keg">Integration Specialist</td>
+                        <td>Sidney</td>
+                        <td>37</td>
+                    </tr>
+                    <tr>
+                        <td>Suki Burks</td>
+                        <td class="tbl-keg">Developer</td>
+                        <td>London</td>
+                        <td>53</td>
+                    </tr>
+                    <tr>
+                        <td>Prescott Bartlett</td>
+                        <td class="tbl-keg">Technical Author</td>
+                        <td>London</td>
+                        <td>27</td>
+                    </tr>
+                    <tr>
+                        <td>Gavin Cortez</td>
+                        <td class="tbl-keg">Team Leader</td>
+                        <td>San Francisco</td>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td>Martena Mccray</td>
+                        <td class="tbl-keg">Post-Sales support</td>
+                        <td>Edinburgh</td>
+                        <td>46</td>
+                    </tr>
+                    <tr>
+                        <td>Unity Butler</td>
+                        <td class="tbl-keg">Marketing Designer</td>
+                        <td>San Francisco</td>
+                        <td>47</td>
+                    </tr>
+                    <tr>
+                        <td>Howard Hatfield</td>
+                        <td class="tbl-keg">Office Manager</td>
+                        <td>San Francisco</td>
+                        <td>51</td>
+                    </tr>
+                    <tr>
+                        <td>Hope Fuentes</td>
+                        <td class="tbl-keg">Secretary</td>
+                        <td>San Francisco</td>
+                        <td>41</td>
+                    </tr>
+                    <tr>
+                        <td>Vivian Harrell</td>
+                        <td class="tbl-keg">Financial Controller</td>
+                        <td>San Francisco</td>
+                        <td>62</td>
+                    </tr>
+                    <tr>
+                        <td>Timothy Mooney</td>
+                        <td class="tbl-keg">Office Manager</td>
+                        <td>London</td>
+                        <td>37</td>
+                    </tr>
+                    <tr>
+                        <td>Jackson Bradshaw</td>
+                        <td class="tbl-keg">Director</td>
+                        <td>New York</td>
+                        <td>65</td>
+                    </tr>
+                    <tr>
+                        <td>Olivia Liang</td>
+                        <td class="tbl-keg">Support Engineer</td>
+                        <td>Singapore</td>
+                        <td>64</td>
+                    </tr>
+                    <tr>
+                        <td>Bruno Nash</td>
+                        <td class="tbl-keg">Software Engineer</td>
+                        <td>London</td>
+                        <td>38</td>
+                    </tr>
+                    <tr>
+                        <td>Sakura Yamamoto</td>
+                        <td class="tbl-keg">Support Engineer</td>
+                        <td>Tokyo</td>
+                        <td>37</td>
+                    </tr>
+                    <tr>
+                        <td>Thor Walton</td>
+                        <td class="tbl-keg">Developer</td>
+                        <td>New York</td>
+                        <td>61</td>
+                    </tr>
+                    <tr>
+                        <td>Finn Camacho</td>
+                        <td class="tbl-keg">Support Engineer</td>
+                        <td>San Francisco</td>
+                        <td>47</td>
+                    </tr>
+                    <tr>
+                        <td>Serge Baldwin</td>
+                        <td class="tbl-keg">Data Coordinator</td>
+                        <td>Singapore</td>
+                        <td>64</td>
+                    </tr>
+                    <tr>
+                        <td>Zenaida Frank</td>
+                        <td class="tbl-keg">Software Engineer</td>
+                        <td>New York</td>
+                        <td>63</td>
+                    </tr>
+                    <tr>
+                        <td>Zorita Serrano</td>
+                        <td class="tbl-keg">Software Engineer</td>
+                        <td>San Francisco</td>
+                        <td>56</td>
+                    </tr>
+                    <tr>
+                        <td>Jennifer Acosta</td>
+                        <td class="tbl-keg">Junior Javascript Developer</td>
+                        <td>Edinburgh</td>
+                        <td>43</td>
+                    </tr>
+                    <tr>
+                        <td>Cara Stevens</td>
+                        <td class="tbl-keg">Sales Assistant</td>
+                        <td>New York</td>
+                        <td>46</td>
+                    </tr>
+                    <tr>
+                        <td>Hermione Butler</td>
+                        <td class="tbl-keg">Regional Director</td>
+                        <td>London</td>
+                        <td>47</td>
+                    </tr>
+                    <tr>
+                        <td>Lael Greer</td>
+                        <td class="tbl-keg">Systems Administrator</td>
+                        <td>London</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>Jonas Alexander</td>
+                        <td class="tbl-keg">Developer</td>
+                        <td>San Francisco</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>Shad Decker</td>
+                        <td class="tbl-keg">Regional Director</td>
+                        <td>Edinburgh</td>
+                        <td>51</td>
+                    </tr>
+                    <tr>
+                        <td>Michael Bruce</td>
+                        <td class="tbl-keg">Javascript Developer</td>
+                        <td>Singapore</td>
+                        <td>29</td>
+                    </tr>
+                    <tr>
+                        <td>Donna Snider</td>
+                        <td class="tbl-keg">Customer Support</td>
+                        <td>New York</td>
+                        <td>27</td>
+                    </tr>
+                </tbody>   
+              </table> 
+              </div>
+              
+              <div class="tab-pane fade" id="pills-pnkt-kpsts" role="tabpanel" aria-labelledby="pills-pnkt-kpsts-tab">
+                <table id="pnkt-kpsts" class="table table-striped radius-tabel" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Tahun</th>
+                            <th>Judul</th>
+                            <th>Kategori</th>
+                            <th>Posisi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td >Tiger Nixon</td>
+                            <td class="tbl-keg">System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett Winters</td>
+                            <td class="tbl-keg">Accountant</td>
+                            <td>Tokyo</td>
+                            <td>63</td>
+                        </tr>
+                        <tr>
+                            <td>Ashton Cox</td>
+                            <td class="tbl-keg">Junior Technical Author</td>
+                            <td>San Francisco</td>
+                            <td>66</td>
+                        </tr>
+                        <tr>
+                            <td>Cedric Kelly</td>
+                            <td class="tbl-keg">Senior Javascript Developer</td>
+                            <td>Edinburgh</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>Airi Satou</td>
+                            <td class="tbl-keg">Accountant</td>
+                            <td>Tokyo</td>
+                            <td>33</td>
+                        </tr>
+                        <tr>
+                            <td>Brielle Williamson</td>
+                            <td class="tbl-keg">Integration Specialist</td>
+                            <td>New York</td>
+                            <td>61</td>
+                        </tr>
+                        <tr>
+                            <td>Herrod Chandler</td>
+                            <td class="tbl-keg">Sales Assistant</td>
+                            <td>San Francisco</td>
+                            <td>59</td>
+                        </tr>
+                        <tr>
+                            <td>Rhona Davidson</td>
+                            <td class="tbl-keg">Integration Specialist</td>
+                            <td>Tokyo</td>
+                            <td>55</td>
+                        </tr>
+                        <tr>
+                            <td>Colleen Hurst</td>
+                            <td class="tbl-keg">Javascript Developer</td>
+                            <td>San Francisco</td>
+                            <td>39</td>
+                        </tr>
+                        <tr>
+                            <td>Sonya Frost</td>
+                            <td class="tbl-keg">Software Engineer</td>
+                            <td>Edinburgh</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>Jena Gaines</td>
+                            <td class="tbl-keg">Office Manager</td>
+                            <td>London</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Quinn Flynn</td>
+                            <td class="tbl-keg">Support Lead</td>
+                            <td>Edinburgh</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>Charde Marshall</td>
+                            <td class="tbl-keg">Regional Director</td>
+                            <td>San Francisco</td>
+                            <td>36</td>
+                        </tr>
+                        <tr>
+                            <td>Haley Kennedy</td>
+                            <td class="tbl-keg">Senior Marketing Designer</td>
+                            <td>London</td>
+                            <td>43</td>
+                        </tr>
+                        <tr>
+                            <td>Tatyana Fitzpatrick</td>
+                            <td class="tbl-keg">Regional Director</td>
+                            <td>London</td>
+                            <td>19</td>
+                        </tr>
+                        <tr>
+                            <td>Michael Silva</td>
+                            <td class="tbl-keg">Marketing Designer</td>
+                            <td>London</td>
+                            <td>66</td>
+                        </tr>
+                        <tr>
+                            <td>Paul Byrd</td>
+                            <td class="tbl-keg">Chief Financial Officer (CFO)</td>
+                            <td>New York</td>
+                            <td>64</td>
+                        </tr>
+                        <tr>
+                            <td>Gloria Little</td>
+                            <td class="tbl-keg">Systems Administrator</td>
+                            <td>New York</td>
+                            <td>59</td>
+                        </tr>
+                        <tr>
+                            <td>Bradley Greer</td>
+                            <td class="tbl-keg">Software Engineer</td>
+                            <td>London</td>
+                            <td>41</td>
+                        </tr>
+                        <tr>
+                            <td>Dai Rios</td>
+                            <td class="tbl-keg">Personnel Lead</td>
+                            <td>Edinburgh</td>
+                            <td>35</td>
+                        </tr>
+                        <tr>
+                            <td>Jenette Caldwell</td>
+                            <td class="tbl-keg">Development Lead</td>
+                            <td>New York</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Yuri Berry</td>
+                            <td class="tbl-keg">Chief Marketing Officer (CMO)</td>
+                            <td>New York</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>Caesar Vance</td>
+                            <td class="tbl-keg">Pre-Sales Support</td>
+                            <td>New York</td>
+                            <td>21</td>
+                        </tr>
+                        <tr>
+                            <td>Doris Wilder</td>
+                            <td class="tbl-keg">Sales Assistant</td>
+                            <td>Sidney</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>Angelica Ramos</td>
+                            <td class="tbl-keg">Chief Executive Officer (CEO)</td>
+                            <td>London</td>
+                            <td>47</td>
+                        </tr>
+                        <tr>
+                            <td>Gavin Joyce</td>
+                            <td class="tbl-keg">Developer</td>
+                            <td>Edinburgh</td>
+                            <td>42</td>
+                        </tr>
+                        <tr>
+                            <td>Jennifer Chang</td>
+                            <td class="tbl-keg">Regional Director</td>
+                            <td>Singapore</td>
+                            <td>28</td>
+                        </tr>
+                        <tr>
+                            <td>Brenden Wagner</td>
+                            <td class="tbl-keg">Software Engineer</td>
+                            <td>San Francisco</td>
+                            <td>28</td>
+                        </tr>
+                        <tr>
+                            <td>Fiona Green</td>
+                            <td class="tbl-keg">Chief Operating Officer (COO)</td>
+                            <td>San Francisco</td>
+                            <td>48</td>
+                        </tr>
+                        <tr>
+                            <td>Shou Itou</td>
+                            <td class="tbl-keg">Regional Marketing</td>
+                            <td>Tokyo</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Michelle House</td>
+                            <td class="tbl-keg">Integration Specialist</td>
+                            <td>Sidney</td>
+                            <td>37</td>
+                        </tr>
+                        <tr>
+                            <td>Suki Burks</td>
+                            <td class="tbl-keg">Developer</td>
+                            <td>London</td>
+                            <td>53</td>
+                        </tr>
+                        <tr>
+                            <td>Prescott Bartlett</td>
+                            <td class="tbl-keg">Technical Author</td>
+                            <td>London</td>
+                            <td>27</td>
+                        </tr>
+                        <tr>
+                            <td>Gavin Cortez</td>
+                            <td class="tbl-keg">Team Leader</td>
+                            <td>San Francisco</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>Martena Mccray</td>
+                            <td class="tbl-keg">Post-Sales support</td>
+                            <td>Edinburgh</td>
+                            <td>46</td>
+                        </tr>
+                        <tr>
+                            <td>Unity Butler</td>
+                            <td class="tbl-keg">Marketing Designer</td>
+                            <td>San Francisco</td>
+                            <td>47</td>
+                        </tr>
+                        <tr>
+                            <td>Howard Hatfield</td>
+                            <td class="tbl-keg">Office Manager</td>
+                            <td>San Francisco</td>
+                            <td>51</td>
+                        </tr>
+                        <tr>
+                            <td>Hope Fuentes</td>
+                            <td class="tbl-keg">Secretary</td>
+                            <td>San Francisco</td>
+                            <td>41</td>
+                        </tr>
+                        <tr>
+                            <td>Vivian Harrell</td>
+                            <td class="tbl-keg">Financial Controller</td>
+                            <td>San Francisco</td>
+                            <td>62</td>
+                        </tr>
+                        <tr>
+                            <td>Timothy Mooney</td>
+                            <td class="tbl-keg">Office Manager</td>
+                            <td>London</td>
+                            <td>37</td>
+                        </tr>
+                        <tr>
+                            <td>Jackson Bradshaw</td>
+                            <td class="tbl-keg">Director</td>
+                            <td>New York</td>
+                            <td>65</td>
+                        </tr>
+                        <tr>
+                            <td>Olivia Liang</td>
+                            <td class="tbl-keg">Support Engineer</td>
+                            <td>Singapore</td>
+                            <td>64</td>
+                        </tr>
+                        <tr>
+                            <td>Bruno Nash</td>
+                            <td class="tbl-keg">Software Engineer</td>
+                            <td>London</td>
+                            <td>38</td>
+                        </tr>
+                        <tr>
+                            <td>Sakura Yamamoto</td>
+                            <td class="tbl-keg">Support Engineer</td>
+                            <td>Tokyo</td>
+                            <td>37</td>
+                        </tr>
+                        <tr>
+                            <td>Thor Walton</td>
+                            <td class="tbl-keg">Developer</td>
+                            <td>New York</td>
+                            <td>61</td>
+                        </tr>
+                        <tr>
+                            <td>Finn Camacho</td>
+                            <td class="tbl-keg">Support Engineer</td>
+                            <td>San Francisco</td>
+                            <td>47</td>
+                        </tr>
+                        <tr>
+                            <td>Serge Baldwin</td>
+                            <td class="tbl-keg">Data Coordinator</td>
+                            <td>Singapore</td>
+                            <td>64</td>
+                        </tr>
+                        <tr>
+                            <td>Zenaida Frank</td>
+                            <td class="tbl-keg">Software Engineer</td>
+                            <td>New York</td>
+                            <td>63</td>
+                        </tr>
+                        <tr>
+                            <td>Zorita Serrano</td>
+                            <td class="tbl-keg">Software Engineer</td>
+                            <td>San Francisco</td>
+                            <td>56</td>
+                        </tr>
+                        <tr>
+                            <td>Jennifer Acosta</td>
+                            <td class="tbl-keg">Junior Javascript Developer</td>
+                            <td>Edinburgh</td>
+                            <td>43</td>
+                        </tr>
+                        <tr>
+                            <td>Cara Stevens</td>
+                            <td class="tbl-keg">Sales Assistant</td>
+                            <td>New York</td>
+                            <td>46</td>
+                        </tr>
+                        <tr>
+                            <td>Hermione Butler</td>
+                            <td class="tbl-keg">Regional Director</td>
+                            <td>London</td>
+                            <td>47</td>
+                        </tr>
+                        <tr>
+                            <td>Lael Greer</td>
+                            <td class="tbl-keg">Systems Administrator</td>
+                            <td>London</td>
+                            <td>21</td>
+                        </tr>
+                        <tr>
+                            <td>Jonas Alexander</td>
+                            <td class="tbl-keg">Developer</td>
+                            <td>San Francisco</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Shad Decker</td>
+                            <td class="tbl-keg">Regional Director</td>
+                            <td>Edinburgh</td>
+                            <td>51</td>
+                        </tr>
+                        <tr>
+                            <td>Michael Bruce</td>
+                            <td class="tbl-keg">Javascript Developer</td>
+                            <td>Singapore</td>
+                            <td>29</td>
+                        </tr>
+                        <tr>
+                            <td>Donna Snider</td>
+                            <td class="tbl-keg">Customer Support</td>
+                            <td>New York</td>
+                            <td>27</td>
+                        </tr>
+                    </tbody>   
+                </table>
+              </div>
+
+              <div class="tab-pane fade" id="pills-publikasi" role="tabpanel" aria-labelledby="pills-publikasi-tab">
+                <table id="publikasi" class="table table-striped radius-tabel" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Tahun</th>
+                            <th>Judul</th>
+                            <th>Kategori</th>
+                            <th>Posisi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td >Tiger Nixon</td>
+                            <td class="tbl-keg">System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett Winters</td>
+                            <td class="tbl-keg">Accountant</td>
+                            <td>Tokyo</td>
+                            <td>63</td>
+                        </tr>
+                        <tr>
+                            <td>Ashton Cox</td>
+                            <td class="tbl-keg">Junior Technical Author</td>
+                            <td>San Francisco</td>
+                            <td>66</td>
+                        </tr>
+                        <tr>
+                            <td>Cedric Kelly</td>
+                            <td class="tbl-keg">Senior Javascript Developer</td>
+                            <td>Edinburgh</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>Airi Satou</td>
+                            <td class="tbl-keg">Accountant</td>
+                            <td>Tokyo</td>
+                            <td>33</td>
+                        </tr>
+                        <tr>
+                            <td>Brielle Williamson</td>
+                            <td class="tbl-keg">Integration Specialist</td>
+                            <td>New York</td>
+                            <td>61</td>
+                        </tr>
+                        <tr>
+                            <td>Herrod Chandler</td>
+                            <td class="tbl-keg">Sales Assistant</td>
+                            <td>San Francisco</td>
+                            <td>59</td>
+                        </tr>
+                        <tr>
+                            <td>Rhona Davidson</td>
+                            <td class="tbl-keg">Integration Specialist</td>
+                            <td>Tokyo</td>
+                            <td>55</td>
+                        </tr>
+                        <tr>
+                            <td>Colleen Hurst</td>
+                            <td class="tbl-keg">Javascript Developer</td>
+                            <td>San Francisco</td>
+                            <td>39</td>
+                        </tr>
+                        <tr>
+                            <td>Sonya Frost</td>
+                            <td class="tbl-keg">Software Engineer</td>
+                            <td>Edinburgh</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>Jena Gaines</td>
+                            <td class="tbl-keg">Office Manager</td>
+                            <td>London</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Quinn Flynn</td>
+                            <td class="tbl-keg">Support Lead</td>
+                            <td>Edinburgh</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>Charde Marshall</td>
+                            <td class="tbl-keg">Regional Director</td>
+                            <td>San Francisco</td>
+                            <td>36</td>
+                        </tr>
+                        <tr>
+                            <td>Haley Kennedy</td>
+                            <td class="tbl-keg">Senior Marketing Designer</td>
+                            <td>London</td>
+                            <td>43</td>
+                        </tr>
+                        <tr>
+                            <td>Tatyana Fitzpatrick</td>
+                            <td class="tbl-keg">Regional Director</td>
+                            <td>London</td>
+                            <td>19</td>
+                        </tr>
+                        <tr>
+                            <td>Michael Silva</td>
+                            <td class="tbl-keg">Marketing Designer</td>
+                            <td>London</td>
+                            <td>66</td>
+                        </tr>
+                        <tr>
+                            <td>Paul Byrd</td>
+                            <td class="tbl-keg">Chief Financial Officer (CFO)</td>
+                            <td>New York</td>
+                            <td>64</td>
+                        </tr>
+                        <tr>
+                            <td>Gloria Little</td>
+                            <td class="tbl-keg">Systems Administrator</td>
+                            <td>New York</td>
+                            <td>59</td>
+                        </tr>
+                        <tr>
+                            <td>Bradley Greer</td>
+                            <td class="tbl-keg">Software Engineer</td>
+                            <td>London</td>
+                            <td>41</td>
+                        </tr>
+                        <tr>
+                            <td>Dai Rios</td>
+                            <td class="tbl-keg">Personnel Lead</td>
+                            <td>Edinburgh</td>
+                            <td>35</td>
+                        </tr>
+                        <tr>
+                            <td>Jenette Caldwell</td>
+                            <td class="tbl-keg">Development Lead</td>
+                            <td>New York</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Yuri Berry</td>
+                            <td class="tbl-keg">Chief Marketing Officer (CMO)</td>
+                            <td>New York</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>Caesar Vance</td>
+                            <td class="tbl-keg">Pre-Sales Support</td>
+                            <td>New York</td>
+                            <td>21</td>
+                        </tr>
+                        <tr>
+                            <td>Doris Wilder</td>
+                            <td class="tbl-keg">Sales Assistant</td>
+                            <td>Sidney</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>Angelica Ramos</td>
+                            <td class="tbl-keg">Chief Executive Officer (CEO)</td>
+                            <td>London</td>
+                            <td>47</td>
+                        </tr>
+                        <tr>
+                            <td>Gavin Joyce</td>
+                            <td class="tbl-keg">Developer</td>
+                            <td>Edinburgh</td>
+                            <td>42</td>
+                        </tr>
+                        <tr>
+                            <td>Jennifer Chang</td>
+                            <td class="tbl-keg">Regional Director</td>
+                            <td>Singapore</td>
+                            <td>28</td>
+                        </tr>
+                        <tr>
+                            <td>Brenden Wagner</td>
+                            <td class="tbl-keg">Software Engineer</td>
+                            <td>San Francisco</td>
+                            <td>28</td>
+                        </tr>
+                        <tr>
+                            <td>Fiona Green</td>
+                            <td class="tbl-keg">Chief Operating Officer (COO)</td>
+                            <td>San Francisco</td>
+                            <td>48</td>
+                        </tr>
+                        <tr>
+                            <td>Shou Itou</td>
+                            <td class="tbl-keg">Regional Marketing</td>
+                            <td>Tokyo</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Michelle House</td>
+                            <td class="tbl-keg">Integration Specialist</td>
+                            <td>Sidney</td>
+                            <td>37</td>
+                        </tr>
+                        <tr>
+                            <td>Suki Burks</td>
+                            <td class="tbl-keg">Developer</td>
+                            <td>London</td>
+                            <td>53</td>
+                        </tr>
+                        <tr>
+                            <td>Prescott Bartlett</td>
+                            <td class="tbl-keg">Technical Author</td>
+                            <td>London</td>
+                            <td>27</td>
+                        </tr>
+                        <tr>
+                            <td>Gavin Cortez</td>
+                            <td class="tbl-keg">Team Leader</td>
+                            <td>San Francisco</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>Martena Mccray</td>
+                            <td class="tbl-keg">Post-Sales support</td>
+                            <td>Edinburgh</td>
+                            <td>46</td>
+                        </tr>
+                        <tr>
+                            <td>Unity Butler</td>
+                            <td class="tbl-keg">Marketing Designer</td>
+                            <td>San Francisco</td>
+                            <td>47</td>
+                        </tr>
+                        <tr>
+                            <td>Howard Hatfield</td>
+                            <td class="tbl-keg">Office Manager</td>
+                            <td>San Francisco</td>
+                            <td>51</td>
+                        </tr>
+                        <tr>
+                            <td>Hope Fuentes</td>
+                            <td class="tbl-keg">Secretary</td>
+                            <td>San Francisco</td>
+                            <td>41</td>
+                        </tr>
+                        <tr>
+                            <td>Vivian Harrell</td>
+                            <td class="tbl-keg">Financial Controller</td>
+                            <td>San Francisco</td>
+                            <td>62</td>
+                        </tr>
+                        <tr>
+                            <td>Timothy Mooney</td>
+                            <td class="tbl-keg">Office Manager</td>
+                            <td>London</td>
+                            <td>37</td>
+                        </tr>
+                        <tr>
+                            <td>Jackson Bradshaw</td>
+                            <td class="tbl-keg">Director</td>
+                            <td>New York</td>
+                            <td>65</td>
+                        </tr>
+                        <tr>
+                            <td>Olivia Liang</td>
+                            <td class="tbl-keg">Support Engineer</td>
+                            <td>Singapore</td>
+                            <td>64</td>
+                        </tr>
+                        <tr>
+                            <td>Bruno Nash</td>
+                            <td class="tbl-keg">Software Engineer</td>
+                            <td>London</td>
+                            <td>38</td>
+                        </tr>
+                        <tr>
+                            <td>Sakura Yamamoto</td>
+                            <td class="tbl-keg">Support Engineer</td>
+                            <td>Tokyo</td>
+                            <td>37</td>
+                        </tr>
+                        <tr>
+                            <td>Thor Walton</td>
+                            <td class="tbl-keg">Developer</td>
+                            <td>New York</td>
+                            <td>61</td>
+                        </tr>
+                        <tr>
+                            <td>Finn Camacho</td>
+                            <td class="tbl-keg">Support Engineer</td>
+                            <td>San Francisco</td>
+                            <td>47</td>
+                        </tr>
+                        <tr>
+                            <td>Serge Baldwin</td>
+                            <td class="tbl-keg">Data Coordinator</td>
+                            <td>Singapore</td>
+                            <td>64</td>
+                        </tr>
+                        <tr>
+                            <td>Zenaida Frank</td>
+                            <td class="tbl-keg">Software Engineer</td>
+                            <td>New York</td>
+                            <td>63</td>
+                        </tr>
+                        <tr>
+                            <td>Zorita Serrano</td>
+                            <td class="tbl-keg">Software Engineer</td>
+                            <td>San Francisco</td>
+                            <td>56</td>
+                        </tr>
+                        <tr>
+                            <td>Jennifer Acosta</td>
+                            <td class="tbl-keg">Junior Javascript Developer</td>
+                            <td>Edinburgh</td>
+                            <td>43</td>
+                        </tr>
+                        <tr>
+                            <td>Cara Stevens</td>
+                            <td class="tbl-keg">Sales Assistant</td>
+                            <td>New York</td>
+                            <td>46</td>
+                        </tr>
+                        <tr>
+                            <td>Hermione Butler</td>
+                            <td class="tbl-keg">Regional Director</td>
+                            <td>London</td>
+                            <td>47</td>
+                        </tr>
+                        <tr>
+                            <td>Lael Greer</td>
+                            <td class="tbl-keg">Systems Administrator</td>
+                            <td>London</td>
+                            <td>21</td>
+                        </tr>
+                        <tr>
+                            <td>Jonas Alexander</td>
+                            <td class="tbl-keg">Developer</td>
+                            <td>San Francisco</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Shad Decker</td>
+                            <td class="tbl-keg">Regional Director</td>
+                            <td>Edinburgh</td>
+                            <td>51</td>
+                        </tr>
+                        <tr>
+                            <td>Michael Bruce</td>
+                            <td class="tbl-keg">Javascript Developer</td>
+                            <td>Singapore</td>
+                            <td>29</td>
+                        </tr>
+                        <tr>
+                            <td>Donna Snider</td>
+                            <td class="tbl-keg">Customer Support</td>
+                            <td>New York</td>
+                            <td>27</td>
+                        </tr>
+                    </tbody>   
+                </table>
+              </div>
+            </div>
+
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!-- plugin datatables -->
+    <script>
+        $(document).ready(function() {
+            $('#penelitian').DataTable();
+        } );
+
+        $(document).ready(function() {
+            $('#pnkt-kpsts').DataTable();
+        } );
+
+        $(document).ready(function() {
+            $('#publikasi').DataTable();
+        } );
+      </script>
+
+      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+      <script>
+          $(document).ready(function(){
+              $(".check").click(function(){
+                  $("#ceklis").prop("checked", true);
+              });
+              $(".uncheck").click(function(){
+                  $("#ceklis").prop("checked", false);
+              });
+          });
+        </script>
+  
+  
+  </body>
+</html>
