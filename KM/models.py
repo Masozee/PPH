@@ -71,7 +71,7 @@ class Staff (models.Model):
     tanggal_bergabung = models.DateField(null=True, blank=True)
     alamat = models.TextField(blank=True, null=True)
     pendidikan_terakhir = models.CharField(max_length=10, choices=KATEGORI_CHOICES, default= 'Strata 1', blank=True, null=True)
-    Institusi_pendidikan = models.OneToOneField(Sekolah, on_delete=models.CASCADE, default=True)
+    Institusi_pendidikan = models.OneToOneField(Sekolah, on_delete=models.CASCADE, default=True, blank=True)
     hp = models.CharField(max_length=13, blank=True, null=True)
     posisi = models.CharField(max_length=150, default=True, blank=True, null=True)
     golongan_peneliti = models.CharField(max_length=20, blank=True, null=True)
