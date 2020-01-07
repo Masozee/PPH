@@ -43,7 +43,7 @@
             <hr>
 
 
-            <div class="card-columns scrolling-wrapper">
+            <div class="card-columns">
                 {% for a in HIV %}
                 <a href="/pustaka/{{a.judul | slugify}}" class="card text-white ">
                     <div class="card-body">
@@ -88,6 +88,7 @@
                 </a>
                 {%endfor%}
             </div>
+
             <hr>
             <h6 class="float-right"><a class ="f-os f-am" href="{% url 'pustaka-list' %}"><small>View All</small></a></h6>
         </div>
@@ -125,3 +126,4 @@
         </section>
     <!-- tutup publikasi -->
 {% endblock %}
+
