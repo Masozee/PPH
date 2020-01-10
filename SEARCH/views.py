@@ -14,9 +14,6 @@ from WEB.models import *
 class SearchView(ListView):
         template_name = 'web/cari.html'
         count = 0
-
-
-
         def get_context_data(self, *args, **kwargs):
             context = super().get_context_data(*args, **kwargs)
             context['count'] = self.count or 0

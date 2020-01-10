@@ -25,13 +25,12 @@ class Sekolah(models.Model):
         ('Strata 3', 'S3')
     )
 
-    jenjang = models.CharField(max_length=15, choices=KATEGORI_CHOICES)
+    jenjang = models.CharField(max_length=15, choices=KATEGORI_CHOICES,default= 'Strata 1')
     nama_sekolah = models.CharField(max_length=50)
     jurusan = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
-        return self.jenjang +' '+self.nama_sekolah
-
+        return self.jenjang + ' '+ self.nama_sekolah
 # Create your models here
 class StaffQuerySet(models.QuerySet):
     def search(self, query=None):
@@ -50,17 +49,12 @@ class StaffManager(models.Manager):
         return self.get_queryset().search(query=query)
 
 class Staff (models.Model):
-    KATEGORI_CHOICES = (
-        ('SMA', 'SMA'),
-
-        ('Diploma 1', 'D1'),
-        ('Diploma 2', 'D2'),
-        ('Diploma 3', 'D3'),
+    """KATEGORI_CHOICES = (
 
         ('Strata 1', 'S1'),
         ('Strata 2', 'S2'),
         ('Strata 3', 'S3')
-    )
+    )"""
 
     id_username = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=True, null=True)
     nama = models.CharField(max_length=50)
@@ -70,8 +64,11 @@ class Staff (models.Model):
     email2= models.EmailField(null=True, blank=True)
     tanggal_bergabung = models.DateField(null=True, blank=True)
     alamat = models.TextField(blank=True, null=True)
-    pendidikan_terakhir = models.CharField(max_length=10, choices=KATEGORI_CHOICES, default= 'Strata 1', blank=True, null=True)
-    Institusi_pendidikan = models.OneToOneField(Sekolah, on_delete=models.CASCADE, default=True, blank=True)
+    #pendidikan_terakhir = models.CharField(max_length=10, choices=KATEGORI_CHOICES, default= 'Strata 1', blank=True, null=True)
+    #Institusi_pendidikan = models.OneToOneField(Sekolah, on_delete=models.CASCADE, default=True, blank=True, null=True)
+    strata_1 = models.OneToOneField(Sekolah, related_name='s1', on_delete=models.CASCADE, blank=True, null=True)
+    strata_2 = models.OneToOneField(Sekolah, related_name='s2', on_delete=models.CASCADE, blank=True, null=True)
+    strata_3 = models.OneToOneField(Sekolah, related_name='s3', on_delete=models.CASCADE, blank=True, null=True)
     hp = models.CharField(max_length=13, blank=True, null=True)
     posisi = models.CharField(max_length=150, default=True, blank=True, null=True)
     golongan_peneliti = models.CharField(max_length=20, blank=True, null=True)
@@ -161,7 +158,7 @@ class Publikasi (models.Model):
 
     project  = models.ForeignKey(Donor, on_delete=models.CASCADE, blank=True, null=True)
     tema = models.CharField(max_length=15, choices=TEMA_CHOICES, default='HIV AIDS', blank=True, null=True)
-    judul  = models.CharField(max_length=50)
+    judul  = models.CharField(max_length=150)
     slug = models.SlugField(default='', editable=False, max_length=140)
     penulis = models.ForeignKey(Staff, on_delete=models.CASCADE, default=True)
     tanggal = models.DateField(default=date.today)
