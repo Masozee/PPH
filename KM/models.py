@@ -31,6 +31,10 @@ class Sekolah(models.Model):
 
     def __str__(self):
         return self.jenjang + ' '+ self.nama_sekolah
+
+    class Meta:
+        verbose_name = ("Pendidikan")
+        verbose_name_plural = ("Pendidikan")
 # Create your models here
 class StaffQuerySet(models.QuerySet):
     def search(self, query=None):
@@ -49,12 +53,6 @@ class StaffManager(models.Manager):
         return self.get_queryset().search(query=query)
 
 class Staff (models.Model):
-    """KATEGORI_CHOICES = (
-
-        ('Strata 1', 'S1'),
-        ('Strata 2', 'S2'),
-        ('Strata 3', 'S3')
-    )"""
 
     id_username = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=True, null=True)
     nama = models.CharField(max_length=50)
