@@ -72,6 +72,10 @@
                                     {{ a.wktmly }} - {{ a.wktsls }}</h4>
                             <div class="isi f-os">{{ a.isi |truncatechars:"200" | safe }}</div>
                             <a class="f-14 f-t f-k popup" data-toggle="modal" data-target="#{{ a.judul | slugify }}-{{ a.id }}" href="/events/{{ a.judul |slugify }}">Detil event <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                            {% block meta_img %}
+                                <meta property="og:image" content="http://localhost:8000/media/{{ a.gambar }} ">
+                            {% endblock %}
+
                         </div>
                     </div>
                 </div>

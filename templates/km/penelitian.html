@@ -77,6 +77,11 @@
                         <input id="Closing" type="checkbox" name="status" value="Closing"> <span class="label-text">Closing</span>
                       </label>
                     </div>
+                    <div class="form-check">
+                      <label>
+                        <input id="Completed" type="checkbox" name="status" value="Completed"> <span class="label-text">Completed</span>
+                      </label>
+                    </div>
                   </div>
                   <!-- Tahun Mulai -->
                   <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTiga">
@@ -201,6 +206,40 @@
        });
      }) ;
     </script>
+    <script>
+        $(document).ready(function() {
+            $('#hiv').DataTable({
+              searchPane: {
+                container:'.searchPanes'
+              }
+
+            });
+
+            // deklarasi checkbox
+            $(document).ready(function(){
+                var tabel = $('#penelitian').DataTable();
+
+                $('input:checkbox').on('change',function(){
+
+                  // filter jenis Kegiahan
+                  var jenKeg = $('input:checkbox[name="kategori"]:checked').map(function(){
+                    return this.value;
+                  }).get().join('|');
+
+                  //  filter kolomm ke 2
+                  tabel.column(0).search(jenKeg,true,false,false).draw(false);
+
+                  var Stts = $('input:checkbox[name="status"]:checked').map(function(){
+                    return this.value;
+                  }).get().join('|');
+
+                  //  filter kolomm ke 1
+                  tabel.column(0).search(Stts,true,false,false).draw(false);
+                });
+              }) ;
+        } );
+      </script>
+
 
       <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
       <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>

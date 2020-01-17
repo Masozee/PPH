@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'SEARCH',
     'crispy_forms',
     'google_analytics',
+    'meta'
 ]
 
 MIDDLEWARE = [

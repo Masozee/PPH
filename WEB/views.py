@@ -144,7 +144,7 @@ class DokumentasiDetail(DetailView):
 
 def Dokumendetail(request, berita_slug):
     berita = Berita.objects.get(slug=berita_slug)
-    Related = berita.tags.similar_objects()
+    Related = Berita.objects.all()[:5]
     context = {
         "object": berita,
         "related":Related,
@@ -234,20 +234,14 @@ def ArtikelPelayanan(request):
 
     return render(request, "web/dukomentasi.html", context)
 
-"""class ArtikelDetail(DetailView):
-    model = Berita
-    template_name = "web/detail-artikel.html"
-    def get_context_data(self, **kwargs):
-        context = super(ArtikelDetail, self).get_context_data(**kwargs)
-        context['related'] = Berita.tags.similiar_objects().distinct()[:4]
-        return context"""
 
 def ArtikelDetail(request, berita_slug):
     berita = Berita.objects.get(slug=berita_slug)
-    Related = berita.tags.similar_objects()
+    Related = Berita.objects.all()[:5]
     context = {
         "object": berita,
         "related":Related,
+
     }
     return render(request, 'web/detail-artikel.html', context)
 
@@ -284,6 +278,7 @@ def Kesehatanjiwa(request):
 def EventList(request):
     acara = Acara.objects.all().order_by('-waktu_mulai').distinct()
     paginator = Paginator(acara, 5)  # Show 25 contacts per page
+
 
     page = request.GET.get('page')
     try:

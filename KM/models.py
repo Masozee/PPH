@@ -53,6 +53,13 @@ class StaffManager(models.Manager):
         return self.get_queryset().search(query=query)
 
 class Staff (models.Model):
+    KATEGORI_CHOICES = (
+
+        ('Diploma 3', 'D3'),
+        ('Strata 1', 'S1'),
+        ('Strata 2', 'S2'),
+        ('Strata 3', 'S3')
+    )
 
     id_username = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=True, null=True)
     nama = models.CharField(max_length=50)
@@ -64,9 +71,17 @@ class Staff (models.Model):
     alamat = models.TextField(blank=True, null=True)
     #pendidikan_terakhir = models.CharField(max_length=10, choices=KATEGORI_CHOICES, default= 'Strata 1', blank=True, null=True)
     #Institusi_pendidikan = models.OneToOneField(Sekolah, on_delete=models.CASCADE, default=True, blank=True, null=True)
-    strata_1 = models.OneToOneField(Sekolah, related_name='s1', on_delete=models.CASCADE, blank=True, null=True)
-    strata_2 = models.OneToOneField(Sekolah, related_name='s2', on_delete=models.CASCADE, blank=True, null=True)
-    strata_3 = models.OneToOneField(Sekolah, related_name='s3', on_delete=models.CASCADE, blank=True, null=True)
+    #strata_1 = models.OneToOneField(Sekolah, related_name='s1', on_delete=models.CASCADE, blank=True, null=True)
+    #strata_2 = models.OneToOneField(Sekolah, related_name='s2', on_delete=models.CASCADE, blank=True, null=True)
+    #strata_3 = models.OneToOneField(Sekolah, related_name='s3', on_delete=models.CASCADE, blank=True, null=True)
+    pendidikan_1 = models.CharField(max_length=10, choices=KATEGORI_CHOICES, null=True, blank=True)
+    jurusan_1 = models.TextField(null=True, blank=True)
+    pendidikan_2 = models.CharField(max_length=10, choices=KATEGORI_CHOICES, null=True, blank=True)
+    jurusan_2 = models.TextField(null=True, blank=True)
+    pendidikan_3 = models.CharField(max_length=10, choices=KATEGORI_CHOICES,  null=True, blank=True)
+    jurusan_3 = models.TextField(null=True, blank=True)
+    pendidikan_4 = models.CharField(max_length=10, choices=KATEGORI_CHOICES,  null=True, blank=True)
+    jurusan_4 = models.TextField(null=True, blank=True)
     hp = models.CharField(max_length=13, blank=True, null=True)
     posisi = models.CharField(max_length=150, default=True, blank=True, null=True)
     golongan_peneliti = models.CharField(max_length=20, blank=True, null=True)
@@ -272,7 +287,6 @@ class Kontak_PPH (models.Model):
     email = models.EmailField(blank=True, null=True)
     no_hp = models.CharField(max_length=13, blank=True, null=True )
     no_telp = models.CharField(max_length=13, blank=True, null=True )
-    gambar = models.ImageField(upload_to='document/KM/Kontak')
 
     objects = kontakManager()
 
@@ -390,7 +404,7 @@ class DokumenPenelitian(models.Model):
         ('Pertemuan dan rapat - Notulensi', 'Pertemuan dan rapat - Notulensi')
     )
 
-    penelitian = models.ForeignKey(Penelitian, on_delete=models.CASCADE)
+    penelitian = models.ForeignKey(Penelitian, on_delete=models.CASCADE, default=True)
     Kategori = models.CharField(max_length= 60, choices= KATEGORI_CHOICES)
     Judul = models.TextField(blank=True)
     dokumen = models.FileField(upload_to='KM/dokumenpenelitian')

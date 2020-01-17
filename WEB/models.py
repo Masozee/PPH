@@ -69,6 +69,14 @@ class Berita (models.Model):
         self.slug = slugify(value, allow_unicode=True)
         super().save(*args, **kwargs)
 
+    _metadata = {
+        'title': 'judul',
+        'image': 'get_meta_image',
+    }
+    def get_meta_image(self):
+        if self.gambar:
+            return self.gambar.url
+
     @property
     def thn(self):
         return self.tanggal.strftime('%d %B %Y')

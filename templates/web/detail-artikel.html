@@ -11,7 +11,11 @@
 <meta property="og:type" content="{{object.kategori}}">
 <meta property="og:url" content="{{ request.build_absolute_uri }}">
 <meta property="og:site_name" content="PPH UNIKA Atma Jaya">
-<meta property="og:image" content="/media/{{ object.gambar }} ">
+
+{% endblock %}
+
+{% block meta_img %}
+    <meta property="og:image" content="https://pph.atmajaya.ac.id/media/{{ object.gambar }} ">
 {% endblock %}
 
 {% block content %}

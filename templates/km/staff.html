@@ -143,7 +143,17 @@
                 {% for a in staff %}
                   <tr>
                       <td class="tbl-keg" ><a href="/km/staff/{{a.nama | slugify}}">{{a.nama}}</a></td>
-                      <td>{{a.pendidikan_terakhir}}</td>
+                      <td>{% if a.pendidikan_4 is not None %}
+                            <p>{{a.pendidikan_4}} {{a.jurusan_4}}</p>
+                          {% elif a.pendidikan_3 is not None %}
+                             <p>{{a.pendidikan_3}} {{a.jurusan_3}}</p>
+                          {% elif a.pendidikan_2 is not None %}
+                             <p>{{a.pendidikan_2}} {{a.jurusan_2}}</p>
+                          {% elif a.pendidikan_1 is not None %}
+                             <p>{{a.pendidikan_1}} {{a.jurusan_1}}</p>
+                          {% else %}
+                                {{ None }}
+                          {% endif %}</td>
                       <td>{{a.email}}</td>
                       <td>{{a.posisi}}</td>
                       <td>{{a.peminatan}}</td>
