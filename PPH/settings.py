@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'SEARCH',
     'crispy_forms',
     'google_analytics',
-    'meta'
+    'meta',
+    'lazysignup',
 ]
 
 MIDDLEWARE = [
@@ -92,6 +93,10 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = (
+  'django.contrib.auth.backends.ModelBackend',
+  'lazysignup.backends.LazySignupBackend',
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -184,3 +189,5 @@ GA_TRACKING_ID = 'UA-153670934-1'
 
 
 CRISPY_TEMPLATE_PACK ='bootstrap4'
+
+GOOGLE_RECAPTCHA_SECRET_KEY = '6Le0U9IUAAAAAGTnpukJpXl-gZPG9XwBvdFfrVJX'

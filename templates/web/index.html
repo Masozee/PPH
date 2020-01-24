@@ -38,7 +38,7 @@
                         <div class="row justify-content-start">
                             <div class="col-md-5 align-self-center">
                                 <h1 class="hero-title fsb pr-1">{{ a.Slide2_desc }}</h1>
-                                <p><a class=" btn-lg hero-button f-14 fssb" role="button" href="{{ a.Slide1_link }}">lebih lanjut    <i class="fa fa-arrow-circle-o-right"></i></a></p>
+                                <p><a class=" btn-lg hero-button f-14 fssb" role="button" href="{{ a.Slide2_link }}">lebih lanjut    <i class="fa fa-arrow-circle-o-right"></i></a></p>
                             </div>
                         </div>
                     </div>
@@ -81,27 +81,23 @@
                     <h2 class="f-40 f-bt f-t fsb" >Ada apa hari ini?</h2>
                 </div>
             </div>
-
             <div class="row">
                 {% for a in Acara %}
-
-
-                <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <img src="/media/{{ a.gambar }}" class="card-img-top" alt="...">
+                <div class="col-md-6 " >
+                    <div class="card " >
+                        <img src="/media/{{ a.gambar }}"  class="card-img-top img-fluid rounded-top gambar" alt="...">
                         <div class="card-body konten-utama">
-                            <h6 class="f-12 f-bm f-os fossb" href="">penelitian</h6>
-                            <h4 class="card-title f-20 fssb">{{ a.judul }}</h4>
-                            <span class="card-text f-14 f-at f-os">{{ a.isi | truncatewords:"100" | safe }}</span>
+                            <h4 class="card-title judul-a f-20 fssb">{{ a.judul }}</h4>
+                            <span class="card-text isi-a f-14 f-at f-os"> {{ a.isi | truncatechars:"250" | safe }}</span>
                             <div class="clearfix">
-                                <small class="text-muted float-left">{{a.thn}} </small>
-                                <a href="/berita/artikel/{{ a.judul | slugify }}" class="f-k float-right fssb f-14"> selengkapnnya <i class="fa fa-arrow-circle-o-right"></i></a>
+                                <small class="text-muted float-left">{{a.thn}}</small>
+                                <a href="/berita/artikel/{{ a.judul | slugify }}" class="f-k float-right fssb f-14"> selengkapnya <i class="fa fa-arrow-circle-o-right"></i></a>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+
 
                 <!-- card loop 4x -->
                 <div class="col-md-6" >

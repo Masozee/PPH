@@ -90,11 +90,13 @@
                       </a>
                   </div>
                   <div id="collapseTiga" class="collapse" data-parent="#accordion" >
+                      {% for a in donor %}
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" > <span class="label-text">Pertemuan</span>
+                        <input id="{{a.nama}}" type="checkbox" name="Donor" value="{{a.nama}}"> <span class="label-text">{{a.nama}}</span>
                       </label>
                     </div>
+                      {% endfor %}
                   </div>
                   <!-- Sumber Daya -->
                   <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
@@ -103,11 +105,13 @@
                       </a>
                   </div>
                   <div id="collapseFour" class="collapse" data-parent="#accordion" >
+                    {% for a in donor %}
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" > <span class="label-text">Pertemuan</span>
+                        <input id="{{a.nama}}" type="checkbox" name="Donor" value="{{a.nama}}"> <span class="label-text">{{a.nama}}</span>
                       </label>
                     </div>
+                      {% endfor %}
                   </div>
               </div>
             </div>
@@ -179,36 +183,10 @@
     <!-- plugin datatables -->
     <script src="js/dataTables.searchPane.min.js"></script>
 
-       <!-- plugin datatables -->
-    <script>
-      // deklarasi untuk checkbox
-     $(document).ready(function(){
-       var tabel = $('#penelitian').DataTable();
-       $('input:checkbox').on('change',function(){
-         var kategori = $('input:checkbox[name="kategori"]:checked').map(function(){
-          return '^' + this.value +'$';
-         }).get().join('|');
 
-        //  filter kolomm ke 1
-        tabel.column(1).search(kategori,true,false,false).draw(false);
-       });
-     }) ;
-
-     $(document).ready(function(){
-       var tabel = $('#penelitian').DataTable();
-       $('input:checkbox').on('change',function(){
-         var status = $('input:checkbox[name="status"]:checked').map(function(){
-          return '^' + this.value +'$';
-         }).get().join('|');
-
-        //  filter kolomm ke 1
-        tabel.column(4).search(status,true,false,false).draw(false);
-       });
-     }) ;
-    </script>
-    <script>
+      <script>
         $(document).ready(function() {
-            $('#hiv').DataTable({
+            $('#penelitian').DataTable({
               searchPane: {
                 container:'.searchPanes'
               }
@@ -221,25 +199,36 @@
 
                 $('input:checkbox').on('change',function(){
 
-                  // filter jenis Kegiahan
-                  var jenKeg = $('input:checkbox[name="kategori"]:checked').map(function(){
+
+
+
+                  var KTG = $('input:checkbox[name="kategori"]:checked').map(function(){
                     return this.value;
                   }).get().join('|');
 
                   //  filter kolomm ke 2
-                  tabel.column(0).search(jenKeg,true,false,false).draw(false);
+                  tabel.column(1).search(KTG,true,false,false).draw(false);
 
-                  var Stts = $('input:checkbox[name="status"]:checked').map(function(){
-                    return this.value;
+                  var STTS = $('input:checkbox[name="status"]:checked').map(function(){
+                    return '^' + this.value +'$';
                   }).get().join('|');
 
                   //  filter kolomm ke 1
-                  tabel.column(0).search(Stts,true,false,false).draw(false);
+                  tabel.column(2).search(STTS,true,false,false).draw(false);
+
+                  var DNR = $('input:checkbox[name="Donor"]:checked').map(function(){
+                    return this.value;
+                  }).get().join('|');
+
+                  //  filter kolomm ke 2
+                  tabel.column(4).search(DNR,true,false,false).draw(false);
                 });
+
+
+
               }) ;
         } );
       </script>
-
 
       <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
       <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>

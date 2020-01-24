@@ -1,5 +1,6 @@
-from django.urls import path, re_path
+from django.urls import path, re_path,include
 from WEB import views as webviews
+
 
 
 urlpatterns = [
@@ -33,7 +34,7 @@ urlpatterns = [
     path('berita/dokumentasi/penelitian/', webviews.DokumentasiPenelitian, name='dokumentasi-penelitian'),
     path('berita/dokumentasi/advokasi/', webviews.DokumentasiAdvokasi, name='dokumentasi-advokasi'),
     path('berita/dokumentasi/peningkatan-kapasitas/', webviews.DokumentasiPeningkatan, name='dokumentasi-peningkatan'),
-    path('berita/dokumentasi/pelayanan-kapasitas/', webviews.DokumentasiPelayanan, name='dokumentasi-pelayanan'),
+    path('berita/dokumentasi/pelayanan-komunitas/', webviews.DokumentasiPelayanan, name='dokumentasi-pelayanan'),
     #path('berita/dokumentasi/<str:slug>/', webviews.DokumentasiDetail.as_view(), name='dokumentasi-detail'),
     re_path('berita/dokumentasi/(?P<berita_slug>[\w-]+)/$', webviews.Dokumendetail, name='dak-detail'),
     #path('events/<str:slug>/', webviews.EventDetail.as_view(), name = 'event-detail'),
@@ -45,6 +46,8 @@ urlpatterns = [
 
 
     path('kesehatan-jiwa/', webviews.Kesehatanjiwa, name='Kesehatanjiwa'),
+
+    path('masuk/', include('lazysignup.urls')),
 
 
     #path('staff/', webviews.Team.as_view(), name='news-list'),

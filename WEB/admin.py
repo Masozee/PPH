@@ -30,4 +30,5 @@ admin.site.register(Kontak)
 admin.site.register(Donor)
 admin.site.register(downloadForm)
 admin.site.register(Signup)
+admin.site.register(Visitor)
 

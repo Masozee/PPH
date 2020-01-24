@@ -31,3 +31,6 @@ class EmailSignupForm(forms.ModelForm):
     class Meta:
         model = Signup
         fields = ('email', )
+
+
+#class VisitorForm(forms.ModelForm):

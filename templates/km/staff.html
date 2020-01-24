@@ -28,22 +28,22 @@
                   <div id="collapseSatu" class="card-body collapse" data-parent="#accordion" >
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" checked> <span class="label-text">Diploma 3</span>
+                        <input type="checkbox" name="pendidikan" value="Diploma 3"> <span class="label-text">Diploma 3</span>
                       </label>
                     </div>
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" checked> <span class="label-text">Strata 1</span>
+                       <input type="checkbox" name="pendidikan" value="Strata 1"> <span class="label-text">Strata 1</span>
                       </label>
                     </div>
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" checked> <span class="label-text">Strata 2</span>
+                        <input type="checkbox" name="pendidikan" value="Strata 2"> <span class="label-text">Strata 2</span>
                       </label>
                     </div>
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" checked> <span class="label-text">Strata 3</span>
+                       <input type="checkbox" name="pendidikan" value="Strata 3"> <span class="label-text">Strata 3</span>
                       </label>
                     </div>
                   </div>
@@ -56,12 +56,12 @@
                   <div id="collapseDua" class="card-body collapse" data-parent="#accordion" >
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" checked> <span class="label-text">Direktur</span>
+                        <input type="checkbox" name="jabatan" value="Direktur"> <span class="label-text">Direktur</span>
                       </label>
                     </div>
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" checked> <span class="label-text">Staff</span>
+                        <input type="checkbox" name="jabatan" value="Peneliti"> <span class="label-text">Peneliti</span>
                       </label>
                     </div>
                   </div>
@@ -144,13 +144,13 @@
                   <tr>
                       <td class="tbl-keg" ><a href="/km/staff/{{a.nama | slugify}}">{{a.nama}}</a></td>
                       <td>{% if a.pendidikan_4 is not None %}
-                            <p>{{a.pendidikan_4}} {{a.jurusan_4}}</p>
+                            <p>{{a.pendidikan_4}} </p>
                           {% elif a.pendidikan_3 is not None %}
-                             <p>{{a.pendidikan_3}} {{a.jurusan_3}}</p>
+                             <p>{{a.pendidikan_3}} </p>
                           {% elif a.pendidikan_2 is not None %}
-                             <p>{{a.pendidikan_2}} {{a.jurusan_2}}</p>
+                             <p>{{a.pendidikan_2}} </p>
                           {% elif a.pendidikan_1 is not None %}
-                             <p>{{a.pendidikan_1}} {{a.jurusan_1}}</p>
+                             <p>{{a.pendidikan_1}} </p>
                           {% else %}
                                 {{ None }}
                           {% endif %}</td>
@@ -176,25 +176,51 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
     <!-- plugin datatables -->
-    <script>
-        $(document).ready(function() {
-            $('#penelitian').DataTable();
-        } );
-      </script>
       <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
       <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 
       <script>
-          $(document).ready(function(){
-              $(".check").click(function(){
-                  $("#ceklis").prop("checked", true);
-              });
-              $(".uncheck").click(function(){
-                  $("#ceklis").prop("checked", false);
-              });
-          });
-        </script>
+        $(document).ready(function() {
+            $('#penelitian').DataTable({
+              searchPane: {
+                container:'.searchPanes'
+              }
+
+            });
+
+            // deklarasi checkbox
+            $(document).ready(function(){
+                var tabel = $('#penelitian').DataTable();
+
+                $('input:checkbox').on('change',function(){
+
+                  var PDK = $('input:checkbox[name="pendidikan"]:checked').map(function(){
+                    return '^' + this.value +'$';
+                  }).get().join('|');
+
+                  //  filter kolomm ke 2
+                  tabel.column(1).search(PDK,true,false,false).draw(false);
+
+                  var JBTN = $('input:checkbox[name="jabatan"]:checked').map(function(){
+                    return '^' + this.value +'$';
+                  }).get().join('|');
+
+                  //  filter kolomm ke 1
+                  tabel.column(3).search(JBTN,true,false,false).draw(false);
+
+                  var FKS = $('input:checkbox[name="pendidikan"]:checked').map(function(){
+                    return this.value;
+                  }).get().join('|');
+
+                  //  filter kolomm ke 2
+                  tabel.column(4).search(FKS,true,false,false).draw(false);
+                });
+
+
+
+              }) ;
+        } );
+      </script>
 
 {% endblock %}

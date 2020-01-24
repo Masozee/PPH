@@ -8,6 +8,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.db.models import Q
 from KM.models import Staff, Donor, Publikasi
+from lazysignup.models import *
 
 #berita 
 class BeritaQuerySet(models.QuerySet):
@@ -262,3 +263,9 @@ class Signup(models.Model):
 
     def __str__(self):
         return self.email
+
+class Visitor(models.Model):
+    nama = models.CharField(max_length=150)
+    email = models.EmailField()
+    institusi =models.CharField(max_length=250, blank=True)
+    users_lazy = models.OneToOneField(LazyUser, on_delete=models.CASCADE)

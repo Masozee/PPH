@@ -30,27 +30,27 @@
                   <div id="collapseDua" class="card-body collapse" data-parent="#accordion" >
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" checked> <span class="label-text">Lecture Series</span>
+                        <input id="Executing" type="checkbox" name="kategori" value="Lecture Series"> <span class="label-text">Lecture Series</span>
                       </label>
                     </div>
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" > <span class="label-text">Workshop dan Pelatihan</span>
+                        <input id="Executing" type="checkbox" name="kategori" value="Workshop dan Pelatihan"> <span class="label-text">Workshop dan Pelatihan</span>
                       </label>
                     </div>
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" > <span class="label-text">Pertemuan dan Seminar</span>
+                        <input id="Executing" type="checkbox" name="kategori" value="Pertemuan dan Seminar"> <span class="label-text">Pertemuan dan Seminar</span>
                       </label>
                     </div>
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" > <span class="label-text">Kursus Online</span>
+                        <input id="Executing" type="checkbox" name="kategori" value="Kursus Online"> <span class="label-text">Kursus Online</span>
                       </label>
                     </div>
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" > <span class="label-text">Fun Sharing Day</span>
+                        <input id="Executing" type="checkbox" name="kategori" value="Fun Sharing Day"> <span class="label-text">Fun Sharing Day</span>
                       </label>
                     </div>
                   </div>
@@ -79,11 +79,13 @@
                       </a>
                   </div>
                   <div id="collapseFour" class="collapse" data-parent="#accordion" >
+                    {% for a in donor %}
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" > <span class="label-text">Pribadi</span>
+                        <input id="{{a.nama}}" type="checkbox" name="Donor" value="{{a.nama}}"> <span class="label-text">{{a.nama}}</span>
                       </label>
                     </div>
+                      {% endfor %}
                   </div>
               </div>
             </div>
@@ -109,7 +111,7 @@
               </div>
             </div>
 
-            <table id="penelitian" class="table table-striped radius-tabel" style="width:100%">
+            <table id="peningkatan" class="table table-striped radius-tabel" style="width:100%">
               <thead>
                   <tr>
                       <th>Judul Kegiatan</th>
@@ -154,15 +156,50 @@
       <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
       <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 
-      <script>
-          $(document).ready(function(){
-              $(".check").click(function(){
-                  $("#ceklis").prop("checked", true);
-              });
-              $(".uncheck").click(function(){
-                  $("#ceklis").prop("checked", false);
-              });
-          });
-        </script>
+       <script>
+        $(document).ready(function() {
+            $('#penelitian').DataTable({
+              searchPane: {
+                container:'.searchPanes'
+              }
+
+            });
+
+            // deklarasi checkbox
+            $(document).ready(function(){
+                var tabel = $('#peningkatan').DataTable();
+
+                $('input:checkbox').on('change',function(){
+
+
+
+
+                  var KTG = $('input:checkbox[name="kategori"]:checked').map(function(){
+                    return this.value;
+                  }).get().join('|');
+
+                  //  filter kolomm ke 2
+                  tabel.column(1).search(KTG,true,false,false).draw(false);
+
+                  var STTS = $('input:checkbox[name="status"]:checked').map(function(){
+                    return '^' + this.value +'$';
+                  }).get().join('|');
+
+                  //  filter kolomm ke 1
+                  tabel.column(2).search(STTS,true,false,false).draw(false);
+
+                  var DNR = $('input:checkbox[name="Donor"]:checked').map(function(){
+                    return this.value;
+                  }).get().join('|');
+
+                  //  filter kolomm ke 2
+                  tabel.column(4).search(DNR,true,false,false).draw(false);
+                });
+
+
+
+              }) ;
+        } );
+      </script>
   
  {% endblock  %}

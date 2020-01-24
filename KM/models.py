@@ -9,7 +9,7 @@ from django.utils import timezone
 from django.db.models import Q
 
 from USER.models import *
-
+from django.contrib.auth.models import User
 
 
 class Sekolah(models.Model):

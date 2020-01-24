@@ -1,3 +1,6 @@
+import json
+import urllib
+import requests
 
 from django.shortcuts import render, Http404, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -9,11 +12,11 @@ from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from .utils import SendSubscribeMail
 from django.conf import settings
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required, permission_required
+from lazysignup.decorators import allow_lazy_user
 from taggit.models import Tag, TaggedItem
 
-import json
-import requests
+
 
 form2 = EmailSignupForm()
 
@@ -35,6 +38,43 @@ def Home(request):
     }
 
     return render(request, "web/index.html", context)
+
+def Pustaka(request, publikasi_slug):
+
+        publikasi = Publikasi.objects.get(slug=publikasi_slug)
+
+
+        if request.method == 'POST':
+            form = DownloadForm(request.POST)
+            if form.is_valid():
+
+                recaptcha_response = request.POST.get('g-recaptcha-response')
+                url = 'https://www.google.com/recaptcha/api/siteverify'
+                values = {
+                    'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+                    'response': recaptcha_response
+                }
+                data = urllib.parse.urlencode(values).encode()
+                req = urllib.request.Request(url, data=data)
+                response = urllib.request.urlopen(req)
+                result = json.loads(response.read().decode())
+
+                if result['success']:
+                    form.save()
+                    messages.success(request, 'New comment added with success!')
+                else:
+                    messages.error(request, 'Invalid reCAPTCHA. Please try again.')
+
+                return redirect('/')
+        else:
+            form = DownloadForm()
+
+        context = {
+            "object": publikasi,
+            "form": form,
+        }
+
+        return render(request, 'web/detail-pustaka.html', context )
 
 def WebSetting(request):
     setting = HomeSLide.objects.all()
@@ -118,7 +158,7 @@ def DokumentasiPeningkatan(request):
 
     return render(request, "web/dukomentasi.html", context)
 def DokumentasiPelayanan(request):
-    dokumentasi = Berita.objects.filter(Kategori="Dokumentasi", Agenda="Pelayanan Kapasitas").order_by('-tanggal')
+    dokumentasi = Berita.objects.filter(Kategori="Dokumentasi", Agenda="Pelayanan Komunitas").order_by('-tanggal')
     paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
 
     page = request.GET.get('page')
@@ -218,7 +258,7 @@ def ArtikelPeningkatan(request):
 
     return render(request, "web/dukomentasi.html", context)
 def ArtikelPelayanan(request):
-    dokumentasi = Berita.objects.filter(Kategori="Artikel", Agenda="Pelayanan Kapasitas").order_by('-tanggal')
+    dokumentasi = Berita.objects.filter(Kategori="Artikel", Agenda="Pelayanan Komunitas").order_by('-tanggal')
     paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
 
     page = request.GET.get('page')
@@ -395,6 +435,8 @@ def pustaka(request):
 
     return render(request, "web/pustaka.html", context)
 
+#@login_required(login_url='/users/login/')
+@allow_lazy_user
 def pustakalist(request):
     slide = HomeSLide.objects.all()
     Pustaka_HIV = Publikasi.objects.filter(tema='HIV AIDS').order_by('-date_upload').distinct()

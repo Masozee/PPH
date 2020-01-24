@@ -69,10 +69,12 @@ class lapor():
 def profilpenelitian(request):
     penelitian = Penelitian.objects.all()
     dokumen = DokumenPenelitian.objects.all()
+    donor = Donor.objects.all()
 
     context = {
         "penelitian": penelitian,
-        "dokumen": dokumen
+        "dokumen": dokumen,
+        "donor" : donor,
     }
     return render(request, "km/penelitian.html", context)
 
