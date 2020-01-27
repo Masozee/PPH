@@ -40,8 +40,9 @@
                           <div class="modal-content shadow">
                             <div class="modal-body">
                                 <h3>Data diri</h3>
-                                <form action="#download" method="POST">
+                                <form  method="POST">
                                     {% csrf_token %}
+                                    {{form.as_p}}
                                     <div class="form-group">
                                       <label  for="nama">Nama</label>
                                       <input type="text" name="nama" id="nama" class="form-control" placeholder="" >

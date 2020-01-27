@@ -246,6 +246,7 @@ class Kontak (models.Model):
 class downloadForm(models.Model):
     nama = models.CharField(max_length = 50)
     email = models.EmailField(blank=True, null=True)
+    organisasi = models.TextField(blank=True)
     dokumen = models.TextField(blank=True, null=True)
     date_created = models.DateTimeField( auto_now_add=True )
     

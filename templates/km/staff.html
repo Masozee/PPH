@@ -28,22 +28,22 @@
                   <div id="collapseSatu" class="card-body collapse" data-parent="#accordion" >
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="pendidikan" value="Diploma 3"> <span class="label-text">Diploma 3</span>
+                        <input type="checkbox" name="sekolah" value="Diploma 3 "> <span class="label-text">Diploma 3</span>
                       </label>
                     </div>
                     <div class="form-check">
                       <label>
-                       <input type="checkbox" name="pendidikan" value="Strata 1"> <span class="label-text">Strata 1</span>
+                       <input type="checkbox" name="sekolah" value="Strata 1 "> <span class="label-text">Strata 1</span>
                       </label>
                     </div>
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="pendidikan" value="Strata 2"> <span class="label-text">Strata 2</span>
+                        <input type="checkbox" name="sekolah" value="Strata 2 "> <span class="label-text">Strata 2</span>
                       </label>
                     </div>
                     <div class="form-check">
                       <label>
-                       <input type="checkbox" name="pendidikan" value="Strata 3"> <span class="label-text">Strata 3</span>
+                       <input type="checkbox" name="sekolah" value="Strata 3 "> <span class="label-text">Strata 3</span>
                       </label>
                     </div>
                   </div>
@@ -85,16 +85,13 @@
                       </a>
                   </div>
                   <div id="collapseFour" class="collapse" data-parent="#accordion" >
+                      {% for a in staff %}
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" > <span class="label-text">lorem </span>
+                        <input type="checkbox" name="check" > <span class="label-text">{{a.kepakaran}}</span>
                       </label>
                     </div>
-                     <div class="form-check">
-                      <label>
-                        <input type="checkbox" name="check" > <span class="label-text">ipsum</span>
-                      </label>
-                    </div>
+                    {% endfor %}
                   </div>
               </div>
             </div>
@@ -115,19 +112,10 @@
               <div class="col-3">
                 {% if user.is_authenticated %}
                 <img class="account float-left" src="{% static 'km/img/img-account.png' %}" alt="">
-                  <div class="nama fleat-rigt">Hi {{user.username}}!</div>
+                  <div class="nama fleat-rigt">Hi {{user.first_name}}!</div>
                 {% endif %}
               </div>
             </div>
-
-
-            <!--div class="alert alert-warning alert-dismissible fade show" role="alert">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div-->
-
             <table id="penelitian" class="table table-striped radius-tabel" style="width:100%">
               <thead>
                   <tr>
@@ -195,7 +183,7 @@
 
                 $('input:checkbox').on('change',function(){
 
-                  var PDK = $('input:checkbox[name="pendidikan"]:checked').map(function(){
+                  var PDK = $('input:checkbox[name="sekolah"]:checked').map(function(){
                     return '^' + this.value +'$';
                   }).get().join('|');
 
@@ -216,9 +204,6 @@
                   //  filter kolomm ke 2
                   tabel.column(4).search(FKS,true,false,false).draw(false);
                 });
-
-
-
               }) ;
         } );
       </script>

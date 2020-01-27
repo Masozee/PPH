@@ -11,8 +11,9 @@ urlpatterns = [
     re_path('tag/(?P<tag>[\w-]+)/$', webviews.Taglist.as_view(), name='tag'),
     path('pustaka/', webviews.pustaka, name= 'pustaka'),
     path('pustaka/list/', webviews.pustakalist, name= 'pustaka-list'),
-    path('pustaka/<str:slug>/', webviews.PustakaDetail.as_view(), name='artikel-detail'),
-    
+    #path('pustaka/<str:slug>/', webviews.PustakaDetail.as_view(), name='artikel-detail'),
+    re_path('pustaka/(?P<publikasi_slug>[\w-]+)/$', webviews.Pustakadet, name='pusdet-detail'),
+
     path('kegiatan/', webviews.PublicationList.as_view(), name='kegiatan'),
 
     #path('kegiatan/<str:slug>/', webviews.PublicationDetail.as_view(), name = 'kegiatan-detail'),

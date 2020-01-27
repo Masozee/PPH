@@ -35,6 +35,36 @@ class Sekolah(models.Model):
     class Meta:
         verbose_name = ("Pendidikan")
         verbose_name_plural = ("Pendidikan")
+
+
+class Jabatan(models.Model):
+    jabatan = models.CharField(max_length=100)
+    keterangan = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.jabatan
+
+class Posisi(models.Model):
+    posisi = models.CharField(max_length=100)
+    keterangan = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.posisi
+
+class Kepakaran(models.Model):
+    pakar = models.CharField(max_length=100)
+    keterangan = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.pakar
+
+class Peminatan(models.Model):
+    minat = models.CharField(max_length=100)
+    keterangan = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.minat
+
 # Create your models here
 class StaffQuerySet(models.QuerySet):
     def search(self, query=None):
@@ -69,11 +99,6 @@ class Staff (models.Model):
     email2= models.EmailField(null=True, blank=True)
     tanggal_bergabung = models.DateField(null=True, blank=True)
     alamat = models.TextField(blank=True, null=True)
-    #pendidikan_terakhir = models.CharField(max_length=10, choices=KATEGORI_CHOICES, default= 'Strata 1', blank=True, null=True)
-    #Institusi_pendidikan = models.OneToOneField(Sekolah, on_delete=models.CASCADE, default=True, blank=True, null=True)
-    #strata_1 = models.OneToOneField(Sekolah, related_name='s1', on_delete=models.CASCADE, blank=True, null=True)
-    #strata_2 = models.OneToOneField(Sekolah, related_name='s2', on_delete=models.CASCADE, blank=True, null=True)
-    #strata_3 = models.OneToOneField(Sekolah, related_name='s3', on_delete=models.CASCADE, blank=True, null=True)
     pendidikan_1 = models.CharField(max_length=10, choices=KATEGORI_CHOICES, null=True, blank=True)
     jurusan_1 = models.TextField(null=True, blank=True)
     pendidikan_2 = models.CharField(max_length=10, choices=KATEGORI_CHOICES, null=True, blank=True)
@@ -86,8 +111,8 @@ class Staff (models.Model):
     posisi = models.CharField(max_length=150, default=True, blank=True, null=True)
     golongan_peneliti = models.CharField(max_length=20, blank=True, null=True)
     jabatan_struktural = models.CharField(max_length=20, blank=True, null=True)
-    kepakaran = models.CharField(max_length=80, blank=True, null=True)
-    peminatan = models.CharField(max_length=80, blank=True, null=True)
+    kepakaran = models.ForeignKey(Kepakaran, on_delete=models.CASCADE,blank=True, null=True)
+    peminatan = models.ForeignKey(Peminatan, on_delete=models.CASCADE,blank=True, null=True)
     Tempat_Lahir = models.CharField(max_length=50, blank=True)
     Tanggal_Lahir = models.CharField(max_length=50, blank=True)
     foto = models.ImageField(upload_to="images/web/staff/", height_field=None, width_field=None, max_length=None, blank=True, null=True)

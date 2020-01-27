@@ -1,10 +1,16 @@
 from .models import Kontak, Signup
 from django import forms
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit, Row, Column
 from .models import Kontak, downloadForm
 from django.forms import ModelForm
+from .multiforms import MultiFormsView
+from captcha.fields import ReCaptchaField
 
+class ReCAPTCHAForm(forms.Form):
+    captcha = ReCaptchaField()
+
+
+class MultipleForm(forms.Form):
+    action = forms.CharField(max_length=60, widget=forms.HiddenInput())
 
 class ContactForm(ModelForm):
     
@@ -14,10 +20,10 @@ class ContactForm(ModelForm):
 
 
 class DownloadForm(ModelForm):
-    
+    captcha = ReCaptchaField()
     class Meta:
         model = downloadForm
-        fields = ['nama','email','dokumen']
+        fields = ['nama','email','organisasi','dokumen']
 
 
 class EmailSignupForm(forms.ModelForm):
@@ -34,3 +40,5 @@ class EmailSignupForm(forms.ModelForm):
 
 
 #class VisitorForm(forms.ModelForm):
+
+

@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'google_analytics',
     'meta',
     'lazysignup',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -151,43 +152,38 @@ SVG_DIRS            = [os.path.join(BASE_DIR, 'static/svg') ]
 
 
 
-# Third Party  Settings
+#==========================================THIRD PARTY SETTINGS======================================================
 
 
-#CKEDITOR
+#CKEDITOR -----------------------------------------------------------------------------------------------------------
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 CKEDITOR_UPLOAD_PATH = 'content/ckeditor/'
 CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_CONFIGS = {
     'default': {
-        #'toolbar': 'Custom',
         'width': 'auto',
         'height': 'auto',
-        #'toolbar_Custom': [
-        #   ['Bold', 'Italic', 'Underline'],
-        #  ['NumberedList', 'BulletedList'],
-        #],
     },
 }
- 
-#DJANGO CRISPY FORMS
-#CRISPY_TEMPLATE_PACK ='bootstrap4'
 
-MAILCHIMP_API_KEY = 'bb031e8e4a13bfa25359cfb79163ade4-us20'
+#Mailchimp ----------------------------------------------------------------------------------------------------------
+MAILCHIMP_API_KEY = 'bb96a92e868cae07a049a5d25cf688f4-us20'
 MAILCHIMP_DATA_CENTER = 'us20'
 MAILCHIMP_EMAIL_LIST_ID = '75b463b1fa'
 
-
-#CUSTOM USER
-
+#CUSTOM USER --------------------------------------------------------------------------------------------------------
 AUTH_USER_MODEL = 'USER.CustomUser'
 
+#Redirect URL --------------------------------------------------------------------------------------------------------
 LOGIN_REDIRECT_URL = 'KM-Penelitian'
 LOGOUT_REDIRECT_URL = 'home-web'
 
-GA_TRACKING_ID = 'UA-153670934-1'
-
-
+#crispy form --------------------------------------------------------------------------------------------------------
 CRISPY_TEMPLATE_PACK ='bootstrap4'
 
-    GOOGLE_RECAPTCHA_SECRET_KEY = '6Le0U9IUAAAAAGTnpukJpXl-gZPG9XwBvdFfrVJX'
+#rechaptha lama -----------------------------------------------------------------------------------------------------
+GOOGLE_RECAPTCHA_SECRET_KEY = '6Le0U9IUAAAAAGTnpukJpXl-gZPG9XwBvdFfrVJX'
+
+#google rechaptha ---------------------------------------------------------------------------------------------------
+RECAPTCHA_PUBLIC_KEY = '6Ld5zdIUAAAAAEBQ7E4JUlTRpvyv8LwHFYopOCwo'
+RECAPTCHA_PRIVATE_KEY = '6Ld5zdIUAAAAAJqieEqW8qF4b5RRO49PShA3lVT5'
