@@ -34,10 +34,14 @@ def inventaris(request):
 
 @login_required(login_url='/users/login/')
 def stafflist(request):
-    staff = Staff.objects.filter(is_active=True, is_staff=True).values('nama', 'pendidikan_1', 'pendidikan_2','pendidikan_3','pendidikan_4', 'email', 'posisi','peminatan', 'kepakaran' )
+    staff = Staff.objects.filter(is_active=True, is_staff=True)
+    kepakaran = Kepakaran.objects.all()
+    peminatan = Peminatan.objects.all()
     
     context = {
         "staff": staff,
+        "pkr": kepakaran,
+        "mnt": peminatan,
     }
     return render(request, "km/staff.html", context)
 
@@ -68,14 +72,12 @@ class lapor():
 @login_required(login_url='/users/login/')
 def profilpenelitian(request):
     penelitian = Penelitian.objects.all()
-    Penthn = list(set([mulai.date.year for mulai in penelitian]))
     dokumen = DokumenPenelitian.objects.all()
     donor = Donor.objects.all()
 
     context = {
         "penelitian": penelitian,
         "dokumen": dokumen,
-        "Penthn": Penthn,
         "donor" : donor,
     }
     return render(request, "km/penelitian.html", context)
@@ -93,10 +95,12 @@ def PenelitianDetail(request, penelitian_slug):
 def profilpeningkatan(request):
     peningkatan = PeningkatanKapasitas.objects.filter(jenis='PPH UNIKA Atma Jaya')
     dokumen = DokumenPeningkatan.objects.all()
+    donor = Donor.objects.all()
 
     context = {
         "peningkatan": peningkatan,
-        "dokumen": dokumen
+        "dokumen": dokumen,
+        "donor" : donor,
     }
     return render(request, "km/peningkatan-kapasitas.html", context)
 

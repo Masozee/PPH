@@ -41,7 +41,7 @@
                     <li class="list-inline-item"><a href="https://twitter.com/share?&url={{ request.build_absolute_uri }}/"><img class="py-1" src="{% static 'web/icon/003-twitter-logo-button.svg' %}" alt=""></a></li>
                     <li class="list-inline-item" data-clipboard-target="{{ request.build_absolute_uri }}" id="sharepph"><a href="#"><img class="py-1" src="{% static 'web/icon/009-share.svg' %}" alt="Copy to clipboard"></a></li>
                     <li class="list-inline-item"><a href="/media/{{ object.download }}" target= "_blank" ><img class="py-1" src="{% static 'web/icon/008-down-arrow-in-a-circle.svg' %}" alt=""></a></li>
-                    <li class="list-inline-item"><a class="" data-toggle="tooltip" data-placement="top" title="Copy profile Link" onclick="copy_to_clipboard('{{ request.build_absolute_uri }}')">
+                    <li class="list-inline-item"><a class="copy_text"  data-toggle="tooltip" title="Copy to Clipboard" href="{{request.build_absolute_uri}}">
                         <img class="py-1" src="{% static 'web/icon/009-share.svg' %}" alt="Copy to clipboard"></a>
                     </li>
                 </ul>
@@ -63,16 +63,20 @@
 {% endblock %}
 
 {% block js %}
-<script src="dist/clipboard.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
-    function copy_to_clipboard(link) {
-        $("#url_public_id").show()
-        var Url = document.getElementById("url_public_id");
-        Url.select();
-        document.execCommand("copy");
-        $("#url_public_id").hide()
-        alert("Copied URL ");
-}
+    $('.copy_text').click(function (e) {
+        e.preventDefault();
+        var copyText = $(this).attr('href');
 
+        document.addEventListener('copy', function(e) {
+            e.clipboardData.setData('text/plain', copyText);
+            e.preventDefault();
+        }, true);
+
+        document.execCommand('copy');
+        console.log('copied text : ', copyText);
+        alert('copied text: ' + copyText);
+    });
 </script>
 {% endblock %}

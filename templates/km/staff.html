@@ -72,11 +72,13 @@
                       </a>
                   </div>
                   <div id="collapseTiga" class="collapse" data-parent="#accordion" >
+                    {% for A in pkr %}
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" > <span class="label-text">lorem ipsum</span>
+                        <input type="checkbox" name="kepakaran" value="{{A.pakar}}"> <span class="label-text">{{A.pakar}}</span>
                       </label>
                     </div>
+                    {% endfor %}
                   </div>
                   <!-- Fokus Area -->
                   <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
@@ -85,10 +87,10 @@
                       </a>
                   </div>
                   <div id="collapseFour" class="collapse" data-parent="#accordion" >
-                      {% for a in staff %}
+                      {% for B in mnt %}
                     <div class="form-check">
                       <label>
-                        <input type="checkbox" name="check" > <span class="label-text">{{a.kepakaran}}</span>
+                        <input type="checkbox" name="peminatan" value="{{B.minat}}"> <span class="label-text">{{B.minat}}</span>
                       </label>
                     </div>
                     {% endfor %}
@@ -197,12 +199,19 @@
                   //  filter kolomm ke 1
                   tabel.column(3).search(JBTN,true,false,false).draw(false);
 
-                  var FKS = $('input:checkbox[name="pendidikan"]:checked').map(function(){
+                  var PKR = $('input:checkbox[name="kepakaran"]:checked').map(function(){
                     return this.value;
                   }).get().join('|');
 
                   //  filter kolomm ke 2
-                  tabel.column(4).search(FKS,true,false,false).draw(false);
+                  tabel.column(5).search(PKR,true,false,false).draw(false);
+
+                  var MNT = $('input:checkbox[name="peminatan"]:checked').map(function(){
+                    return this.value;
+                  }).get().join('|');
+
+                  //  filter kolomm ke 2
+                  tabel.column(4).search(MNT,true,false,false).draw(false);
                 });
               }) ;
         } );

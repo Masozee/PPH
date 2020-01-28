@@ -90,13 +90,73 @@
                       </a>
                   </div>
                   <div id="collapseTiga" class="collapse" data-parent="#accordion" >
-                      {% for a in Penthn %}
+                      
                     <div class="form-check">
                       <label>
-                        <input id="{{a.nama}}" type="checkbox" name="Donor" value="{{a.nama}}"> <span class="label-text">{{a}}</span>
+                        <input id="2010" type="checkbox" name="tahun" value="2010"> <span class="label-text">2010</span>
                       </label>
                     </div>
-                      {% endfor %}
+
+                    <div class="form-check">
+                      <label>
+                        <input id="2011" type="checkbox" name="tahun" value="2011"> <span class="label-text">2011</span>
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <label>
+                        <input id="2012" type="checkbox" name="tahun" value="2012"> <span class="label-text">2012</span>
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <label>
+                        <input id="2013" type="checkbox" name="tahun" value="2013"> <span class="label-text">2013</span>
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <label>
+                        <input id="2014" type="checkbox" name="tahun" value="2014"> <span class="label-text">2014</span>
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <label>
+                        <input id="2015" type="checkbox" name="tahun" value="2015"> <span class="label-text">2015</span>
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <label>
+                        <input id="2016" type="checkbox" name="tahun" value="2016"> <span class="label-text">2016</span>
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <label>
+                        <input id="2017" type="checkbox" name="tahun" value="2017"> <span class="label-text">2017</span>
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <label>
+                        <input id="2018" type="checkbox" name="tahun" value="2018"> <span class="label-text">2018</span>
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <label>
+                        <input id="2019" type="checkbox" name="tahun" value="2019"> <span class="label-text">2019</span>
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <label>
+                        <input id="2020" type="checkbox" name="tahun" value="2020"> <span class="label-text">2020</span>
+                      </label>
+                    </div>
+                    
                   </div>
                   <!-- Sumber Daya -->
                   <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
@@ -132,7 +192,7 @@
               <div class="col-3">
                 {% if user.is_authenticated %}
                 <img class="account float-left" src="{% static 'km/img/img-account.png' %}" alt="">
-                  <div class="nama fleat-rigt">Hi {{user.username}}!</div>
+                  <div class="nama fleat-rigt">Hi {{user.first_name}}!</div>
                 {% endif %}
               </div>
             </div>
@@ -165,7 +225,7 @@
                       <td>{{A.thnmly}}</td>
                       <td>{{A.thnslsy}}</td>
                       <td>{% for B in A.sumber_dana.all %}
-                            <li>{{B}}</li>
+                            {{B}}<br>
                       {% endfor %}</td>
                   </tr>
                   {% endfor %}
@@ -221,7 +281,14 @@
                   }).get().join('|');
 
                   //  filter kolomm ke 2
-                  tabel.column(4).search(DNR,true,false,false).draw(false);
+                  tabel.column(5).search(DNR,true,false,false).draw(false);
+
+                  var THN = $('input:checkbox[name="tahun"]:checked').map(function(){
+                    return this.value;
+                  }).get().join('|');
+
+                  //  filter kolomm ke 2
+                  tabel.column(3).search(THN,true,false,false).draw(false);
                 });
 
 

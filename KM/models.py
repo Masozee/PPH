@@ -41,6 +41,10 @@ class Jabatan(models.Model):
     jabatan = models.CharField(max_length=100)
     keterangan = models.TextField(null=True, blank=True)
 
+    class Meta:
+        verbose_name = ("Jabatan")
+        verbose_name_plural = ("Jabatan")
+
     def __str__(self):
         return self.jabatan
 
@@ -48,12 +52,20 @@ class Posisi(models.Model):
     posisi = models.CharField(max_length=100)
     keterangan = models.TextField(null=True, blank=True)
 
+    class Meta:
+        verbose_name = ("Posisi")
+        verbose_name_plural = ("Posisi")
+
     def __str__(self):
         return self.posisi
 
 class Kepakaran(models.Model):
     pakar = models.CharField(max_length=100)
     keterangan = models.TextField(null=True, blank=True)
+
+    class Meta:
+        verbose_name = ("Kepakaran")
+        verbose_name_plural = ("Kepakaran")
 
     def __str__(self):
         return self.pakar
@@ -64,7 +76,12 @@ class Peminatan(models.Model):
 
     def __str__(self):
         return self.minat
+        
+    class Meta:
+        verbose_name = ("Fokus Area")
+        verbose_name_plural = ("Fokus Area")
 
+    
 # Create your models here
 class StaffQuerySet(models.QuerySet):
     def search(self, query=None):

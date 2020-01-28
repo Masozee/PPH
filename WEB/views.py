@@ -23,8 +23,8 @@ from .multiforms import MultiFormsView
 
 form2 = EmailSignupForm()
 
-from .models import Berita, Acara, TentangKami, HomeSLide, Kontak, Signup
-from KM.models import Publikasi, Staff
+from .models import Berita, Acara, TentangKami, HomeSLide, Kontak, Signup, downloadForm
+from KM.models import *
 
 
 # Create your views here.
@@ -412,7 +412,7 @@ def Pustakadet(request, publikasi_slug):
         if form.is_valid():
 
             u = form.save()
-            users = DownloadForm.objects.all()
+            users = downloadForm.objects.all()
 
             return render(request, "web/detail-pustaka.html", {'users': users})
     else:
