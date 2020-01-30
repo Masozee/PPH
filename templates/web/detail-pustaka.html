@@ -1,5 +1,6 @@
 {% extends 'web/base.html' %}
 {% load static %}
+{% load social_share %}
 
 {% block css %}
 <link rel="stylesheet" href="{%static 'web/css/detail-artikel.css' %}">
@@ -81,6 +82,8 @@
                         <li class="list-inline-item"><a href="https://twitter.com/share?&url={{ request.build_absolute_uri }}"><img class="py-1" src="{% static 'web/icon/003-twitter-logo-button.svg' %}" alt=""></a></li>
                         <li class="list-inline-item"><a href=""><img class="py-1" src="{% static 'web/icon/009-share.svg' %}" alt=""></a></li>
                         <li class="list-inline-item"><a href="#modal-download" data-toggle="modal"><img class="py-1" src="{% static 'web/icon/008-down-arrow-in-a-circle.svg' %}" alt=""></a></li>
+                        <li>{% post_to_facebook object_or_url %}</li>
+                        <li class="list-inline-item"><{% post_to_facebook object_or_url %}><img class="py-1" src="{% static 'web/icon/004-facebook-logo-button.svg' %}" alt=""></a></li>
                     </ul>
                 </div>
             </div><hr>

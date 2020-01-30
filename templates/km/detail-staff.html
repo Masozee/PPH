@@ -41,15 +41,10 @@
 
               <div class="d-staff-pendidikan">
                 <h4>Pendidikan</h4>
-                {% if staff.pendidikan_4 is not None %}
-                  <h5>{{staff.pendidikan_4}} {{staff.jurusan_4}}</h5>
-                {% elif staff.pendidikan_3 is not None %}
-                  <h5>{{staff.pendidikan_3}} {{staff.jurusan_3}}</h5>
-                {% elif staff.pendidikan_2 is not None %}
-                  <h5>{{staff.pendidikan_2}} {{staff.jurusan_2}}</h5>
-                {% else %}
                   <h5>{{staff.pendidikan_1}} {{staff.jurusan_1}}</h5>
-                {% endif %}
+                  <h5>{{staff.pendidikan_2}} {{staff.jurusan_2}}</h5>
+                  <h5>{{staff.pendidikan_3}} {{staff.jurusan_3}}</h5>
+                  <h5>{{staff.pendidikan_4}} {{staff.jurusan_4}}</h5>
               </div>
                
           </div>
@@ -67,7 +62,7 @@
               </div>
               <div class="col-3">
                {% if user.is_authenticated %}
-                <img class="account float-left" src="{% static 'km/img/img-account.png' %}" alt="">
+                <img class="account float-left" src="/media/{{user.avatar}}" alt="">
                   <div class="nama fleat-rigt">Hi {{user.first_name}}!</div>
                 {% endif %}
               </div>

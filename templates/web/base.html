@@ -134,13 +134,19 @@
                         <li class="nav-item">
                           <div class="icon-cari">
                             <form method="GET" class="search" action="/cari/">
-                              <input class="inputCari"  type="text" name="q"placeholder="ketik kata kunci">
+                              <input class="inputCari"  type="text" name="q" placeholder="ketik kata kunci">
                               <i class="cari fa fa-search"></i>
                             </form>
                           </div>
                         </li>
                         <li class="nav-item"><img class="batasAkun" src="{% static 'web/images/Line 1.png' %}" alt="" srcset=""></li>
-                        <li class="nav-item "><div class=" linkAkun"><img class="gambar-acount" src="{% static 'web/icon/account-24px.svg' %}" alt="" srcset=""><a href="{% url 'KM-Staff' %}">KM PPH</a></div> </li>
+                        <li class="nav-item "><div class=" linkAkun"><img class="gambar-acount" src="{% static 'web/icon/account-24px.svg' %}" alt="" srcset="">
+                            {% if request.user.is_visitor %}
+                            <a href="{% url 'logout' %}">KM PPH</a>
+                             {% else %}
+                            <a href="{% url 'KM-Staff' %}">KM PPH</a>
+                            {% endif %}
+                            </div> </li>
                     </ul>
                 </div>
             </div>

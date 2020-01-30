@@ -3,7 +3,7 @@ from KM import views as kmviews
 from django.contrib.auth.decorators import login_required, permission_required 
 
 urlpatterns = [
-    path('', kmviews.homepage),
+    path('', kmviews.homepage, name = 'KM-home'),
     path('staff/', kmviews.stafflist, name = 'KM-Staff'),
     #path('staff/<str:slug>/', kmviews.Staffdetail, name='staff-detail'),
     re_path('staff/(?P<staff_slug>[\w-]+)/$', kmviews.staffDetail, name='staff-detail'),

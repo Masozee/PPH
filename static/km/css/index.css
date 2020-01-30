@@ -82,12 +82,13 @@ input{
 /* login guest */
 .form-guest{
     padding-left: 42px;
-    padding-top: 52px;
+    padding-top: 120px;
     padding-right: 42px;
     padding-bottom: 40px;
     background-color: #0083ca;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+
 }
 
 .form-guest h3{
@@ -109,6 +110,7 @@ input{
 
 .form-guest button{
     align-items: center;
+    margin-top: 61px ;
 }
 
 .btn-guest{

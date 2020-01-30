@@ -1,6 +1,7 @@
 import json
 import urllib
 import requests
+from django.contrib.auth import authenticate, login
 
 from django.shortcuts import render, Http404, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -9,16 +10,17 @@ from django.views.generic import DetailView, ListView, TemplateView
 from .forms import ContactForm, DownloadForm, EmailSignupForm
 from django.views.generic.edit import FormMixin
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
-from .utils import SendSubscribeMail
 from django.conf import settings
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required, permission_required
-from lazysignup.decorators import allow_lazy_user
-from taggit.models import Tag, TaggedItem
-from django.shortcuts import render
+from django.utils.decorators import method_decorator
+from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
+from USER.decorators import visitor_required, staff_required
+from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
 
 from .multiforms import MultiFormsView
+from USER.forms import VisitorSignUpForm
 
 
 form2 = EmailSignupForm()
@@ -193,6 +195,7 @@ def ArtikelPenelitian(request):
     }
 
     return render(request, "web/dukomentasi.html", context)
+
 def ArtikelAdvokasi(request):
     dokumentasi = Berita.objects.filter(Kategori="Artikel", Agenda="Advokasi").order_by('-tanggal')
     paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
@@ -390,9 +393,9 @@ def kontak(request):
 
 def pustaka(request):
     slide = HomeSLide.objects.all()
-    Pustaka_HIV = Publikasi.objects.filter(tema='HIV AIDS').order_by('date_upload').distinct()[:6]
-    Pustaka_Publikasi = Publikasi.objects.filter(tema='Publikasi').order_by('date_upload').distinct()[:6]
-    Pustaka_Regulasi = Publikasi.objects.filter(tema='Regulasi').order_by('date_upload').distinct()[:6]
+    Pustaka_HIV = Publikasi.objects.filter(tema='HIV AIDS').order_by('-date_upload').distinct()[:6]
+    Pustaka_Publikasi = Publikasi.objects.filter(tema='Publikasi').order_by('-date_upload').distinct()[:6]
+    Pustaka_Regulasi = Publikasi.objects.filter(tema='Regulasi').order_by('-date_upload').distinct()[:6]
 
     context = {
         "Slide": slide,
@@ -420,8 +423,21 @@ def Pustakadet(request, publikasi_slug):
 
     return render(request, "web/detail-pustaka.html", {'form': form_class, 'object': publikasi})
 
-#@login_required(login_url='/users/login/')
-@allow_lazy_user
+
+@method_decorator([login_required,visitor_required, staff_required], name='dispatch')
+class pustakalisting(TemplateView):
+    template_name = 'web/pustaka-list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(pustakalisting, self).get_context_data(**kwargs)
+        context['slide'] = HomeSLide.objects.all()
+        context['HIV'] = Publikasi.objects.filter(tema='HIV AIDS').order_by('-date_upload').distinct()
+        context['Publikasi'] = Publikasi.objects.filter(tema='Publikasi').order_by('-date_upload').distinct()
+        context['Regulasi'] = Publikasi.objects.filter(tema='Regulasi').order_by('-date_upload').distinct()
+        context['list'] = Publikasi.objects.all().distinct()
+
+
+@login_required
 def pustakalist(request):
     slide = HomeSLide.objects.all()
     Pustaka_HIV = Publikasi.objects.filter(tema='HIV AIDS').order_by('-date_upload').distinct()
@@ -545,7 +561,7 @@ class MultipleFormsDemoView(MultiFormsView):
         print(title)
         return HttpResponseRedirect(self.get_success_url(form_name))
 
-    def subscription_form_valid(self,):
+    def subscription_form_valid(self,request):
         form = EmailSignupForm(request.POST or None)
         if request.method == "POST":
             if form.is_valid():
@@ -556,3 +572,4 @@ class MultipleFormsDemoView(MultiFormsView):
                     subscribe(form.instance.email)
                     form.save()
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+

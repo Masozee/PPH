@@ -12,31 +12,6 @@ from USER.models import *
 from django.contrib.auth.models import User
 
 
-class Sekolah(models.Model):
-    KATEGORI_CHOICES = (
-        ('SMA', 'SMA'),
-
-        ('Diploma 1', 'D1'),
-        ('Diploma 2', 'D2'),
-        ('Diploma 3', 'D3'),
-
-        ('Strata 1', 'S1'),
-        ('Strata 2', 'S2'),
-        ('Strata 3', 'S3')
-    )
-
-    jenjang = models.CharField(max_length=15, choices=KATEGORI_CHOICES,default= 'Strata 1')
-    nama_sekolah = models.CharField(max_length=50)
-    jurusan = models.CharField(max_length=50, null=True, blank=True)
-
-    def __str__(self):
-        return self.jenjang + ' '+ self.nama_sekolah
-
-    class Meta:
-        verbose_name = ("Pendidikan")
-        verbose_name_plural = ("Pendidikan")
-
-
 class Jabatan(models.Model):
     jabatan = models.CharField(max_length=100)
     keterangan = models.TextField(null=True, blank=True)
@@ -420,6 +395,22 @@ class Penelitian(models.Model):
     def pselesai(self):
         return self.selesai.strftime('%d %B %Y')
 
+class DokuPenelitianQuerySet(models.QuerySet):
+    def search(self, query=None):
+        qs = self
+        if query is not None:
+            or_lookup = (Q(nama__icontains=query)
+                        )
+            qs = qs.filter(or_lookup)# distinct() is often necessary with Q lookups
+        return qs
+
+class DokuPenelitianManager(models.Manager):
+    def get_queryset(self):
+        return DokuPenelitianQuerySet(self.model, using=self._db)
+
+    def search(self,query=None):
+        return self.get_queryset().search(query=query)
+
 class DokumenPenelitian(models.Model):
     KATEGORI_CHOICES = (
         ('Proposal - Penelitian', 'Proposal Penelitian'),
@@ -451,6 +442,8 @@ class DokumenPenelitian(models.Model):
     Judul = models.TextField(blank=True)
     dokumen = models.FileField(upload_to='KM/dokumenpenelitian')
     date_created = models.DateField(default=date.today)
+
+    objects = DokuPenelitianManager()
 
     class Meta:
         verbose_name = ("Dokumen Penelitian")
@@ -554,6 +547,23 @@ class PeningkatanKapasitas(models.Model):
     def pselesai(self):
         return self.selesai.strftime('%d %B %Y')
 
+
+class DokuPeningkatanQuerySet(models.QuerySet):
+    def search(self, query=None):
+        qs = self
+        if query is not None:
+            or_lookup = (Q(nama__icontains=query)
+                        )
+            qs = qs.filter(or_lookup)# distinct() is often necessary with Q lookups
+        return qs
+
+class DokuPeningkatanManager(models.Manager):
+    def get_queryset(self):
+        return DokuPenelitianQuerySet(self.model, using=self._db)
+
+    def search(self,query=None):
+        return self.get_queryset().search(query=query)
+
 class DokumenPeningkatan(models.Model):
     KATEGORI_CHOICES = (
         ('Substansi - Kerangka Acuan', 'Substansi - Kerangka Acuan'),
@@ -570,16 +580,35 @@ class DokumenPeningkatan(models.Model):
     dokumen = models.FileField(upload_to='KM/peningkatankapasitas')
     date_created = models.DateField(default=date.today)
 
+    objects=DokuPeningkatanManager()
+
     class Meta:
         verbose_name = ("Dokumen Peningkatan")
         verbose_name_plural = ("Dokumen Peningkatan")
 
     def __str__(self):
-        return self.Judul
+        return str(self.Judul)
 
     @property
     def tanggal(self):
         return self.date_created.strftime('%d %B %Y')
+
+
+class MediaAdvQuerySet(models.QuerySet):
+    def search(self, query=None):
+        qs = self
+        if query is not None:
+            or_lookup = (Q(nama__icontains=query)
+                        )
+            qs = qs.filter(or_lookup)# distinct() is often necessary with Q lookups
+        return qs
+
+class MediaAdvManager(models.Manager):
+    def get_queryset(self):
+        return MediaAdvQuerySet(self.model, using=self._db)
+
+    def search(self,query=None):
+        return self.get_queryset().search(query=query)
 
 class MediaAdvokasi(models.Model):
     KATEGORI_CHOICES = (
@@ -604,6 +633,8 @@ class MediaAdvokasi(models.Model):
     file = models.FileField(upload_to='km/mediaadvokasi/',null=True, blank=True)
     keterangan = models.TextField(null=True, blank=True)
 
+    objects = MediaAdvManager()
+
     class Meta:
         verbose_name = ("Media Advokasi")
         verbose_name_plural = ("Media Advokasi")
@@ -620,6 +651,21 @@ class MediaAdvokasi(models.Model):
     def thn(self):
         return self.tahun.strftime('%Y')
 
+class ManajemenQuerySet(models.QuerySet):
+    def search(self, query=None):
+        qs = self
+        if query is not None:
+            or_lookup = (Q(nama__icontains=query)
+                        )
+            qs = qs.filter(or_lookup)# distinct() is often necessary with Q lookups
+        return qs
+
+class ManajemenManager(models.Manager):
+    def get_queryset(self):
+        return ManajemenQuerySet(self.model, using=self._db)
+
+    def search(self,query=None):
+        return self.get_queryset().search(query=query)
 
 class Manajemen(models.Model):
     KATEGORI_CHOICES = (
@@ -633,6 +679,8 @@ class Manajemen(models.Model):
     tahun = models.DateField(null=True, blank=True)
     file = models.FileField(upload_to='km/manajemen/', null=True, blank=True)
     keterangan = models.TextField(null=True, blank=True)
+
+    objects = ManajemenManager()
 
     class Meta:
         verbose_name = ("Manajemen")
@@ -649,6 +697,22 @@ class Manajemen(models.Model):
     @property
     def thn(self):
         return self.tahun.strftime('%Y')
+
+class PublikasiStaffQuerySet(models.QuerySet):
+    def search(self, query=None):
+        qs = self
+        if query is not None:
+            or_lookup = (Q(nama__icontains=query)
+                        )
+            qs = qs.filter(or_lookup)# distinct() is often necessary with Q lookups
+        return qs
+
+class PublikasiStaffManager(models.Manager):
+    def get_queryset(self):
+        return PublikasiStaffQuerySet(self.model, using=self._db)
+
+    def search(self,query=None):
+        return self.get_queryset().search(query=query)
 
 class Publikasi_staff(models.Model):
     
@@ -680,6 +744,8 @@ class Publikasi_staff(models.Model):
     peran = models.CharField(max_length=20, choices = PERAN_CHOICES)
     tingkat = models.CharField(max_length=20, choices = TINGKAT_CHOICES)
     link = models.URLField(blank=True, null=True)
+
+    objects = PublikasiStaffManager()
 
     class Meta:
         verbose_name = ("Publikasi Staff")

@@ -9,9 +9,11 @@ urlpatterns = [
     path('kontak/', webviews.kontak, name = 'kontak'),
     path('subscribe/', webviews.email_list_signup, name= 'subscribe'),
     re_path('tag/(?P<tag>[\w-]+)/$', webviews.Taglist.as_view(), name='tag'),
+
+    #PUSTAKA-------------------------------
     path('pustaka/', webviews.pustaka, name= 'pustaka'),
+    path('pustaka/listing/', webviews.pustakalisting.as_view(), name= 'pustaka-listing'),
     path('pustaka/list/', webviews.pustakalist, name= 'pustaka-list'),
-    #path('pustaka/<str:slug>/', webviews.PustakaDetail.as_view(), name='artikel-detail'),
     re_path('pustaka/(?P<publikasi_slug>[\w-]+)/$', webviews.Pustakadet, name='pusdet-detail'),
 
     path('kegiatan/', webviews.PublicationList.as_view(), name='kegiatan'),
@@ -48,7 +50,7 @@ urlpatterns = [
 
     path('kesehatan-jiwa/', webviews.Kesehatanjiwa, name='Kesehatanjiwa'),
 
-    path('masuk/', include('lazysignup.urls')),
+
 
 
     #path('staff/', webviews.Team.as_view(), name='news-list'),

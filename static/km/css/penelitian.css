@@ -336,7 +336,8 @@ input[type="radio"]:disabled + .label-text:before{
 .account{
     margin-top: 32px;
     margin-right: 15px;
-    width: 32px;
+	width: 32px;
+	border-radius: 50% !important;
 }
 
 .nama{
@@ -568,6 +569,8 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 	width: 90px;
 	height: 90px;
 	border-radius: 20px;
+	object-fit: cover;
+    object-position: top;
 }
 
 .media-body h3{
@@ -724,10 +727,27 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 .evaluasi-komentar button{
 	margin-right: 6%;
 }
-
+ 
 .evaluasi-komentar .form-group{
 	margin-bottom: 0 !important;
 }
+
+.table-evaluasi-komentar button{
+	margin-top: -50px;
+}
+
+.table-evaluasi-komentar img{
+	width: 40px;
+
+}
+
+.table-evaluasi-komentar textarea {
+	font-family: 'silkamedium';
+	font-size: 10px;
+	color: #707070;
+}
+
+
 
 /* tutup evaluasi */
 

@@ -68,7 +68,7 @@
               </div>
               <div class="col-3">
                 {% if user.is_authenticated %}
-                <img class="account float-left" src="{% static 'km/img/img-account.png' %}" alt="">
+                <img class="account float-left" src="/media/{{user.avatar}}" alt="">
                   <div class="nama fleat-rigt">Hi {{user.first_name}}!</div>
                 {% endif %}
               </div>

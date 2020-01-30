@@ -26,7 +26,7 @@ class InventoryAdmin (admin.ModelAdmin):
     list_per_page = 25
 admin.site.register(Inventaris, InventoryAdmin)
 
-admin.site.register(Sekolah)
+
 admin.site.register(Kontak_PPH)
 admin.site.register(Penelitian)
 admin.site.register(DokumenPenelitian)

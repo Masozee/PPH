@@ -8,6 +8,7 @@ from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from USER.decorators import staff_required
 from .filters import *
 
 from taggit.models import Tag, TaggedItem
@@ -23,7 +24,7 @@ from WEB.models import *
 class homepage():
     pass
 
-@login_required(login_url='/users/login/')
+@staff_required
 def inventaris(request):
     inventory = Inventaris.objects.all()
     
@@ -32,7 +33,7 @@ def inventaris(request):
     }
     return render(request, "km/inventaris.html", context)
 
-@login_required(login_url='/users/login/')
+@staff_required
 def stafflist(request):
     staff = Staff.objects.filter(is_active=True, is_staff=True)
     kepakaran = Kepakaran.objects.all()
@@ -45,7 +46,7 @@ def stafflist(request):
     }
     return render(request, "km/staff.html", context)
 
-
+@staff_required
 def staffDetail(request, staff_slug):
     staff = Staff.objects.get(slug=staff_slug)
     penelitian = Penelitian.objects.filter(tim__id=staff.id)
@@ -60,16 +61,18 @@ def staffDetail(request, staff_slug):
     }
     return render(request, 'km/detail-staff.html', context)
 
-    
-@login_required(login_url='/users/login/')
+
+@staff_required
 class evaluasi():
     pass
 
-@login_required(login_url='/users/login/')
+
+@staff_required
 class lapor():
     pass
 
-@login_required(login_url='/users/login/')
+
+@staff_required
 def profilpenelitian(request):
     penelitian = Penelitian.objects.all()
     dokumen = DokumenPenelitian.objects.all()
@@ -82,6 +85,8 @@ def profilpenelitian(request):
     }
     return render(request, "km/penelitian.html", context)
 
+
+@staff_required
 def PenelitianDetail(request, penelitian_slug):
     A = Penelitian.objects.get(slug=penelitian_slug)
     Dokumen = DokumenPenelitian.objects.filter(penelitian__id=A.id)
@@ -91,7 +96,8 @@ def PenelitianDetail(request, penelitian_slug):
     }
     return render(request, 'km/profil-penelitian.html', context)
 
-@login_required(login_url='/users/login/')
+
+@staff_required
 def profilpeningkatan(request):
     peningkatan = PeningkatanKapasitas.objects.filter(jenis='PPH UNIKA Atma Jaya')
     dokumen = DokumenPeningkatan.objects.all()
@@ -104,6 +110,8 @@ def profilpeningkatan(request):
     }
     return render(request, "km/peningkatan-kapasitas.html", context)
 
+
+@staff_required
 def PeningkatanDetail(request, peningkatanKapasitas_slug):
     A = PeningkatanKapasitas.objects.get(slug=peningkatanKapasitas_slug)
     Dokumen = DokumenPeningkatan.objects.filter(Judul__id=A.id)
@@ -113,7 +121,8 @@ def PeningkatanDetail(request, peningkatanKapasitas_slug):
     }
     return render(request, 'km/profil-peningkatan.html', context)
 
-@login_required(login_url='/users/login/')
+
+@staff_required
 def media(request):
     Media = MediaAdvokasi.objects.all()
     context = {
@@ -121,7 +130,8 @@ def media(request):
     }
     return render(request, "km/media.html", context)
 
-@login_required(login_url='/users/login/')
+
+@staff_required
 def manajemen(request):
     manajemen = Manajemen.objects.all()
     context = {
@@ -129,7 +139,8 @@ def manajemen(request):
     }
     return render(request, "km/manajemen.html", context)
 
-@login_required(login_url='/users/login/')
+
+@staff_required
 class kegiatan():
     pass
 
@@ -146,6 +157,8 @@ def kontak(request):
 def kalender(request):
     return render(request, "km/kalender.html")
 
+
+@staff_required
 class ProfilPenelitian(DetailView):
     context_object_name = 'A'
     model = Penelitian
@@ -156,6 +169,7 @@ class ProfilPenelitian(DetailView):
         context['Dokumen'] = DokumenPenelitian.objects.all()
         return context
 
+@staff_required
 def PenelitianDetail(request, penelitian_slug):
     A = Penelitian.objects.get(slug=penelitian_slug)
     Dokumen = DokumenPenelitian.objects.filter(penelitian__id=A.id)

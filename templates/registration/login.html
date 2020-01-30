@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 
 <!doctype html>
 <html lang="en">
@@ -72,40 +73,38 @@
         <div class="col-md-5 form-user shadow ">
           <h3>Selamat Datang!</h3>
           <h6>Masukan email terdaftar dan password untuk dapat mengakses pusat data pph unika atma jaya</h6>
-          <form method="POST">
+          <form method="post" novalidate>
             {% csrf_token %}
-            <div class="form-group">
+             <input type="hidden" name="next" value="{{ next }}">
+            <div id="div_id_username" class="form-group">
               <span class="fa fa-envelope-o icon-form"></span>
-              <input type="username" name="username" class="form-control" id="id_username" aria-describedby="emailHelp" placeholder="Username">
+              <input type="text" name="username" class="form-control" id="id_username" aria-describedby="emailHelp" placeholder="Username">
             </div>
             <div class="form-group">
               <span class="fa fa-unlock-alt icon-form" aria-hidden="true"></span>
               <input type="password" name="password" class="form-control" id="id_password" placeholder="Password">
             </div>
-            <div class="forget-pass">
+            <div id="" class="forget-pass">
                 <a>Lupa Password</a>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button name="loginbtn" type="submit" class="btn btn-primary">Submit</button>
           </form>
+          <!-- alert -->
+          <!--div class=" alert-user alert alert-danger text-center " role="alert">
+              {% for error in form.non_field_errors %}
+                <p{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
+              {% endfor %}
+          </div-->
+          <!-- tutup alert -->
         </div>
         <div class="col-md-4 form-guest shadow ">
           <h3>Halo Sobat Peduli!</h3>
-          <h6>Masukan data diri kamu untuk dapat mengakses pusat data pph unika atma jaya.</h6>
-          <form>
-            <div class="form-group">
-              <span class="fa fa-user-o icon-form" aria-hidden="true"></span>
-              <input type="text" class="form-control" id="nama"  placeholder="Nama">
-            </div>
-            <div class="form-group">
-              <span class="fa fa-envelope-o icon-form" aria-hidden="true"></span>
-              <input type="text" class="form-control" id="Email" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <span class="fa fa-suitcase icon-form" aria-hidden="true"></span>
-              <input type="text" class="form-control" name="Institusi" id="institusi" placeholder="Institusi">
-            </div>
-            <button type="submit" class="btn btn-guest justify-content-center">Submit</button>
-          </form>
+          <h6>Daftarkan data diri kamu untuk dapat mengakses pusat data pph unika atma jaya.</h6>
+
+          <h6></h6>
+          <button  onclick="window.location.href = '{% url 'visitor-signup'%}';" class="btn btn-guest justify-content-center center" style="margin:auto;
+  display:block;">Daftar</button>
+
         </div>
       </div>
     </div>

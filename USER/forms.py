@@ -1,15 +1,36 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser
+from .models import *
+from django.db import transaction
+from django.forms.utils import ValidationError
 
-class CustomUserCreationForm(UserCreationForm):
-
-    class Meta:
+class StaffSignUpForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = ('username', 'email')
 
-class CustomUserChangeForm(UserChangeForm):
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.is_staff = True
+        if commit:
+            user.save()
+        return user
 
-    class Meta:
+class VisitorSignUpForm(UserCreationForm):
+    first_name = forms.CharField(max_length=100, )
+    last_name = forms.CharField(max_length=100, )
+    email = forms.EmailField(max_length=150, )
+    organisasi = forms.CharField(max_length=100,)
+
+    class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = ('username', 'email')
+        fields = ('username', 'first_name', 'last_name','organisasi',
+                  'email', 'password1', 'password2',)
+
+    @transaction.atomic
+    def save(self):
+        user = super().save(commit=False)
+        user.is_visitor = True
+        user.save()
+        return user
+
+
