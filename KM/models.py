@@ -83,7 +83,7 @@ class Staff (models.Model):
         ('Strata 3', 'S3')
     )
 
-    id_username = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=True, null=True)
+    id_username = models.OneToOneField(CustomUser, on_delete=models.CASCADE, blank=True, null=True)
     nama = models.CharField(max_length=50)
     slug = models.SlugField(default='', editable=False, max_length=140)
     NIK = models.CharField(max_length=13, null=True, blank=True)
@@ -750,6 +750,66 @@ class Publikasi_staff(models.Model):
     class Meta:
         verbose_name = ("Publikasi Staff")
         verbose_name_plural = ("Publikasi Staff")
+
+    def __str__(self):
+        return self.judul
+
+    def save(self, *args, **kwargs):
+        value = self.judul
+        self.slug = slugify(value, allow_unicode=True)
+        super().save(*args, **kwargs)
+
+    @property
+    def thn(self):
+        return self.tahun.strftime('%Y')
+
+
+class PeningkatanStaffQuerySet(models.QuerySet):
+    def search(self, query=None):
+        qs = self
+        if query is not None:
+            or_lookup = (Q(nama__icontains=query)
+                        )
+            qs = qs.filter(or_lookup)# distinct() is often necessary with Q lookups
+        return qs
+
+class PeningkatanStaffManager(models.Manager):
+    def get_queryset(self):
+        return PeningkatanStaffQuerySet(self.model, using=self._db)
+
+    def search(self,query=None):
+        return self.get_queryset().search(query=query)
+
+class PeningkatanKapasitas_staff(models.Model):
+    KATEGORI_CHOICES = (
+        ('Lecture Series', 'Lecture Series'),
+        ('Workshop dan Pelatihan', 'Workshop dan Pelatihan'),
+        ('Pertemuan dan Seminar', 'Pertemuan dan Seminar'),
+        ('Kursus Online', 'Kursus Online'),
+        ('Fun Sharing Day', 'Fun Sharing Day'),
+        ('Liputan Media', 'Liputan Media'),
+        ('Konferensi Nasional', 'Konferensi Nasional'),
+        ('Konferensi Internasional', 'Konferensi Internasional')
+    )
+
+
+    kategori = models.CharField(max_length=25, choices=KATEGORI_CHOICES)
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=True)
+    judul = models.CharField(max_length=200)
+    slug = models.SlugField(default='', editable=False, max_length=140)
+    mulai = models.DateField()
+    selesai = models.DateField()
+    lokasi = models.TextField(null=True, blank=True)
+    pembicara = models.TextField(blank=True)
+    penyelenggara = models.TextField()
+    laporan_kegiatan = models.FileField(upload_to='KM/staff/peningkatan/laporan/', null=True, blank=True)
+    materi = models.FileField(upload_to='KM/staff/peningkatan/materi/')
+
+    objects = PeningkatanStaffManager()
+
+    class Meta:
+        verbose_name = ("Peningkatan Kapasitas Staff")
+        verbose_name_plural = ("Peningkatan Kapasitas Staff")
 
     def __str__(self):
         return self.judul

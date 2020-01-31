@@ -7,6 +7,8 @@ urlpatterns = [
     path('staff/', kmviews.stafflist, name = 'KM-Staff'),
     #path('staff/<str:slug>/', kmviews.Staffdetail, name='staff-detail'),
     re_path('staff/(?P<staff_slug>[\w-]+)/$', kmviews.staffDetail, name='staff-detail'),
+    path('staff/peningkatankapasitas2/add/', kmviews.addPeningkatanKapasitas.as_view(), name = 'KMpeningkatan'),
+    path('staff/peningkatankapasitas/add/', kmviews.PenKap, name = 'KMpening'),
 
     path('inventaris/', kmviews.inventaris, name = 'KM-Inventaris'),
 
@@ -27,4 +29,9 @@ urlpatterns = [
 
     path('peningkatan-kapasitas/', kmviews.profilpeningkatan, name='KM-Peningkatan'),
     re_path('peningkatan-kapasitas/(?P<peningkatanKapasitas_slug>[\w-]+)/$', kmviews.PeningkatanDetail, name='peningkatan-detail'),
+
+
+    path('peningkatan-kapasitas/new', kmviews.Peni_create, name='peningkatan_new'),
+    path('peningkatan-kapasitas/edit/<int:pk>', kmviews.PeningkatanUpdate.as_view(), name='peningkatan_edit'),
+    path('peningkatan-kapasitas/delete/<int:pk>', kmviews.PeningkatanDelete.as_view(), name='peningkatan_delete'),
 ]

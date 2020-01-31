@@ -182,31 +182,6 @@
             {% block content %}
 
             {% endblock %}
-
-            {% block search %}
-
-          <div class="col-7 tabel-group ">
-            <div class="row">
-              <div class="col-9 search-group">
-                <div class="input-group flex-nowrap search">
-                  <form method="GET" class="search" action="/KM/cari/">
-
-                    <span class="input-group-text" id="addon-wrapping"><i class="fa fa-search" aria-hidden="true"></i></span>
-
-
-                  <input type="text" class="form-control" name="q" placeholder="Search File" aria-label="" aria-describedby="addon-wrapping">
-                  </form>
-                </div>
-              </div>
-              <div class="col-3">
-                {% if user.is_authenticated %}
-                <img class="account float-left" src="/media/{{user.avatar}}" alt="">
-                  <div class="nama fleat-rigt">Hi {{user.first_name}}!</div>
-                {% endif %}
-              </div>
-            </div>
-            {% endblock %}
-
         </div>
     </div>
   

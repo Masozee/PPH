@@ -80,12 +80,14 @@
           <div class="col-7 tabel-group ">
             <div class="row">
               <div class="col-9 search-group">
-                <div class="input-group flex-nowrap search">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <form method="GET" class="search" action="/KM/cari/">
+                  <div class="input-group flex-nowrap search">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="addon-wrapping" ><i class="fa fa-search" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="text" name="q" class="form-control" placeholder="Search File" aria-label="" aria-describedby="addon-wrapping">
                   </div>
-                  <input type="text" class="form-control" placeholder="Search File" aria-label="" aria-describedby="addon-wrapping">
-                </div>                  
+                </form>
               </div>
               <div class="col-3">
                {% if user.is_authenticated %}
