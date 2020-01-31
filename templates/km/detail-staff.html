@@ -105,7 +105,6 @@
                         <td>{% for B in a.sumber_dana.all %}
                             <li>{{B}}</li>
                         {% endfor %}</td>
-
                     </tr>
                     {% endfor %}
                 </tbody>   
@@ -120,7 +119,6 @@
                         <th>Judul</th>
                         <th>Kategori</th>
                         <th>Penyelenggara</th>
-                        <th>Peran</th>
                         <th>Laporan Kegiatan</th>
                         <th>Materi</th>
                     </tr>
@@ -128,11 +126,10 @@
                 <tbody>
                     {% for a in kapasitas %}
                     <tr>
-                        <td >{{a.thnmly}}</td>
+                        <td >{{a.thn}}</td>
                         <td class="tbl-keg">{{a.judul}}</a></td>
                         <td>{{a.kategori}}</td>
                         <td>{{a.penyelenggara}}</td>
-                        <td>{{a.peran}}</td>
                         <td><a href="/media/{{a.laporan_kegiatan}}">Download</a></td>
                         <td><a href="/media/{{a.materi}}">Download</a></td>
                     </tr>
@@ -158,7 +155,7 @@
                     {% for a in publikasi %}
                     <tr>
                         <td >{{a.thn}}</td>
-                        <td class="tbl-keg">{{a.judul}}</td>
+                        <td >{{a.judul}}</td>
                         <td>{{a.kategori}}</td>
                         <td>{{a.peran}}</td>
                         <td>{{a.tingkat}}</td>

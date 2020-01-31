@@ -7,6 +7,9 @@ class CustomUser(AbstractUser):
     avatar = models.ImageField(upload_to='avatar/', blank=True)
     Organisasi = models.CharField(max_length=150, blank=True)
 
+
+
+
     # add additional fields in here
 
 class Visitor(models.Model):

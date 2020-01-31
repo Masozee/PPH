@@ -268,7 +268,7 @@ class PublicationList(ListView):
 
 def Kesehatanjiwa(request):
     Slide = HomeSLide.objects.all().distinct()[:1]
-    berita = Berita.objects.filter(tags__slug="kesehatan-jiwa")
+    berita = Berita.objects.filter(tags__slug="kesehatan-jiwa").order_by('-tanggal')
     paginator = Paginator(berita, 5)  # Show 25 contacts per page
 
     page = request.GET.get('page')

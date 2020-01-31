@@ -9,9 +9,9 @@
 {% block content %}
 
     <div class="container">
-      <div class="row justify-content-center login ">
-        <div class="col-md-10 form-guest shadow " style="border-top-left-radius: 15px; border-bottom-left-radius: 15px;">
-          <h3>Halo Sobat Peduli!</h3>
+      <div class="row justify-content-center login " style="padding-top:100px; ">
+        <div class="col-md-10 form-guest shadow " style="border-top-left-radius: 15px; border-bottom-left-radius: 15px; padding-top:20px; padding-bottom:30px; padding-left:50px; padding-right:50px;">
+          <h3>Form Inputan</h3>
           <h6></h6>
           <form method="post" novalidate>
             {% csrf_token %}
@@ -19,7 +19,6 @@
             {{ form|crispy }}
             <button type="submit" class="btn btn-guest justify-content-center">Submit</button>
           </form>
-
         </div>
       </div>
     </div>

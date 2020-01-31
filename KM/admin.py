@@ -40,3 +40,4 @@ admin.site.register(Posisi)
 admin.site.register(Peminatan)
 admin.site.register(Jabatan)
 admin.site.register(PeningkatanKapasitasstaff)
+

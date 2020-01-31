@@ -74,7 +74,7 @@
                 {% if user.is_authenticated %}
                 <img class="account float-left" src="/media/{{user.avatar}}" alt="">
                   <div class="nama fleat-rigt">Hi {{user.first_name}}!</div>
-                  <div class="nama fleat-rigt">Hi {{CustomUser.Staff.nama}}!</div>
+                  <div class="nama fleat-rigt">Hi {{user.Staff.nama}}!</div>
                 {% endif %}
               </div>
             </div>

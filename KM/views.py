@@ -11,6 +11,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from USER.decorators import staff_required
+from django.db.models import Q
 
 from .filters import *
 from .forms import *
@@ -54,8 +55,8 @@ def stafflist(request):
 def staffDetail(request, staff_slug):
     staff = Staff.objects.get(slug=staff_slug)
     penelitian = Penelitian.objects.filter(tim__id=staff.id)
-    kapasitas  = PeningkatanKapasitas_staff.objects.filter(tim__id=staff.id)
-    publikasi = Publikasi_staff.objects.filter(penulis__id=staff.id)
+    kapasitas  = PeningkatanKapasitasstaff.objects.filter(peserta__icontains=staff.User)
+    publikasi = Publikasi_staff.objects.filter(peserta__icontains=staff.User)
 
     context = {
         "staff": staff,
@@ -197,11 +198,13 @@ def pelaporanorg(request):
     return render(request, "km/pelaporan-organisasi.html")
 
 def PeningkatanAdd(request):
+
     if request.method == 'POST':
         form = PeningkatanForm(request.POST)
         if form.is_valid():
-
-            u = form.save()
+            instance = form.save(commit=False)
+            instance.peserta = request.user.username
+            instance.save()
             users = PeningkatanKapasitasstaff.objects.all()
 
             return render(request, "km/addartikel.html", {'users': users})
@@ -211,11 +214,13 @@ def PeningkatanAdd(request):
     return render(request, "km/addartikel.html", {'form': form})
 
 def PenelitianAdd(request):
+
     if request.method == 'POST':
         form = PenelitianForm(request.POST)
         if form.is_valid():
-
-            u = form.save()
+            instance = form.save(commit=False)
+            instance.peserta = request.user.username
+            instance.save()
             users = PeningkatanKapasitasstaff.objects.all()
 
             return render(request, "km/addartikel.html", {'users': users})

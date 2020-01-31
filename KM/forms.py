@@ -14,5 +14,5 @@ class PenelitianForm(ModelForm):
 
     class Meta:
         model = Publikasi_staff
-        fields = ['tahun','judul', 'penulis', 'kategori', 'peran', 'tingkat','link']
+        fields = ['tahun','judul', 'kategori', 'peran', 'tingkat','link']
 

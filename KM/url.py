@@ -8,8 +8,8 @@ urlpatterns = [
     path('staff/', kmviews.stafflist, name = 'KM-Staff'),
     #path('staff/<str:slug>/', kmviews.Staffdetail, name='staff-detail'),
     re_path('staff/(?P<staff_slug>[\w-]+)/$', kmviews.staffDetail, name='staff-detail'),
-    path('peningkatan-kapasitas/add/', kmviews.PeningkatanAdd, name='add-pen'),
-    path('penelitian/add/', kmviews.PenelitianAdd, name='add-penel'),
+    path('staff/peningkatan-kapasitas/add/', kmviews.PeningkatanAdd, name='add-peningkatan'),
+    path('staff/publikasi/add/', kmviews.PenelitianAdd, name='add-publikasi'),
 
 
     path('inventaris/', kmviews.inventaris, name = 'KM-Inventaris'),

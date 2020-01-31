@@ -88,7 +88,6 @@ input{
     background-color: #0083ca;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-
 }
 
 .form-guest h3{
@@ -117,4 +116,7 @@ input{
     background-color: #FFBE53;
     color: white;
     margin: auto;
+}
+.text-muted{
+    color: #ffffff;
 }

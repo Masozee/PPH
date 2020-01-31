@@ -1,16 +1,10 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-from django.urls import reverse
 from django.utils.text import slugify
 from taggit.managers import TaggableManager
 from datetime import date
-from django.urls import reverse
-from django.utils import timezone
 from django.db.models import Q
-
 from USER.models import *
-from django.contrib.auth.models import User
-
 
 class Jabatan(models.Model):
     jabatan = models.CharField(max_length=100)
@@ -83,7 +77,7 @@ class Staff (models.Model):
         ('Strata 3', 'S3')
     )
 
-    id_username = models.OneToOneField(CustomUser, on_delete=models.CASCADE, blank=True, null=True)
+    User = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=True, null=True)
     nama = models.CharField(max_length=50)
     slug = models.SlugField(default='', editable=False, max_length=140)
     NIK = models.CharField(max_length=13, null=True, blank=True)
@@ -737,9 +731,9 @@ class Publikasi_staff(models.Model):
     )
     
     tahun = models.DateField()
-    judul = models.TextField()
+    judul = models.CharField(max_length=150, default='Admin.PPH')
     slug = models.SlugField(default='', editable=False, max_length=140)
-    penulis = models.ForeignKey(Staff, on_delete=models.CASCADE, default=True)
+    peserta = models.CharField(max_length=150, default='Admin.PPH')
     kategori = models.CharField(max_length=20, choices = KATEGORI_CHOICES)
     peran = models.CharField(max_length=20, choices = PERAN_CHOICES)
     tingkat = models.CharField(max_length=20, choices = TINGKAT_CHOICES)
@@ -794,7 +788,8 @@ class PeningkatanKapasitasstaff(models.Model):
 
 
     kategori = models.CharField(max_length=25, choices=KATEGORI_CHOICES)
-    judul = models.CharField(max_length=200)
+    peserta = models.CharField(max_length=150, default='Admin.PPH')
+    judul = models.CharField(max_length=200,default='Admin.PPH')
     slug = models.SlugField(default='', editable=False, max_length=140)
     mulai = models.DateField()
     selesai = models.DateField()
@@ -820,4 +815,4 @@ class PeningkatanKapasitasstaff(models.Model):
 
     @property
     def thn(self):
-        return self.tahun.strftime('%Y')
+        return self.mulai.strftime('%Y')
