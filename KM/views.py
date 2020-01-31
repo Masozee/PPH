@@ -11,6 +11,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from USER.decorators import staff_required
+
 from .filters import *
 from .forms import *
 
@@ -195,75 +196,30 @@ def pelaporan(request):
 def pelaporanorg(request):
     return render(request, "km/pelaporan-organisasi.html")
 
-def addPeningkatanKapasitas2(request):
+def PeningkatanAdd(request):
     if request.method == 'POST':
-        form = PeningkatanKapasitasForm(request.POST)
+        form = PeningkatanForm(request.POST)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.save()
 
-            return redirect('KM-staff')
+            u = form.save()
+            users = PeningkatanKapasitasstaff.objects.all()
+
+            return render(request, "km/addartikel.html", {'users': users})
     else:
-        form = PeningkatanKapasitasForm()
+        form = PeningkatanForm
 
-    return render(request, "km/add-artikel.html", {'form': form})
+    return render(request, "km/addartikel.html", {'form': form})
 
-class addPeningkatanKapasitas(CreateView):
-    model = PeningkatanKapasitas_staff
-    form_class = PeningkatanKapasitasForm
-    template_name = 'km/add-artikel.html'
-
-    def form_valid(self, form):
-        post = form.save()
-        post.author = requests.user
-        post.save()
-        return redirect('KM-staff')
-
-def PenKap(request):
+def PenelitianAdd(request):
     if request.method == 'POST':
-        form = PeningkatanKapasitasForm(request.POST)
+        form = PenelitianForm(request.POST)
         if form.is_valid():
-            users = form.save()
-            users.save()
-            return render(request, "km/add-artikel.html", {'users': users})
+
+            u = form.save()
+            users = PeningkatanKapasitasstaff.objects.all()
+
+            return render(request, "km/addartikel.html", {'users': users})
     else:
-        form =PeningkatanKapasitasForm
+        form = PenelitianForm
 
-    return render(request, "km/add-artikel.html", {'form': form})
-
-class PeningkatanCreate(CreateView):
-    model = PeningkatanKapasitas_staff
-    fields = ['kategori','judul', 'mulai', 'selesai', 'lokasi', 'pembicara','penyelenggara', 'laporan_kegiatan', 'materi']
-    success_url = reverse_lazy('KM-staff')
-
-class PeningkatanUpdate(UpdateView):
-    model = PeningkatanKapasitas_staff
-    fields = ['kategori','judul', 'mulai', 'selesai', 'lokasi', 'pembicara','penyelenggara', 'laporan_kegiatan', 'materi']
-    success_url = reverse_lazy('KM-staff')
-
-class PeningkatanDelete(DeleteView):
-    model = PeningkatanKapasitas_staff
-    success_url = reverse_lazy('KM-staff')
-
-def Peni_create(request, template_name='km/add-artikel.html'):
-    form = PeningkatanKapasitasForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('Km-Staff')
-    return render(request, template_name, {'form':form})
-
-def Peni_update(request, pk, template_name='km/add-artikel.html'):
-    kapasitas= get_object_or_404(PeningkatanKapasitas_staff, pk=pk)
-    form = PeningkatanKapasitasForm(request.POST or None, instance=kapasitas)
-    if form.is_valid():
-        form.save()
-        return redirect('KM-Staff')
-    return render(request, template_name, {'form':form})
-
-def Peni_delete(request, pk, template_name='km/confirm.html'):
-    kapasitas= get_object_or_404(PeningkatanKapasitas_staff, pk=pk)
-    if request.method=='POST':
-        kapasitas.delete()
-        return redirect('KM-Staff')
-    return render(request, template_name, {'object':kapasitas})
+    return render(request, "km/addartikel.html", {'form': form})

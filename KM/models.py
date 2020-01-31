@@ -254,7 +254,7 @@ class Inventaris (models.Model):
     tahun_pembelian = models.DateField(blank=True, null=True)
     slug = models.SlugField(default='', editable=False, max_length=140)
     deskripsi = models.TextField(blank=True, null=True)
-    gambar = models.ImageField(upload_to='document/KM/Inventaris')
+    gambar = models.ImageField(upload_to='document/KM/Inventaris', null=True, blank=True)
     Tersedia = models.BooleanField(default=True)
 
     objects = InventarisManager()
@@ -780,7 +780,7 @@ class PeningkatanStaffManager(models.Manager):
     def search(self,query=None):
         return self.get_queryset().search(query=query)
 
-class PeningkatanKapasitas_staff(models.Model):
+class PeningkatanKapasitasstaff(models.Model):
     KATEGORI_CHOICES = (
         ('Lecture Series', 'Lecture Series'),
         ('Workshop dan Pelatihan', 'Workshop dan Pelatihan'),
@@ -794,7 +794,6 @@ class PeningkatanKapasitas_staff(models.Model):
 
 
     kategori = models.CharField(max_length=25, choices=KATEGORI_CHOICES)
-    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=True)
     judul = models.CharField(max_length=200)
     slug = models.SlugField(default='', editable=False, max_length=140)
     mulai = models.DateField()
@@ -803,7 +802,7 @@ class PeningkatanKapasitas_staff(models.Model):
     pembicara = models.TextField(blank=True)
     penyelenggara = models.TextField()
     laporan_kegiatan = models.FileField(upload_to='KM/staff/peningkatan/laporan/', null=True, blank=True)
-    materi = models.FileField(upload_to='KM/staff/peningkatan/materi/')
+    materi = models.FileField(upload_to='KM/staff/peningkatan/materi/', null=True, blank=True)
 
     objects = PeningkatanStaffManager()
 
