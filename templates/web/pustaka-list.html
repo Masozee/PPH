@@ -129,7 +129,7 @@
                         <tbody>
                             {% for a in HIV %}
                           <tr>
-                            <td><a href="/media/{{a.download}}">{{a.judul}}</a></td>
+                            <td><a href="/pustaka/{{a.judul|slugify}}">{{a.judul}}</a></td>
                             <td>{{a.kategori}}</td>
                             <td>{{a.penulis}}</td>
                             <td>{{a.thn}}</td>
@@ -151,7 +151,7 @@
                         <tbody>
                             {% for a in Publikasi %}
                             <tr>
-                              <td><a href="/media/{{a.download}}">{{a.judul}}</a></td>
+                              <td><a href="/pustaka/{{a.judul|slugify}}">{{a.judul}}</a></td>
                               <td>{{a.kategori}}</td>
                               <td>{{a.penulis}}</td>
                               <td>{{a.thn}}</td>
@@ -173,7 +173,7 @@
                       <tbody>
                           {% for a in Regulasi %}
                           <tr>
-                            <td><a href="/media/{{a.download}}">{{a.judul}}</a></td>
+                            <td><a href="/pustaka/{{a.judul|slugify}}">{{a.judul}}</a></td>
                             <td>{{a.kategori}}</td>
                             <td>{{a.penulis}}</td>
                             <td>{{a.thn}}</td>

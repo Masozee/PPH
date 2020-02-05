@@ -54,13 +54,13 @@ def stafflist(request):
 @staff_required
 def staffDetail(request, staff_slug):
     staff = Staff.objects.get(slug=staff_slug)
-    penelitian = Penelitian.objects.filter(tim__id=staff.id)
+    A = Penelitian.objects.filter(tim__id=staff.pk)
     kapasitas  = PeningkatanKapasitasstaff.objects.filter(peserta__icontains=staff.User)
     publikasi = Publikasi_staff.objects.filter(peserta__icontains=staff.User)
 
     context = {
         "staff": staff,
-        "penelitian": penelitian,
+        "B": A,
         "kapasitas": kapasitas,
         "publikasi": publikasi,
     }

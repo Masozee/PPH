@@ -424,19 +424,6 @@ def Pustakadet(request, publikasi_slug):
     return render(request, "web/detail-pustaka.html", {'form': form_class, 'object': publikasi})
 
 
-@method_decorator([login_required,visitor_required, staff_required], name='dispatch')
-class pustakalisting(TemplateView):
-    template_name = 'web/pustaka-list.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(pustakalisting, self).get_context_data(**kwargs)
-        context['slide'] = HomeSLide.objects.all()
-        context['HIV'] = Publikasi.objects.filter(tema='HIV AIDS').order_by('-date_upload').distinct()
-        context['Publikasi'] = Publikasi.objects.filter(tema='Publikasi').order_by('-date_upload').distinct()
-        context['Regulasi'] = Publikasi.objects.filter(tema='Regulasi').order_by('-date_upload').distinct()
-        context['list'] = Publikasi.objects.all().distinct()
-
-
 @login_required
 def pustakalist(request):
     slide = HomeSLide.objects.all()

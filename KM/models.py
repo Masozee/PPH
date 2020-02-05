@@ -77,7 +77,7 @@ class Staff (models.Model):
         ('Strata 3', 'S3')
     )
 
-    User = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=True, null=True)
+    User = models.ForeignKey(CustomUser, on_delete=models.PROTECT, blank=True, null=True)
     nama = models.CharField(max_length=50)
     slug = models.SlugField(default='', editable=False, max_length=140)
     NIK = models.CharField(max_length=13, null=True, blank=True)
@@ -97,8 +97,8 @@ class Staff (models.Model):
     posisi = models.CharField(max_length=150, default=True, blank=True, null=True)
     golongan_peneliti = models.CharField(max_length=20, blank=True, null=True)
     jabatan_struktural = models.CharField(max_length=20, blank=True, null=True)
-    kepakaran = models.ForeignKey(Kepakaran, on_delete=models.CASCADE,blank=True, null=True)
-    peminatan = models.ForeignKey(Peminatan, on_delete=models.CASCADE,blank=True, null=True)
+    kepakaran = models.ForeignKey(Kepakaran, on_delete=models.PROTECT,blank=True, null=True)
+    peminatan = models.ForeignKey(Peminatan, on_delete=models.PROTECT,blank=True, null=True)
     Tempat_Lahir = models.CharField(max_length=50, blank=True)
     Tanggal_Lahir = models.CharField(max_length=50, blank=True)
     foto = models.ImageField(upload_to="images/web/staff/", height_field=None, width_field=None, max_length=None, blank=True, null=True)
@@ -180,11 +180,11 @@ class Publikasi (models.Model):
         ('Lain-lain', 'Lain-lain')
     )
 
-    project  = models.ForeignKey(Donor, on_delete=models.CASCADE, blank=True, null=True)
+    project  = models.ForeignKey(Donor, on_delete=models.PROTECT, blank=True, null=True)
     tema = models.CharField(max_length=15, choices=TEMA_CHOICES, default='HIV AIDS', blank=True, null=True)
     judul  = models.CharField(max_length=150)
     slug = models.SlugField(default='', editable=False, max_length=140)
-    penulis = models.ForeignKey(Staff, on_delete=models.CASCADE, default=True)
+    penulis = models.ForeignKey(Staff, on_delete=models.PROTECT, default=True)
     tanggal = models.DateField(default=date.today)
     kategori  = models.CharField(max_length=30, choices = KATEGORI_CHOICES)
     gambar = models.ImageField(upload_to='images/KM/publikasi/', blank=True, null=True)
@@ -354,8 +354,8 @@ class Penelitian(models.Model):
     organisasi_mitra = models.TextField(blank=True)
     mata_uang = models.CharField(max_length=10)
     nominal = models.IntegerField()
-    principal_investigator = models.ForeignKey(Staff, related_name='Principal_investigator', verbose_name="Principal Investigator", on_delete=models.CASCADE, default=True)
-    PIC = models.ForeignKey(Staff, related_name='PIC_penelitian', verbose_name="PIC Penelitian", on_delete=models.CASCADE)
+    principal_investigator = models.ForeignKey(Staff, related_name='Principal_investigator', verbose_name="Principal Investigator", on_delete=models.PROTECT, default=True)
+    PIC = models.ForeignKey(Staff, related_name='PIC_penelitian', verbose_name="PIC Penelitian", on_delete=models.PROTECT)
     tim = models.ManyToManyField(Staff)
     status = models.CharField(max_length=10, choices=Status_CHOICES)
 
@@ -431,7 +431,7 @@ class DokumenPenelitian(models.Model):
         ('Pertemuan dan rapat - Notulensi', 'Pertemuan dan rapat - Notulensi')
     )
 
-    penelitian = models.ForeignKey(Penelitian, on_delete=models.CASCADE, default=True)
+    penelitian = models.ForeignKey(Penelitian, on_delete=models.PROTECT, default=True)
     Kategori = models.CharField(max_length= 60, choices= KATEGORI_CHOICES)
     Judul = models.TextField(blank=True)
     dokumen = models.FileField(upload_to='KM/dokumenpenelitian')
@@ -506,9 +506,6 @@ class PeningkatanKapasitas(models.Model):
     negara = models.CharField(max_length=15, null=True, blank=True)
     pembicara = models.ManyToManyField(Staff)
     penyelenggara = models.CharField(max_length=100, default=True)
-    peran = models.CharField(max_length=10, choices=PERAN_CHOICES, null=True)
-    laporan_kegiatan = models.FileField(upload_to='KM/peningkatan/laporan/', null=True, blank=True)
-    materi = models.FileField(upload_to='KM/peningkatan/materi/')
 
 
     objects = KapasitasManager()
@@ -570,7 +567,7 @@ class DokumenPeningkatan(models.Model):
     )
 
     kategori = models.CharField(max_length=35, choices=KATEGORI_CHOICES)
-    Judul = models.ForeignKey(PeningkatanKapasitas, on_delete=models.CASCADE)
+    Judul = models.ForeignKey(PeningkatanKapasitas, on_delete=models.PROTECT)
     dokumen = models.FileField(upload_to='KM/peningkatankapasitas')
     date_created = models.DateField(default=date.today)
 
@@ -786,9 +783,18 @@ class PeningkatanKapasitasstaff(models.Model):
         ('Konferensi Internasional', 'Konferensi Internasional')
     )
 
+    PERAN_CHOICES = (
+        ('Peserta', 'Peserta'),
+        ('Pembicara', 'Pembicara'),
+        ('Moderator', 'Moderator'),
+        ('Konsultan', 'Konsultan'),
+        ('MC', 'MC'),
+        ('Presenter', 'Presenter')
+    )
 
     kategori = models.CharField(max_length=25, choices=KATEGORI_CHOICES)
     peserta = models.CharField(max_length=150, default='Admin.PPH')
+    peran =models.CharField(max_length=25, choices=PERAN_CHOICES)
     judul = models.CharField(max_length=200,default='Admin.PPH')
     slug = models.SlugField(default='', editable=False, max_length=140)
     mulai = models.DateField()

@@ -12,7 +12,6 @@ urlpatterns = [
 
     #PUSTAKA-------------------------------
     path('pustaka/', webviews.pustaka, name= 'pustaka'),
-    path('pustaka/listing/', webviews.pustakalisting.as_view(), name= 'pustaka-listing'),
     path('pustaka/list/', webviews.pustakalist, name= 'pustaka-list'),
     re_path('pustaka/(?P<publikasi_slug>[\w-]+)/$', webviews.Pustakadet, name='pusdet-detail'),
 

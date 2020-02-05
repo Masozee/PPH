@@ -97,13 +97,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for a in penelitian %}
+                    {% for A in B %}
                     <tr>
-                        <td >{{a.thnmly}}</td>
-                        <td class="tbl-keg"><a href="/km/penelitian/{{a.nama_kegiatan | slugify}}">{{a.nama_kegiatan}}</a></td>
-                        <td>{{a.kategori}}</td>
-                        <td>{% for B in a.sumber_dana.all %}
-                            <li>{{B}}</li>
+                        <td >{{ A.thnmly }}</td>
+                        <td class="tbl-keg"><a href="/km/penelitian/{{a.nama_kegiatan | slugify}}">{{ A.nama_kegiatan }}</a></td>
+                        <td>{{ A.kategori }}</td>
+                        <td>{% for C in A.sumber_dana.all %}
+                            {{C}}<br>
                         {% endfor %}</td>
                     </tr>
                     {% endfor %}
@@ -119,6 +119,7 @@
                         <th>Judul</th>
                         <th>Kategori</th>
                         <th>Penyelenggara</th>
+                        <th>Peran</th>
                         <th>Laporan Kegiatan</th>
                         <th>Materi</th>
                     </tr>
@@ -130,6 +131,7 @@
                         <td class="tbl-keg">{{a.judul}}</a></td>
                         <td>{{a.kategori}}</td>
                         <td>{{a.penyelenggara}}</td>
+                        <td>{{a.peran}}</td>
                         <td><a href="/media/{{a.laporan_kegiatan}}">Download</a></td>
                         <td><a href="/media/{{a.materi}}">Download</a></td>
                     </tr>

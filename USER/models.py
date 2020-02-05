@@ -13,4 +13,4 @@ class CustomUser(AbstractUser):
     # add additional fields in here
 
 class Visitor(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
+    user = models.OneToOneField(CustomUser, on_delete=models.PROTECT, primary_key=True)

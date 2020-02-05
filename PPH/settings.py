@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'google_analytics',
     'meta',
-    'lazysignup',
     'captcha',
     'django_social_share',
 ]

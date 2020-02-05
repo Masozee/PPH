@@ -8,7 +8,6 @@ from django.urls import reverse
 from django.utils import timezone
 from django.db.models import Q
 from KM.models import Staff, Donor, Publikasi
-from lazysignup.models import *
 
 #berita 
 class BeritaQuerySet(models.QuerySet):
@@ -43,7 +42,7 @@ class Berita (models.Model):
     Kategori = models.CharField(max_length=25, choices=KATEGORI_CHOICES, default= 'Dokumentasi')
     Agenda = models.CharField(max_length=25, choices=AGENDA_CHOICES, default='Penelitian')
     judul = models.CharField(max_length=150)
-    penulis = models.ForeignKey(Staff, on_delete=models.CASCADE, default=True)
+    penulis = models.ForeignKey(Staff, on_delete=models.PROTECT, default=True)
     slug = models.SlugField(default='', editable=False, max_length=140)
     tanggal = models.DateField()
     isi = RichTextField()
@@ -265,8 +264,3 @@ class Signup(models.Model):
     def __str__(self):
         return self.email
 
-class Visitor(models.Model):
-    nama = models.CharField(max_length=150)
-    email = models.EmailField()
-    institusi =models.CharField(max_length=250, blank=True)
-    users_lazy = models.OneToOneField(LazyUser, on_delete=models.CASCADE)
