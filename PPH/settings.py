@@ -169,9 +169,9 @@ CKEDITOR_CONFIGS = {
 }
 
 #Mailchimp ----------------------------------------------------------------------------------------------------------
-MAILCHIMP_API_KEY = 'bb96a92e868cae07a049a5d25cf688f4-us20'
-MAILCHIMP_DATA_CENTER = 'us20'
-MAILCHIMP_EMAIL_LIST_ID = '75b463b1fa'
+MAILCHIMP_API_KEY = ''
+MAILCHIMP_DATA_CENTER = ''
+MAILCHIMP_EMAIL_LIST_ID = ''
 
 #CUSTOM USER --------------------------------------------------------------------------------------------------------
 AUTH_USER_MODEL = 'USER.CustomUser'
@@ -184,8 +184,9 @@ LOGOUT_REDIRECT_URL = 'home-web'
 CRISPY_TEMPLATE_PACK ='bootstrap4'
 
 #rechaptha lama -----------------------------------------------------------------------------------------------------
-GOOGLE_RECAPTCHA_SECRET_KEY = '6Le0U9IUAAAAAGTnpukJpXl-gZPG9XwBvdFfrVJX'
+GOOGLE_RECAPTCHA_SECRET_KEY = ''
 
 #google rechaptha ---------------------------------------------------------------------------------------------------
-RECAPTCHA_PUBLIC_KEY = '6Ld5zdIUAAAAAEBQ7E4JUlTRpvyv8LwHFYopOCwo'
-RECAPTCHA_PRIVATE_KEY = '6Ld5zdIUAAAAAJqieEqW8qF4b5RRO49PShA3lVT5'
+RECAPTCHA_PUBLIC_KEY = ''
+RECAPTCHA_PRIVATE_KEY = '
+'
