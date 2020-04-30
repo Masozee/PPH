@@ -20,14 +20,10 @@ class ContactForm(ModelForm):
 
 
 class DownloadForm(ModelForm):
-    nama = forms.CharField(label="nama", max_length=150)
-    email = forms.EmailField(label="email",)
-    organisasi = forms.CharField(widget=forms.Textarea)
-    dokumen = forms.CharField(widget=forms.Textarea)
-    captcha = ReCaptchaField()
     class Meta:
         model = downloadForm
-        fields = ['nama','email','organisasi','dokumen']
+        fields = ['nama','email','dokumen','organisasi',]
+        widgets = {'dokumen': forms.HiddenInput()}
 
 
 class EmailSignupForm(forms.ModelForm):

@@ -33,4 +33,12 @@ class VisitorSignUpForm(UserCreationForm):
         user.save()
         return user
 
+class SignupForm(UserCreationForm):
+    email = forms.EmailField(max_length=200, help_text='Required')
+    class Meta:
+        model = CustomUser
+        fields = ('username', 'first_name', 'last_name','Organisasi',
+                  'email', 'password1', 'password2',)
+
+
 

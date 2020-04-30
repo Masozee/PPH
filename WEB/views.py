@@ -407,21 +407,23 @@ def pustaka(request):
     return render(request, "web/pustaka.html", context)
 
 def Pustakadet(request, publikasi_slug):
-
     publikasi = Publikasi.objects.get(slug=publikasi_slug)
-
+    template_name = 'web/detail-pustaka.html'
     if request.method == 'POST':
-        form = DownloadForm(request.POST)
+        form = DownloadForm(request.POST, request.FILES)
+
         if form.is_valid():
+            obj = form.save(commit=False)
+            obj.dokumen = publikasi.judul
 
-            u = form.save()
-            users = downloadForm.objects.all()
+            obj.save()
 
-            return render(request, "web/detail-pustaka.html", {'users': users})
+            #return HttpResponseRedirect('obj.download')
     else:
-        form_class = DownloadForm
+        form = DownloadForm()
+    return render(request, template_name, {'form': form, 'object':publikasi})
 
-    return render(request, "web/detail-pustaka.html", {'form': form_class, 'object': publikasi})
+
 
 
 @login_required
@@ -441,27 +443,12 @@ def pustakalist(request):
     }
     return render(request, "web/pustaka-list.html", context)
 
+
 class PustakaDetail(DetailView):
     model = Publikasi
     template_name = "web/detail-pustaka.html"
     form_class = DownloadForm
 
-    def get_context_data(self, **kwargs):
-        context = super(PustakaDetail, self).get_context_data(**kwargs)
-        context['form'] = DownloadForm(initial={'POST': self.object})
-        return context
-
-    def post(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        form = self.get_form()
-        if form.is_valid():
-            return self.form_valid(form)
-        else:
-            return self.form_invalid(form)
-
-    def form_valid(self, form):
-        form.save()
-        return super(PustakaDetail, self).form_valid(form)
 
 class Taglist(ListView):
     queryset = Berita.objects.all()
@@ -507,56 +494,4 @@ def email_list_signup(request):
                 form.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-
-#----------multiple form --------------
-
-def form_redir(request):
-    return render(request, 'pages/form_redirect.html')
-
-
-def multiple_forms(request):
-    if request.method == 'POST':
-        contact_form = ContactForm(request.POST)
-        subscription_form = EmailSignupForm(request.POST)
-        if contact_form.is_valid() or subscription_form.is_valid():
-            # Do the needful
-            return HttpResponseRedirect(reverse('form-redirect'))
-    else:
-        contact_form = ContactForm()
-        subscription_form = EmailSignupForm()
-
-    return render(request, 'pages/multiple_forms.html', {
-        'contact_form': contact_form,
-        'subscription_form': subscription_form,
-    })
-
-
-class MultipleFormsDemoView(MultiFormsView):
-    template_name = "web/cbv_multiple_forms.html"
-    form_classes = {'contact': ContactForm,
-                    'subscription': EmailSignupForm,
-                    }
-
-    success_urls = {
-        'contact': reverse_lazy('form-redirect'),
-        'subscription': reverse_lazy('form-redirect'),
-    }
-
-    def contact_form_valid(self, form):
-        title = form.cleaned_data.get('title')
-        form_name = form.cleaned_data.get('action')
-        print(title)
-        return HttpResponseRedirect(self.get_success_url(form_name))
-
-    def subscription_form_valid(self,request):
-        form = EmailSignupForm(request.POST or None)
-        if request.method == "POST":
-            if form.is_valid():
-                email_signup_qs = Signup.objects.filter(email=form.instance.email)
-                if email_signup_qs.exists():
-                    messages.info(request, "You are already subscribed")
-                else:
-                    subscribe(form.instance.email)
-                    form.save()
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 

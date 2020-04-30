@@ -14,7 +14,7 @@ urlpatterns = [
     path('pustaka/', webviews.pustaka, name= 'pustaka'),
     path('pustaka/list/', webviews.pustakalist, name= 'pustaka-list'),
     re_path('pustaka/(?P<publikasi_slug>[\w-]+)/$', webviews.Pustakadet, name='pusdet-detail'),
-
+    #re_path('pustaka/(?P<slug>[\w-]+)/$', webviews.PustakaDetail, name='pusdet-detail'),
     path('kegiatan/', webviews.PublicationList.as_view(), name='kegiatan'),
 
     #path('kegiatan/<str:slug>/', webviews.PublicationDetail.as_view(), name = 'kegiatan-detail'),
@@ -48,6 +48,8 @@ urlpatterns = [
 
 
     path('kesehatan-jiwa/', webviews.Kesehatanjiwa, name='Kesehatanjiwa'),
+
+    #path('admin_export/', include("admin_export.urls", namespace="admin_export")),
 
 
 

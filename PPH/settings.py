@@ -41,16 +41,19 @@ INSTALLED_APPS = [
     'KM',
     'USER',
     'WEB',
+    'SEARCH',
+
+#third party===============================
     'taggit',
     'ckeditor',
     'bootstrap4',
     'dateutil',
-    'SEARCH',
     'crispy_forms',
     'google_analytics',
     'meta',
     'captcha',
     'django_social_share',
+    'rangefilter',
 ]
 
 MIDDLEWARE = [
@@ -97,7 +100,6 @@ DATABASES = {
 
 AUTHENTICATION_BACKENDS = (
   'django.contrib.auth.backends.ModelBackend',
-  'lazysignup.backends.LazySignupBackend',
 )
 
 
@@ -189,3 +191,15 @@ GOOGLE_RECAPTCHA_SECRET_KEY = '6Le0U9IUAAAAAGTnpukJpXl-gZPG9XwBvdFfrVJX'
 #google rechaptha ---------------------------------------------------------------------------------------------------
 RECAPTCHA_PUBLIC_KEY = '6Ld5zdIUAAAAAEBQ7E4JUlTRpvyv8LwHFYopOCwo'
 RECAPTCHA_PRIVATE_KEY = '6Ld5zdIUAAAAAJqieEqW8qF4b5RRO49PShA3lVT5'
+
+
+#Email------------------------------------------------
+ACCOUNT_ACTIVATION_DAYS=7
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_USE_TLS=1
+EMAIL_PORT=587
+EMAIL_HOST_USER='nurojilukmansyah2@gmail.com'
+EMAIL_HOST_PASSWORD='n6dy66m6liy6h'
+EMAIL_PORT = 587
+
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
