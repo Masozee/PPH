@@ -12,7 +12,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from USER.decorators import staff_required
 from django.db.models import Q
-
+from django.utils.timezone import datetime
 from .filters import *
 from .forms import *
 
@@ -228,3 +228,30 @@ def PenelitianAdd(request):
         form = PenelitianForm
 
     return render(request, "km/addartikel.html", {'form': form})
+
+
+def kalender(request):
+    today = datetime.now()
+    acara = Acara.objects.all()
+    personal = PersonalEvent.objects.all()
+    listacara = Acara.objects.filter(waktu_mulai__gte=datetime.now())
+    personalev = PersonalEvent.objects.filter(mulai__gte=datetime.now(), owner=request.user)
+
+    form = PersonalEventForm(request.POST)
+    if request.method == 'POST':
+
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.owner = request.user
+            instance.save()
+
+    context = {
+        "acaraev": acara,
+        "today": today,
+        "ac": listacara,
+        "personal": personal,
+        "personalev": personalev,
+        "forms": form,
+    }
+
+    return render(request, "km/kalender.html", context)

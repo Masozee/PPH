@@ -155,9 +155,22 @@ class DokumentasiDetail(DetailView):
 def Dokumendetail(request, berita_slug):
     berita = Berita.objects.get(slug=berita_slug)
     Related = Berita.objects.all()[:5]
+
+    form = DownloadForm(request.POST)
+
+    if request.method == 'POST':
+
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.dokumen = berita.judul
+            obj.url = request.build_absolute_uri()
+
+            obj.save()
+
     context = {
         "object": berita,
         "related":Related,
+        "form": form,
     }
     return render(request, 'web/detail-artikel.html', context)
 
@@ -179,6 +192,7 @@ def ArtikelList(request):
     }
 
     return render(request, "web/artikel.html", context)
+
 def ArtikelPenelitian(request):
     dokumentasi = Berita.objects.filter(Kategori="Artikel", Agenda="Penelitian").order_by('-tanggal')
     paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
@@ -212,6 +226,7 @@ def ArtikelAdvokasi(request):
     }
 
     return render(request, "web/dukomentasi.html", context)
+
 def ArtikelPeningkatan(request):
     dokumentasi = Berita.objects.filter(Kategori="Artikel", Agenda="Peningkatan Kapasitas").order_by('-tanggal')
     paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
@@ -249,9 +264,23 @@ def ArtikelPelayanan(request):
 def ArtikelDetail(request, berita_slug):
     berita = Berita.objects.get(slug=berita_slug)
     Related = Berita.objects.all()[:5]
+
+    form = DownloadForm(request.POST)
+
+    if request.method == 'POST':
+
+
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.dokumen = berita.judul
+            obj.url = request.build_absolute_uri()
+
+            obj.save()
+
     context = {
         "object": berita,
         "related":Related,
+        "form": form,
 
     }
     return render(request, 'web/detail-artikel.html', context)
@@ -415,6 +444,7 @@ def Pustakadet(request, publikasi_slug):
         if form.is_valid():
             obj = form.save(commit=False)
             obj.dokumen = publikasi.judul
+            obj.url = request.build_absolute_uri()
 
             obj.save()
 

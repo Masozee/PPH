@@ -174,6 +174,10 @@ class Acara (models.Model):
     def wktsls(self):
         return self.waktu_selesai.strftime('%H' '.' '%M')
 
+    @property
+    def jam(self):
+        return self.waktu_selesai.strftime('%X')
+
 class TentangKami (models.Model):
     tanggal = models.DateField(auto_now_add=True)
     sejarah = RichTextField()
@@ -248,6 +252,7 @@ class downloadForm(models.Model):
     organisasi = models.TextField(blank=True)
     dokumen = models.TextField(blank=True, null=True)
     date_created = models.DateTimeField( auto_now_add=True )
+    url = models.TextField(blank=True, null=True)
     
 
     class Meta:

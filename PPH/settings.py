@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'captcha',
     'django_social_share',
     'rangefilter',
+    'fullcalendar'
 ]
 
 MIDDLEWARE = [

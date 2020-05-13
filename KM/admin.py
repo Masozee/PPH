@@ -137,3 +137,4 @@ class PenKapStaffAdmin (admin.ModelAdmin, ExportCsvMixin):
     actions = ["export_as_csv"]
 admin.site.register(PeningkatanKapasitasstaff, PenKapStaffAdmin)
 
+admin.site.register(PersonalEvent)

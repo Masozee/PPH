@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/penelitian.css' %}">
+    <link rel="stylesheet" href="{% static 'km/css/penelitian.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -74,7 +74,6 @@
                 {% if user.is_authenticated %}
                 <img class="account float-left" src="/media/{{user.avatar}}" alt="">
                   <div class="nama fleat-rigt">Hi {{user.first_name}}!</div>
-                  <div class="nama fleat-rigt">Hi {{user.Staff.nama}}!</div>
                 {% endif %}
               </div>
             </div>

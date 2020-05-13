@@ -31,4 +31,6 @@ urlpatterns = [
 
     path('peningkatan-kapasitas/', kmviews.profilpeningkatan, name='KM-Peningkatan'),
     re_path('peningkatan-kapasitas/(?P<peningkatanKapasitas_slug>[\w-]+)/$', kmviews.PeningkatanDetail, name='peningkatan-detail'),
+
+    path('kalender/', kmviews.kalender, name='kalender')
 ]

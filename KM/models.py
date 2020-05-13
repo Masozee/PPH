@@ -822,3 +822,13 @@ class PeningkatanKapasitasstaff(models.Model):
     @property
     def thn(self):
         return self.mulai.strftime('%Y')
+
+class PersonalEvent(models.Model):
+    acara = models.CharField(max_length=250)
+    owner = models.ForeignKey(CustomUser, on_delete=models.PROTECT, default=True)
+    mulai = models.DateTimeField()
+    selesai = models.DateTimeField(blank=True, null=True)
+    keterangan = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.acara
