@@ -234,10 +234,10 @@ def kalender(request):
     today = datetime.now()
     acara = Acara.objects.all()
     personal = PersonalEvent.objects.all()
-    listacara = Acara.objects.filter(waktu_mulai__gte=datetime.now())
-    personalev = PersonalEvent.objects.filter(mulai__gte=datetime.now(), owner=request.user)
+    listacara = Acara.objects.filter(waktu_mulai=datetime.now().date())
+    personalev = PersonalEvent.objects.filter(owner=request.user).filter(mulai=datetime.now().date())
 
-    form = PersonalEventForm(request.POST)
+    form = PersonalEventForm(request.POST or None)
     if request.method == 'POST':
 
         if form.is_valid():

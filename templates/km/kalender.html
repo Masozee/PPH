@@ -3,7 +3,6 @@
 {% load crispy_forms_tags %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'km/css/kalender.css' %}">
     <link rel="stylesheet" href="{% static 'km/css/penelitian.css' %}">
     <link href="{% static 'km/libs/air-datepicker/css/datepicker.min.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'km/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css' %}" rel="stylesheet" />
@@ -13,6 +12,7 @@
     <link href="{% static 'km/js/packages/core/main.css'%}" rel='stylesheet' />
     <link href="{% static 'km/js/packages/daygrid/main.css' %}" rel='stylesheet' />
     <link href="{% static 'km/js/packages/list/main.css' %}"  rel='stylesheet' />
+    
     <script src="{% static 'km/js/packages/core/main.js' %}" ></script>
     <script src="{% static 'km/js/packages/interaction/main.js' %}" ></script>
     <script src="{% static 'km/js/packages/daygrid/main.js' %}" ></script>
@@ -33,7 +33,7 @@
         right: 'dayGridMonth,listYear'
       },
 
-      displayEventTime: true, // don't show the time column in list view
+      displayEventTime: false, // don't show the time column in list view
 
       // THIS KEY WON'T WORK IN PRODUCTION!!!
       // To make your own Google API key, follow the directions here:
@@ -145,7 +145,7 @@
               <div class="modal-content shadow">
                 <div class="modal-body">
                     <h3>PERSONAL EVENT</h3>
-                    <form method="POST" action="/km/kalender">
+                    <form method="POST" action="/km/kalender" autocomplete="off">
                         {% csrf_token %}
                             {{forms | crispy}}
 
@@ -172,7 +172,7 @@
     <script src="{% static 'km/libs/air-datepicker/js/i18n/datepicker.en.js' %}"></script>
     <script src="{% static 'km/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js' %}"></script>
     <script src="{% static 'km/libs/bootstrap-maxlength/bootstrap-maxlength.min.js' %}"></script>
-    <script src="{% static 'km/js/pages/form-advanced.init.js' %}"></script>
+    <script src="{% static 'km/libs/js/pages/form-advanced.init.js' %}"></script>
     <!-- plugin datatables -->
 
     <script>

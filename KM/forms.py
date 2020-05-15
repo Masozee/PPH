@@ -12,12 +12,12 @@ class PeningkatanForm(ModelForm):
     )
     mulai = forms.DateTimeField(
         widget=forms.DateInput(
-            attrs={'class': 'datepicker-here', 'placeholder': '01/01/2020', 'data-language': "en"}),
+            attrs={'class': 'datepicker-here', 'data-timepicker':'true','placeholder': '01/01/2020', 'data-language': "en"}),
 
     )
-    selesai = forms.DateField(
+    selesai = forms.DateTimeField(
         widget=forms.DateInput(
-            format='%d/%m/%Y', attrs={'class': 'datepicker-here', 'placeholder': '01/01/2020', 'data-language': "en"}),
+            format='%d/%m/%Y', attrs={'class': 'datepicker-here', 'data-timepicker':'true', 'placeholder': '01/01/2020', 'data-language': "en"}),
         input_formats=('%d/%m/%Y',)
     )
 
@@ -54,14 +54,14 @@ class PersonalEventForm(ModelForm):
                             )
     mulai = forms.DateTimeField(
         widget=forms.DateInput(
-            attrs={'class': 'datepicker-here', 'placeholder': '01/01/2020', 'data-language': "en"}),
-
+            format='%d/%m/%Y', attrs={'class': 'datepicker-here', 'data-timepicker':'true', 'placeholder': '01/01/2020', 'data-language': "en"}),
+        input_formats=('%d/%m/%Y',)
     )
 
     selesai = forms.DateTimeField(
         widget=forms.DateInput(
-            attrs={'class': 'datepicker-here', 'placeholder': '01/01/2020', 'data-language': "en"}),
-
+            format='%d/%m/%Y', attrs={'class': 'datepicker-here', 'data-timepicker':'true', 'placeholder': '01/01/2020', 'data-language': "en"}),
+        input_formats=('%d/%m/%Y',)
     )
     class Meta:
         model = PersonalEvent

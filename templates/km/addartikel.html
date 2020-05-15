@@ -10,14 +10,13 @@
 
 {% block content %}
 
-    <div class="container">
+    <div class="col-9">
       <div class="row justify-content-center login " style="padding-top:100px; ">
         <div class="col-md-10 form-guest shadow " style="border-top-left-radius: 15px; border-bottom-left-radius: 15px; padding-top:20px; padding-bottom:30px; padding-left:50px; padding-right:50px;">
           <h3>Form Inputan</h3>
           <h6></h6>
-          <form method="post" novalidate action="">
+          <form method="post" novalidate action="/km/staff/" autocomplete="off">
             {% csrf_token %}
-            <input type="hidden" name="next" value="{{next}}">
             {{ form|crispy }}
             <button type="submit" class="btn btn-guest justify-content-center">Submit</button>
           </form>
@@ -35,5 +34,5 @@
     <script src="{% static 'km/libs/air-datepicker/js/i18n/datepicker.en.js' %}"></script>
     <script src="{% static 'km/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js' %}"></script>
     <script src="{% static 'km/libs/bootstrap-maxlength/bootstrap-maxlength.min.js' %}"></script>
-    <script src="{% static 'km/js/pages/form-advanced.init.js' %}"></script>
+    <script src="{% static 'km/libs/js/pages/form-advanced.init.js' %}"></script>
 {% endblock %}
