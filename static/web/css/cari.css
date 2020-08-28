@@ -1,0 +1,103 @@
+.search-result{
+    margin-top: 170px;
+}
+
+.text-search{
+  height: 28px;
+  font-family: 'silkabold';
+  font-size: 21px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0c59b0;  
+}
+
+.gambar{
+  width: 151px;
+  height: 107px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.judul{
+  height: 23px;
+  font-family: 'silkasemibold';
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.86;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0c59b0;
+  overflow: hidden;
+}
+
+.isi{
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: left;
+    color: #707070;
+}
+
+.link{
+  height: 18px;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: left;
+  color: #9a9b9f;  
+}
+
+.content{
+    margin-top: 40px;
+}
+
+/* navigasi */
+.page-link {
+    color: #9A9B9F;
+    background-color: #fff;
+    border: transparent;
+}
+
+.garis-bawah{
+    margin-top: 45px;
+}
+
+/* mobile version */
+ @media (max-width: 576px){
+  .gambar{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .judul{
+    height: 45px;
+    font-size: 12px;
+    margin-bottom: 5px;
+    overflow: hidden;
+  }
+
+  .isi{
+    height: 45px;
+    font-size: 10px;
+    overflow: hidden;
+    margin-bottom: 0px;
+  }
+
+  .link{
+    font-size: 10px;
+  }
+}

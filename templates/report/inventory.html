@@ -1,0 +1,70 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Invoice</title>
+    <meta name="description" content="Invoice demo sample">
+    <meta name="author" content="Kozea">
+  </head>
+
+  <body>
+    <img class="logo" src="{%  static 'web/logo/pph.png' %}" style="width: 90px;"  alt="">
+    <h2>Pusat Penelitian HIV Unika Atma Jaya</h2>
+        <p>Universitas Katolik Indonesia Atma Jaya <br>
+            Gedung K2, Ruang K21.08 <br>
+            Jl. Jenderal Sudirman 51 <br>
+            Jakarta 12930 Indonesia
+        </p>
+
+    <aside>
+      <address id="from">
+        <h2>LAPORAN INVENTARIS</h2>
+      </address>
+
+      <!--address id="to">
+        Our awesome developers
+        From all around the world
+        Earth
+      </address-->
+    </aside>
+
+    <dl id="informations">
+      <dt>Date</dt>
+      <dd>August 27, 2020</dd>
+    </dl>
+    <table>
+      <thead>
+        <th>Kategori</th>
+        <th>Jenis Barang</th>
+        <th>Nama Barang</th>
+        <th>Tahun Pembelian</th>
+        <th>Tersedia</th>
+      </thead>
+      <tbody>
+      {% for a in inv %}
+        <tr>
+          <td>{{ a.kategori }}</td>
+          <td>{{ a.jenis_barang }}</td>
+          <td>{{ a.nama_barang }}</td>
+          <td>{{ a.tahun_pembelian }}</td>
+          <td>{{ a.Tersedia }}</td>
+        </tr>
+      {% endfor %}
+        <table id="total">
+      <thead>
+        <th>dibuat Oleh</th>
+
+        <th>mengetahui</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+
+          <td><h6></h6><br><p style="font-size: 16px">Evi Sukmaningrum <br>Direktur</p></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+

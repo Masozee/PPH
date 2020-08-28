@@ -1,0 +1,187 @@
+.jumbotron{
+    background-size: cover;
+    background-image: url(/images/pustaka/landingpustaka1.png);
+    height: 563px;
+    /* z-index: -1; */
+}
+
+.card-columns{
+    margin-top: 25px;
+}
+
+.card{
+    border-radius: 1rem;
+    background-color: #0083CA;
+    display: inline-block;
+}
+
+.card-title{
+    font-family: 'silkasemibold';
+    height: 65px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.card-text{
+    font-family: 'silkaregular_italic';
+    font-size: 12px;
+    line-height: 1.5;
+    color: #ffffff;
+    height: 53px;   
+}
+
+.card-line{
+    border-top: 1px dotted white;
+}
+
+.small{
+  font-family: 'Opens sans';
+  font-size: 12px;
+  line-height: 1.42;
+  color: #9a9b9f;
+}
+
+.learn-more{
+    margin-top: 5px;
+    font-family: 'silkasemibold';
+    font-size: 14px;
+    color: #0083ca;
+  
+}
+
+
+/* @media (min-width: 34em) {
+    .card-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+} */
+
+/* katagori tombol */
+.btn{
+    border: 1px solid #9A9B9F;
+    border-radius: 90rem;
+    margin-bottom: 20px;
+    margin-top: 25px;
+
+    
+}
+
+
+
+
+
+@media (min-width: 48em) {
+    .card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 4;
+    }
+
+}
+
+@media (min-width: 62em) {
+    .card-columns {
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+    }
+
+
+}
+
+@media (min-width: 75em) {
+    .card-columns {
+        /* -webkit-column-count: 5;
+        -moz-column-count: 5; */
+        column-count: 6;
+
+    }
+
+
+}
+
+
+
+ #dropdown-toggle {
+    width: 255px !important;
+}
+
+.dropdown-toggle::after {
+    margin-left: 150px;
+}
+
+.dropdown-menu.show {
+    width: 255px;
+}
+
+.hiv, .publikasi, .regulasi{
+    margin-top: 70px;
+}
+
+/* tombol arah pelajari selengkapnya */
+.pb-1, .py-1 {
+    padding-top: 6px;
+}
+
+@media (max-width: 576px) { 
+    .jumbotron{
+        background-size: cover;
+        background-image: url(/images/pustaka/landingpustaka1.png);
+        height: 400px;
+        /* z-index: -1; */
+        background-position: 30% 50%;
+    }
+
+
+    .jumbotron h1{
+        font-family: 'silkabold';
+        font-size: 63px;
+        line-height: 1;
+        letter-spacing: -1.26px;
+        text-align: left;
+        color: #ffbe53;
+    }
+
+    .jumbotron p{
+        font-family: 'Open Sans';
+        font-size: 14px;
+        line-height: 1.43;
+        letter-spacing: -0.28px;
+        text-align: left;
+        color: #ffffff;
+    }
+
+    .hiv h3, .publikasi h3, .regulasi h3{
+        font-family: 'silkabold';
+        font-size: 40px;
+        color: #0c59b0;
+    }
+
+    .hiv p, .publikasi p, .regulasi p{
+        font-family: 'Open Sans';
+        font-size: 12px;
+        line-height: 1.5;
+        color: #707070;
+    }
+
+    .hiv .card-text, .publikasi .card-text, .regulasi .card-text{
+        font-family: 'silkaregular_italic';
+        font-size: 12px;
+        font-style: italic;
+        line-height: 1.5;
+        color: #ffffff;
+    }
+
+    .hiv .learn-more{
+        width: 53%;
+
+    }
+
+    .clearfix .pl-3{
+        padding-left: 0 !important;
+    }
+
+ 
+ }

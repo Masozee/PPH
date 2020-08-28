@@ -1,0 +1,122 @@
+/* logo */
+.logo-km{
+    width: 110px;
+    padding-top: 42px;
+}
+
+/* alert */
+.alert-user{
+    margin-top: 10px;
+}
+
+/* login */
+.login{
+    margin-top: 5%;
+
+}
+
+/* botton */
+.btn{
+    border-radius: 20px;
+    width: 140px;
+}
+
+/* form */
+
+input{
+    color: #babcbc;
+}
+.form-control{
+    border-radius: 20px;
+    padding-left: 40px;
+    /* color: #babcbc !important; */
+    font-style: #babcbc;
+}
+
+.icon-form{
+    position: absolute;
+    z-index: 2;
+    display: block;
+    text-align: center;
+    pointer-events: none;
+    padding: 10px 10px 10px 20px;
+    color:#babcbc ;
+}
+
+/* login user */
+.form-user{
+    padding-left: 42px;
+    padding-top: 52px;
+    padding-right: 42px;
+    padding-bottom: 40px;
+    background-color: #e9f0f0;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.form-user h3{
+    font-family: 'silkasemibold';
+    font-size: 24px;
+    color: #0083ca;
+}
+
+.form-user h6{
+    font-family: 'Open Sans';
+    font-size: 12px;
+    line-height: 1.42;
+    color: #0083ca;
+    padding-bottom: 80px;
+
+}
+
+.forget-pass{
+  font-family: 'Open Sans';
+  font-size: 10px;
+  line-height: 1.7;
+  color: #9a9b9f;
+  padding-bottom: 45px;
+}
+
+
+
+/* login guest */
+.form-guest{
+    padding-left: 42px;
+    padding-top: 120px;
+    padding-right: 42px;
+    padding-bottom: 40px;
+    background-color: #0083ca;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.form-guest h3{
+    font-family: 'silkasemibold';
+    font-size: 22px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.form-guest h6{
+    font-family: 'Open Sans';
+    font-size: 12px;
+    line-height: 1.42;
+    text-align: center;
+    color: #f5fbfd;
+    padding-bottom: 34px;
+
+}
+
+.form-guest button{
+    align-items: center;
+    margin-top: 61px ;
+}
+
+.btn-guest{
+    background-color: #FFBE53;
+    color: white;
+    margin: auto;
+}
+.text-muted{
+    color: #ffffff;
+}

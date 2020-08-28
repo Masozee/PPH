@@ -1,0 +1,178 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"-->
+
+     <!-- FontAwseme -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+    <!-- tabel -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'km/css/index.css' %}">
+
+    {% block css %}
+
+    {% endblock %}
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+    
+    <style>
+    @font-face {
+            font-family: 'silkaregular';
+        src: url(' {% static 'web/font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-regular-webfont.woff' %}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+    
+        @font-face {
+            font-family: 'silkabold';
+            src: url('{% static 'web/font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-bold-webfont.woff' %}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+    
+        @font-face {
+            font-family: 'silkalight';
+            src: url('{% static 'web/font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-light-webfont.woff' %}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+    
+        @font-face {
+            font-family: 'silkamedium';
+            src: url('{% static 'web/font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-medium-webfont.woff'%}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+    
+        @font-face {
+            font-family: 'silkasemibold';
+            src: url('{% static 'web/font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-semibold-webfont.woff' %}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+    
+        @font-face {
+            font-family: 'silkaregular_italic';
+            src: url('{% static 'web/font/Silka-Complete-Webfont/Silka-Italic-Webfont/silka-regularitalic-webfont.woff'%}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+    </style>
+    <title>Detail Staff</title>
+  </head>
+  <body>
+
+    <!-- sidebar -->
+    <div class="section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-2 side-nav">
+            <div class="logo"><a href="{% url 'home-web' %}"><img src="{% static 'KM/logo/logo.png' %}" alt=""></img></div>
+            
+              <div class="accordion" id="side-nav">
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" href="#nav-1">
+                      <a class="card-title"> <span><img class="icon-side-nav" src="{% static 'km/icon/001-writing.svg' %}" alt="" srcset=""></span>
+                        Kegiatan
+                      </a>
+                  </div>
+
+                  <div id="nav-1" class="collapse" aria-labelledby="headingOne" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="{% url 'KM-Penelitian' %}">Penelitian</a></li>
+                        <li class="list-untyled"><a href="{% url 'KM-Peningkatan' %}">Peningkatan Kapasitas</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" > <!--     href="#nav-4" -->
+                      <a  href="{% url 'KM-Staff'%}" class="card-title"> <span><img class="icon-side-nav" src="{% static 'km/icon/002-id-card.svg' %}" alt="" srcset=""></span>
+                        Staff
+                      </a>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" > <!--     href="#nav-4" -->
+                      <a  href="{% url 'KM-Inventaris'%}" class="card-title"> <span><img class="icon-side-nav" src="{% static 'km/icon/003-stock.svg' %}" alt="" srcset=""></span>
+                        Inventaris
+                      </a>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" > <!--     href="#nav-4" -->
+                      <a  href="{% url 'KM-Kontak'%}" class="card-title"> <span><img class="icon-side-nav" src="{% static 'km/icon/006-contacts.svg' %}" alt="" srcset=""></span>
+                        Kontak
+                      </a>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" href="#nav-5" >
+                      <a class="card-title"> <span><img class="icon-side-nav"  src="{% static 'km/icon/007-recycle-sign.svg' %}" alt="" srcset=""></span>
+                        Dokumen
+                      </a>
+                  </div>
+                  <div id="nav-5" class="collapse" aria-labelledby="headingFive" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="{% url 'KM-Media' %}">Media Advokasi</a></li>
+                        <li class="list-untyled"><a href="{% url 'KM-Manajemen' %}">Manajemen</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" href="#nav-6">
+                      <a class="card-title"> <span><img class="icon-side-nav" src="{% static 'km/icon/011-quality.svg'%}" alt="" srcset=""></span>
+                        Aktivitas
+                      </a>
+                  </div>
+                  <div id="nav-6" class="collapse" aria-labelledby="headingSix" data-parent="#side-nav">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li class="list-untyled"><a href="{% url 'add-publikasi' %}">Tambah Publikasi</a></li>
+                        <li class="list-untyled"><a href="{% url 'add-peningkatan' %}">Peningkatan Kapasitas</a></li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" >
+                      <a  href="{% url 'KM-Kalender'%}" class="card-title"> <span><img class="icon-side-nav" src="{% static 'km/icon/calendar-with-spring-binder-and-date-blocks.svg' %}" alt="" srcset=""></span>
+                        Kalender
+                      </a>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header collapsed" data-toggle="collapse" > <!--     href="#nav-4" -->
+                      <a  href="{% url 'logout' %}" class="card-title"> <span><img class="icon-side-nav" src="{% static 'km/icon/logout.svg' %}" alt="" srcset=""></span>
+                        Logout
+                      </a>
+                  </div>
+                </div>
+              </div>
+            </div> 
+
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+  
+    <!-- Optional JavaScript -->
+    {% block js %}
+
+    {% endblock %}
+    </body>
+</html>

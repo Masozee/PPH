@@ -1,0 +1,253 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+
+{% block css %}
+    <link href="{% static 'web/css/tentang-kami.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/header-footer.css' %}">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="{% static 'web/css/swiper.min.css' %}">
+
+{% endblock %}
+
+{% block meta %}
+<meta property="og:title" content="Tentang Kami">
+<meta property="og:site_name" content="PPH UNIKA Atma Jaya">
+{% for a in header %}
+<meta property="og:image" content="/media/{{ a.tentang_kami }} ">
+{% endfor %}
+{% endblock %}
+
+{% block content %}
+    <!-- landing -->
+    {% for a in header %}
+    <!-- landing -->
+    <div class="jumbotron" style = "background-image: url('/media/{{ a.tentang_kami }}')">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p class="lead f-bm fssb">nilai kami</p>
+                    <h1 class="display-4 fsb f-bm">Inklusivitas Sosial </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <!-- tutup landing -->
+
+    <!-- batas -->
+    <div class="container">
+        <div class="row justify-content-start">
+            <div class="col-md-3">
+                <img class="img-fluid" src="{% static 'web/images/tentengkami/batas.png' %}" alt="batas">
+            </div>
+        </div>
+    </div>
+    <!-- tutup batas -->
+
+    {% for a in tentangkami %}
+    <!-- konten sejarah -->
+    <section id="sejarah">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-7 ">
+                    <h2 class="f-36 fsb f-bm" >Sejarah Kami</h2>
+                    <p class="f-15 f-os f-at pr-4">{{ a.sejarah |safe}}</p>
+                </div>
+                <div class="col-md-5 ">
+                    <h3 class="f-at fsb f-20 our-history">our history</h3>
+                    <p class="f-14 f-am f-os fosl pt-3 pr-5">{{ a.history  |safe}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- tutup sejarah -->
+
+    <!-- konten visi misi -->
+    <section id="visi">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h2 class="f-20 f-bm fsb">visi</h2>
+                    <p class="f-18 f-bm fsb pr-5 ">{{ a.visi }}</p>
+                </div>
+                <div class="col-md-5">
+                    <h3 class="f-20 f-at fsb">vision</h3>
+                    <p class="f-os f-am pr-5">{{ a.vison }}</p>
+                </div>
+            </div>
+            <!-- batas visi -->
+            <div class="row justify-content-end">
+              <div class="col-md-3">
+                  <img src="{% static 'web/images/tentengkami/batas2.png' %}" id="batas2" alt="batas2">
+              </div>
+            </div>
+            <!-- tutup batas visi -->
+            <div class="row">
+                <div class="col-md-7">
+                    <h2 class="f-20 f-bm fsb">misi</h2>
+                    <p class="f-18 f-bm fsm pr-5">{{ a.misi }}</p>
+                </div>
+                <div class="col-md-5">
+                    <h4 class="f-20 f-at fsb">Mission</h4>
+                    <p class="f-14 f-at f-os pr-5">{{ a.mission }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- tutup konten visi misi -->
+
+    <!-- team -->
+    <section id="tim">
+        <div class="container">
+            <div class="row">
+                <h3 class="f-36 fsb tim-kami">tim kami</h3>
+            </div>
+            <div class="row blog">
+                <div class="col-md-12">
+                    <!-- swiper -->
+                    <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {% for B in staff %}
+                        <!-- OJI ini looping -->
+                        <div class="swiper-slide">
+                            <a class="popup" data-toggle="modal" data-target="#{{ B.nama | slugify }}-{{ B.id }}"> <!-- ini class modal atau popup -->
+                                <img class="rounded img-fluid img-tim" src="/media/{{ B.foto }}" alt="Image" style="max-width:100%;">
+                            </a>
+                        </div>
+                        <!-- ini tutup looping -->
+                        {% endfor %}
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div>
+                    <!-- tutup swiper -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- tutup team -->
+
+  {% for a in staff %}
+    <!-- Modal/popup -->
+    <div class="modal fade" id="{{ a.nama |slugify }}-{{ a.id }}" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content shadow">
+          <div class="modal-body">
+              <div class="card modal-card " >
+                  <img class=" img-modal" src="/media/{{ a.foto }}" alt="Image" > <!-- Modal content-->
+                  <div class="card-body">
+                      <h3 class="nama-tim">{{ a.nama }}</h3>
+                      <h4 class="jab-tim">{{ a.posisi }}</h4>
+                      <p class="konten-tim">{{ a.deskripsi_singkat }}</p>
+                  </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- tutup Modal/popup -->
+  {% endfor %}
+
+    <!-- patner -->
+    <section id="patner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="f-36 f-bt fsb">mitra</h3>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-4">
+                    <h5 class="f-16 f-bm fssb">Organisasi Pemerintah</h5>
+                    <h6 class="f-12 f-at fssb">Public Sectors</h6>
+                    <p class="f-15 f-am f-os fosl ">Kementerian Kesehatan, Kementerian Sosial,
+                        Kementerian Pemberdayaan Perempuan dan
+                        Perlindungan Anak, Komisi Penanggulangan
+                        AIDS Nasional, Komisi Penanggulangan AIDS
+                        Provinsi DKI Jakarta. </p>
+                    <h5 class="f-16 f-bm fssb">Organisasi Swasta</h5>
+                    <h6 class="f-12 f-at fssb">Private Sectors</h6>
+                    <p class="f-15 f-am f-os fosl">Astra Honda Training Center, Martha Tilaar.</p>
+                    <h5 class="f-16 f-bm fssb">PBB</h5>
+                    <h6 class="f-12 f-at fssb">United Nation</h6>
+                    <p class="f-15 f-am f-os fosl ">UNAIDS, UNESCO, ILO, UNFPA, UNODC, WHO, UN Women, UNDP.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="f-16 f-bm fssb">Universitas</h5>
+                    <h6 class="f-12 f-at fssb">Universities</h6>
+                    <p class="f-15 f-am f-os fosl">School of Public Health, University of Illinois Chicago (UIC), Amerika Serikat; Kirby Institute, University of New South Wales (UNSW), Australia;
+                        Otago University, New Zealand;  Radboud University Nijmegen, Belanda; dan Pusat Kebijakan dan Manajemen Kesehatan (PKMK) Fakultas Kedokteran
+                        Universitas Gadjah Mada, Pusat Studi TB-HIV Fakultas Kedokteran Universitas Padjajaran, Sekolah Tinggi Pariwisata Sahid, Sekolah Tinggi Ilmu Kesehatan
+                        Tarumanegara.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="f-16 f-bm fssb">Mitra Pembangunan Nasional</h5>
+                    <h6 class="f-12 f-at fssb">International Development Partner</h6>
+                    <p class="f-15 f-am f-os fosl">Knowledge Sector Initiatives (KSI) – DFAT; FHI 360; Indonesia Partnership Fund (IPF); HIV Cooperation Program in Indonesia – DFAT; Result in Health
+                        (RiH), Netherland; Caritas Germany; Mainline Netherland, Voice, AIDS Fonds, COC Netherland. </p>
+                    <h5 class="f-16 f-bm fssb">Organisasi Masyarakat Sipil</h5>
+                    <h6 class="f-12 f-at fssb">Civil Society Organizations</h6>
+                    <p class="f-15 f-am f-os fosl">Ikatan Perempuan Positif Indonesia (IPPI), Jaringan Indonesia Positif (JIP), Organisasi Perubahan Sosial Indonesia (OPSI), Persaudaraan Korban Napza
+                        Indonesia (PKNI), Jaringan Gay, Waria, Lelaki yang berhubungan dengan lelaki lainnya di Indonesia (GWL-INA), Yayasan Inter Medika (YIM), Yayasan Kusuma
+                        Buana (YKB), Yayasan Srikandi Sejati (YSS), Lembaga Bantuan Hukum Masyarakat (LBH Masyrakat), Indonesia AIDS Coalition (IAC), Yayasan Rumah Kita (eRKa),
+                        Sanggar SWARA, Karitas Sani Madani (Karisma).</p>
+                </div>
+            </div><hr>
+        </div>
+    </section>
+    <!-- tutup patner -->
+    {% endfor %}
+{% endblock %}
+
+{% block js %}    <!-- link swiper scrip -->
+    <script src="{% static 'web/js/swiper.min.js' %}"></script>
+    <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 4,
+      spaceBetween: 40,
+      // init: false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        }
+      }
+    });
+  </script>
+
+{% endblock %}

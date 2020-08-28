@@ -1,0 +1,139 @@
+body{
+        font-family: 'silka';
+}
+/* jumbotron */
+.jumbotron{
+        background-size: cover;
+        background-image: url(/images/kontak/landing.png);
+        height: 615px;
+        z-index: -1;
+        border-radius: 0;
+}
+
+/* teks landing */
+.display-4{
+    font-size: 80px;
+    font-weight: 500;
+}
+/* tutup landing */
+
+.kontak{
+        margin-top: -280px;
+}
+
+.kontak-informasi{
+        background-color: #0083CA;
+}
+
+.teks-kontak{
+        color: #0083CA;
+}
+
+.form-control {
+        display: block;
+        width: 100%;
+        height: calc(1.5em + .75rem + 2px);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: black;
+        background-color: #771f1f00;
+        background-clip: padding-box;
+        border: 1px solid #9A9B9F;
+        border-top-color: rgb(154, 155, 159);
+        border-top-style: none;
+        border-top-width: 1px;
+        border-right-color: rgb(154, 155, 159);
+        border-right-style: none;
+        border-right-width: 1px;
+        border-bottom-color: rgb(154, 155, 159);
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-left-color: rgb(154, 155, 159);
+        border-left-style: none;
+        border-left-width: 1px;
+        border-image-source: initial;
+        border-image-slice: initial;
+        border-image-width: initial;
+        border-image-outset: initial;
+        border-image-repeat: initial;
+        border-radius: unset;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+#hide-sidebar{
+	margin-top: 190px;
+
+}
+
+.btn{
+        padding: 0px;
+}
+
+    @media(max-width:576px){
+        .jumbotron{
+            background-size: cover;
+            background-image: url(/images/kontak/peta@2x.png);
+            height: 615px;
+            /* z-index: -1; */
+            border-radius: 0;
+            background-position: -500px 10px;
+
+            }
+
+        .jumbotron h1{
+            font-family: 'silkabold';
+            font-size: 63px;
+            line-height: 1;
+            letter-spacing: -1.26px;
+            color: white;
+            margin-top: 20px;
+        }            
+
+        .jumbotron p{
+            font-family: 'Open Sans';
+            font-size: 14px;
+            line-height: 1.43;
+            color: white;
+        }
+
+        .kontak .row{
+            margin-right: 3%;
+            margin-left: 3%;
+            /* border-top-right-radius: 15px !important;
+            border-top-left-radius: 15px !important; */
+        }
+
+        .teks-kontak {
+            margin-top: 3%;
+        }
+
+        .kontak-informasi{
+            border-bottom-right-radius: 15px !important;
+            border-bottom-left-radius: 15px !important;
+            border-top-right-radius: 0 !important;
+            padding-bottom: 5%;
+        }
+
+        .rounded-lg{
+            border-radius: 15px !important;
+        }
+
+        .kontak .submit{
+            margin-top: -70px ;
+            margin-left: 80%;
+        }
+
+        .kontak img{
+            background-color: white;
+        }
+
+        .kontak button{
+            float: right;
+        }
+
+        .pesan label{
+            margin-bottom: 80px;
+        }
+    }

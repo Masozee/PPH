@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- FontAwseme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">   
+    
+    <!-- tabel -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/plug-ins/preview/searchPane/dataTables.searchPane.min.css">
+    
+    <!-- my css -->
+    
+    <link rel="stylesheet" href="css/header-footer.css">
+    <link href="css/pustaka2.css" rel="stylesheet">
+
+    <!-- tabel -->
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"> -->
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+    
+    <style>
+    @font-face {
+        font-family: 'silkaregular';
+    src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkabold';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkalight';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkamedium';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkasemibold';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkaregular_italic';
+        src: url('font/Silka-Complete-Webfont/Silka-Italic-Webfont/silka-regularitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+    </style>
+    <title>Tabel Pustaka</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <header>
+      <nav class="navbar fixed-top navbar-expand-md justify-content-center opaque-navbar f-14 fssb" >
+          <div class="container">
+              <a class="navbar-brand pt-3" href="index.html"><img src="logo/LogoPPH-01.png" width="90" alt=""></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"><i class="fa fa-bars f-bt" aria-hidden="true"></i></span>
+                  <span class="navbar-toggler-icon"> <i class="fa fa-user-circle f-bt" aria-hidden="true"></i></span>
+              </button>
+              <!-- <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsingNavbar2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"><img src="images/navbar-account.png" alt="" srcset=""></span>
+              </button> -->
+              <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+                  <ul class="navbar-nav text-center">
+                      <li class="nav-item active">
+                          <a class="nav-link" href="tentang-kami.html">tentang kami <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="aktivitas.html">kegiatan</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">berita</a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item f-at f-14 fsm j-dd" href="dukomentasi.html">Dokumentasi</a>
+                              <a class="dropdown-item f-at f-14 fsm j-dd" href="artikel.html">Artikel</a>
+                              <a class="dropdown-item f-at f-14 fsm j-dd" href="detail-artikel.html">Detail Artikel</a>
+                              <a class="dropdown-item f-at f-14 fsm j-dd" href="detail-pustaka.html">Detail Pustaka</a>
+                          </div>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="event.html">event</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="pustaka.html">pustaka</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="kesehatanjiwa.html">kesehatan jiwa</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="kontak.html">kontak</a>
+                      </li>
+                  </ul>
+                  <ul class="nav navbar-nav flex-row justify-content-center flex-nowrap">
+                      <li class="nav-item">
+                              <!-- <form class="search" action="">
+                                  <input class="inputCari" type="search" placeholder="The HIV AIDS Research Center">
+                                  <i class="cari fa fa-search"></i>
+                              </form> -->
+                          <a class="nav-link" id="searchBox" href=""><img src="images/baseline-search-24px.png" alt="" srcset=""></a> 
+                      </li>
+                      <!-- <li class="nav-item"><a class="nav-link" href=""><img class="icon-search" src="images/baseline-search-24px.png" alt="" srcset=""></a> </li> -->
+                      <li class="nav-item"><img src="images/Line 1.png" alt="" srcset=""></li>
+                      <li class="nav-item "><a class="nav-link" href=""><img class="gambar-acount" src="icon/account-24px.svg" alt="" srcset="">KM PPH</a> </li>
+                      <!-- <li class="nav-item"><a class="nav-link" href="">KM PPH</a> </li> -->
+                  </ul>
+              </div>
+          </div>
+      </nav>
+    </header>
+    <!-- penutup nav-->
+
+    <!-- pustaka -->
+    <section class="sidebar">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-3">
+            <h1 class="judul">Pustaka</h1>
+            <p class="isi">Epremolupit venime nonsed quibusci dolorru mquatur am  volupti tenis repe optamusae nis estem. Et adia qui demquos  delento dolorum esecatem reius natur. Et adia qui demquos  delento dolo.</p>
+            
+            <div class="filter-head">
+            <div class="clearfix">
+              <div class="filter float-left"><img class="icon-filter" src="icon/filter-results-button.svg" alt="filter">Filter</div>
+              <div  class="clear float-right"><button type="button" class="uncheck">Clear</button></div> 
+                           
+            </div>
+            <hr class="batas">
+            <!-- <div class="searchPanes"></div> -->
+
+            <div id="accordion" class="accordion">
+                <div class="card mb-0">
+                    <!-- Jenis Kegiatan -->
+                    <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+                        <a class="card-title">
+                            Jenis Kegiatan
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="card-body collapse" data-parent="#accordion" >
+                      <div class="form-check">
+                        <label>
+                          <input id="ceklis" type="checkbox" name="Judul Dokumen" value="Test" > <span class="label-text">Test</span>
+                        </label>
+                      </div>
+                    </div>
+                    <!-- Katergori -->
+                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                        <a class="card-title">
+                          Kategori
+                        </a>
+                    </div>
+                    <div id="collapseTwo" class="card-body collapse" data-parent="#accordion" >
+                      <div class="form-check">
+                        <label>
+                          <input id="ceklis" type="checkbox" name="check" checked> <span class="label-text">Tampilkan Semua</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="ceklis" type="checkbox" name="kategori" value="Kebijakan" > <span class="label-text">Kebijakan</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="ceklis" type="checkbox" name="kategori" value="Bio-Medis" > <span class="label-text">Bio-Medis</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="ceklis" type="checkbox" name="kategori" value="Sosial-Perilaku"> <span class="label-text">Sosial-Perilaku</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="ceklis" type="checkbox" name="kategori" value="Lecture-Series"> <span class="label-text">Lecture-Series</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="ceklis" type="checkbox" name="kategori" value="Workshop"> <span class="label-text">Workshop</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="ceklis" type="checkbox" name="kategori" value="Pelatihan"> <span class="label-text">Pelatihan</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="ceklis" type="checkbox" name="kategori" value="Fun Sharing Day"> <span class="label-text">Fun Sharing Day</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="ceklis" type="checkbox" name="kategori" value="Khursus Online"> <span class="label-text">Khursus Online</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="ceklis" type="checkbox" name="kategori" value="Pertemuan"> <span class="label-text">Pertemuan</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <!-- Tahun Mulai -->
+                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                        <a class="card-title">
+                          Tahun Mulai
+                        </a>
+                    </div>
+                    <div id="collapseThree" class="collapse" data-parent="#accordion" >
+                      <div class="form-check">
+                        <label>
+                          <input id="ceklis" type="checkbox" name="check" checked> <span class="label-text">Option 01</span>
+                        </label>
+                      </div>
+                    </div>
+                    <!-- Sumber Daya -->
+                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                        <a class="card-title">
+                          Sumber Daya
+                        </a>
+                    </div>
+                    <div id="collapseFour" class="collapse" data-parent="#accordion" >
+                      <div class="form-check">
+                        <label>
+                          <input id="ceklis" type="checkbox" name="check" checked> <span class="label-text">Option 01</span>
+                        </label>
+                      </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="searchPanes"></div> 
+            <hr class="batas">         
+          </div>
+        </div>
+
+          <!-- tabel -->
+          <div class="col-9 tabel">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item tab-item">
+                <a  class=" nav-link tab-link active" id="pills-hiv-tab" data-toggle="pill" href="#pills-hiv" role="tab" aria-controls="pills-hiv" aria-selected="true">HIV AIDS</a>
+              </li>
+              <li class="nav-item tab-item">
+                <a class=" nav-link tab-link" id="pills-publikasi-tab" data-toggle="pill" href="#pills-publikasi" role="tab" aria-controls="pills-publikasi" aria-selected="true">Publikasi</a>
+              </li>
+              <li class="nav-item tab-item">
+                <a class=" nav-link tab-link " id="pills-regulasi-tab" data-toggle="pill" href="#pills-regulasi" role="tab" aria-controls="pills-regulasi" aria-selected="true">Regulasi</a>
+              </li>
+            </ul>
+            <!-- <button type="button" class="btn btn-primary">HIV AIDS</button>
+            <button type="button" class="btn btn-secondary">Publikasi</button>
+            <button type="button" class="btn btn-secondary">Regulasi</button> -->
+
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show active " id="pills-hiv" role="tabpanel" aria-labelledby="pills-hiv-tab">
+                <table id="hiv" class="table table-striped radius-tabel " >
+                    <thead >
+                        <tr>
+                          <th>Judul Dokumen</th>
+                          <th>Kategori</th>
+                          <th>Sumber</th>
+                          <th>Tahun</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="tbl-keg "><a href="">test</a></td>
+                        <td>Pertemuan</td>
+                        <td>test</td>
+                        <td>61</td>
+                        
+                      </tr>
+                      <tr>
+                        <td class="tbl-keg "><a href="">nam.</a></td>
+                        <td>Kebijakan</td>
+                        <td> Ea, iste?</td>
+                        <td>test</td>
+                        
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Garrett Winters</a></td>
+                          <td>Bio-Medis</td>
+                          <td>Tokyo</td>
+                          <td>test</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Ashton Cox</a></td>
+                          <td>Sosial-Perilaku</td>
+                          <td>San Francisco</td>
+                          <td>66</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Cedric Kelly</a></td>
+                          <td>Lecture-Series</td>
+                          <td>Edinburgh</td>
+                          <td>22</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Test</a></td>
+                          <td>Workshop</td>
+                          <td>Tokyo</td>
+                          <td>33</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Brielle Williamson</a></td>
+                          <td>Pelatihan</td>
+                          <td>New York</td>
+                          <td>61</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Herrod Chandler</a></td>
+                          <td>Fun Sharing Day</td>
+                          <td>San Francisco</td>
+                          <td>59</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Test</a></td>
+                          <td>Khursus Online</td>
+                          <td>Tokyo</td>
+                          <td>55</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Colleen Hurst</a></td>
+                          <td>Pertemuan</td>
+                          <td>San Francisco</td>
+                          <td>39</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Test</a></td>
+                          <td>Software Engineer</td>
+                          <td>Edinburgh</td>
+                          <td>23</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Jena Gaines</a></td>
+                          <td>Office Manager</td>
+                          <td>London</td>
+                          <td>30</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Quinn Flynn</a></td>
+                          <td>Support Lead</td>
+                          <td>Edinburgh</td>
+                          <td>22</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Charde Marshall</a></td>
+                          <td>Regional Director</td>
+                          <td>San Francisco</td>
+                          <td>36</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Haley Kennedy</a></td>
+                          <td>Senior Marketing Designer</td>
+                          <td>London</td>
+                          <td>43</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Tatyana Fitzpatrick</a></td>
+                          <td>Regional Director</td>
+                          <td>London</td>
+                          <td>19</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Michael Silva</a></td>
+                          <td>Marketing Designer</td>
+                          <td>London</td>
+                          <td>66</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Paul Byrd</a></td>
+                          <td>Chief Financial Officer (CFO)</td>
+                          <td>New York</td>
+                          <td>64</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Gloria Little</a></td>
+                          <td>Systems Administrator</td>
+                          <td>New York</td>
+                          <td>59</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Bradley Greer</a></td>
+                          <td>Software Engineer</td>
+                          <td>London</td>
+                          <td>41</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Dai Rios</a></td>
+                          <td>Personnel Lead</td>
+                          <td>Edinburgh</td>
+                          <td>35</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Jenette Caldwell</a></td>
+                          <td>Development Lead</td>
+                          <td>New York</td>
+                          <td>30</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Yuri Berry</a></td>
+                          <td>Chief Marketing Officer (CMO)</td>
+                          <td>New York</td>
+                          <td>40</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Caesar Vance</a></td>
+                          <td>Pre-Sales Support</td>
+                          <td>New York</td>
+                          <td>21</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Doris Wilder</a></td>
+                          <td>Sales Assistant</td>
+                          <td>Sidney</td>
+                          <td>23</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Angelica Ramos</a></td>
+                          <td>Chief Executive Officer (CEO)</td>
+                          <td>London</td>
+                          <td>47</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Gavin Joyce</a></td>
+                          <td>Developer</td>
+                          <td>Edinburgh</td>
+                          <td>42</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Jennifer Chang</a></td>
+                          <td>Regional Director</td>
+                          <td>Singapore</td>
+                          <td>28</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Brenden Wagner</a></td>
+                          <td>Software Engineer</td>
+                          <td>San Francisco</td>
+                          <td>28</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Fiona Green</a></td>
+                          <td>Chief Operating Officer (COO)</td>
+                          <td>San Francisco</td>
+                          <td>48</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Shou Itou</a></td>
+                          <td>Regional Marketing</td>
+                          <td>Tokyo</td>
+                          <td>20</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Michelle House</a></td>
+                          <td>Integration Specialist</td>
+                          <td>Sidney</td>
+                          <td>37</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Suki Burks</a></td>
+                          <td>Developer</td>
+                          <td>London</td>
+                          <td>53</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Prescott Bartlett</a></td>
+                          <td>Technical Author</td>
+                          <td>London</td>
+                          <td>27</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Gavin Cortez</a></td>
+                          <td>Team Leader</td>
+                          <td>San Francisco</td>
+                          <td>22</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Martena Mccray</a></td>
+                          <td>Post-Sales support</td>
+                          <td>Edinburgh</td>
+                          <td>46</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Unity Butler</a></td>
+                          <td>Marketing Designer</td>
+                          <td>San Francisco</td>
+                          <td>47</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Howard Hatfield</a></td>
+                          <td>Office Manager</td>
+                          <td>San Francisco</td>
+                          <td>51</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Hope Fuentes</a></td>
+                          <td>Secretary</td>
+                          <td>San Francisco</td>
+                          <td>41</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Vivian Harrell</a></td>
+                          <td>Financial Controller</td>
+                          <td>San Francisco</td>
+                          <td>62</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Timothy Mooney</a></td>
+                          <td>Office Manager</td>
+                          <td>London</td>
+                          <td>37</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Jackson Bradshaw</a></td>
+                          <td>Director</td>
+                          <td>New York</td>
+                          <td>65</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Olivia Liang</a></td>
+                          <td>Support Engineer</td>
+                          <td>Singapore</td>
+                          <td>64</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Bruno Nash</a></td>
+                          <td>Software Engineer</td>
+                          <td>London</td>
+                          <td>38</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Sakura Yamamoto</a></td>
+                          <td>Support Engineer</td>
+                          <td>Tokyo</td>
+                          <td>37</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Thor Walton</a></td>
+                          <td>Developer</td>
+                          <td>New York</td>
+                          <td>61</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Finn Camacho</a></td>
+                          <td>Support Engineer</td>
+                          <td>San Francisco</td>
+                          <td>47</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Serge Baldwin</a></td>
+                          <td>Data Coordinator</td>
+                          <td>Singapore</td>
+                          <td>64</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Zenaida Frank</a></td>
+                          <td>Software Engineer</td>
+                          <td>New York</td>
+                          <td>63</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Zorita Serrano</a></td>
+                          <td>Software Engineer</td>
+                          <td>San Francisco</td>
+                          <td>56</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Jennifer Acosta</a></td>
+                          <td>Junior Javascript Developer</td>
+                          <td>Edinburgh</td>
+                          <td>43</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Cara Stevens</a></td>
+                          <td>Sales Assistant</td>
+                          <td>New York</td>
+                          <td>46</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Hermione Butler</a></td>
+                          <td>Regional Director</td>
+                          <td>London</td>
+                          <td>47</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Lael Greer</a></td>
+                          <td>Systems Administrator</td>
+                          <td>London</td>
+                          <td>21</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Jonas Alexander</a></td>
+                          <td>Developer</td>
+                          <td>San Francisco</td>
+                          <td>30</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Shad Decker</a></td>
+                          <td>Regional Director</td>
+                          <td>Edinburgh</td>
+                          <td>51</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Michael Bruce</a></td>
+                          <td>Javascript Developer</td>
+                          <td>Singapore</td>
+                          <td>29</td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="tbl-keg "><a href="">Donna Snider</a></td>
+                          <td>Customer Support</td>
+                          <td>New York</td>
+                          <td>27</td>
+                          
+                      </tr>
+                    </tbody>                    
+                </table>  
+              </div>
+
+              <div class="tab-pane fade show" id="pills-publikasi" role="tabpanel" aria-labelledby="pills-publikasi-tab">
+                  <table id="publikasi" class="table table-striped radius-tabel" >
+                      <thead>
+                        <tr>
+                            <th>Judul Dokumen</th>
+                            <th>Kategori</th>
+                            <th>Sumber</th>
+                            <th>Tahun</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Kebijakan</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Bio-Medis</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Sosial-Perilaku</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Lecture-Series</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Workshop</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Pelatihan</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Fun Sharing Day</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Khursus Online</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Pertemuan</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                      </tbody>
+                  </table>
+              </div>
+              
+              <div class="tab-pane fade show" id="pills-regulasi" role="tabpanel" aria-labelledby="pills-regulasi-tab">
+                  <table id="regulasi" class="table table-striped radius-tabel" >
+                      <thead>
+                        <tr>
+                            <th>Judul Dokumen</th>
+                            <th>Kategori</th>
+                            <th>Sumber</th>
+                            <th>Tahun</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Kebijakan</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Bio-Medis</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Sosial-Perilaku</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Lecture-Series</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Workshop</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Pelatihan</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Fun Sharing Day</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Khursus Online</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                        <tr>
+                          <td class="tbl-keg "><a href="">orem, ipsum dolor.</a></td>
+                          <td>Pertemuan</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                        </tr>
+                      </tbody>
+                  </table>
+              </div>
+            </div>
+            
+          </div>
+          <!-- tutup tabel -->
+        </div>
+      </div>
+    </section>
+    <!-- tutup pustaka -->
+
+        
+
+   
+    <!-- Footer section -->
+    <div class="section" id="footer">
+      <div class="container">
+          <div class="row">
+              <!-- footer baris ke 1 kolom ke 1 -->
+              <div class="col-md-3">
+                  <img id="footer-logo" src="images/LOGO.png">
+                  <p class="f-am f-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa.</p>
+              </div>
+              <div class="col">
+                  <!-- footer baris ke 1 kolem ke 2 -->
+                  <div class="row justify-content-around">
+                      <div class="col-md-2" id="hide-footer">
+                          <ul class="list-unstyled">
+                              <li class="f-at fsm f-12 j-f">tentang kami</li>
+                              <li class="f-am f-11 j-f">sejarah</li>
+                              <li class="f-am f-11 j-f">visi dan misi</li>
+                              <li class="f-am f-11 j-f">nilai</li>
+                              <li class="f-am f-11 j-f">tim kami</li>
+                              <li class="f-am f-11 j-f">patner</li>
+                          </ul>
+                      </div>
+                      <!-- id="hide-footer" -->
+                      <div class="col-md-3  " id="hide-footer"  >
+                          <ul class="list-unstyled">
+                              <li class="f-at fsm f-12 j-f">kegiatan</li>
+                              <li class="f-am f-11 j-f">penelitian</li>
+                              <li class="f-am f-11 j-f">advokasi</li>
+                              <li class="f-am f-11 j-f">peningkatan kapasitas</li>
+                              <li class="f-am f-11 j-f">pelayanan kapasitas</li>
+                          </ul>
+                      </div>
+                      <div class="col-md-2" id="hide-footer">
+                          <ul class="list-unstyled">
+                              <li class="f-at fsm f-12 j-f">berita</li>
+                              <li class="f-am f-11 j-f">artikel berita</li>
+                              <li class="f-am f-11 j-f">liputan khusus</li>
+                          </ul>
+                      </div>
+                      <div class="col-md-4">
+                          <ul class="list-unstyled">
+                              <li class="f-12 fsm f-at">kontak</li>
+                              <li class="f-12 f-at fsm"><img class="mr-1" src="images/phone-icon.png" alt="" srcset=""> +62-21 570 3306, 575 7615 ext.624,425</li>
+                              <li class="f-12 f-at fsm"><img class="mr-1" src="images/mail-icon.png" alt="" srcset=""></i> pph@atmajaya.ac.id</li>
+                          </ul>
+                      </div>
+                  </div>
+                  <!-- footer baris ke 2  kolom ke 2 -->
+                  <div class="row justify-content-around">
+                      <div class="col-md-2" id="hide-footer">
+                          <ul class="list-unstyled">
+                              <li class="f-at fsm f-12">event</li>
+                          </ul>
+                      </div>
+                      <div class="col-md-3" id="hide-footer">
+                          <ul class="list-unstyled">
+                              <li class="f-at fsm f-12 j-f">pustaka</li>
+                              <li class="f-am f-11 j-f">tentang hiv & aids</li>
+                              <li class="f-am f-11 j-f">publikasi</li>
+                              <li class="f-am f-11 j-f">regulasi</li>
+                          </ul>
+                      </div>
+                      <div class="col-md-2" id="hide-footer">
+                          <ul class="list-unstyled">
+                              <li class="f-at fsm f-12 j-f">kesehatan jiwa</li>
+                              <li class="f-am f-11 j-f">lorem</li>
+                              <li class="f-am f-11 j-f">ipsum</li>
+                              <li class="f-am f-11 j-f">dolor</li>
+                          </ul>
+                      </div>
+                      <div class="col-md-4">
+                          <ul class="list-unstyled">
+                              <li class="f-at f-12">Folow Us</li>
+                              <a href="#"> <img class="icon-sn" src="icon/004-facebook-logo-button.svg" alt="" srcset="" ></a>
+                              <a href="#"> <img class="icon-sn" src="icon/003-twitter-logo-button.svg" alt="" srcset=""></a>
+                              <a href="#"> <img class="icon-sn" src="icon/002-instagram.svg" alt="" srcset=""></a>
+                              <br>
+                              <br>
+                              <h5 class="f-at f-12"> Subscribe Now.</h5>
+                              <form action="">
+                                  <input class="form-sub f-12 fam " type="email" name="email" id="email" placeholder="enter your email here">
+                                  <button class="submit" type="submit"><img src="images/sub-icon.png" class="" alt="" srcset=""></button>
+                              </form>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <hr><!-- pembatas -->
+      </div>
+    </div>
+    <!-- tutup footer section -->
+
+    <footer class="">
+        <div class="container">
+            <div class="d-flex">
+              <div class="p-2 mr-auto f-at f-11">2019 © pusat penelitian hiv aids unika atma jaya. All rights reserved.</div>
+              <div class="p-2 f-at f-11" id="hide-footer">FAQ</div>
+              <div class="p-2 f-at f-11" id="hide-footer">Privacy</div>
+              <div class="p-2 f-at f-11" id="hide-footer">Terms & Condition</div>
+            </div>
+        </div>
+    </footer>
+    
+
+  
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- scrol navbar trasnparan ke solid -->
+    <script src="js/scroll-nav.js"></script>
+    <!-- plugin table -->
+    <script>
+        $(document).ready(function() {
+            $('#hiv').DataTable({
+              searchPane: {
+                container:'.searchPanes'
+              }
+              
+            });
+            
+            // deklarasi checkbox
+            $(document).ready(function(){
+                var tabel = $('#hiv').DataTable();
+
+                $('input:checkbox').on('change',function(){
+
+                  
+
+
+                  var judDok = $('input:checkbox[name="Judul Dokumen"]:checked').map(function(){
+                    return this.value;
+                  }).get().join('|');
+
+                  //  filter kolomm ke 2
+                  tabel.column(0).search(judDok,true,false,false).draw(false);
+
+                  var kategori = $('input:checkbox[name="kategori"]:checked').map(function(){
+                    return '^' + this.value +'$';
+                  }).get().join('|');
+
+                  //  filter kolomm ke 1
+                  tabel.column(1).search(kategori,true,false,false).draw(false);
+                });
+
+              
+
+              }) ;
+        } );
+      </script>
+      <script>
+        $(document).ready(function() {
+            $('#regulasi').DataTable();
+
+             // deklarasi checkbox
+             $(document).ready(function(){
+                var tabel = $('#regulasi').DataTable();
+
+                $('input:checkbox').on('change',function(){
+                  var kategori = $('input:checkbox[name="kategori"]:checked').map(function(){
+                    return '^' + this.value +'$';
+                  }).get().join('|');
+
+                  //  filter kolomm ke 1
+                  tabel.column(1).search(kategori,true,false,false).draw(false);
+                });
+              }) ;
+        } );
+      </script>
+      <script>
+        $(document).ready(function() {
+            $('#publikasi').DataTable();
+
+             // deklarasi checkbox
+             $(document).ready(function(){
+                var tabel = $('#publikasi').DataTable();
+
+                $('input:checkbox').on('change',function(){
+                  var kategori = $('input:checkbox[name="kategori"]:checked').map(function(){
+                    return '^' + this.value +'$';
+                  }).get().join('|');
+
+                  //  filter kolomm ke 1
+                  tabel.column(1).search(kategori,true,false,false).draw(false);
+                });
+              }) ;
+        } );
+      </script>
+
+      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+      <script src="js/dataTables.searchPane.min.js"></script>
+
+      <script>
+          $(document).ready(function(){
+              $(".check").click(function(){
+                  $("#ceklis").prop("checked", true);
+              });
+              $(".uncheck").click(function(){
+                  $("#ceklis").prop("checked", false);
+              });
+          });
+        </script>
+  </body>
+</html>

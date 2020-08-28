@@ -1,0 +1,103 @@
+
+/* landing */
+.jumbotron{
+    background-size: cover;
+    background-image: url(../images/kegiatan/kegiatankami_01.png);
+    background-color: rgba(13, 70, 134, 1);
+    height: 768px;
+    margin-bottom: 58px;
+}
+
+.display-4{
+    font-size: 80px;
+    margin-top: 90px;
+    color: white;
+    font-weight: 400;
+}
+
+.aktivitas{
+    margin-top: -550px;
+    margin-bottom: 120px;
+    z-index: 1;
+}
+
+.card{
+    background-color: transparent;
+    margin-top: 50px;
+    border: none;
+}
+
+.card-title,.card-text{
+    color: white;
+    margin-left: 0;
+
+
+}
+
+.card-title{
+    font-family: 'silkasemibold';
+    font-size: 14px;
+    margin-top: 18px;
+    margin-bottom: 10px
+}
+
+
+
+.card-body{
+    padding: 0;
+}
+
+.card-img-top{
+    width: 60%;
+}
+
+
+/* footer */
+
+#footer{
+	margin-top: 50px;
+}
+
+#footer-logo{
+	margin-bottom: 24px;
+}
+
+.dropdown-toggle::after {
+	display:none;	
+}
+
+.p-foot{
+    display: flex;
+}
+
+
+/* mobile version */
+@media (max-width: 576px) { 
+    .aktivitas{
+        margin-top: -850px;
+        margin-bottom: 160px;
+        z-index: 1;
+    }
+
+    .jumbotron{
+        background-size: cover;
+        background-image: url(../images/kegiatan/kegiatankami_01.png);
+        background-color: rgba(13, 70, 134, 1);
+        height: 1052px;
+        /* margin-bottom: 58px; */
+    }
+
+    .display-4{
+        font-size: 63px;
+    }
+
+    .card-text{
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .card-title{
+        font-size: 14px;
+    }
+
+}

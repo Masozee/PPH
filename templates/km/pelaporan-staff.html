@@ -1,0 +1,243 @@
+{% extends 'km/base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/penelitian.css' %}">tian.css">
+{% endblock %}
+
+{% block content %}
+          <div class="col-3 filter-section">
+            <h4>Knowledge Management</h4>
+            <h3>Pelaporan Staff</h3>
+
+            <div class="clearfix">
+              <div class="filter float-left"><img class="icon-filter" src="icon/filter-results-button.svg" alt="filter">Filter</div>
+              <div  class="clear float-right"><button type="button" class="uncheck">Clear</button></div> 
+                           
+            </div>
+            <hr class="batas"> 
+
+            <div class="evaluasi-filter">
+              <h6>Kategori Pelaporan</h6>
+              <select class="form-control">
+                <option>Organisasi</option>
+                <option>Lorem, ipsum.</option>
+              </select>
+
+              <h6>Nama Staff</h6>
+              <select class="form-control">
+                <option>Pilih Staff</option>
+                <option >Lorem, ipsum dolor.</option>
+              </select>
+
+              <h6>Tahun</h6>
+              <select class="form-control">
+                <option>Pilih Tahun</option>
+                <option >Lorem, ipsum dolor.</option>
+              </select>
+            </div>
+
+            <div class="pelaporan-staff-hasil">
+              <h5>Hasil Asesmen Harapan/Kebutuhan Pengembangan Diri</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              </p>
+              <button type="submit" class="btn btn-danger"> <a href="" class="text-white">Download</a></button>
+            </div>
+            
+          </div>
+
+          
+          <div class="col-7 tabel-group ">
+            <div class="row">
+              <div class="col-9 search-group">
+                <div class="input-group flex-nowrap search">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa fa-search" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Search File" aria-label="" aria-describedby="addon-wrapping">
+                </div>                  
+              </div>
+              <div class="col-3">
+                {% if user.is_authenticated %}
+                <img class="account float-left" src="{% static 'km/img/img-account.png' %}" alt="">
+                  <div class="nama fleat-rigt">Hi {{user.username}}!</div>
+                {% endif %}
+              </div>
+            </div>
+
+
+            <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div> -->
+
+            <div class="pelaporan-staff-user">
+              <div class="media">
+                <img src="img/staff.jpg" class="mr-3 img-staff" alt="...">
+                <div class="media-body ">
+                  <span class="badge badge-primary">2019</span>
+                  <h3 class="mb-auto">Edwin Sutamto </h4>
+                  <h4>NIK <span>2017/2017</span></h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="progress-pelaporan-staff">
+              <div class="row tabel-progres-user">
+                <div class="col pel-kepuasan-kerja">
+                  <h5>Kepuasan Kerja Karyawan 2019</h5>
+                  <h6>Pengembangan Diri</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+                  </div>
+
+                  <h6>Kemajuan Diri</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                  </div>
+
+                  <h6>Tanggung Jawab</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                  </div>
+
+                  <h6>Pengakuan</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+                  </div>
+
+                  <h6>Sifat Kerja</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+                  </div>
+
+                  <h6>Aturan & Administrasi</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                  </div>
+
+                  <h6>Gaji</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+                  </div>
+
+                  <h6>Kondisi Kerja</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                  </div>
+
+                  <h6>Hubungan Interpersonal</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+                  </div>
+
+                  <h6>Supervisi</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+                  </div>
+
+                  <div class="komentar">
+                    <h6>Komentar</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                      </p>
+                  </div>
+                </div>
+
+                
+                <div class="col pel-evaluasi-kompetensi">
+                  <h5>Evaluasi Kompetensi KM 2019</h5>
+                  <h6>Pengembangan Diri</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+                  </div>
+
+                  <h6>Kemajuan Diri</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                  </div>
+
+                  <h6>Tanggung Jawab</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                  </div>
+
+                  <h6>Pengakuan</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+                  </div>
+
+                  <h6>Sifat Kerja</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+                  </div>
+
+                  <h6>Aturan & Administrasi</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                  </div>
+
+                  <h6>Gaji</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+                  </div>
+
+                  <h6>Kondisi Kerja</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                  </div>
+
+                  <h6>Hubungan Interpersonal</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+                  </div>
+
+                  <h6>Supervisi</h6>
+                  <div class="progress" style="height: 13px;">
+                    <div class="progress-bar " role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+                  </div>
+
+                  <div class="komentar">
+                    <h6>Komentar</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                      </p>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+            
+            
+          </div>
+{% endfor %}
+
+{% block js %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!-- plugin datatables -->
+    <script>
+        $(document).ready(function() {
+            $('#penelitian').DataTable();
+        } );
+      </script>
+      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+      <script>
+          $(document).ready(function(){
+              $(".check").click(function(){
+                  $("#ceklis").prop("checked", true);
+              });
+              $(".uncheck").click(function(){
+                  $("#ceklis").prop("checked", false);
+              });
+          });
+        </script>
+
+{% endblock  %}

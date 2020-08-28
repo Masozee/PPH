@@ -1,0 +1,224 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/* // Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap */
+
+/* // Small devices (landscape phones, 576px and up) */
+
+
+/* // Medium devices (tablets, 768px and up) */
+/* @media (min-width: 768px) { 
+	#hide-footer{
+		display: none;
+	}
+ } */
+
+/* // Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... } */
+
+
+
+body{
+	font-family: 'silka';
+}
+
+.gambar-acount{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.konten-utama{
+	padding: 35px;
+}
+
+/* slider */
+div.jumbotron.carousel-hero {
+	color: #0083CA;
+	text-align:left;
+
+	background-size: cover;
+	background-position: center;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	margin-bottom: 0;
+  }
+  
+  div.jumbotron.hero-nature {
+	background-image: url('../images/landing_01.png');
+  }
+  
+  div.jumbotron.hero-photography {
+	background-image: url('../images/landing_02.png');
+  }
+  
+  div.jumbotron.hero-technology {
+	background-image: url('../images/landing_3.png');
+  }
+  
+  h1.hero-title  {
+	  margin-top: 52px;
+	line-height: 1;
+	color:#0083CA;
+	font-size: 80px;
+  }
+  
+  h3.hero-title,h2.hero-title{
+	  color: white;
+  }
+
+  .hero-button{
+	  color: white;
+  }
+
+  /* jumbotron */
+.jumbotron{	
+	background-size: cover;
+	height: 768px;
+	
+}
+
+.text-landing{
+/*
+	font-size: 80px;
+	margin-top: 100px;
+	margin-left: 100px;
+*/
+	color: #0083CA;
+}
+  
+  /* Tutup Slider------------------------------------------------ */
+
+  
+/* card */
+.card{
+	border-radius: 25px;
+	margin-top: 20px;
+	
+
+}
+
+/* konten */
+#konten{
+	background-color: #E0EFF0;
+	padding-top: 50px;
+	padding-bottom: 70px;
+	
+}
+
+.submit{
+	background-color: transparent;
+	border: none;
+} 
+.card-title{
+	line-height: 1.3;
+}
+
+.j-f{
+	line-height: 1.6;
+}
+
+.j-dd{
+	line-height: 1.8;
+}
+
+
+/* dropdown hidi icon */
+.dropdown-toggle::after {
+	display:none;	
+}
+
+.icon-sn{
+	width: 24px;
+}
+
+.gambar-acount{
+	padding-bottom: 5px;
+}
+
+.carousel-caption {
+    position: absolute;
+    right: auto;
+    top: 70px;
+    left: 12%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: left;
+}
+
+.search{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 35px;
+    height: 35px;
+    background:rgb(200, 228, 231);
+    box-sizing: border-box;
+    border-radius: 25px;
+    /* border: 4px solid rgb(200, 228, 231); */
+    padding: 5px;
+}
+
+input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 35px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+	padding: 0 20px;
+	background:rgb(200, 228, 231);
+}
+
+.cari{
+    box-sizing: border-box;
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #0083CA;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+.search:hover{
+    width: 100px;
+    cursor: pointer;
+}
+
+.search:hover .inputCari{
+    display: block;
+}
+
+.search:hover .cari{
+    /* background: rgb(92, 211, 226); */
+    color:  #0083CA;
+}
+
+
+
+@media (min-width: 576px){
+	.card-columns {
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+
+	}
+}

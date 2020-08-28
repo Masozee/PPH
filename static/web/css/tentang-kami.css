@@ -1,0 +1,266 @@
+body{
+    font-family: 'silka';
+}
+/* jumbotron */
+.jumbotron{
+    margin-top: -70px;
+    background-size: cover;
+    background-image: url(../images/tentengkami/tentangkami-landing.jpg);
+    height: 850px;
+    border-radius: 0;
+    background-repeat: no-repeat;
+
+	/* 		sumbu 		x,y		jika tudak di atuh maka akan fokus ke tengah */
+background-position: center top;	
+   
+}
+
+/* teks landing */
+.display-4{
+    font-size: 80px;
+    font-weight: 500;
+}
+
+.lead{
+    margin-top: 150px;
+    font-size: 24px;
+    font-weight: 500;
+
+
+}
+
+/* sesi sejarah */
+#sejarah{
+    background-color: #F7F7F7;
+    margin-top: 20px;
+    padding-top: 45px;
+    padding-bottom: 23px;
+}
+
+/* .our-history{
+    margin-top: 5px;
+} */
+
+
+/* sesi visi */
+#visi{
+    padding-top: 30px;
+    /* padding-bottom: 50px; */
+    margin-bottom: 50px;
+   
+}
+
+/* pembatas */
+#batas2{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* sesi tim kami */
+.tim-kami{
+    padding-left: 20px;
+    
+    padding-bottom: 30px;
+}
+
+#tim{
+    background-color: #E0EFF0;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#teks-tim{
+    padding-bottom: 20px;
+}
+
+/* sesi patner */
+#patner{
+    padding-top: 70px;
+}
+
+.carousel-indicators {
+    position: relative;
+    justify-content: flex-end;
+
+}
+
+
+.our-history p{
+    line-height: 2;
+}
+
+
+
+.carousel-indicators{
+    margin-right: 2%;
+}
+
+.dropdown-toggle::after {
+	display:none;	
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; 
+ }
+
+ /* border radius tim kami */
+ .rounded {
+    border-radius: 25px !important;
+}
+
+/* gambara konten tim */
+.img-tim{
+	object-fit: cover;
+
+	/* 		sumbu 		x,y		jika tudak di atuh maka akan fokus ke tengah */
+	/* object-position: 100% 0; */
+	
+	width: 256px;
+	height: 350px;
+  }
+
+
+
+  .swiper-pagination {
+    position: relative !important;
+    text-align: center !important;
+    padding-top: 40px;
+
+}
+
+/* modal */
+.img-modal{
+	object-fit: cover;
+
+	/* 		sumbu 		x,y		jika tudak di atuh maka akan fokus ke tengah */
+	object-position: 100% 0;
+	
+	width: 100%;
+    height: 300px;
+    
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    
+  }
+
+.modal-card{
+    border-color: transparent !important;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    border: 0px !important;
+}
+
+.modal-body{
+    padding: 0;
+}
+
+.modal-content{
+    border-radius: 25px;
+}
+
+.nama-tim{
+    overflow: hidden;
+    height: 35px;
+    font-family: 'silkabold';
+    font-size: 26px;
+    letter-spacing: 0.52px;
+    text-align: left;
+    color: #0083ca;
+}
+
+.jab-tim{
+    overflow: hidden;
+    width: 293px;
+    height: 42px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.36;
+    letter-spacing: normal;
+    text-align: left;
+    color: #707070;
+    text-transform: uppercase;
+}
+
+.konten-tim{
+    height: 200px;
+    overflow: auto;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.6;
+    letter-spacing: -0.15px;
+    text-align: left;
+    color: #707070;
+    padding-right: 20px;
+  
+}
+
+.card-body{
+    padding: 30px;
+    padding-bottom: 0;
+}
+
+/* tutup modal */
+
+
+    /* mobile version */
+    @media (max-width: 576px) {
+        .jumbotron{
+            background-image: url(../images/tentengkami/tentangkami-landing.jpg);
+            border-radius: 0;
+            background-repeat: no-repeat;
+            height: 337px;
+            margin-top: 0px;
+            margin-bottom: 120px;
+
+        
+            /* 		sumbu 		x,y		jika tudak di atuh maka akan fokus ke tengah */
+            background-position: center top;	
+           
+        }
+
+        .jumbotron p{
+            font-family: 'silkasemibold';
+            font-size: 18px;
+            letter-spacing: 0.54px;
+            text-align: left;
+            color: #0083ca;
+            margin-top: 300px;
+        }
+
+        .jumbotron h1{
+            font-family: 'silkabold';
+            font-size: 40px;
+            line-height: 1;
+            text-align: left;
+            color: #0083ca;
+        }
+        
+
+        .img-tim{
+            object-fit: cover;
+    
+        /* 		sumbu 		x,y		jika tudak di atur maka akan fokus ke tengah */
+        /* object-position: 100% 0; */
+        
+        height: 137px !important;
+        width: 100px !important;
+        }
+    
+        .rounded {
+            border-radius: 10px !important;
+        }
+    
+        .swiper-button-prev, .swiper-button-next{
+            display: none;
+        }
+
+        .display-4 {
+            font-size: 60px;
+        }
+    }
