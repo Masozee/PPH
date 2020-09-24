@@ -18,6 +18,35 @@ body{
     border-radius: 25px !important;
 }
 
+.copevent {
+    max-width: 100%;
+    background-color: #0c59b0;
+    height: 220px;
+    padding-bottom: 10px;
+}
+
+.coptitle {
+    padding-left: 17px;
+    padding-bottom: 20px;
+}
+
+.copcard {
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: white
+}
+
+.copcard h6 {
+    font-size: 14px;
+}
+
+.copcard p{
+    font-size: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
 .gambar1{
 object-fit: cover;
 	/* 		sumbu 		x,y		jika tudak di atuh maka akan fokus ke tengah */
@@ -155,5 +184,15 @@ object-fit: cover;
     
     .media-body .pt-4{
         padding: 0 !important;
+    }
+
+    .copcard h6 {
+    font-size: 12px;
+    font-family: silkaregular;
+}
+
+    .copcard p{
+        font-size: 7px;
+        font-family: 'Open Sans', sans-serif;
     }
   }
