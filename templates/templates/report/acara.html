@@ -1,0 +1,61 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Invoice</title>
+    <meta name="description" content="Invoice demo sample">
+    <meta name="author" content="Kozea">
+  </head>
+
+  <body>
+    <img class="logo" src="{%  static 'web/logo/pph.png' %}" style="width: 90px;"  alt="">
+    <h2>Pusat Penelitian HIV Unika Atma Jaya</h2>
+        <p>Universitas Katolik Indonesia Atma Jaya <br>
+            Gedung K2, Ruang K21.08 <br>
+            Jl. Jenderal Sudirman 51 <br>
+            Jakarta 12930 Indonesia
+        </p>
+
+    <aside>
+      <address id="from">
+        <h2>LAPORAN ACARA</h2>
+      </address>
+
+    </aside>
+
+    <table>
+      <thead style="border-bottom: .2mm solid #a9a;">
+        <th>Agenda</th>
+        <th>Judul</th>
+        <th>Waktu Mulai</th>
+        <th>Waktu Selesai</th>
+        <th>Dibuat</th>
+      </thead>
+      <tbody>
+      {% for a in event %}
+        <tr>
+          <td>{{ a.Agenda }}</td>
+          <td>{{ a.judul }}</td>
+          <td>{{ a.waktu_mulai }}</td>
+          <td>{{ a.waktu_selesai }}</td>
+          <td>{{ a.dibuat }}</td>
+        </tr>
+      {% endfor %}
+        <table id="total">
+        <thead>
+        <th></th>
+
+        <th>Jakarta, 28 Agustus 2020</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+
+          <td><p></p><br><p style="font-size: 16px">Evi Sukmaningrum <br>Direktur</p></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+

@@ -1,0 +1,137 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'web/css/copdatabase.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/cophead.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/dokumentasi.css' %}" rel="stylesheet">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+
+{% endblock %}
+
+
+{% block content %}
+
+      <!-- TITLE -->
+      <section id="dokumentasi" class="title-epidemiology">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                  <h5 class="fssb">Kesehatan Jiwa</h5>
+                    <h3>
+                      {{ judul }}
+                    </h3>
+                </div>
+            </div>
+            <hr>
+        </div>
+      </section>
+      <!-- END TITLE -->
+
+
+
+    <!-- new entri -->
+    <section>
+      <div class="container new-entry">
+        <!-- <div class="d-flex justify-content-between">
+          <h3>New Entry</h3>
+          <button type="button" class="btn btn-danger btn-sm">9 Hasil ditampilkan</button>
+        </div> -->
+        <!-- <hr> -->
+        <div class="row row-cols-md-3">
+          <!-- <div class="col-md-3">
+
+          </div> -->
+              <!-- <div class="card-deck">
+              </div> -->
+            {% for a in objects %}
+                  <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                      <div class="card-body">
+                        <a href="/pustaka/{{ a.judul |slugify }} " class="card-title">{{ a.judul }}</a>
+                        <h6 class="autor"><i><img src="{% static 'web/images/cop/autor.svg' %}" alt="" srcset=""></i>
+                            {% for tag in a.Author.all %}
+                            {{ tag.name }},
+                            {% endfor %}
+                        </h6>
+                        <h6 class="date"><i><img src="{% static 'web/images/cop/date.svg' %}" alt=""></i> {{ a.tanggal }}</h6>
+                        <p class="card-text f-os">{{ a.deskripsi |safe |truncatewords:10 }}</p>
+                      </div>
+                     <div class="card-footer">
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <div class="dropdown share">
+                      <i><img src="{% static 'web/images/cop/share.svg' %}" alt=""></i>
+                      <a class="dropdown-togle" href="" role="button" id="dropdown-share" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bagikan</a>
+
+                      <div class="dropdown-menu" aria-labelledby="dropdown-share">
+                        <a class="dropdown-item" href="#"><i class="fab fa-facebook-square"></i>Facebook</a>
+                        <a class="dropdown-item" href="#"><i class="fab fa-twitter-square"></i>Twitter</a>
+                        <a class="dropdown-item" href="#"><i class="fab fa-whatsapp-square"></i>Whatsapp</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-copy"></i>Salin Link</a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <hr>
+              </div>
+                    </div>
+                  </div>
+            {% endfor %}
+
+        </div>
+      </div>
+    </section>
+    <!-- end new entry -->
+
+   <section class="pagination mt-3">
+      <div class="container">
+       <div class="row justify-content-md-center">
+          <div class="col-md-auto ">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                {% if objects.has_previous %}
+                <li class="page-item">
+                  <a class="page-link" href="?page=1" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                {% endif %}
+                {% for n in objects.paginator.page_range %}
+                    {% if objects.number == n %}
+                      <li class="page-item">
+                        <span class="page-link">{{ n }}<span class="sr-only">(current)</span></span>
+                      </li>
+                    {% elif n > objects.number|add:'-2' and n < objects.number|add:'2' %}
+                      <li class="page-item"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if objects.has_next %}
+                  <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                {% endif %}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+          <!-- pagination -->
+    <!-- end pagination -->
+<!-- end footer -->
+    <hr>
+{% endblock %}
+
+{% block js %}
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+{% endblock %}

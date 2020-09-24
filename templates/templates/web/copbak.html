@@ -1,0 +1,86 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link href="{% static 'web/css/kesehatan-jiwa.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+
+    <!-- landing -->
+    {% for a in Slide %}
+    <div class="jumbotron" style="background-image: url('{% static 'web/images/cop.jpg' %}');">
+    
+        <div class="container">
+            <div class="row justify-content-center pt-5 landing">
+                <div class="col-md-8 ">
+                    <h1 class="f-80 fsb f-bm">Community of Practice</h1>
+                    <div class="f-15 f-os f-at">{{a.cop |safe}}</div>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <!-- tutup landing -->
+
+    <!-- sejarah kami -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3 class="f-36 fsb f-bm">pengantar</h3>
+                    <div class="f-15 f-os f-at">{{a.about_cop | safe}}</div>
+
+                </div>
+                <div class="col-md-4">
+                    <img src="{% static 'web/images/kesehatanjiwa/gambarkesehatanjiwa.png' %}" alt="" srcset="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- tutup sejarah -->
+    {% endfor %}
+
+    <hr>
+
+    <section>
+        <div class="container">
+            {% for a in berita %}
+            <div class="row">
+                <div class="col-md">
+                    <div class="media">
+                        <a class="d-flex" href="#">
+                            <img class="align-seft-center mr-5 gambar2 rounded img-fluid" src="/media/{{ a.gambar }}" alt="">
+                        </a>
+                        <div class="media-body pl-5">
+                            <h3 class=" judul-artikel"><a class=" f-20 fssb" href="/berita/{{ a.Kategori |lower }}/{{ a.judul |slugify }}" style="text-decoration:none; color: #212529">{{ a.judul }}</a></h3>
+                            <dev class="f-os f-14 f-at pt-2">{{ a.isi |truncatechars:"250" |safe }}</dev>
+                            <ul class="list-inline pt-4">
+                                <li class="list-inline-item f-os fossb f-12 f-am">By {{ a.penulis }}</li>
+                                <li class="list-inline-item f-os f-12 f-am">{{ a.thn }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr> <!-- pembatas -->
+
+
+            {% endfor %}
+
+             <nav class="">
+            <ul class="pagination justify-content-center f-os fossb">
+            {% if berita.has_previous  %}
+            <li class="page-item"><a class="page-link" href="?page={{ berita.previous_page_number }}">Prev</a></li>
+            {% endif %}
+
+            {% if berita.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ berita.next_page_number }}">Next</a></li>
+            {% endif %}
+            </ul>
+    </nav>
+        </div>
+    </section>
+
+{% endblock %}

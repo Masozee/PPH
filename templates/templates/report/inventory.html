@@ -1,0 +1,64 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Invoice</title>
+    <meta name="description" content="Invoice demo sample">
+    <meta name="author" content="Kozea">
+  </head>
+
+  <body>
+    <img class="logo" src="{%  static 'web/logo/pph.png' %}" style="width: 90px;"  alt="">
+    <h2>Pusat Penelitian HIV Unika Atma Jaya</h2>
+        <p>Universitas Katolik Indonesia Atma Jaya <br>
+            Gedung K2, Ruang K21.08 <br>
+            Jl. Jenderal Sudirman 51 <br>
+            Jakarta 12930 Indonesia
+        </p>
+
+    <aside>
+      <address id="from">
+        <h2>LAPORAN INVENTARIS</h2>
+      </address>
+
+    </aside>
+
+
+    <table>
+      <thead>
+        <th>Kategori</th>
+        <th>Jenis Barang</th>
+        <th>Nama Barang</th>
+        <th>Tahun Pembelian</th>
+        <th>Tersedia</th>
+      </thead>
+      <tbody>
+      {% for a in inv %}
+        <tr>
+          <td>{{ a.kategori }}</td>
+          <td>{{ a.jenis_barang }}</td>
+          <td>{{ a.nama_barang }}</td>
+          <td>{{ a.tahun_pembelian }}</td>
+          <td>{{ a.Tersedia }}</td>
+        </tr>
+      {% endfor %}
+        <table id="total">
+        <thead>
+        <th></th>
+
+        <th>Jakarta, 28 Agustus 2020</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+
+          <td><p></p><br><p style="font-size: 16px">Evi Sukmaningrum <br>Direktur</p></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+
+
+

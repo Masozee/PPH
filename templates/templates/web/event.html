@@ -1,0 +1,105 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% load l10n %}
+
+
+{% block css %}
+<link href="{% static 'web/css/event.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+    <!-- landing -->
+    <div class="jumbotron" style=" background-image: url({% static 'web/images/event/landingevent1.png' %}); ">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-9">
+                    <h1 class="display-4 mt-5 pt-5 fsb f-bm ">Upcoming Event {{Judul}}</h1>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <!-- tutup landing -->
+
+    <!-- katagori urutan dropdown -->
+
+    <section>
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col">
+                    <div class="clearfix">
+                        <div class="btn-group float-left">
+                            <button class="btn btn-default dropdown-toggle f-am f-os" type="button" id="tekan" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                        kategori <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tekan">
+                                <a class="dropdown-item f-am f-os" href="{% url 'event-list' %}">tampilkan semua</a>
+                                <a class="dropdown-item f-am f-os" href="{% url 'event-lalu' %}">acara lalu</a>
+                                <a class="dropdown-item f-am f-os" href="{% url 'event-penelitian' %}">penelitian</a>
+                                <a class="dropdown-item f-am f-os" href="{% url 'event-advokasi' %}">advokasi</a>
+                                <a class="dropdown-item f-am f-os" href="{% url 'event-peningkatan' %}">peningakatan kapasitas</a>
+                                <a class="dropdown-item f-am f-os" href="{% url 'event-pelayanan' %}">pelayanan komunitas</a>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- tutup katagori urutan dropdown-->
+
+      <!-- event -->
+
+    <section>
+        <div class="container"><hr>
+            {% for a in Acara %}
+            <div class="row justify-content-between">
+                <div class="col-md-1 ">
+                    <h3 class="f-20 fsb">{{ a.bln }}</h3>
+                    <h1 class="f-60 fsb border-top border-bottom  border-dark">{{ a.tgl }}</h1>
+                    <h3 class="f-20 fssb">{{ a.thn }}</h3>
+                </div>
+                <div class="col-md-10 col-sm-10">
+                    <div class="media p-3">
+                        <a class="d-flex" href="#">
+                            <img class="align-seft-center mr-3 img-fluid  img-event" src="/media/{{ a.gambar }}" alt="">
+                        </a>
+                        <div class="media-body">
+                            <h6 class="f-12 f-os fossb f-bm">{{ a.Agenda }}</h6>
+                            <h4 class="f-20 fssb "><a href="/event/{{ a.judul | slugify }}" style="text-decoration:none; color: #212529">{{ a.judul }}</a></h4>
+                            <h4 class="f-16 f-t f-am f-os fosb">{{ a.lokasi }} <br>
+                                    {{ a.wktmly }} - {{ a.wktsls }}</h4>
+                            <div class="isi f-os">{{ a.isi |safe|truncatechars:"200"  }}</div>
+                            <a class="f-14 f-t f-k"  href="/event/{{ a.judul |slugify }}" style="text-decoration:none;">Detil event <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                            {% block meta_img %}
+                                <meta property="og:image" content="http://localhost:8000/media/{{ a.gambar }} ">
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <hr><!-- batas -->
+           {% endfor %}
+        </div>
+    </section>
+
+
+    <!-- atur halaman -->
+    <nav class=" f-os">
+        <ul class="pagination justify-content-center">
+            {% if Acara.has_previous  %}
+            <li class="page-item"><a class="page-link" href="?page={{ Acara.previous_page_number }}">Prev</a></li>
+             {% endif %}
+
+            {% if Acara.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ Acara.next_page_number }}">Next</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <!-- tutup halaman -->
+
+{% endblock %}

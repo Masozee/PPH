@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pustaka</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="css/pustaka.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/header-footer.css">
+
+    <!-- swiper css -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+    
+    <style>
+    @font-face {
+        font-family: 'silkaregular';
+    src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkabold';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkalight';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkamedium';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkasemibold';
+        src: url('font/Silka-Complete-Webfont/Silka-Roman-Webfont/silka-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'silkaregular_italic';
+        src: url('font/Silka-Complete-Webfont/Silka-Italic-Webfont/silka-regularitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+    </style>
+</head>
+<body>
+    <!-- navbar -->
+    <header>
+        <nav class="navbar fixed-top navbar-expand-md justify-content-center opaque-navbar f-14" >
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><img src="logo/LogoPPH-01-01.svg" width="110" height="80" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><i class="fa fa-bars f-bt" aria-hidden="true"></i></span>
+                    <span class="navbar-toggler-icon"> <i class="fa fa-user-circle f-bt" aria-hidden="true"></i></span>
+                </button>
+                <!-- <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsingNavbar2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><img src="images/navbar-account.png" alt="" srcset=""></span>
+                </button> -->
+                <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+                    <ul class="navbar-nav mx-auto text-center">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="tentang-kami.html">Tentang kami <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aktivitas.html">Kegiatan</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Berita</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="dukomentasi.html">Dokumentasi</a>
+                                <a class="dropdown-item" href="artikel.html">Artikel</a>
+                                <a class="dropdown-item" href="detail-artikel.html">Detail Artikel</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="event.html">Event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pustaka.html">Pustaka</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kesehatanjiwa.html">Kesehatan jiwa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kontak.html">Kontak</a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav navbar-nav flex-row justify-content-center flex-nowrap">
+                        <li class="nav-item"><a class="nav-link" href=""><img src="images/baseline-search-24px.png" alt="" srcset=""></a> </li>
+                        <li class="nav-item"><img src="images/Line 1.png" alt="" srcset=""></li>
+                        <li class="nav-item"><a class="nav-link" href=""><img src="images/baseline-account_circle-24px.png" alt="" srcset=""></a> </li>
+                        <li class="nav-item"><a class="nav-link" href="">KM PPH</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- penutup nav-->
+
+    <!-- landing -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="f-k pt-5 mt-5 fsb f-80">Pustaka</h1>
+                    <p class="text-white f-os f-14">Epremolupit venime nonsed quibusci dolorru mquatur am  volupti tenis repe optamusae nis estem. Et adia qui demquos  delento dolorum esecatem reius natur. Et adia qui demquos  delento dolo.</p>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <!-- tutup landing -->
+
+    <!-- sesi HIV  -->
+    <section class="hiv">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3 class="f-40 fsb f-bt">HIV AIDS</h3>
+                </div>
+                <div class="col-md-6">
+                    <p class="f-14 f-os f-at">Epremolupit venime nonsed quibusci dolorru mquatur am  volupti tenis repe optamusae nis estem. Et adia qui demquos  delento dolorum 
+                        esecatem reius natur. Et adia qui demquos  delento dolo.</p>
+                </div>
+            </div>
+            <hr>
+
+            
+            <div class="card-columns scrolling-wrapper swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis Lorem, ipsum dolor.lorem3 Lorem, ipsum dolor.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="clearfix">
+                <a href=""><h5 class="float-left learn-more">AYO PELAJARI LEBIH LANJUT TENTANG HIV AIDS. </h5><i class="fa fa-arrow-circle-o-right f-o pl-3" aria-hidden="true"></i></a>
+                <h6 class="float-right"><small>View All</small></h6>
+            </div>
+        </div>
+    </section>
+    <!-- tutup hiv -->
+
+    <!-- sesi Publikasi -->
+    <section class="publikasi">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3 class="f-40 fsb f-bt">Publikasi</h3>
+                </div>
+                <div class="col-md-6">
+                    <p class="f-14 f-os f-at">Epremolupit venime nonsed quibusci dolorru mquatur am  volupti tenis repe optamusae nis estem. Et adia qui demquos  delento dolorum 
+                        esecatem reius natur. Et adia qui demquos  delento dolo.</p>
+                </div>
+            </div>
+            <hr>
+
+            <div class="card-columns scrolling-wrapper swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h6 class="text-right"><small>View All</small></h6>
+        </div>
+    </section>
+    <!-- tutp puublikasi -->
+
+    <!-- sesi regulasi -->
+    <section class="regulasi">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3 class="f-40 fsb f-bt">Regulasi</h3>
+                </div>
+                <div class="col-md-6">
+                    <p class="f-14 f-os f-at">Epremolupit venime nonsed quibusci dolorru mquatur am  volupti tenis repe optamusae nis estem. Et adia qui demquos  delento dolorum 
+                        esecatem reius natur. Et adia qui demquos  delento dolo.</p>
+                </div>
+            </div>
+            <hr>
+
+            <div class="card-columns scrolling-wrapper swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card text-white ">
+                            <div class="card-body">
+                                <h5 class="card-title ">Cuptatem Dit Harum Dollup tum Quam Ut Officiatem</h5>
+                                <hr  class="card-line">
+                                <p class="card-text  ">Penulis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h6 class="text-right"><small>View All</small></h6>
+        </div>
+    </section>
+    <!-- tutup publikasi -->
+
+    <!-- Footer section -->
+    <div class="section" id="footer">
+        <div class="container">
+            <div class="row">
+                <!-- footer baris ke 1 kolom ke 1 -->
+
+                <div class="col-md-3">
+                    <img id="footer-logo" src="images/LOGO.png">
+                    <br>
+                    <p class="f-am f-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa.</p>
+                </div>
+                <div class="col">
+
+                    <!-- footer baris ke 1 kolem ke 2 -->
+                    <div class="row justify-content-around">
+                        <div class="col-md-2" id="hide-footer">
+                            <ul class="list-unstyled">
+                                <li class="f-at f-12">tentang kami</li>
+                                <li class="f-am f-11">sejarah</li>
+                                <li class="f-am f-11">visi dan misi</li>
+                                <li class="f-am f-11">nilai</li>
+                                <li class="f-am f-11">tim kami</li>
+                                <li class="f-am f-11">patner</li>
+                            </ul>
+                        </div>
+                        <!-- id="hide-footer" -->
+                        <div class="col-md-2  " id="hide-footer"  >
+                            <ul class="list-unstyled">
+                                <li class="f-at f-12">Kegiatan</li>
+                                <li class="f-am f-11">penelitian</li>
+                                <li class="f-am f-11">advokasi</li>
+                                <li class="f-am f-11">peningkatan kapasitas</li>
+                                <li class="f-am f-11">pelayanan kapasitas</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2" id="hide-footer">
+                            <ul class="list-unstyled">
+                                <li class="f-at f-12">berita</li>
+                                <li class="f-am f-11">artikel berita</li>
+                                <li class="f-am f-11">liputan khusus</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="list-unstyled">
+                                <li class="f-12 f-at">kontak</li>
+                                <li class="f-12 f-at"><img src="images/phone-icon.png" alt="" srcset=""> +62-21 570 3306, 575 7615 ext.624,425</li>
+                                <li class="f-12 f-at"><img src="images/mail-icon.png" alt="" srcset=""></i> pph@atmajaya.ac.id</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- footer baris ke 2  kolom ke 2 -->
+                    <div class="row justify-content-around">
+                        <div class="col-md-2" id="hide-footer">
+                            <ul class="list-unstyled">
+                                <li class="f-at f-12">event</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2" id="hide-footer">
+                            <ul class="list-unstyled">
+                                <li class="f-at f-12">Pustaka</li>
+                                <li class="f-am f-11">tentang hiv & aid</li>
+                                <li class="f-am f-11">publikasi</li>
+                                <li class="f-am f-11">regulasi</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2" id="hide-footer">
+                            <ul class="list-unstyled">
+                                <li class="f-at f-12">Kesehatan jiwa</li>
+                                <li class="f-am f-11">lorem</li>
+                                <li class="f-am f-11">ipsum</li>
+                                <li class="f-am f-11">dolor</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="list-unstyled">
+                                <li class="f-at f-12">Folow Us</li>
+                                <a class="p-1" href="#"> <img src="images/fb-icon.png" alt="" srcset=""></a>
+                                <a class="p-1" href="#"> <img src="images/tw-icon.png" alt="" srcset=""></a>
+                                <a class="p-1" href="#"> <img src="images/ig-icon.png" alt="" srcset=""></a>
+                                <br>
+                                <br>
+                                <h5 class="f-at f-12"> Subscribe Now.</h5>
+                                <form action="">
+                                    <input class="form-sub f-12 fam" type="email" name="email" id="email" placeholder="enter your email here">
+                                    <button class="submit" type="submit"><img src="images/sub-icon.png" class="" alt="" srcset=""></button>
+                                </form>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr><!-- pembatas -->
+        </div>
+    </small>
+    <!-- tutup footer section -->
+    
+    <footer class="">
+        <div class="container">
+            <div class="d-flex">
+              <div class="p-2 mr-auto f-at f-11">2019 © pusat penelitian hiv aids unika atma jaya. All rights reserved.</div>
+              <div class="p-2 f-at f-11" id="hide-footer">FAQ</div>
+              <div class="p-2 f-at f-11" id="hide-footer">Privacy</div>
+              <div class="p-2 f-at f-11" id="hide-footer">Terms & Condition</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+      <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        // init: false,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            320: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            },
+            640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            },
+            768: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+            },
+            1024: {
+            slidesPerView: 6,
+            spaceBetween: 20,
+            },
+        }
+        });
+    </script>
+
+
+    <!-- scrol navbar trasnparan ke solid -->
+    <script src="js/scroll-nav.js"></script>
+</body>
+</html>

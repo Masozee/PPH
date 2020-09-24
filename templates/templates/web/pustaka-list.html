@@ -1,0 +1,253 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+
+{% block css %}
+    <link href="{% static 'web/css/pustaka2.css' %}" rel="stylesheet">
+    <!-- tabel -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+{% endblock %}
+
+{% block content %}
+    <!-- navbar -->
+    
+    <!-- pustaka -->
+    <section class="sidebar">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-3">
+              <h1 class="judul">Pustaka</h1>
+              <p class="isi">Merupakan database produk pengetahuan yang dihasilkan oleh PPH UAJ serta regulasi terkait HIV AIDS dan Kesehatan Mental di Indonesia, yang dapat diakses oleh publik sebagai sumber data dan referensi.</p>
+              
+              <div class="filter-head">
+                  <div class="clearfix">
+                      <div class="filter float-left"><img class="icon-filter" src="{% static 'web/icon/filter-results-button.svg' %}" alt="filter">Filter</div>
+                      <div  class="clear float-right"><button type="button" class="uncheck">Clear</button></div> 
+                                   
+                    </div>
+              <hr class="batas">
+              <div id="accordion" class="accordion">
+                <div class="card mb-0">
+                    <!-- Jenis Kegiatan -->
+
+                    <!-- Katergori -->
+                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                        <a class="card-title">
+                          Kategori
+                        </a>
+                    </div>
+                    <div id="collapseTwo" class="card-body collapse" data-parent="#accordion" >
+                      <div class="form-check">
+                        <label>
+                          <input id="Research Report" type="checkbox" name="kategori" value="Research Report"> <span class="label-text">Research Report</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="Policy Brief" type="checkbox" name="kategori" value="Policy Brief"> <span class="label-text">Policy Brief</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="Lembar Fakta" type="checkbox" name="kategori" value="Lembar fakta"> <span class="label-text">Lembar Fakta</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="Press Release" type="checkbox" name="kategori" value="Press Release"> <span class="label-text">Press Release</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                           <input id="Infografis" type="checkbox" name="kategori" value="Infografis"> <span class="label-text">Infografis</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="HIV AIDS" type="checkbox" name="kategori" value="HIV AIDS"> <span class="label-text">HIV AIDS</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="NAPZA" type="checkbox" name="kategori" value="NAPZA"> <span class="label-text">NAPZA</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="Kesehatan Jiwa" type="checkbox" name="kategori" value="Kesehatan Jiwa"> <span class="label-text">Kesehatan Jiwa</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="Newsletter" type="checkbox" name="kategori" value="Newsletter"> <span class="label-text">Newsletter</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                           <input id="Annual Report" type="checkbox" name="kategori" value="Annual Report"> <span class="label-text">Annual Report</span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label>
+                          <input id="Lainnya" type="checkbox" name="kategori" value="Lainnya"> <span class="label-text">Lainnya</span>
+                        </label>
+                      </div>
+                    </div>
+                </div>
+            </div>
+              <hr class="batas">         
+            </div>
+          </div>
+
+            <!-- tabel -->
+            <div class="col-9 tabel">
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item tab-item">
+                  <a  class=" nav-link tab-link active" id="pills-hiv-tab" data-toggle="pill" href="#pills-hiv" role="tab" aria-controls="pills-hiv" aria-selected="true">HIV AIDS</a>
+                </li>
+                <li class="nav-item tab-item">
+                  <a class=" nav-link tab-link" id="pills-publikasi-tab" data-toggle="pill" href="#pills-publikasi" role="tab" aria-controls="pills-publikasi" aria-selected="true">Publikasi</a>
+                </li>
+                <li class="nav-item tab-item">
+                  <a class=" nav-link tab-link " id="pills-regulasi-tab" data-toggle="pill" href="#pills-regulasi" role="tab" aria-controls="pills-regulasi" aria-selected="true">Regulasi</a>
+                </li>
+              </ul>
+
+  
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active " id="pills-hiv" role="tabpanel" aria-labelledby="pills-hiv-tab">
+                    <table id="hiv" class="table table-striped radius-tabel " >
+                        <thead >
+                            <tr>
+                              <th>Judul Dokumen</th>
+                              <th>Kategori</th>
+                              <th>Sumber</th>
+                              <th>Tahun</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for a in HIV %}
+                          <tr>
+                            <td><a href="/pustaka/{{a.judul|slugify}}">{{a.judul}}</a></td>
+                            <td>{{a.kategori}}</td>
+                            <td>{{a.penulis}}</td>
+                            <td>{{a.thn}}</td>
+                          </tr>
+                            {% endfor %}
+                        </tbody>                    
+                    </table>
+                </div>
+                <div class="tab-pane fade show" id="pills-publikasi" role="tabpanel" aria-labelledby="pills-publikasi-tab">
+                    <table id="publikasi" class="table table-striped radius-tabel" >
+                        <thead>
+                          <tr>
+                              <th>Judul Dokumen</th>
+                              <th>Kategori</th>
+                              <th>Sumber</th>
+                              <th>Tahun</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for a in Publikasi %}
+                            <tr>
+                              <td><a href="/pustaka/{{a.judul|slugify}}">{{a.judul}}</a></td>
+                              <td>{{a.kategori}}</td>
+                              <td>{{a.penulis}}</td>
+                              <td>{{a.thn}}</td>
+                            </tr>
+                              {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade show" id="pills-regulasi" role="tabpanel" aria-labelledby="pills-regulasi-tab">
+                  <table id="regulasi" class="table table-striped radius-tabel" >
+                      <thead>
+                        <tr>
+                            <th>Judul Dokumen</th>
+                            <th>Kategori</th>
+                            <th>Sumber</th>
+                            <th>Tahun</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          {% for a in Regulasi %}
+                          <tr>
+                            <td><a href="/pustaka/{{a.judul|slugify}}">{{a.judul}}</a></td>
+                            <td>{{a.kategori}}</td>
+                            <td>{{a.penulis}}</td>
+                            <td>{{a.thn}}</td>
+                          </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+              </div>
+              
+            </div>
+            <!-- tutup tabel -->
+          </div>
+        </div>
+      </section>
+      <!-- tutup pustaka -->
+
+{% endblock %}
+  
+{% block js %}
+     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
+     <!-- plugin datatables -->     <!-- scrol navbar trasnparan ke solid -->
+      <script src="{% static 'web/js/scroll-nav.js' %}"></script>
+      <!-- plugin table -->
+
+      <script>
+
+        // deklarasi untuk checkbox
+       $(document).ready(function(){
+         var tabel = $('#hiv').DataTable();
+  
+         $('input:checkbox').on('change',function(){
+           var kategori = $('input:checkbox[name="kategori"]:checked').map(function(){
+            return '^' + this.value +'$';
+           }).get().join('|');
+  
+          //  filter kolomm ke 1
+          tabel.column(1).search(kategori,true,false,false).draw(false);
+         });
+       }) ;
+
+       $(document).ready(function(){
+         var tabel = $('#publikasi').DataTable();
+  
+         $('input:checkbox').on('change',function(){
+           var kategori = $('input:checkbox[name="kategori"]:checked').map(function(){
+            return '^' + this.value +'$';
+           }).get().join('|');
+  
+          //  filter kolomm ke 1
+          tabel.column(1).search(kategori,true,false,false).draw(false);
+         });
+       }) ;
+
+       $(document).ready(function(){
+         var tabel = $('#regulasi').DataTable();
+  
+         $('input:checkbox').on('change',function(){
+           var kategori = $('input:checkbox[name="kategori"]:checked').map(function(){
+            return '^' + this.value +'$';
+           }).get().join('|');
+  
+          //  filter kolomm ke 1
+          tabel.column(1).search(kategori,true,false,false).draw(false);
+         });
+       }) ;
+  
+      </script>
+
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+{% endblock %}

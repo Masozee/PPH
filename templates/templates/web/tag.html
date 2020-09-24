@@ -1,0 +1,36 @@
+{% extends 'web/base.html' %}
+{% load class_name %}
+{% load static %}
+
+{% block css %}
+<link href="{% static 'web/css/cari.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+    <section>
+      <div class="container search-result">
+        <h4 class="text-search">Tag Results </h4><hr>
+        {% for t_berita in object_list %}
+        <div class="row content">
+          <div class="col">            
+            <div class="media">
+              <img class="mr-4 gambar" src="/media/{{ t_berita.gambar }}" alt="">
+              <div class="media-body">
+                <h5 class="mt-0 judul">{{t_berita.judul}}</h5>
+                <p class="isi">{{t_berita.isi | truncatechars:"100" |safe}}</p>
+                <a href="/berita/{{t_berita.Kategori |lower}}/{{ t_berita.judul|slugify }}" class="link">www.pph.ac.id/artikel/….</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    <!-- tutup cari -->
+
+    <div class="container garis-bawah">
+        <hr>
+    </div>
+
+{% endblock %}

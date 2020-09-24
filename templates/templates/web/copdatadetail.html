@@ -1,0 +1,61 @@
+{% extend 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link href="{% static 'web/css/copdetail.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+       <section>
+      <div class="container new-entry">
+        <div class="d-flex justify-content-between">
+          <h3>ABSTRAK BARU</h3>
+          <a href="{% url 'abstract' %}"><button type="button" class="btn btn-danger btn-sm" style="padding: .25rem 1.5rem; margin-bottom: .4rem; margin-top: .5rem;">{{ abstractC }} Abstrak</button></a>
+        </div>
+        <hr>
+        <div class="row row-cols-md-3">
+          {% for abstract in abstracts %}
+            <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                      <div class="card-body">
+                        <a href="/abstract/{{abstract.judul | slugify}}/" class="card-title">{{abstract.judul}}</a>
+                        <br><br>
+                        <h6 class="autor"><i style="padding-right:6px;"><img src="{% static 'web/images/cop/autor.svg' %}" alt="" srcset=""></i>
+                        {% for tag in abstract.authors.all %}
+                               <a href="/author/{{ tag.name | slugify}}" class="tagauthor" style="font-size: 14px; font-weight:400;"> {{ tag.name }},</a>
+                        {% endfor %}
+                        </h6>
+                        <h6 class="date"><i style="padding-right:6px; "><img src="{% static 'web/images/cop/date.svg' %}" alt="" style="width:12px; padding-top:0px"></i> {{abstract.tgl}}</h6>
+                        <p class="card-text">{{abstract.abstrak | truncatechars:"200" |safe}}</p>
+                      </div>
+                      <div class="card-footer" style="color:#353D5F !important;">
+                        <ul class="list-inline">
+                          {% if abstract.download %}
+                          <li class="list-inline-item"><i><img src="{% static 'articles/img/download.svg' %}" alt=""></i><a href="/MEDIA/{{abstract.download}}">Unduh</a></li>
+                          {% else %}
+                          {{empty}}
+                          {% endif %}
+                          <li class="list-inline-item">
+                            <div class="dropdown share">
+                              <i><img src="{% static 'articles/img/share.svg' %}" alt=""></i>
+                              <a class="dropdown-togle" href="" role="button" id="dropdown-share" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color : #353d5f !important;">Bagikan</a>
+
+                              <div class="dropdown-menu" aria-labelledby="dropdown-share">
+                                <a class="dropdown-item" href="https://www.facebook.com/sharer.php?u=https://jphiv-ina.net/abstract/{{abstract.judul | slugify |lower}}"><i class="fab fa-facebook-square"></i>Facebook</a>
+                                <a class="dropdown-item" href="https://twitter.com/intent/tweet?url=https://jphiv-ina.net/abstract/{{abstract.judul | slugify |lower}}&text={{abstract.judul}}&hashtags=JPHIV"><i class="fab fa-twitter-square"></i>Twitter</a>
+                                <a class="dropdown-item" href="https://www.linkedin.com/shareArticle?mini=true&url=https://jphiv-ina.net/abstract/{{abstract.judul | slugify |lower}}&title={{abstract.judul}}&summary={{abstract.abstrak| truncatechars:'200' |safe }}&source=JPHIV"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                                <a class="dropdown-item copy_text" href="https://jphiv-ina.net/abstract/{{abstract.judul | slugify |lower}}" data-toggle="tooltip" title="Copy to Clipboard"><i class="fas fa-copy"></i>Copy URL </a>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <hr>
+                      </div>
+                    </div>
+                  </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+{% endblock %}

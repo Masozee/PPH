@@ -1,0 +1,137 @@
+{% extends 'km/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'km/css/penelitian.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+          <div class="col-3 filter-section">
+            <h4>Knowledge Management</h4>
+            <h3>Dokumen Peningkatan</h3>
+
+
+            <div class="p-info">
+              <h4>{{B.judul}}</h4>
+              <hr class="batas">
+
+              <h6>Kategori Kegiatan</h6>
+              <h5>{{B.kategori}}</h5>
+
+              <h6>Tanggal Mulai</h6>
+              <h5>{{B.mulai}}</h5>
+
+              <h6>Tanggal Berakhir</h6>
+              <h5>{{B.selesai}}</h5>
+
+              <h6>Sumber Dana</h6>
+              <h5>{% for A in B.sumber_dana.all %}
+                    {{A}}<br>
+              {% endfor %}</h5>
+
+              <h6>Mata Uang/Nominal</h6>
+              <h5>{{B.mata_uang}} {{B.budget}}</h5>
+
+              <h6>Pengeluaran</h6>
+              <h5>{{B.mata_uang}} {{B.pengeluaran}}</h5>
+
+              <h6>Lokasi</h6>
+              <h5>{{B.lokasi}}</h5>
+
+              <h6>Kota</h6>
+              <h5>{{B.kota}}</h5>
+
+              <h6>Negara</h6>
+              <h5>{{B.negara}}</h5>
+
+              <h6>Pembicara</h6>
+              <h5>{% for A in B.pembicara.all %}
+                  <a href="/km/staff/{{A | slugify}}">{{A}}</a><br>
+                  {% endfor %}
+              </h5>
+
+              <hr class="batas">
+            </div>      
+          </div>
+
+          
+          <div class="col-7 tabel-group ">
+            <div class="row">
+              <div class="col-9 search-group">
+                <form method="GET" class="search" action="/KM/cari/">
+                  <div class="input-group flex-nowrap search">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="addon-wrapping" ><i class="fa fa-search" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="text" name="q" class="form-control" placeholder="Search File" aria-label="" aria-describedby="addon-wrapping">
+                  </div>
+                </form>
+              </div>
+              <div class="col-3">
+                {% if user.is_authenticated %}
+                <img class="account float-left" src="/media/{{user.avatar}}" alt="">
+                  <div class="nama fleat-rigt">Hi {{user.first_name}}!</div>
+                {% endif %}
+              </div>
+            </div>
+
+
+            <!--div class="alert alert-warning alert-dismissible fade show" role="alert">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div-->
+
+            <table id="penelitian" class="table table-striped radius-tabel" style="width:100%">
+              <thead>
+                  <tr>
+                      <th>Kategori Dokumen</th>
+                      <th>Judul Dokumen</th>
+                      <th>Tanggal</th>
+                      <th>Download</th>
+                  </tr>
+              </thead>
+              <tbody>
+              {% for a in Dokumen %}
+                  <tr>
+                      <td class="tbl-keg" >{{a.kategori}}</td>
+                      <td>{{a.Judul}}</td>
+                      <td>{{a.tanggal}}</td>
+                      <td><a href="/media/{{a.dokumen}}">Download</a></td>
+                  </tr>
+              {% endfor %}
+              </tbody>   
+          </table>
+          </div>
+{% endblock %}
+
+{% block js %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!-- plugin datatables -->
+    <script>
+        $(document).ready(function() {
+            $('#penelitian').DataTable();
+        } );
+      </script>
+      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+      <script>
+          $(document).ready(function(){
+              $(".check").click(function(){
+                  $("#ceklis").prop("checked", true);
+              });
+              $(".uncheck").click(function(){
+                  $("#ceklis").prop("checked", false);
+              });
+          });
+        </script>
+{% endblock %}

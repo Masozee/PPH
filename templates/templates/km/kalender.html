@@ -1,0 +1,221 @@
+{% extends 'km/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'km/css/penelitian.css' %}">
+    <link href="{% static 'km/libs/air-datepicker/css/datepicker.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'km/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css' %}" rel="stylesheet" />
+
+
+    <!-- fullcalender -->
+    <link href="{% static 'km/js/packages/core/main.css'%}" rel='stylesheet' />
+    <link href="{% static 'km/js/packages/daygrid/main.css' %}" rel='stylesheet' />
+    <link href="{% static 'km/js/packages/list/main.css' %}"  rel='stylesheet' />
+    
+    <script src="{% static 'km/js/packages/core/main.js' %}" ></script>
+    <script src="{% static 'km/js/packages/interaction/main.js' %}" ></script>
+    <script src="{% static 'km/js/packages/daygrid/main.js' %}" ></script>
+    <script src="{% static 'km/js/packages/list/main.js' %}" ></script>
+    <script src="{% static 'km/js/packages/google-calendar/main.js' %}" ></script>
+    <script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+
+      plugins: [ 'interaction', 'dayGrid', 'list', 'googleCalendar' ],
+
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,listYear'
+      },
+
+      displayEventTime: false, // don't show the time column in list view
+
+      // THIS KEY WON'T WORK IN PRODUCTION!!!
+      // To make your own Google API key, follow the directions here:
+      // http://fullcalendar.io/docs/google_calendar/
+      googleCalendarApiKey: 'AIzaSyDKtksyhICetQ9PDHJABB8AJwG8SEh5KJ8',
+
+      // ID Holidays
+      eventSources: [
+
+    // your event source
+        {
+            googleCalendarId:'in.indonesian#holiday@group.v.calendar.google.com',
+            color: 'red',     // an option!
+            textColor: 'white'
+
+        },
+        {
+          events: [
+            {% for b in personal %}
+                {
+                  title: "{{ b.acara }}",
+                  start: '{{b.mulai |date:"Y-m-d"}}',
+                  end: '{{b.selesai |date:"Y-m-d"}}'
+                },
+            {% endfor %}
+          ],
+          color: 'green',     // an option!
+          textColor: 'white' // an option!
+        },
+        {
+          events: [
+            {% for a in acaraev %}
+                {
+                  title: "{{ a.judul }}",
+                  start: '{{a.waktu_mulai |date:"Y-m-d"}}',
+                  end: '{{a.waktu_selesai |date:"Y-m-d"}}'
+                },
+            {% endfor %}
+          ],
+          color: '#0083CA',     // an option!
+          textColor: 'white' // an option!
+        },
+      ],
+    });
+
+    calendar.render();
+  });
+
+</script>
+
+{% endblock %}
+
+  {% block content %}
+
+          <div class="col-3  kalender">
+            <h4>Knowledge Management</h4>
+            <h3>Kalender</h3>
+            <div class="jadwal">
+              <h5>Jadwal hari Ini <span class="float-right" ><a href="#modal-download" data-toggle="modal"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create</a></span></h5>
+              <hr class="batas">
+                {% for b in ac %}
+              <h6><span>{{b.waktu_mulai | time:"H:i" }}</span>{{ b.judul }}<span><img class="float-right" src="img/yellow-dot.png" alt="" srcset=""></span></h6>
+              <hr>
+                {% endfor %}
+                {% for c in personalev %}
+              <h6><span>{{c.mulai | time:"H:i" }}</span>{{ c.acara }}<span><img class="float-right" src="{% static 'km/img/yellow-dot.png' %}" alt="" srcset=""></span></h6>
+              <hr>
+                {% endfor %}
+              <hr class="batas"> 
+            </div>
+
+          </div>
+          
+          <div class="col-7 tabel-group ">
+            <div class="row">
+              <div class="col-9 search-group">
+                <div class="input-group flex-nowrap search">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa fa-search" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Search File" aria-label="" aria-describedby="addon-wrapping">
+                </div>                  
+              </div>
+              <div class="col-3">
+               {% if user.is_authenticated %}
+                <img class="account float-left" src="/media/{{user.avatar}}" alt="">
+                  <div class="nama fleat-rigt">Hi {{user.first_name}}!</div>
+                {% endif %}
+              </div>
+            </div>
+
+
+            <!--div class="alert alert-warning alert-dismissible fade show" role="alert">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div-->
+
+            <div id='calendar'></div>
+
+          </div>
+
+       <!-- popup download -->
+        <div class="modal fade " id="modal-download" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content shadow">
+                <div class="modal-body">
+                    <h3>PERSONAL EVENT</h3>
+                    <form method="POST" action="{% url 'kalender' %}" autocomplete="off">
+                        {% csrf_token %}
+                            {{forms | crispy}}
+
+                        <div class="clear-fix tombol">
+                                <button class="submit btn btn-dark" type="submit">Submit</button>
+                       </div>
+                    </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        <!-- tutup popup download -->
+
+{% endblock %}
+
+{% block js %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{% static 'km/libs/air-datepicker/js/datepicker.min.js' %}"></script>
+    <script src="{% static 'km/libs/air-datepicker/js/i18n/datepicker.en.js' %}"></script>
+    <script src="{% static 'km/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js' %}"></script>
+    <script src="{% static 'km/libs/bootstrap-maxlength/bootstrap-maxlength.min.js' %}"></script>
+    <script src="{% static 'km/libs/js/pages/form-advanced.init.js' %}"></script>
+    <!-- plugin datatables -->
+
+    <script>
+      $(document).ready(function() {
+          $('#penelitian').DataTable({
+            searchPane: {
+              container:'.searchPanes'
+            }
+
+          });
+
+          // deklarasi checkbox
+          $(document).ready(function(){
+              var tabel = $('#penelitian').DataTable();
+
+              $('input:checkbox').on('change',function(){
+
+
+
+
+                var KTG = $('input:checkbox[name="kategori"]:checked').map(function(){
+                  return this.value;
+                }).get().join('|');
+
+                //  filter kolomm ke 2
+                tabel.column(1).search(KTG,true,false,false).draw(false);
+
+                var JNS = $('input:checkbox[name="jenis"]:checked').map(function(){
+                  return '^' + this.value +'$';
+                }).get().join('|');
+
+                //  filter kolomm ke 1
+                tabel.column(2).search(JNS,true,false,false).draw(false);
+
+
+              });
+
+            }) ;
+      } );
+    </script>
+
+      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+  {% endblock %}
+
+
