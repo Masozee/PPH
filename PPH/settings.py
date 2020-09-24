@@ -25,7 +25,7 @@ SECRET_KEY = '+*hkszt^*x%)u-69%%!m+mv0su_5b5nrr)_euj)f=+vgyc*7jv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'USER',
     'SEARCH',
     'rangefilter',
+    'django_webp',
 #    'authtools'
 
 ]
@@ -72,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_webp.context_processors.webp',
             ],
         },
     },
@@ -135,10 +137,9 @@ STATIC_SET         = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL          = '/static/'
 
-MEDIA_URL           = '/media/'
-
 MEDIA_ROOT          = os.path.join(BASE_DIR, 'download')
 
+MEDIA_URL           = '/media/'
 #SVG_DIRS            = [os.path.join(BASE_DIR, 'static/svg') ]
 
 

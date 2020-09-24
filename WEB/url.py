@@ -30,9 +30,12 @@ urlpatterns = [
     path('events/advokasi/', webviews.Eventadvokasi, name='event-advokasi'),
     path('events/peningkatan-kapasitas', webviews.Eventpeningkatan, name='event-peningkatan'),
     path('events/pelayanan-komunitas', webviews.Eventpelayanan, name='event-pelayanan'),
+    path('events/acara-sebelumnya', webviews.Eventpast, name='event-lalu'),
+    re_path('event/(?P<acara_slug>[\w-]+)/$', webviews.Eventdet, name='event-detail'),
 
     #path('artikel/<str:slug>/', webviews.NewsDetail.as_view(), name = 'artikel-detail'),
     path('berita/dokumentasi/', webviews.DokumentasiList, name='dokumentasi'),
+
     path('berita/dokumentasi/penelitian/', webviews.DokumentasiPenelitian, name='dokumentasi-penelitian'),
     path('berita/dokumentasi/advokasi/', webviews.DokumentasiAdvokasi, name='dokumentasi-advokasi'),
     path('berita/dokumentasi/peningkatan-kapasitas/', webviews.DokumentasiPeningkatan, name='dokumentasi-peningkatan'),
@@ -41,6 +44,9 @@ urlpatterns = [
     re_path('berita/dokumentasi/(?P<berita_slug>[\w-]+)/$', webviews.Dokumendetail, name='dak-detail'),
     #path('events/<str:slug>/', webviews.EventDetail.as_view(), name = 'event-detail'),
 
+    path('berita/newsletter/', webviews.NewsletterList, name='newsletter'),
+    re_path('berita/newsletter/(?P<berita_slug>[\w-]+)/$', webviews.Dokumendetail, name='dak-detail'),
+
     path('kegiatan/penelitian/', webviews.DokumentasiPenelitian, name='kegiatan-penelitian'),
     path('kegiatan/advokasi/', webviews.DokumentasiAdvokasi, name='kegiatan-advokasi'),
     path('kegiatan/peningkatan-kapasitas/', webviews.DokumentasiPeningkatan, name='kegiatan-peningkatan'),
@@ -48,6 +54,12 @@ urlpatterns = [
 
 
     path('kesehatan-jiwa/', webviews.Kesehatanjiwa, name='Kesehatanjiwa'),
+    path('kesehatan-jiwa/database/', webviews.kesjiwdata, name='kesjiwlist'),
+    path('kesehatan-jiwa/regulasi-kesehatan-jiwa/', webviews.kesjiwregulasi, name='kesjiwregulasi'),
+    path('kesehatan-jiwa/produk-pengetahuan-pph/', webviews.kesjiwproduk, name='kesjiwproduk'),
+    path('kesehatan-jiwa/artikel-jurnal-kesehatan-jiwa/', webviews.kesjiwartikel, name='kesjiwartikel'),
+#    re_path('annotated-bibliography/(?P<AnotatedJPHIV_slug>[\w-]+)/$', artviews.anotateDetail, name='anotate-detail'),
+    path('cop/', webviews.cop, name='cop'),
 
     #path('admin_export/', include("admin_export.urls", namespace="admin_export")),
 

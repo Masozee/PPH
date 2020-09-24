@@ -127,6 +127,36 @@
                 <h6 class="float-right"><a class ="f-os f-am" href="{% url 'pustaka-list' %}"><small>View All</small></a></h6>
             </div>
         </section>
-    <!-- tutup publikasi -->
+        <!-- tutup publikasi -->
+
+    <section class="publikasi">
+            <div class="container">
+                <div class="row">
+                        {%for c in Slide %}
+                    <div class="col-md-3">
+                        <h3 class="f-40 fsb f-bt">{{c.pustaka_regulasi_judul}}</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="f-14 f-os f-at">{{c.pustaka_regulasi_ket}}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <hr>
+                <div class="card-columns">
+                    {% for a in Regulasi %}
+                    <a href="/pustaka/{{a.judul | slugify}}" class="card text-white ">
+                        <div class="card-body">
+                            <h5 class="card-title f-14 fssb">{{a.judul}}</h5>
+                            <hr>
+                            <p class="card-text mb-5 fsri">{{a.penulis}}</p>
+                    </div>
+                    </a>
+                    {% endfor %}
+                </div>
+                <hr>
+                <h6 class="float-right"><a class ="f-os f-am" href="{% url 'pustaka-list' %}"><small>View All</small></a></h6>
+            </div>
+        </section>
+
 {% endblock %}
 

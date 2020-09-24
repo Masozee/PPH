@@ -8,6 +8,10 @@ from django.urls import reverse
 from django.utils import timezone
 from django.db.models import Q
 from KM.models import Staff, Donor, Publikasi
+from taggit.managers import TaggableManager
+from taggit.models import TaggedItemBase
+from taggit.models import TagBase, GenericTaggedItemBase
+from django.utils.translation import ugettext_lazy as _
 
 #berita 
 class BeritaQuerySet(models.QuerySet):
@@ -27,22 +31,43 @@ class BeritaManager(models.Manager):
     def search(self,query=None):
         return self.get_queryset().search(query=query)
 
+
+class Author(TagBase):
+    ket = models.TextField(blank=True)
+
+    class Meta:
+        verbose_name = _("Peneliti")
+        verbose_name_plural = _("Peneliti")
+
+class TaggedAuthor(GenericTaggedItemBase):
+    tag = models.ForeignKey(
+        Author,
+        on_delete=models.PROTECT,
+        related_name="%(app_label)s_%(class)s_items",
+    )
+    class Meta:
+        verbose_name = _("Author")
+        verbose_name_plural = _("Author")
+
 class Berita (models.Model):
     KATEGORI_CHOICES = (
         ('Artikel','Artikel'),
-        ('Dokumentasi', 'Dokumentasi')
+        ('Dokumentasi', 'Dokumentasi'),
+        ('Newsletter', 'Newsletter'),
     )
     AGENDA_CHOICES = (
         ('Penelitian', 'Penelitian'),
         ('Advokasi', 'Advokasi'),
         ('Peningkatan Kapasitas', 'Peningkatan Kapasitas'),
-        ('Pelayanan Komunitas', 'Pelayanan Komunitas')
+        ('Pelayanan Komunitas', 'Pelayanan Komunitas'),
+        ('Newsletter', 'Newsletter'),
     )
 
     Kategori = models.CharField(max_length=25, choices=KATEGORI_CHOICES, default= 'Dokumentasi')
     Agenda = models.CharField(max_length=25, choices=AGENDA_CHOICES, default='Penelitian')
     judul = models.CharField(max_length=150)
-    penulis = models.ForeignKey(Staff, on_delete=models.PROTECT, default=True)
+    penulis = models.ForeignKey(Staff, on_delete=models.PROTECT, default=True, blank=True, null=True)
+    penulis_luar = TaggableManager(through=TaggedAuthor, related_name='abstracts', verbose_name='Penulis Lain', blank=True)
     slug = models.SlugField(default='', editable=False, max_length=140)
     tanggal = models.DateField()
     isi = RichTextField()
@@ -124,7 +149,7 @@ class Acara (models.Model):
     lokasi = models.CharField( max_length=200)
     waktu_mulai = models.DateTimeField()
     waktu_selesai = models.DateTimeField()
-    link = models.URLField(default='#')
+    link = models.URLField( blank=True)
     gambar = models.ImageField(upload_to='images/web/acara/', blank=True, null=True)
     ket_gambar = models.CharField(max_length=50, blank=True)
     download = models.FileField(upload_to='document/web/acara/', blank=True, null=True)
@@ -221,6 +246,10 @@ class HomeSLide (models.Model):
     pustaka_publikasi_ket = models.CharField(max_length=250,blank=True, null=True)
     pustaka_regulasi_judul = models.CharField(max_length=100,blank=True, null=True)
     pustaka_regulasi_ket = models.CharField(max_length=250,blank=True, null=True)
+    about_desc = RichTextField(null=True)
+    about_desc_en = RichTextField(null=True)
+    cop = RichTextField(null=True)
+    about_cop = RichTextField(null=True)
 
 
     class Meta:
@@ -269,3 +298,73 @@ class Signup(models.Model):
     def __str__(self):
         return self.email
 
+class TagAnotated(TagBase):
+    class Meta:
+        verbose_name = _("Annotated Tags")
+        verbose_name_plural = _("Annotated Tags")
+
+class TaggedAnnotated(GenericTaggedItemBase):
+    tag = models.ForeignKey(
+        TagAnotated,
+        on_delete=models.PROTECT,
+        related_name="%(app_label)s_%(class)s_items",
+    )
+    class Meta:
+        verbose_name = _("Annotate Tags")
+        verbose_name_plural = _("Annotate Tags")
+
+class anotatedQuerySet(models.QuerySet):
+    def search(self, query=None):
+        qs = self
+        if query is not None:
+            or_lookup = (Q(judul__icontains=query)
+                        )
+            qs = qs.filter(or_lookup)# distinct() is often necessary with Q lookups
+        return qs
+
+class anotatedManager(models.Manager):
+    def get_queryset(self):
+        return anotatedQuerySet(self.model, using=self._db)
+
+    def search(self,query=None):
+        return self.get_queryset().search(query=query)
+
+class AnotatedCOP(models.Model):
+    judul = models.CharField(max_length=300)
+    slug = models.SlugField(default='', editable=False, max_length=140)
+    tanggal = models.DateField()
+    Author = TaggableManager(through=TaggedAuthor, related_name='+', verbose_name='Author')
+    sumber = models.CharField(max_length=120, blank=True)
+    volume = models.CharField(max_length=10, blank=True)
+    DOI_number = models.CharField(max_length=120, blank=True)
+    DOI_URL = models.URLField(blank=True)
+    doctype = models.CharField(max_length=4, blank=True)
+    url = models.URLField(blank=True)
+    download = models.FileField(upload_to='anotated/', blank=True)
+    bibliografi = RichTextField(blank=True)
+    anotated = RichTextField(blank=True)
+    visit_num = models.PositiveIntegerField(default=0)
+
+    tags = TaggableManager(through=TaggedAnnotated, related_name='tagannotated', verbose_name='Annotated Tags')
+
+    objects = anotatedManager()
+
+    class Meta:
+        verbose_name = ("Anotated COP")
+        verbose_name_plural = ("Anotated COP")
+
+    def __str__(self):
+        return self.judul
+
+    def get_absolute_url(self):
+        return reverse('books:detail', args=[self.id])
+
+    def save(self, *args, **kwargs):
+        value = self.judul
+        self.slug = slugify(value, allow_unicode=True)
+        super().save(*args, **kwargs)
+
+
+    @property
+    def tgl(self):
+        return self.tanggal.strftime('%d %B %Y')

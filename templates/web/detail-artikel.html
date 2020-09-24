@@ -25,7 +25,11 @@
                 <h6 class="f-12 f-bm f-os fossb">{{ object.Agenda }}</h6>
                 <h2 class="judul-artikel">{{ object.judul }}</h2>
                 <ul class="list-unstyled list-inline">
-                    <li class="list-inline-item f-12 f-os f-at fossb">By {{ object.penulis }}</li>
+                    <li class="list-inline-item f-12 f-os f-at fossb">By {{ object.penulis }}
+                        {% for tag in object.penulis_luar.all %}
+                            , {{ tag.name }}
+                        {% endfor %}
+                    </li>
                     <li class="list-inline-item f-12 f-os f-am">{{ object.thn }}</li>
                 </ul>
                 <img class="py-3 img-artikel w-100" src="/media/{{ object.gambar }}" alt="" srcset="">

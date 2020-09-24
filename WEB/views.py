@@ -1,7 +1,10 @@
 import json
 import urllib
 #import requests
+from datetime import datetime, timedelta, time
+
 from django.contrib.auth import authenticate, login
+
 
 from django.shortcuts import render, Http404, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -25,7 +28,7 @@ from USER.forms import VisitorSignUpForm
 
 form2 = EmailSignupForm()
 
-from .models import Berita, Acara, TentangKami, HomeSLide, Kontak, Signup, downloadForm
+from .models import Berita, Acara, TentangKami, HomeSLide, Kontak, Signup, downloadForm, AnotatedCOP
 from KM.models import *
 
 
@@ -43,8 +46,6 @@ def Home(request):
     }
 
     return render(request, "web/index.html", context)
-
-
 
 def WebSetting(request):
     setting = HomeSLide.objects.all()
@@ -79,6 +80,7 @@ def DokumentasiList(request):
     }
 
     return render(request, "web/dukomentasi.html", context)
+
 def DokumentasiPenelitian(request):
     dokumentasi = Berita.objects.filter(Kategori="Dokumentasi", Agenda="Penelitian").order_by('-tanggal')
     paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
@@ -143,7 +145,6 @@ def DokumentasiPelayanan(request):
     }
 
     return render(request, "web/dukomentasi.html", context)
-
 class DokumentasiDetail(DetailView):
     model = Berita
     template_name = "web/detail-artikel.html"
@@ -177,6 +178,23 @@ def Dokumendetail(request, berita_slug):
 
 def ArtikelList(request):
     artikel = Berita.objects.filter(Kategori="Artikel").order_by('-tanggal')
+    paginator = Paginator(artikel, 5)  # Show 25 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        artikel = paginator.page(page)
+    except PageNotAnInteger:
+        artikel = paginator.page(1)
+    except EmptyPage:
+        artikel = paginator.page(paginator.num_pages)
+
+    context = {
+        "berita": artikel,
+    }
+
+    return render(request, "web/artikel.html", context)
+def NewsletterList(request):
+    artikel = Berita.objects.filter(Kategori="Newsletter").order_by('-tanggal')
     paginator = Paginator(artikel, 5)  # Show 25 contacts per page
 
     page = request.GET.get('page')
@@ -315,8 +333,31 @@ def Kesehatanjiwa(request):
 
     return render(request, "web/kesehatanjiwa.html", context)
 
+def cop(request):
+    Slide = HomeSLide.objects.all().distinct()[:1]
+    berita = Berita.objects.filter(tags__slug="cop").order_by('-tanggal')
+    acara = Acara.objects.filter(tags__slug="cop").order_by('-waktu_mulai')
+    paginator = Paginator(berita, 5)  # Show 25 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        berita = paginator.page(page)
+    except PageNotAnInteger:
+        berita = paginator.page(1)
+    except EmptyPage:
+        berita = paginator.page(paginator.num_pages)
+
+    context = {
+        "acara": acara,
+        "Slide": Slide,
+        "berita": berita,
+    }
+
+    return render(request, "web/cop.html", context)
+
 def EventList(request):
-    acara = Acara.objects.all().order_by('-waktu_mulai').distinct()
+    now = datetime.now()
+    acara = Acara.objects.filter(waktu_mulai__gte=now).order_by('waktu_mulai').distinct()
     paginator = Paginator(acara, 5)  # Show 25 contacts per page
 
 
@@ -334,9 +375,11 @@ def EventList(request):
 
     return render(request, "web/event.html", context)
 
-def Eventpenelitian(request):
-    acara = Acara.objects.all().filter(Agenda='Penelitian').order_by('-waktu_mulai').distinct()
+def Eventpast(request):
+    now = datetime.now()
+    acara = Acara.objects.filter(waktu_mulai__lte=now).order_by('-waktu_mulai').distinct()
     paginator = Paginator(acara, 5)  # Show 25 contacts per page
+
 
     page = request.GET.get('page')
     try:
@@ -348,6 +391,27 @@ def Eventpenelitian(request):
 
     context = {
         "Acara": acara,
+    }
+
+    return render(request, "web/event.html", context)
+
+
+def Eventpenelitian(request):
+    acara = Acara.objects.all().filter(Agenda='Penelitian').order_by('-waktu_mulai').distinct()
+    paginator = Paginator(acara, 5)  # Show 25 contacts per page
+    eventTitle = "Event Penelitian"
+
+    page = request.GET.get('page')
+    try:
+        acara = paginator.page(page)
+    except PageNotAnInteger:
+        acara = paginator.page(1)
+    except EmptyPage:
+        acara = paginator.page(paginator.num_pages)
+
+    context = {
+        "Acara": acara,
+        "Judul": eventTitle,
     }
 
     return render(request, "web/event.html", context)
@@ -406,6 +470,14 @@ def Eventpelayanan(request):
 
     return render(request, "web/event.html", context)
 
+def Eventdet(request, acara_slug):
+    event = Acara.objects.get(slug=acara_slug)
+    template_name = 'web/eventdetail.html'
+
+    related = event.tags.similar_objects()[:5]
+
+    return render(request, template_name, { 'object':event, 'related': related })
+
 def kontak(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -453,9 +525,6 @@ def Pustakadet(request, publikasi_slug):
         form = DownloadForm()
     return render(request, template_name, {'form': form, 'object':publikasi})
 
-
-
-
 @login_required
 def pustakalist(request):
     slide = HomeSLide.objects.all()
@@ -473,12 +542,10 @@ def pustakalist(request):
     }
     return render(request, "web/pustaka-list.html", context)
 
-
 class PustakaDetail(DetailView):
     model = Publikasi
     template_name = "web/detail-pustaka.html"
     form_class = DownloadForm
-
 
 class Taglist(ListView):
     queryset = Berita.objects.all()
@@ -524,4 +591,76 @@ def email_list_signup(request):
                 form.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+def kesjiwdata(request):
+    COP = AnotatedCOP.objects.all().order_by('-tanggal').distinct()
+    Pustaka_Regulasi = Publikasi.objects.filter(tema='Regulasi').order_by('-date_upload').distinct()[:6]
+    Pustaka_Publikasi = Publikasi.objects.filter(tema='Publikasi').order_by('-date_upload').distinct()[:6]
+    paginator = Paginator(COP, 9)
+    page = request.GET.get('page')
+    try:
+        COP = paginator.page(page)
+    except PageNotAnInteger:
+        COP = paginator.page(1)
+    except EmptyPage:
+        COP = paginator.page(paginator.num_pages)
 
+    context = {
+        'abstracts': COP,
+        'pusreg': Pustaka_Regulasi,
+        'puspub': Pustaka_Publikasi,
+    }
+    return render(request, "web/copdatalist.html", context )
+def kesjiwregulasi(request):
+    judul = "Regulasi Kesehatan Jiwa"
+    Pustaka_Regulasi = Publikasi.objects.filter(tema='Regulasi').order_by('-date_upload').distinct()
+    paginator = Paginator(Pustaka_Regulasi, 9)
+    page = request.GET.get('page')
+    try:
+        Pustaka_Regulasi = paginator.page(page)
+    except PageNotAnInteger:
+        Pustaka_Regulasi = paginator.page(1)
+    except EmptyPage:
+        Pustaka_Regulasi = paginator.page(paginator.num_pages)
+
+    context = {
+        'objects': Pustaka_Regulasi,
+        'judul': judul,
+    }
+    return render(request, "web/kesjiwdatalist.html", context )
+
+def kesjiwproduk(request):
+    judul = "Produk Pengetahuan PPH"
+    Pustaka_Publikasi = Publikasi.objects.filter(tema='Publikasi').order_by('-date_upload').distinct()[:6]
+    paginator = Paginator(Pustaka_Publikasi, 9)
+    page = request.GET.get('page')
+    try:
+        Pustaka_Publikasi = paginator.page(page)
+    except PageNotAnInteger:
+        Pustaka_Publikasi = paginator.page(1)
+    except EmptyPage:
+        Pustaka_Publikasi = paginator.page(paginator.num_pages)
+
+    context = {
+        'objects': Pustaka_Publikasi,
+        'judul': judul
+    }
+    return render(request, "web/kesjiwdatalist.html", context )
+
+def kesjiwartikel(request):
+    judul = "Artikel Jurnal Kesehatan Jiwa"
+    COP = AnotatedCOP.objects.all().order_by('-tanggal').distinct()
+    paginator = Paginator(COP, 9)
+    page = request.GET.get('page')
+    try:
+        COP = paginator.page(page)
+    except PageNotAnInteger:
+        COP = paginator.page(1)
+    except EmptyPage:
+        COP = paginator.page(paginator.num_pages)
+
+    context = {
+        'objects': COP,
+        'judul': judul
+
+    }
+    return render(request, "web/kesjiwdatajurnal.html", context )

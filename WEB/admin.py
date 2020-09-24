@@ -70,3 +70,4 @@ class DownloadAdmin (admin.ModelAdmin, ExportCsvMixin):
     actions = ["export_as_csv"]
 
 admin.site.register(downloadForm, DownloadAdmin)
+admin.site.register(AnotatedCOP)
