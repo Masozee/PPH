@@ -65,6 +65,10 @@ object-fit: cover;
 	height: 218px;
   }
 
+  .dataTables_info .dataTables_Table_0_wrapper {
+      font-family: "Open Sans";
+  }
+
   @media(max-width:576px){
     .jumbotron{
         /* margin-top: -500px; */
