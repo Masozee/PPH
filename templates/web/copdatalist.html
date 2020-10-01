@@ -1,0 +1,154 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'web/css/copdatabase.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/cophead.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/dokumentasi.css' %}" rel="stylesheet">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+
+{% endblock %}
+
+
+{% block content %}
+    <section id="dokumentasi">
+      <div class="container new-entry">
+        <div class="d-flex justify-content-between">
+          <h3 >REGULASI KESEHATAN JIWA</h3>
+            <a href="{% url 'kesjiwregulasi' %}"><button type="button" class="btn btn-danger btn-sm">lihat semua</button></a>
+        </div>
+        <hr>
+        <div class="row row-cols-md-3">
+            {% for a in pusreg %}
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <a href="/pustaka/{{ a.judul|slugify }} " class="card-title">{{ a.judul }}</a>
+                <h6 class="autor"><i><img src="{% static 'web/images/cop/autor.svg' %}" alt="" srcset=""></i> {{ a.penulis }}</h6>
+                <h6 class="date"><i><img src="{% static 'web/images/cop/date.svg' %}" alt=""></i> {{ a.tanggal }}</h6>
+                <p class="card-text">{{ a.deskripsi |safe|truncatewords:10 }}</p>
+              </div>
+              <div class="card-footer">
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <div class="dropdown share">
+                      <i><img src="{% static 'web/images/cop/share.svg' %}" alt=""></i>
+                      <a class="dropdown-togle" href="" role="button" id="dropdown-share" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bagikan</a>
+
+                      <div class="dropdown-menu" aria-labelledby="dropdown-share">
+                            <a class="dropdown-item" href="https://www.facebook.com/sharer.php?u=https://jphiv-ina.net/abstract/{{abstract.judul | slugify |lower}}"><i class="fab fa-facebook-square"></i>Facebook</a>
+                            <a class="dropdown-item" href="https://twitter.com/intent/tweet?url=https://jphiv-ina.net/abstract/{{abstract.judul | slugify |lower}}&text={{abstract.judul}}&hashtags=JPHIV"><i class="fab fa-twitter-square"></i>Twitter</a>
+                            <a class="dropdown-item" href="https://www.linkedin.com/shareArticle?mini=true&url=https://jphiv-ina.net/abstract/{{abstract.judul | slugify |lower}}&title={{abstract.judul}}&summary={{abstract.abstrak| truncatechars:'200' |safe }}&source=JPHIV"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                            <a class="dropdown-item copy_text" href="https://pph.atmajaya.ac.id/pustaka/{{a.judul | slugify |lower}}" data-toggle="tooltip" title="Copy to Clipboard"><i class="fas fa-copy"></i>Copy URL </a>
+                          </div>
+                    </div>
+                  </li>
+                </ul>
+                <hr>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+
+        </div>
+      </div>
+    </section>
+    <section class="new-anno-bibl new-entry">
+      <div class="container new-entry">
+        <div class="d-flex justify-content-between">
+          <h3 >PRODUK PENGETAHUAN PPH</h3>
+            <a href="{% url 'kesjiwproduk' %}"><button  type="button" class="btn btn-danger btn-sm">lihat semua</button></a>
+        </div>
+        <hr>
+        <div class="row row-cols-md-3">
+            {% for a in puspub %}
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <a href="/pustaka/{{ a.judul|slugify }} " class="card-title">{{ a.judul }}</a><br>
+                <h6 class="autor"><i><img src="{% static 'web/images/cop/autor.svg' %}" alt="" srcset=""></i> {{ a.penulis }}</h6>
+                <h6 class="date"><i><img src="{% static 'web/images/cop/date.svg' %}" alt=""></i> {{ a.tanggal }}</h6>
+                <p class="card-text">{{ a.deskripsi |safe|truncatewords:30 }}</p>
+              </div>
+              <div class="card-footer">
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <div class="dropdown share">
+                      <i><img src="{% static 'web/images/cop/share.svg' %}" alt=""></i>
+                      <a class="dropdown-togle" href="" role="button" id="dropdown-share" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bagikan</a>
+
+                      <div class="dropdown-menu" aria-labelledby="dropdown-share">
+                        <a class="dropdown-item" href="https://www.facebook.com/sharer.php?u=https://jphiv-ina.net/abstract/{{abstract.judul | slugify |lower}}"><i class="fab fa-facebook-square"></i>Facebook</a>
+                            <a class="dropdown-item" href="https://twitter.com/intent/tweet?url=https://jphiv-ina.net/abstract/{{abstract.judul | slugify |lower}}&text={{abstract.judul}}&hashtags=JPHIV"><i class="fab fa-twitter-square"></i>Twitter</a>
+                            <a class="dropdown-item" href="https://www.linkedin.com/shareArticle?mini=true&url=https://jphiv-ina.net/abstract/{{abstract.judul | slugify |lower}}&title={{abstract.judul}}&summary={{abstract.abstrak| truncatechars:'200' |safe }}&source=JPHIV"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                            <a class="dropdown-item copy_text" href="https://pph.atmajaya.ac.id/pustaka/{{a.judul | slugify |lower}}" data-toggle="tooltip" title="Copy to Clipboard"><i class="fas fa-copy"></i>Copy URL </a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <hr>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+
+        </div>
+      </div>
+    </section>
+    <section class="new-anno-bibl new-entry">
+      <div class="container new-entry">
+        <div class="d-flex justify-content-between">
+          <h3 >ARTIKEL JURNAL KESEHATAN JIWA</h3>
+            <a href="{% url 'kesjiwartikel' %}"><button type="button" class="btn btn-danger btn-sm">lihat semua</button></a>
+        </div>
+        <hr>
+        <div class="row row-cols-md-3">
+            {% for a in abstracts %}
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <a href="/pustaka/{{ a.judul |slugify }} " class="card-title">{{ a.judul }}</a>
+                <h6 class="autor"><i><img src="{% static 'web/images/cop/autor.svg' %}" alt="" srcset=""></i>
+                    {% for tag in a.Author.all %}
+                       {{ tag.name }},
+                    {% endfor %}
+                </h6>
+                <h6 class="date"><i><img src="{% static 'web/images/cop/date.svg' %}" alt=""></i> {{ a.tanggal }}</h6>
+                <p class="card-text">{{ a.anotated |safe|truncatewords:30 }}</p>
+              </div>
+              <div class="card-footer">
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <div class="dropdown share">
+                      <i><img src="{% static 'web/images/cop/share.svg' %}" alt=""></i>
+                      <a class="dropdown-togle" href="" role="button" id="dropdown-share" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bagikan</a>
+
+                      <div class="dropdown-menu" aria-labelledby="dropdown-share">
+                        <a class="dropdown-item" href="#"><i class="fab fa-facebook-square"></i>Facebook</a>
+                        <a class="dropdown-item" href="#"><i class="fab fa-twitter-square"></i>Twitter</a>
+                        <a class="dropdown-item" href="#"><i class="fab fa-whatsapp-square"></i>Whatsapp</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-copy"></i>Salin Link</a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <hr>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+
+        </div>
+      </div>
+    </section>
+    <hr>
+{% endblock %}
+
+{% block js %}
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+{% endblock %}

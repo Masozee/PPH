@@ -10,11 +10,11 @@
 
 {% block content %}
     <!-- landing -->
-    <div class="jumbotron" style=" background-image: url({% static 'web/images/event/landingevent1.png' %});">
+    <div class="jumbotron" style=" background-image: url({% static 'web/images/event/landingevent1.png' %}); ">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-9">
-                    <h1 class="display-4 mt-5 pt-5 fsb f-bm ">Upcoming Event </h1>
+                    <h1 class="display-4 mt-5 pt-5 fsb f-bm ">Upcoming Event {{Judul}}</h1>
                 </div> 
             </div>
         </div>
@@ -29,16 +29,18 @@
                 <div class="col">
                     <div class="clearfix">
                         <div class="btn-group float-left">
-                            <button class="btn btn-default dropdown-toggle f-am" type="button" id="tekan" data-toggle="dropdown" aria-haspopup="true"
+                            <button class="btn btn-default dropdown-toggle f-am f-os" type="button" id="tekan" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                         kategori <i class="fa fa-caret-down" aria-hidden="true"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tekan">
-                                <a class="dropdown-item f-am" href="{% url 'event-list' %}">tampilkan semua</a>
-                                <a class="dropdown-item f-am" href="{% url 'event-penelitian' %}">penelitian</a>
-                                <a class="dropdown-item f-am" href="{% url 'event-advokasi' %}">advokasi</a>
-                                <a class="dropdown-item f-am" href="{% url 'event-peningkatan' %}">peningakatan kapasitas</a>
-                                <a class="dropdown-item f-am" href="{% url 'event-pelayanan' %}">pelayanan komunitas</a>
+                                <a class="dropdown-item f-am f-os" href="{% url 'event-list' %}">tampilkan semua</a>
+                                <a class="dropdown-item f-am f-os" href="{% url 'event-lalu' %}">acara lalu</a>
+                                <a class="dropdown-item f-am f-os" href="{% url 'event-penelitian' %}">penelitian</a>
+                                <a class="dropdown-item f-am f-os" href="{% url 'event-advokasi' %}">advokasi</a>
+                                <a class="dropdown-item f-am f-os" href="{% url 'event-peningkatan' %}">peningakatan kapasitas</a>
+                                <a class="dropdown-item f-am f-os" href="{% url 'event-pelayanan' %}">pelayanan komunitas</a>
+                                
                             </div>
                         </div>
 
@@ -67,15 +69,14 @@
                         </a>
                         <div class="media-body">
                             <h6 class="f-12 f-os fossb f-bm">{{ a.Agenda }}</h6>
-                            <h4 class="f-20 fssb ">{{ a.judul }}</h4>
+                            <h4 class="f-20 fssb "><a href="/event/{{ a.judul | slugify }}" style="text-decoration:none; color: #212529">{{ a.judul }}</a></h4>
                             <h4 class="f-16 f-t f-am f-os fosb">{{ a.lokasi }} <br>
                                     {{ a.wktmly }} - {{ a.wktsls }}</h4>
-                            <div class="isi f-os">{{ a.isi |truncatechars:"200" | safe }}</div>
-                            <a class="f-14 f-t f-k popup" data-toggle="modal" data-target="#{{ a.judul | slugify }}-{{ a.id }}" href="/events/{{ a.judul |slugify }}">Detil event <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                            <div class="isi f-os">{{ a.isi |safe|truncatechars:"200"  }}</div>
+                            <a class="f-14 f-t f-k"  href="/event/{{ a.judul |slugify }}" style="text-decoration:none;">Detil event <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                             {% block meta_img %}
                                 <meta property="og:image" content="http://localhost:8000/media/{{ a.gambar }} ">
                             {% endblock %}
-
                         </div>
                     </div>
                 </div>
@@ -85,44 +86,7 @@
            {% endfor %}
         </div>
     </section>
-    <!-- tutup event -->
-    {% for B in Acara %}
-        <!-- modal event popup -->
-        <div class="modal fade" id="{{ B.judul | slugify }}-{{ B.id }}" role="dialog">
-                <div class="modal-dialog modal-lg  ">
-              
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <img class="img-modal-event" src="/media/{{ B.gambar }}" alt="" srcset="">
-                                </div>
-                                <div class="col-md-6">
-                                    <h3 class="jud-event">{{ B.judul }}</h3>
-                                    <h4 class="wak-event"><span class="ruangan">{{ B.lokasi }}</span> <br> <span class="waktu">{{B.thnlgkp}}, {{ B.wktmly }} - {{ B.wktsls }} WIB</span></h4>
-                                    <div class="konten-event">{{ B.isi | safe }}</div>
-                                
-                                    <div class="clear-fix tombol">
-                                        <a href="{{B.link}}"><button class="register btn btn-dark" type="submit" name="register">DAFTAR</button></a>
-                                        <button type="button" class="tutup-modal float-right" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></button>
-                                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"><img class="i-event-s float-right" src="{% static 'web/icon/004-facebook-logo-button.svg' %}" alt="" srcset=""></a>
-                                        <a href="https://twitter.com/share?&url={{ request.build_absolute_uri }}"><img class="i-event-s float-right" src="{% static 'web/icon/003-twitter-logo-button.svg' %}" alt="" srcset=""></a>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-          
-                </div>
-            </div>
-            <!-- modal event popup -->
-    {% endfor %}
 
-
-    
 
     <!-- atur halaman -->
     <nav class=" f-os">

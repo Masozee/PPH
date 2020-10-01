@@ -69,7 +69,13 @@
                         
                         <h3><a  class="judul" href="/berita/artikel/{{ a.judul |slugify }}">{{ a.judul }}</a></h3>
                         <ul class="list-inline">
-                            <li class="list-inline-item penulis" >by {{ a.penulis }}</li>
+                            <li class="list-inline-item penulis" >by {{ a.penulis }}
+                                <span>
+                                {% for b in a.penulis_luar.all %}
+                                    ,{{ b.name }}
+                                {% endfor %}
+                                </span>
+                             </li>
                             <li class="list-inline-item tanggal">{{ a.thn }}</li>
                         </ul>
                         <div class="isi f-os">{{ a.isi | truncatechars:"250" |safe }}</div>

@@ -1,6 +1,6 @@
 {% extends 'web/base.html' %}
 {% load static %}
-{% load social_share %}
+{% load crispy_forms_tags %}
 
 {% block css %}
 <link rel="stylesheet" href="{%static 'web/css/detail-artikel.css' %}">
@@ -41,32 +41,19 @@
                           <div class="modal-content shadow">
                             <div class="modal-body">
                                 <h3>Data diri</h3>
-                                <form  method="POST">
+                                <form method="post">
                                     {% csrf_token %}
-                                    <div class="form-group">
-                                      <label  for="nama">Nama</label>
-                                      <input type="text" name="nama" id="nama" class="form-control" placeholder="" >
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="email">Email</label>
-                                      <input type="text" name="email" id="email" class="form-control" placeholder="" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="organisasi">Organisasi</label>
-                                        <input type="text" name="organisasi" id="organisasi" class="form-control" placeholder="" >
-                                      </div>
-                                    <input type="hidden" id="dokumen" name="dokumen" value="{{object.judul}}">
-                                    <div class="form-group">
+                                        {{form | crispy}}
+                                    <!--div class="form-group">
                                         <label for="recaptcha">Captcha</label>
                                         <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
                                         <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha" name="recaptcha">
                                         <div class="help-block with-errors"></div>
                                         <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
-                                    </div>
+                                    </div-->
                                     
                                     <div class="clear-fix tombol">
-                                        <button  class="download btn btn-dark" type="submit"  name="download"  value="submit"><a href="/media/{{object.download}}" >Download</a ></button>
-                                        <button type="button" class="tutup-modal float-right" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                        <button class="submit btn btn-dark" type="submit" onclick="window.open('/media/{{object.download}}');">Submit</button>
                                     </div>
                                 </form>
                             </div>

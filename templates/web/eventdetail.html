@@ -25,12 +25,8 @@
                 <h6 class="f-12 f-bm f-os fossb">{{ object.Agenda }}</h6>
                 <h2 class="judul-artikel">{{ object.judul }}</h2>
                 <ul class="list-unstyled list-inline">
-                    <li class="list-inline-item f-12 f-os f-at fossb">By {{ object.penulis }}
-                        {% for tag in object.penulis_luar.all %}
-                            , {{ tag.name }}
-                        {% endfor %}
-                    </li>
-                    <li class="list-inline-item f-12 f-os f-am">{{ object.thn }}</li>
+                    <li class="list-inline-item f-12 f-os f-at fossb">Waktu: {{ object.waktu_mulai }} - {{ object.waktu_selesai }}</li>
+                    <li class="list-inline-item f-12 f-os f-am">{{ object.lokasi }}</li>
                 </ul>
                 <img class="py-3 img-artikel w-100" src="/media/{{ object.gambar }}" alt="" srcset="">
                 <h6 class="f-12 f-am f-os pb-3">{{object.ket_gambar}} </h6>
@@ -38,30 +34,14 @@
                     {{ object.isi |safe }}
                 </div>
 
-                <!-- popup download -->
-                <div class="modal fade " id="modal-download" role="dialog">
-                        <div class="modal-dialog">
 
-                          <!-- Modal content-->
-                          <div class="modal-content shadow">
-                            <div class="modal-body">
-                                <h3>Data diri</h3>
-                                    <form method="post">
-                                    {% csrf_token %}
-                                        {{form | crispy}}
-                                        <div class="clear-fix tombol">
-                                            <button class="submit btn btn-dark" type="submit" onclick="window.open('/media/{{object.download}}');">Submit</button>
-                                        </div>
-                                    </form>
-                            </div>
-                          </div>
 
-                        </div>
-                      </div>
-                <!-- tutup popup download -->
-
-                
                 <ul class="list-unstyled list-inline icon-sosmed">
+                    {% if object.link %}
+                    <li class="list-inline-item"><a href="{{object.link}}"><button class="register btn btn-dark" type="submit" name="register">DAFTAR</button></a></li>
+                    {% else %}
+                    {{ empty }}
+                    {% endif %}
                     <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"><img class="py-1" src="{% static 'web/icon/004-facebook-logo-button.svg' %}" alt=""></a></li>
                     <li class="list-inline-item"><a href="https://twitter.com/share?&url={{ request.build_absolute_uri }}/"><img class="py-1" src="{% static 'web/icon/003-twitter-logo-button.svg' %}" alt=""></a></li>
                     {% if object.download %}
@@ -78,8 +58,8 @@
                 <h3 class="f-18 fssb">Related News</h3>
                 <hr>
                 {% for A in related %}
-                <h5 class="f-15 fssb"><a href="/berita/{{ A.Kategori | slugify}}/{{ A.judul | slugify }}">{{A.judul}}</a></h5>
-                <h6 class="f-12 f-os f-at fossb">By {{ A.penulis }}</h6>
+                <h5 class="f-15 fssb"><a href="/event/{{ A.judul | slugify }}" style="text-decoration:none; color: #212529">{{A.judul}}</a></h5>
+                <h6 class="f-12 f-os f-at fossb">waktu : {{ A.waktu_mulai }}-{{ A.waktu_selesai }}</h6>
                 <hr>    <!-- batas antar berita -->
                 {% endfor %}
             </div>
