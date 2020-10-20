@@ -1,7 +1,11 @@
 import json
 import urllib
-import requests
+#import requests
+from datetime import datetime, timedelta, time
+from django.db.models import F
+
 from django.contrib.auth import authenticate, login
+
 
 from django.shortcuts import render, Http404, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -25,7 +29,7 @@ from USER.forms import VisitorSignUpForm
 
 form2 = EmailSignupForm()
 
-from .models import Berita, Acara, TentangKami, HomeSLide, Kontak, Signup, downloadForm
+from .models import Berita, Acara, TentangKami, HomeSLide, Kontak, Signup, downloadForm, AnotatedCOP, LayananKeswa
 from KM.models import *
 
 
@@ -43,8 +47,6 @@ def Home(request):
     }
 
     return render(request, "web/index.html", context)
-
-
 
 def WebSetting(request):
     setting = HomeSLide.objects.all()
@@ -79,6 +81,7 @@ def DokumentasiList(request):
     }
 
     return render(request, "web/dukomentasi.html", context)
+
 def DokumentasiPenelitian(request):
     dokumentasi = Berita.objects.filter(Kategori="Dokumentasi", Agenda="Penelitian").order_by('-tanggal')
     paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
@@ -143,7 +146,6 @@ def DokumentasiPelayanan(request):
     }
 
     return render(request, "web/dukomentasi.html", context)
-
 class DokumentasiDetail(DetailView):
     model = Berita
     template_name = "web/detail-artikel.html"
@@ -155,9 +157,22 @@ class DokumentasiDetail(DetailView):
 def Dokumendetail(request, berita_slug):
     berita = Berita.objects.get(slug=berita_slug)
     Related = Berita.objects.all()[:5]
+
+    form = DownloadForm(request.POST)
+
+    if request.method == 'POST':
+
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.dokumen = berita.judul
+            obj.url = request.build_absolute_uri()
+
+            obj.save()
+
     context = {
         "object": berita,
         "related":Related,
+        "form": form,
     }
     return render(request, 'web/detail-artikel.html', context)
 
@@ -179,6 +194,24 @@ def ArtikelList(request):
     }
 
     return render(request, "web/artikel.html", context)
+def NewsletterList(request):
+    artikel = Berita.objects.filter(Kategori="Newsletter").order_by('-tanggal')
+    paginator = Paginator(artikel, 5)  # Show 25 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        artikel = paginator.page(page)
+    except PageNotAnInteger:
+        artikel = paginator.page(1)
+    except EmptyPage:
+        artikel = paginator.page(paginator.num_pages)
+
+    context = {
+        "berita": artikel,
+    }
+
+    return render(request, "web/artikel.html", context)
+
 def ArtikelPenelitian(request):
     dokumentasi = Berita.objects.filter(Kategori="Artikel", Agenda="Penelitian").order_by('-tanggal')
     paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
@@ -212,6 +245,7 @@ def ArtikelAdvokasi(request):
     }
 
     return render(request, "web/dukomentasi.html", context)
+
 def ArtikelPeningkatan(request):
     dokumentasi = Berita.objects.filter(Kategori="Artikel", Agenda="Peningkatan Kapasitas").order_by('-tanggal')
     paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
@@ -249,9 +283,23 @@ def ArtikelPelayanan(request):
 def ArtikelDetail(request, berita_slug):
     berita = Berita.objects.get(slug=berita_slug)
     Related = Berita.objects.all()[:5]
+
+    form = DownloadForm(request.POST)
+
+    if request.method == 'POST':
+
+
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.dokumen = berita.judul
+            obj.url = request.build_absolute_uri()
+
+            obj.save()
+
     context = {
         "object": berita,
         "related":Related,
+        "form": form,
 
     }
     return render(request, 'web/detail-artikel.html', context)
@@ -268,7 +316,19 @@ class PublicationList(ListView):
 
 def Kesehatanjiwa(request):
     Slide = HomeSLide.objects.all().distinct()[:1]
-    berita = Berita.objects.filter(tags__slug="kesehatan-jiwa").order_by('-tanggal')
+    keswa = LayananKeswa.objects.all()
+
+    context = {
+        "Slide": Slide,
+        "keswa": keswa,
+    }
+
+    return render(request, "web/kesehatanjiwa.html", context)
+
+def cop(request):
+    Slide = HomeSLide.objects.all().distinct()[:1]
+    berita = Berita.objects.filter(tags__slug="cop").order_by('-tanggal')
+    acara = Acara.objects.filter(tags__slug="cop").order_by('-waktu_mulai')
     paginator = Paginator(berita, 5)  # Show 25 contacts per page
 
     page = request.GET.get('page')
@@ -280,14 +340,16 @@ def Kesehatanjiwa(request):
         berita = paginator.page(paginator.num_pages)
 
     context = {
+        "acara": acara,
         "Slide": Slide,
         "berita": berita,
     }
 
-    return render(request, "web/kesehatanjiwa.html", context)
+    return render(request, "web/cop.html", context)
 
 def EventList(request):
-    acara = Acara.objects.all().order_by('-waktu_mulai').distinct()
+    now = datetime.now()
+    acara = Acara.objects.filter(waktu_mulai__gte=now).order_by('waktu_mulai').distinct()
     paginator = Paginator(acara, 5)  # Show 25 contacts per page
 
 
@@ -305,9 +367,11 @@ def EventList(request):
 
     return render(request, "web/event.html", context)
 
-def Eventpenelitian(request):
-    acara = Acara.objects.all().filter(Agenda='Penelitian').order_by('-waktu_mulai').distinct()
+def Eventpast(request):
+    now = datetime.now()
+    acara = Acara.objects.filter(waktu_mulai__lte=now).order_by('-waktu_mulai').distinct()
     paginator = Paginator(acara, 5)  # Show 25 contacts per page
+
 
     page = request.GET.get('page')
     try:
@@ -319,6 +383,27 @@ def Eventpenelitian(request):
 
     context = {
         "Acara": acara,
+    }
+
+    return render(request, "web/event.html", context)
+
+
+def Eventpenelitian(request):
+    acara = Acara.objects.all().filter(Agenda='Penelitian').order_by('-waktu_mulai').distinct()
+    paginator = Paginator(acara, 5)  # Show 25 contacts per page
+    eventTitle = "Event Penelitian"
+
+    page = request.GET.get('page')
+    try:
+        acara = paginator.page(page)
+    except PageNotAnInteger:
+        acara = paginator.page(1)
+    except EmptyPage:
+        acara = paginator.page(paginator.num_pages)
+
+    context = {
+        "Acara": acara,
+        "Judul": eventTitle,
     }
 
     return render(request, "web/event.html", context)
@@ -377,6 +462,14 @@ def Eventpelayanan(request):
 
     return render(request, "web/event.html", context)
 
+def Eventdet(request, acara_slug):
+    event = Acara.objects.get(slug=acara_slug)
+    template_name = 'web/eventdetail.html'
+
+    related = Acara.objects.all()[:5]
+
+    return render(request, template_name, { 'object':event, 'related': related })
+
 def kontak(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -407,22 +500,22 @@ def pustaka(request):
     return render(request, "web/pustaka.html", context)
 
 def Pustakadet(request, publikasi_slug):
-
     publikasi = Publikasi.objects.get(slug=publikasi_slug)
-
+    template_name = 'web/detail-pustaka.html'
     if request.method == 'POST':
-        form = DownloadForm(request.POST)
+        form = DownloadForm(request.POST, request.FILES)
+
         if form.is_valid():
+            obj = form.save(commit=False)
+            obj.dokumen = publikasi.judul
+            obj.url = request.build_absolute_uri()
 
-            u = form.save()
-            users = downloadForm.objects.all()
+            obj.save()
 
-            return render(request, "web/detail-pustaka.html", {'users': users})
+            #return HttpResponseRedirect('obj.download')
     else:
-        form_class = DownloadForm
-
-    return render(request, "web/detail-pustaka.html", {'form': form_class, 'object': publikasi})
-
+        form = DownloadForm()
+    return render(request, template_name, {'form': form, 'object':publikasi})
 
 @login_required
 def pustakalist(request):
@@ -445,23 +538,6 @@ class PustakaDetail(DetailView):
     model = Publikasi
     template_name = "web/detail-pustaka.html"
     form_class = DownloadForm
-
-    def get_context_data(self, **kwargs):
-        context = super(PustakaDetail, self).get_context_data(**kwargs)
-        context['form'] = DownloadForm(initial={'POST': self.object})
-        return context
-
-    def post(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        form = self.get_form()
-        if form.is_valid():
-            return self.form_valid(form)
-        else:
-            return self.form_invalid(form)
-
-    def form_valid(self, form):
-        form.save()
-        return super(PustakaDetail, self).form_valid(form)
 
 class Taglist(ListView):
     queryset = Berita.objects.all()
@@ -507,56 +583,85 @@ def email_list_signup(request):
                 form.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+def kesjiwdata(request):
+    COP = AnotatedCOP.objects.all().order_by('-tanggal').distinct()
+    Pustaka_Regulasi = Publikasi.objects.filter(tema='Regulasi', tagging__slug="cop-keswa").order_by('-date_upload').distinct()[:6]
+    Pustaka_Publikasi = Publikasi.objects.filter(tema='Publikasi', tagging__slug="cop-keswa").order_by('-date_upload').distinct()[:6]
+    paginator = Paginator(COP, 9)
+    page = request.GET.get('page')
+    try:
+        COP = paginator.page(page)
+    except PageNotAnInteger:
+        COP = paginator.page(1)
+    except EmptyPage:
+        COP = paginator.page(paginator.num_pages)
 
-#----------multiple form --------------
-
-def form_redir(request):
-    return render(request, 'pages/form_redirect.html')
-
-
-def multiple_forms(request):
-    if request.method == 'POST':
-        contact_form = ContactForm(request.POST)
-        subscription_form = EmailSignupForm(request.POST)
-        if contact_form.is_valid() or subscription_form.is_valid():
-            # Do the needful
-            return HttpResponseRedirect(reverse('form-redirect'))
-    else:
-        contact_form = ContactForm()
-        subscription_form = EmailSignupForm()
-
-    return render(request, 'pages/multiple_forms.html', {
-        'contact_form': contact_form,
-        'subscription_form': subscription_form,
-    })
-
-
-class MultipleFormsDemoView(MultiFormsView):
-    template_name = "web/cbv_multiple_forms.html"
-    form_classes = {'contact': ContactForm,
-                    'subscription': EmailSignupForm,
-                    }
-
-    success_urls = {
-        'contact': reverse_lazy('form-redirect'),
-        'subscription': reverse_lazy('form-redirect'),
+    context = {
+        'abstracts': COP,
+        'pusreg': Pustaka_Regulasi,
+        'puspub': Pustaka_Publikasi,
     }
+    return render(request, "web/copdatalist.html", context )
+def kesjiwregulasi(request):
+    judul = "Regulasi Kesehatan Jiwa"
+    Pustaka_Regulasi = Publikasi.objects.filter(tema='Regulasi', tagging__slug="cop-keswa").order_by('-date_upload').distinct()
+    paginator = Paginator(Pustaka_Regulasi, 9)
+    page = request.GET.get('page')
+    try:
+        Pustaka_Regulasi = paginator.page(page)
+    except PageNotAnInteger:
+        Pustaka_Regulasi = paginator.page(1)
+    except EmptyPage:
+        Pustaka_Regulasi = paginator.page(paginator.num_pages)
 
-    def contact_form_valid(self, form):
-        title = form.cleaned_data.get('title')
-        form_name = form.cleaned_data.get('action')
-        print(title)
-        return HttpResponseRedirect(self.get_success_url(form_name))
+    context = {
+        'objects': Pustaka_Regulasi,
+        'judul': judul,
+    }
+    return render(request, "web/kesjiwdatalist.html", context )
 
-    def subscription_form_valid(self,request):
-        form = EmailSignupForm(request.POST or None)
-        if request.method == "POST":
-            if form.is_valid():
-                email_signup_qs = Signup.objects.filter(email=form.instance.email)
-                if email_signup_qs.exists():
-                    messages.info(request, "You are already subscribed")
-                else:
-                    subscribe(form.instance.email)
-                    form.save()
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+def kesjiwproduk(request):
+    judul = "Produk Pengetahuan PPH"
+    Pustaka_Publikasi = Publikasi.objects.filter(tema='Publikasi', tagging__slug="cop-keswa").order_by('-date_upload').distinct()[:6]
+    paginator = Paginator(Pustaka_Publikasi, 9)
+    page = request.GET.get('page')
+    try:
+        Pustaka_Publikasi = paginator.page(page)
+    except PageNotAnInteger:
+        Pustaka_Publikasi = paginator.page(1)
+    except EmptyPage:
+        Pustaka_Publikasi = paginator.page(paginator.num_pages)
+
+    context = {
+        'objects': Pustaka_Publikasi,
+        'judul': judul
+    }
+    return render(request, "web/kesjiwdatalist.html", context )
+
+def kesjiwartikel(request):
+    judul = "Artikel Jurnal Kesehatan Jiwa"
+    COP = AnotatedCOP.objects.all().order_by('-tanggal').distinct()
+    paginator = Paginator(COP, 9)
+    page = request.GET.get('page')
+    try:
+        COP = paginator.page(page)
+    except PageNotAnInteger:
+        COP = paginator.page(1)
+    except EmptyPage:
+        COP = paginator.page(paginator.num_pages)
+
+    context = {
+        'objects': COP,
+        'judul': judul
+
+    }
+    return render(request, "web/kesjiwdatajurnal.html", context )
+
+def KesjiwDetail(request, AnotatedCOP_slug):
+    abstracts = AnotatedCOP.objects.get(slug=AnotatedCOP_slug)
+
+    context = {
+        "object": abstracts,
+    }
+    return render(request, 'web/copdatadetail.html', context)
 

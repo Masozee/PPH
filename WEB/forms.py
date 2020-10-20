@@ -3,10 +3,10 @@ from django import forms
 from .models import Kontak, downloadForm
 from django.forms import ModelForm
 from .multiforms import MultiFormsView
-from captcha.fields import ReCaptchaField
+#from captcha.fields import ReCaptchaField
 
-class ReCAPTCHAForm(forms.Form):
-    captcha = ReCaptchaField()
+#class ReCAPTCHAForm(forms.Form):
+#    captcha = ReCaptchaField()
 
 
 class MultipleForm(forms.Form):
@@ -20,14 +20,10 @@ class ContactForm(ModelForm):
 
 
 class DownloadForm(ModelForm):
-    nama = forms.CharField(label="nama", max_length=150)
-    email = forms.EmailField(label="email",)
-    organisasi = forms.CharField(widget=forms.Textarea)
-    dokumen = forms.CharField(widget=forms.Textarea)
-    captcha = ReCaptchaField()
     class Meta:
         model = downloadForm
-        fields = ['nama','email','organisasi','dokumen']
+        fields = ['nama','email','dokumen','organisasi',]
+        widgets = {'dokumen': forms.HiddenInput()}
 
 
 class EmailSignupForm(forms.ModelForm):
