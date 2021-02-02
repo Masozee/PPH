@@ -72,7 +72,7 @@
             <div class="row">
                     {%for c in Slide %}
                 <div class="col-md-3">
-                    <h3 class="f-40 fsb f-bt">{{c.pustaka_publikasi_judul}}</h3>
+                    <h3 class="f-40 fsb f-bt">Publikasi</h3>
                 </div>
                 <div class="col-md-6">
                     <p class="f-14 f-os f-at">{{c.pustaka_publikasi_ket}}</p>
@@ -91,9 +91,9 @@
                 </a>
                 {%endfor%}
             </div>
-
+            <h6 class="float-right"><a class ="f-os f-am" href="{% url 'pustaka-publikasi' %}"><h5 class="float-left f-14 f-bm fssb pt-2">View All</h5></a></h6>
+            <br>
             <hr>
-            <h6 class="float-right"><a class ="f-os f-am" href="{% url 'pustaka-list' %}"><small>View All</small></a></h6>
         </div>
     </section>
     <!-- tutp puublikasi -->
@@ -104,7 +104,7 @@
                 <div class="row">
                         {%for c in Slide %}
                     <div class="col-md-3">
-                        <h3 class="f-40 fsb f-bt">{{c.pustaka_regulasi_judul}}</h3>
+                        <h3 class="f-40 fsb f-bt">Regulasi</h3>
                     </div>
                     <div class="col-md-6">
                         <p class="f-14 f-os f-at">{{c.pustaka_regulasi_ket}}</p>
@@ -123,40 +123,104 @@
                     </a>
                     {% endfor %}
                 </div>
+
+                <h6 class="float-right"><a class ="f-os f-am" href="{% url 'pustaka-regulasi' %}"><h5 class="float-left f-14 f-bm fssb pt-2">View All</h5></a></h6>
+                <br>
                 <hr>
-                <h6 class="float-right"><a class ="f-os f-am" href="{% url 'pustaka-list' %}"><small>View All</small></a></h6>
+            </div>
+        </section>
+    <section class="publikasi">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <h3 class="f-40 fsb f-bt">Penelitian</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="f-14 f-os f-at">{{judul_penelitian}}</p>
+                    </div>
+
+                </div>
+                <hr>
+                <div class="card-columns">
+                    {% for a in Penelitian %}
+                    <a href="/pustaka/{{a.judul | slugify}}" class="card text-white ">
+                        <div class="card-body">
+                            <h5 class="card-title f-14 fssb">{{a.judul}}</h5>
+                            <hr>
+                            <p class="card-text mb-5 fsri">{{a.penulis}}</p>
+                    </div>
+                    </a>
+                    {% endfor %}
+                </div>
+
+                <h6 class="float-right"><a class ="f-os f-am" href="{% url 'pustaka-penelitian' %}"><h5 class="float-left f-14 f-bm fssb pt-2">View All</h5></a></h6>
+                <br>
+                <hr>
+            </div>
+        </section>
+    <section class="publikasi">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <h3 class="f-40 fsb f-bt">Pelayanan Komunitas</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="f-14 f-os f-at">{{judul_pelayanan}}</p>
+                    </div>
+
+                </div>
+                <hr>
+                <div class="card-columns">
+                    {% for a in Pelayanan%}
+                    <a href="/pustaka/{{a.judul | slugify}}" class="card text-white ">
+                        <div class="card-body">
+                            <h5 class="card-title f-14 fssb">{{a.judul}}</h5>
+                            <hr>
+                            <p class="card-text mb-5 fsri">{{a.penulis}}</p>
+                    </div>
+                    </a>
+                    {% endfor %}
+                </div>
+
+                <h6 class="float-right"><a class ="f-os f-am" href="{% url 'pustaka-pelayanan' %}"><h5 class="float-left f-14 f-bm fssb pt-2">View All</h5></a></h6>
+                <br>
+                <hr>
+            </div>
+        </section>
+    <section class="publikasi">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <h3 class="f-40 fsb f-bt">Peningkatan Kapasitas</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="f-14 f-os f-at">{{empty}}</p>
+                    </div>
+
+                </div>
+                <hr>
+                <div class="card-columns">
+                    {% for a in Peningkatan%}
+                    <a href="/pustaka/{{a.judul | slugify}}" class="card text-white ">
+                        <div class="card-body">
+                            <h5 class="card-title f-14 fssb">{{a.judul}}</h5>
+                            <hr>
+                            <p class="card-text mb-5 fsri">{{a.penulis}}</p>
+                    </div>
+                    </a>
+                    {% endfor %}
+                </div>
+
+                <h6 class="float-right"><a class ="f-os f-am" href="{% url 'pustaka-peningkatan' %}"><h5 class="float-left f-14 f-bm fssb pt-2">View All</h5></a></h6>
+                <br>
+                <hr>
             </div>
         </section>
         <!-- tutup publikasi -->
 
-    <section class="publikasi">
-            <div class="container">
-                <div class="row">
-                        {%for c in Slide %}
-                    <div class="col-md-3">
-                        <h3 class="f-40 fsb f-bt">{{c.pustaka_regulasi_judul}}</h3>
-                    </div>
-                    <div class="col-md-6">
-                        <p class="f-14 f-os f-at">{{c.pustaka_regulasi_ket}}</p>
-                    </div>
-                    {% endfor %}
-                </div>
-                <hr>
-                <div class="card-columns">
-                    {% for a in Regulasi %}
-                    <a href="/pustaka/{{a.judul | slugify}}" class="card text-white ">
-                        <div class="card-body">
-                            <h5 class="card-title f-14 fssb">{{a.judul}}</h5>
-                            <hr>
-                            <p class="card-text mb-5 fsri">{{a.penulis}}</p>
-                    </div>
-                    </a>
-                    {% endfor %}
-                </div>
-                <hr>
-                <h6 class="float-right"><a class ="f-os f-am" href="{% url 'pustaka-list' %}"><small>View All</small></a></h6>
-            </div>
-        </section>
 
 {% endblock %}
 

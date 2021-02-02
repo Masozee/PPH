@@ -40,57 +40,12 @@
                     <div id="collapseTwo" class="card-body collapse" data-parent="#accordion" >
                       <div class="form-check">
                         <label>
-                          <input id="Research Report" type="checkbox" name="kategori" value="Research Report"> <span class="label-text">Research Report</span>
+                          <input id="Research Report" type="checkbox" name="kategori" value="Materi Pengetahuan HIV AIDS"> <span class="label-text">Materi Pengetahuan HIV AIDS</span>
                         </label>
                       </div>
                       <div class="form-check">
                         <label>
-                          <input id="Policy Brief" type="checkbox" name="kategori" value="Policy Brief"> <span class="label-text">Policy Brief</span>
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label>
-                          <input id="Lembar Fakta" type="checkbox" name="kategori" value="Lembar fakta"> <span class="label-text">Lembar Fakta</span>
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label>
-                          <input id="Press Release" type="checkbox" name="kategori" value="Press Release"> <span class="label-text">Press Release</span>
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label>
-                           <input id="Infografis" type="checkbox" name="kategori" value="Infografis"> <span class="label-text">Infografis</span>
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label>
-                          <input id="HIV AIDS" type="checkbox" name="kategori" value="HIV AIDS"> <span class="label-text">HIV AIDS</span>
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label>
-                          <input id="NAPZA" type="checkbox" name="kategori" value="NAPZA"> <span class="label-text">NAPZA</span>
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label>
-                          <input id="Kesehatan Jiwa" type="checkbox" name="kategori" value="Kesehatan Jiwa"> <span class="label-text">Kesehatan Jiwa</span>
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label>
-                          <input id="Newsletter" type="checkbox" name="kategori" value="Newsletter"> <span class="label-text">Newsletter</span>
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label>
-                           <input id="Annual Report" type="checkbox" name="kategori" value="Annual Report"> <span class="label-text">Annual Report</span>
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label>
-                          <input id="Lainnya" type="checkbox" name="kategori" value="Lainnya"> <span class="label-text">Lainnya</span>
+                          <input id="Research Report" type="checkbox" name="kategori" value="Lainnya"> <span class="label-text">Lainnya</span>
                         </label>
                       </div>
                     </div>
@@ -102,15 +57,21 @@
 
             <!-- tabel -->
             <div class="col-9 tabel">
-              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item tab-item">
-                  <a  class=" nav-link tab-link active" id="pills-hiv-tab" data-toggle="pill" href="#pills-hiv" role="tab" aria-controls="pills-hiv" aria-selected="true">HIV AIDS</a>
+                  <a class=" nav-link tab-link" href="{% url 'pustaka-peningkatan' %}" role="tab" >Peningkatan Kapasitas</a>
                 </li>
                 <li class="nav-item tab-item">
-                  <a class=" nav-link tab-link" id="pills-publikasi-tab" data-toggle="pill" href="#pills-publikasi" role="tab" aria-controls="pills-publikasi" aria-selected="true">Publikasi</a>
+                  <a class=" nav-link tab-link " href="{% url 'pustaka-pelayanan' %}" role="tab" >Pelayanan Komunitas</a>
                 </li>
                 <li class="nav-item tab-item">
-                  <a class=" nav-link tab-link " id="pills-regulasi-tab" data-toggle="pill" href="#pills-regulasi" role="tab" aria-controls="pills-regulasi" aria-selected="true">Regulasi</a>
+                  <a class=" nav-link tab-link " href="{% url 'pustaka-penelitian' %}" role="tab" >Penelitian</a>
+                </li>
+                <li class="nav-item tab-item">
+                  <a class=" nav-link tab-link " href="{% url 'pustaka-publikasi' %}" role="tab" >Publikasi</a>
+                </li>
+                <li class="nav-item tab-item">
+                  <a class=" nav-link tab-link " href="{% url 'pustaka-regulasi' %}" role="tab" >Regulasi</a>
                 </li>
               </ul>
 
@@ -127,10 +88,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for a in HIV %}
+                            {% for a in Pustaka %}
                           <tr>
                             <td><a href="/pustaka/{{a.judul|slugify}}">{{a.judul}}</a></td>
-                            <td>{{a.kategori}}</td>
+                            <td>{{a.get_kategori_display}}</td>
                             <td>{{a.penulis}}</td>
                             <td>{{a.thn}}</td>
                           </tr>
@@ -152,7 +113,7 @@
                             {% for a in Publikasi %}
                             <tr>
                               <td><a href="/pustaka/{{a.judul|slugify}}">{{a.judul}}</a></td>
-                              <td>{{a.kategori}}</td>
+                              <td>{{a.get_kategori_display}}</td>
                               <td>{{a.penulis}}</td>
                               <td>{{a.thn}}</td>
                             </tr>
@@ -247,7 +208,6 @@
   
       </script>
 
-    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 
 {% endblock %}

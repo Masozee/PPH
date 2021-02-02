@@ -106,6 +106,7 @@ class Staff (models.Model):
     deskripsi_singkat= models.CharField(max_length=200, null=True, blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=True)
+    no_urut = models.PositiveIntegerField(null=True)
     edited = models.DateTimeField(auto_now=True)
 
 
@@ -158,35 +159,91 @@ class PublikasiManager(models.Manager):
     def search(self,query=None):
         return self.get_queryset().search(query=query)
 
+class Rak(models.Model):
+    Nama = models.CharField(max_length=75)
+    slug = models.SlugField(default='', editable=False, max_length=75)
+    keterangan = models.TextField(blank=True, null=True)
+
+    class Meta:
+        verbose_name = ("Rak")
+        verbose_name_plural = ("Rak")
+
+    def __str__(self):
+        return self.Nama
+
+    def save(self, *args, **kwargs):
+        value = self.Nama
+        self.slug = slugify(value, allow_unicode=True)
+        super().save(*args, **kwargs)
+
 class Publikasi (models.Model):
+    MATERI = '0'
+    LAPORAN = '1'
+    POLICY = '2'
+    MODUL = '3'
+    SOP = '4'
+    INFOGRAFIS = '5'
+    ARTIKEL = '6'
+    CONFERENCE = '7'
+    REGULASI ='8'
+    BUKU = '9'
+    LAPORANKOMUNITAS = '10'
+    LAIN = '11'
+    LECTURE = '12'
+    WORKSHOP = '13'
+    HIV = '14'
+    NAPZA = '15'
+    KESWA = '16'
+    JURNAS = '17'
+    JURINTER = '18'
+
+
     KATEGORI_CHOICES = (
-        ('Research Report', 'Research Report'),
-        ('Policy Brief', 'Policy Brief'),
-        ('Lembar Fakta', 'Lembar Fakta'),
-        ('Press release', 'Press release'),
-        ('Infografis', 'Infografis'),
-        ('HIV AIDS', 'HIV AIDS'),
-        ('NAPZA', 'NAPZA'),
-        ('Kesehatan Jiwa', 'Kesehatan Jiwa'),
-        ('Newsletter', 'Newsletter'),
-        ('Annual Report', 'Annual Report'),
-        ('Lainnya', 'Lainnya')
+        (MATERI, 'Materi Pengetahuan HIV AIDS'),
+        (LAPORAN,'Laporan Penelitian'),
+        (POLICY, 'Policy Brief'),
+        (MODUL,'Modul'),
+        (SOP,'SOP'),
+        (INFOGRAFIS, 'Infografis'),
+        (ARTIKEL, 'Artikel Jurnal Nasional & Internasional'),
+        (CONFERENCE, 'Conference'),
+        (REGULASI, 'Regulasi'),
+        (BUKU, 'buku'),
+        (LAPORANKOMUNITAS, 'Laporan Pelayanan Komunitas'),
+        (LECTURE, 'Lecture Series'),
+        (WORKSHOP, 'Workshop'),
+        (HIV, 'HIV - Aids'),
+        (KESWA, 'Kesehatan Jiwa'),
+        (NAPZA, 'Napza'),
+        (JURNAS,'Jurnal Nasional'),
+        (JURINTER,'Jurnal Internasional'),
+        (LAIN, 'Lainnya')
     )
-    
+
+    INFORMASI = '0'
+    PUBLIKASI = '1'
+    REGULASI = '2'
+    PENELITIAN ='3'
+    PELAYANAN = '4'
+    PENINGKATAN = '5'
+
+
     TEMA_CHOICES = (
-        ('HIV AIDS', 'HIV AIDS'),
-        ('Publikasi', 'Publikasi'),
-        ('Regulasi', 'Regulasi'),
-        ('Lain-lain', 'Lain-lain')
+        (INFORMASI, 'Informasi HIV AIDS'),
+        (PUBLIKASI, 'Publikasi'),
+        (REGULASI, 'Regulasi'),
+        (PENELITIAN, 'Penelitian'),
+        (PELAYANAN, 'Pelayanan Komunitas'),
+        (PENINGKATAN, 'Peningkatan Kapasitas'),
     )
 
     project  = models.ForeignKey(Donor, on_delete=models.PROTECT, blank=True, null=True)
-    tema = models.CharField(max_length=15, choices=TEMA_CHOICES, default='HIV AIDS', blank=True, null=True)
+    tema = models.CharField(max_length=1, choices=TEMA_CHOICES, default='HIV AIDS', blank=True, null=True, verbose_name='Rak')
     judul  = models.CharField(max_length=150)
     slug = models.SlugField(default='', editable=False, max_length=140)
     penulis = models.ForeignKey(Staff, on_delete=models.PROTECT, default=True)
     tanggal = models.DateField(default=date.today)
-    kategori  = models.CharField(max_length=30, choices = KATEGORI_CHOICES)
+    kategori  = models.CharField(max_length=2, choices = KATEGORI_CHOICES)
     gambar = models.ImageField(upload_to='images/KM/publikasi/', blank=True, null=True)
     deskripsi = RichTextField()
     date_upload = models.DateField( auto_now_add=True)
@@ -433,7 +490,7 @@ class DokumenPenelitian(models.Model):
 
     penelitian = models.ForeignKey(Penelitian, on_delete=models.PROTECT, default=True)
     Kategori = models.CharField(max_length= 60, choices= KATEGORI_CHOICES)
-    Judul = models.TextField(blank=True)
+    Judul = models.TextField()
     dokumen = models.FileField(upload_to='KM/dokumenpenelitian')
     date_created = models.DateField(default=date.today)
 
@@ -444,7 +501,7 @@ class DokumenPenelitian(models.Model):
         verbose_name_plural = ("Dokumen Penelitian")
 
     def __str__(self):
-        return self.Kategori + str(self.penelitian)
+        return str(self.pk)
 
     @property
     def tanggal(self):

@@ -21,7 +21,7 @@
 }
 
 .artikel .breadcrumb-item{
-    font-family: 'Source Sans Pro';
+    font-family: 'OpenSans', sans-serif;
     font-size: 12px;
     font-weight: normal;
     font-stretch: normal;
@@ -33,7 +33,7 @@
 }
 
 .artikel h1{
-    font-family: 'Source Sans Pro';
+    font-family: 'silkabold';
     font-size: 40px;
     font-weight: 600;
     line-height: 1.3;
@@ -46,7 +46,7 @@
 }
 
 .artikel li{
-    font-family: 'Source Sans Pro';
+    font-family: 'OpenSans', sans-serif;
     font-size: 14px;
     font-weight: 300;
     line-height: 1.43;
@@ -80,7 +80,7 @@
 }
 
 .artikel h6{
-    font-family: 'Source Sans Pro';
+    font-family: 'silkabold';
     font-size: 16px;
     font-weight: 600;
     line-height: 1.5;
@@ -93,7 +93,7 @@
 }
 
 .artikel .p-biblio{
-    font-family: 'Source Sans Pro';
+    font-family: 'OpenSans', sans-serif;
     font-size: 16px;
     font-stretch: normal;
     font-style: italic;
@@ -105,7 +105,7 @@
 }
 
 .artikel p{
-    font-family: 'Source Sans Pro';
+    font-family: 'OpenSans', sans-serif;
     font-size: 16px;
     font-weight: 300;
     line-height: 1.63;
@@ -126,7 +126,7 @@
 }
 
 .artikel ul .annotated{
-    font-family: 'Source Sans Pro';
+    font-family: 'OpenSans', sans-serif;
     font-size: 16px;
     font-weight: 300;
     font-stretch: normal;
@@ -138,7 +138,7 @@
 }
 
 .artikel ul .user{
-    font-family: 'Source Sans Pro';
+    font-family: 'OpenSans', sans-serif;
     font-size: 16px;
     font-weight: 300;
     font-stretch: normal;
@@ -146,11 +146,11 @@
     line-height: 1.38;
     letter-spacing: normal;
     text-align: right;
-    color: #e42c1a;
+    color: #007bff;
 }
 
 .artikel ul .institusi{
-    font-family: 'Source Sans Pro';
+    font-family: 'OpenSans', sans-serif;
     font-size: 16px;
     font-weight: 300;
     font-stretch: normal;
@@ -167,15 +167,15 @@
 }
 
 .matrik h5{
-    font-family: 'Source Sans Pro';
+    font-family: 'silkabold';
     font-size: 12px;
     font-weight: 600;
     line-height: 1.25;
-    color: #EF494B;
+    color: #007bff;
 }
 
 .matrik h3{
-    font-family: 'Source Sans Pro';
+    font-family: 'silkabold';
     font-size: 34px;
     font-weight: 300;
     line-height: 1.44;
@@ -187,7 +187,7 @@
 }
 
 .matrik h6{
-    font-family: 'Source Sans Pro';
+    font-family: 'silkabold';
     font-size: 12px;
     line-height: 1.5;
     color: #707070;
@@ -201,7 +201,7 @@
 }
 
 .user-review h4{
-    font-family: 'Source Sans Pro';
+    font-family: 'silkabold';
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
@@ -220,7 +220,7 @@
 }
 
 .user-review-title{
-    font-family: 'Source Sans Pro';
+    font-family: 'OpenSans', sans-serif;
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
@@ -232,7 +232,7 @@
 }
 
 .user-review .user{
-    font-family: 'Source Sans Pro';
+    font-family: 'OpenSans', sans-serif;
     font-size: 12px;
     font-weight: normal;
     font-stretch: normal;
@@ -240,11 +240,11 @@
     line-height: 2;
     letter-spacing: normal;
     text-align: left;
-    color: #e42c1a;
+    color: #007bff;
 }
 
 .user-review .date{
-    font-family: 'Source Sans Pro';
+    font-family: 'OpenSans', sans-serif;
     font-size: 12px;
     font-weight: 300;
     font-stretch: normal;
@@ -256,7 +256,7 @@
 }
 
 .user-review p{
-    font-family: 'Source Sans Pro';
+    font-family: 'Open Sans';
     font-size: 12px;
     font-weight: normal;
     font-stretch: normal;
@@ -275,7 +275,7 @@
 }
 
 .user-review p span {
-    font-family: 'Source Sans Pro';
+    font-family: 'OpenSans', sans-serif;
     font-size: 12px;
     font-weight: 600;
     font-stretch: normal;
@@ -467,7 +467,7 @@
         line-height: 1.33;
         letter-spacing: normal;
         text-align: left;
-        color: #ef494b;
+        color: #007bff;
     }
 
     .artikel .m-matrik h3{

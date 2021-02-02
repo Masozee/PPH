@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,7 @@ SECRET_KEY = '+*hkszt^*x%)u-69%%!m+mv0su_5b5nrr)_euj)f=+vgyc*7jv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'SEARCH',
     'rangefilter',
     'django_webp',
+    'captcha',
 #    'authtools'
 
 ]
@@ -174,8 +176,5 @@ LOGOUT_REDIRECT_URL = 'home-web'
 CRISPY_TEMPLATE_PACK ='bootstrap4'
 
 #rechaptha lama -----------------------------------------------------------------------------------------------------
-GOOGLE_RECAPTCHA_SECRET_KEY = ''
+GOOGLE_RECAPTCHA_SECRET_KEY = config('SECRET_KEY')
 
-#google rechaptha ---------------------------------------------------------------------------------------------------
-RECAPTCHA_PUBLIC_KEY = ''
-RECAPTCHA_PRIVATE_KEY = ''

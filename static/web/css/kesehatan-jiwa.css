@@ -25,27 +25,294 @@ body{
     padding-bottom: 10px;
 }
 
-.coptitle {
-    padding-left: 17px;
-    padding-bottom: 20px;
+/* card */
+.gambar-acount{
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.copcard {
-    padding-left: 20px;
-    padding-right: 10px;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    color: white
-}
-
-.copcard h6 {
-    font-size: 14px;
+.copcard{
+	padding-top: 35px;
+	padding-left: 35px;
+	padding-right: 35px;
+	padding-bottom: 27px;
 }
 
 .copcard p{
-    font-size: 10px;
-    font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans';
+	font-size: 14px;
+	line-height: 1.36;
+	text-align: left;
+	color: #707070;
 }
+
+/* slider */
+div.jumbotron.carousel-hero {
+	color: #0083CA;
+	text-align:left;
+
+	background-size: cover;
+	background-position: center;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	margin-bottom: 0;
+  }
+
+
+  h1.hero-title  {
+	  margin-top: 52px;
+	line-height: 1;
+	color:#0083CA;
+	font-size: 80px;
+  }
+
+  h3.hero-title,h2.hero-title{
+	  color: white;
+  }
+
+  .hero-button{
+	  color: white;
+  }
+
+  /* jumbotron */
+.jumbotron{
+	background-size: cover;
+	height: 768px;
+
+}
+
+.text-landing{
+/*
+	font-size: 80px;
+	margin-top: 100px;
+	margin-left: 100px;
+*/
+	color: #0083CA;
+}
+
+  /* Tutup Slider------------------------------------------------ */
+
+
+/* card */
+.card{
+	border-radius: 25px;
+	/* margin-top: 20px; */
+
+
+}
+
+
+
+/* konten */
+#konten{
+	background-color: #E0EFF0;
+	padding-top: 50px;
+	padding-bottom: 70px;
+
+}
+
+.clearfix small{
+	font-family: 'Open Sans';
+	font-size: 12px;
+	line-height: 1.42;
+	color: #707070;
+}
+
+.submit{
+	background-color: transparent;
+	border: none;
+}
+.card-title{
+	line-height: 1.3;
+}
+
+.j-f{
+	line-height: 1.6;
+}
+
+.j-dd{
+	line-height: 1.8;
+}
+
+
+/* dropdown hidi icon */
+.dropdown-toggle::after {
+	display:none;
+}
+
+
+.gambar-acount, .icon-search{
+	height: 30px;
+	padding-bottom: 5px;
+	color:#0083CA;
+}
+
+.carousel-caption {
+    position: absolute;
+    right: auto;
+    top: 70px;
+    left: 12%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: left;
+}
+
+.carousel-item img{
+	width: 100%;
+	display: block;
+}
+
+.dropdown-toggle::after {
+	display:none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+ }
+
+ /* boerder card  */
+ .rounded-top {
+    border-top-left-radius: 25px !important;
+    border-top-right-radius: 25px!important;
+}
+
+
+/* gambara konten utama */
+.gambar{
+	object-fit: cover;
+
+	/* 		sumbu 		x,y		jika tudak di atuh maka akan fokus ke tengah */
+	/* object-position: 100% 0; */
+
+	width: 540px;
+	height: 250px;
+  }
+
+
+/* mobile version */
+@media (min-width: 576px){
+	/* card-coloum kartu loop 4 x */
+	.card-columns {
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+
+	}
+
+
+}
+
+
+
+
+/* card isi konten utama */
+.judul-a{
+	height: 53px !important;
+	/* width: 460px !important; */
+	overflow: hidden;
+}
+
+.isi-a{
+	height: 120px !important;
+	/* width: 460px !important; */
+	overflow: auto;
+}
+
+/* isi konten kedua */
+.judul-b {
+	height: 35px !important;
+	/* width: 460px !important; */
+	overflow: hidden;
+}
+
+.search{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 35px;
+    height: 35px;
+    background:rgb(200, 228, 231);
+    box-sizing: border-box;
+    border-radius: 25px;
+    /* border: 4px solid rgb(200, 228, 231); */
+	padding: 3px;
+	margin-right: 5px;
+}
+
+.inputCari{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 35px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 14px;
+    border-radius: 20px;
+	padding: 0 20px;
+	background:rgb(200, 228, 231);
+}
+
+.cari{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #0083CA;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+.search:hover{
+    width: 170px;
+    /* cursor: pointer; */
+}
+
+.search:hover .inputCari{
+    display: block;
+}
+
+.search:hover .cari{
+    /* background: rgb(92, 211, 226); */
+    color:  #0083CA;
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+	.carousel-item img{
+		height: 800px !important;
+		object-fit:cover;
+	}
+
+	.carousel-caption h1{
+		font-family: 'silkabold';
+		font-size: 50px;
+		line-height: 1;
+		letter-spacing: -1.26px;
+		text-align: left;
+		color: #0083ca;
+	}
+}
+
+
+
+
+/* endcard */
+
+
+
 
 .gambar1{
 object-fit: cover;
@@ -63,6 +330,10 @@ object-fit: cover;
 	
 	width: 347px;
 	height: 218px;
+  }
+
+  .dataTables_info .dataTables_Table_0_wrapper {
+      font-family: "Open Sans";
   }
 
   @media(max-width:576px){

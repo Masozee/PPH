@@ -20,6 +20,7 @@ urlpatterns = [
     path('users/', include('django.contrib.auth.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup/', visitor.VisitorSignUpView.as_view(), name='visitor-signup'),
+    path(r'captcha/', include('captcha.urls')),
 
 ]
 

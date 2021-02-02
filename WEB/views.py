@@ -1,43 +1,25 @@
 import json
 import urllib
-#import requests
+
 from datetime import datetime, timedelta, time
-
-from django.contrib.auth import authenticate, login
-
-
-from django.shortcuts import render, Http404, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.forms import modelformset_factory
 from django.views.generic import DetailView, ListView, TemplateView
 from .forms import ContactForm, DownloadForm, EmailSignupForm
-from django.views.generic.edit import FormMixin
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.conf import settings
 from django.contrib import messages
-from django.utils.decorators import method_decorator
 from django.shortcuts import render, redirect
-from django.urls import reverse, reverse_lazy
-from USER.decorators import visitor_required, staff_required
-from django.views.generic import TemplateView
-from django.contrib.auth.decorators import login_required
-
-from .multiforms import MultiFormsView
-from USER.forms import VisitorSignUpForm
-
 
 form2 = EmailSignupForm()
 
-from .models import Berita, Acara, TentangKami, HomeSLide, Kontak, Signup, downloadForm, AnotatedCOP
+from .models import Berita, Acara, TentangKami, HomeSLide, Kontak, Signup, downloadForm, AnotatedCOP, LayananKeswa
 from KM.models import *
-
 
 # Create your views here.
 def Home(request):
     Slide = HomeSLide.objects.all()
     berita = Berita.objects.filter(Kategori="Dokumentasi").order_by('-tanggal').distinct()[:4]
     artikel = Berita.objects.filter(Kategori="Artikel").order_by('-tanggal').distinct()[:1]
-
     context = {
         "Slide": Slide,
         "Berita": berita,
@@ -52,7 +34,7 @@ def WebSetting(request):
     return render(request, "web/base.html", setting)
 
 def Tentangkami(request):
-    staff = Staff.objects.filter(is_active=True, is_staff=True)
+    staff = Staff.objects.filter(is_active=True, is_staff=True).order_by('no_urut')
     tentangkami = TentangKami.objects.all()
     header = HomeSLide.objects.all()
 
@@ -145,6 +127,7 @@ def DokumentasiPelayanan(request):
     }
 
     return render(request, "web/dukomentasi.html", context)
+
 class DokumentasiDetail(DetailView):
     model = Berita
     template_name = "web/detail-artikel.html"
@@ -175,7 +158,6 @@ def Dokumendetail(request, berita_slug):
     }
     return render(request, 'web/detail-artikel.html', context)
 
-
 def ArtikelList(request):
     artikel = Berita.objects.filter(Kategori="Artikel").order_by('-tanggal')
     paginator = Paginator(artikel, 5)  # Show 25 contacts per page
@@ -193,6 +175,7 @@ def ArtikelList(request):
     }
 
     return render(request, "web/artikel.html", context)
+
 def NewsletterList(request):
     artikel = Berita.objects.filter(Kategori="Newsletter").order_by('-tanggal')
     paginator = Paginator(artikel, 5)  # Show 25 contacts per page
@@ -261,6 +244,7 @@ def ArtikelPeningkatan(request):
     }
 
     return render(request, "web/dukomentasi.html", context)
+
 def ArtikelPelayanan(request):
     dokumentasi = Berita.objects.filter(Kategori="Artikel", Agenda="Pelayanan Komunitas").order_by('-tanggal')
     paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
@@ -277,7 +261,6 @@ def ArtikelPelayanan(request):
     }
 
     return render(request, "web/dukomentasi.html", context)
-
 
 def ArtikelDetail(request, berita_slug):
     berita = Berita.objects.get(slug=berita_slug)
@@ -303,7 +286,6 @@ def ArtikelDetail(request, berita_slug):
     }
     return render(request, 'web/detail-artikel.html', context)
 
-
 class PublicationList(ListView):
     model = Publikasi
     queryset = Publikasi.objects.all()
@@ -312,31 +294,21 @@ class PublicationList(ListView):
     ordering = ['-date_upload']
     template_name = "web/aktivitas.html"
 
-
 def Kesehatanjiwa(request):
     Slide = HomeSLide.objects.all().distinct()[:1]
-    berita = Berita.objects.filter(tags__slug="kesehatan-jiwa").order_by('-tanggal')
-    paginator = Paginator(berita, 5)  # Show 25 contacts per page
-
-    page = request.GET.get('page')
-    try:
-        berita = paginator.page(page)
-    except PageNotAnInteger:
-        berita = paginator.page(1)
-    except EmptyPage:
-        berita = paginator.page(paginator.num_pages)
+    keswa = LayananKeswa.objects.all()
 
     context = {
         "Slide": Slide,
-        "berita": berita,
+        "keswa": keswa,
     }
 
     return render(request, "web/kesehatanjiwa.html", context)
 
 def cop(request):
     Slide = HomeSLide.objects.all().distinct()[:1]
-    berita = Berita.objects.filter(tags__slug="cop").order_by('-tanggal')
-    acara = Acara.objects.filter(tags__slug="cop").order_by('-waktu_mulai')
+    berita = Berita.objects.filter(tags__slug="cop-keswa").order_by('-tanggal')
+    acara = Acara.objects.filter(tags__slug="cop-keswa").order_by('-waktu_mulai')
     paginator = Paginator(berita, 5)  # Show 25 contacts per page
 
     page = request.GET.get('page')
@@ -356,6 +328,7 @@ def cop(request):
     return render(request, "web/cop.html", context)
 
 def EventList(request):
+    header = "Acara Mendatang"
     now = datetime.now()
     acara = Acara.objects.filter(waktu_mulai__gte=now).order_by('waktu_mulai').distinct()
     paginator = Paginator(acara, 5)  # Show 25 contacts per page
@@ -371,16 +344,15 @@ def EventList(request):
 
     context = {
         "Acara": acara,
+        "header": header
     }
 
     return render(request, "web/event.html", context)
 
-def Eventpast(request):
-    now = datetime.now()
-    acara = Acara.objects.filter(waktu_mulai__lte=now).order_by('-waktu_mulai').distinct()
+def Event(request):
+    header = "Semua Acara"
+    acara = Acara.objects.all() .order_by('-waktu_mulai').distinct()
     paginator = Paginator(acara, 5)  # Show 25 contacts per page
-
-
     page = request.GET.get('page')
     try:
         acara = paginator.page(page)
@@ -391,81 +363,7 @@ def Eventpast(request):
 
     context = {
         "Acara": acara,
-    }
-
-    return render(request, "web/event.html", context)
-
-
-def Eventpenelitian(request):
-    acara = Acara.objects.all().filter(Agenda='Penelitian').order_by('-waktu_mulai').distinct()
-    paginator = Paginator(acara, 5)  # Show 25 contacts per page
-    eventTitle = "Event Penelitian"
-
-    page = request.GET.get('page')
-    try:
-        acara = paginator.page(page)
-    except PageNotAnInteger:
-        acara = paginator.page(1)
-    except EmptyPage:
-        acara = paginator.page(paginator.num_pages)
-
-    context = {
-        "Acara": acara,
-        "Judul": eventTitle,
-    }
-
-    return render(request, "web/event.html", context)
-
-def Eventadvokasi(request):
-    acara = Acara.objects.all().filter(Agenda='Advokasi').order_by('-waktu_mulai').distinct()
-    paginator = Paginator(acara, 5)  # Show 25 contacts per page
-
-    page = request.GET.get('page')
-    try:
-        acara = paginator.page(page)
-    except PageNotAnInteger:
-        acara = paginator.page(1)
-    except EmptyPage:
-        acara = paginator.page(paginator.num_pages)
-
-    context = {
-        "Acara": acara,
-    }
-
-    return render(request, "web/event.html", context)
-
-def Eventpeningkatan(request):
-    acara = Acara.objects.all().filter(Agenda='Peningkatan Kapasitas').order_by('-waktu_mulai').distinct()
-    paginator = Paginator(acara, 5)  # Show 25 contacts per page
-
-    page = request.GET.get('page')
-    try:
-        acara = paginator.page(page)
-    except PageNotAnInteger:
-        acara = paginator.page(1)
-    except EmptyPage:
-        acara = paginator.page(paginator.num_pages)
-
-    context = {
-        "Acara": acara,
-    }
-
-    return render(request, "web/event.html", context)
-
-def Eventpelayanan(request):
-    acara = Acara.objects.all().filter(Agenda='Pelayanan Komunitas').order_by('-waktu_mulai').distinct()
-    paginator = Paginator(acara, 5)  # Show 25 contacts per page
-
-    page = request.GET.get('page')
-    try:
-        acara = paginator.page(page)
-    except PageNotAnInteger:
-        acara = paginator.page(1)
-    except EmptyPage:
-        acara = paginator.page(paginator.num_pages)
-
-    context = {
-        "Acara": acara,
+        "header": header,
     }
 
     return render(request, "web/event.html", context)
@@ -474,38 +372,65 @@ def Eventdet(request, acara_slug):
     event = Acara.objects.get(slug=acara_slug)
     template_name = 'web/eventdetail.html'
 
-    related = event.tags.similar_objects()[:5]
+    related = Acara.objects.all()[:5]
 
     return render(request, template_name, { 'object':event, 'related': related })
 
 def kontak(request):
+
     if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
+        kontakform = ContactForm(request.POST)
+        if kontakform.is_valid():
+            ''' Begin reCAPTCHA validation '''
+            recaptcha_response = request.POST.get('g-recaptcha-response')
+            url = 'https://www.google.com/recaptcha/api/siteverify'
+            values = {
+                'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+                'response': recaptcha_response
+            }
+            data = urllib.parse.urlencode(values).encode()
+            req = urllib.request.Request(url, data=data)
+            response = urllib.request.urlopen(req)
+            result = json.loads(response.read().decode())
+            ''' End reCAPTCHA validation '''
 
-            u = form.save()
-            users = Kontak.objects.all()
+            if result['success']:
+                kontakform.save()
+                messages.success(request, 'New comment added with success!')
+            else:
+                messages.error(request, 'Invalid reCAPTCHA. Please try again.')
 
-            return render(request, "web/kontak.html", {'users': users})
+            return redirect('kontak')
     else:
-        form_class = ContactForm
+        kontakform = ContactForm()
 
-    return render(request, "web/kontak.html", {'formh': form_class, 'form2': form2})
+    return render(request, "web/kontak.html", {'formh': kontakform, 'form2': form2})
 
 def pustaka(request):
+    judul_penelitian = "Produk Pengetahuan dari Penelitian-Penelitian yang telah dilakukan oleh PPH Unika Atma Jaya"
+    judul_pelayanan = "Hasil produk pengetahuan yang dihasilkan dari kegiatan pelayanan dan penguatan masyarakat yang terdampak HIV AIDS oleh PPH Unika Atma Jaya."
     slide = HomeSLide.objects.all()
-    Pustaka_HIV = Publikasi.objects.filter(tema='HIV AIDS').order_by('-date_upload').distinct()[:6]
-    Pustaka_Publikasi = Publikasi.objects.filter(tema='Publikasi').order_by('-date_upload').distinct()[:6]
-    Pustaka_Regulasi = Publikasi.objects.filter(tema='Regulasi').order_by('-date_upload').distinct()[:6]
+    Pustaka_HIV = Publikasi.objects.filter(tema=0).order_by('-date_upload').distinct()[:6]
+    Pustaka_Publikasi = Publikasi.objects.filter(tema=1).order_by('-date_upload').distinct()[:6]
+    Pustaka_Regulasi = Publikasi.objects.filter(tema=2).order_by('-date_upload').distinct()[:6]
+    Pustaka_Penelitian = Publikasi.objects.filter(tema=3).order_by('-date_upload').distinct()[:6]
+    Pustaka_Pelayanan = Publikasi.objects.filter(tema=4).order_by('-date_upload').distinct()[:6]
+    Pustaka_Peningkatan = Publikasi.objects.filter(tema=5).order_by('-date_upload').distinct()[:6]
 
     context = {
         "Slide": slide,
         "HIV": Pustaka_HIV,
         "Publikasi": Pustaka_Publikasi,
-        "Regulasi": Pustaka_Regulasi
-    }
+        "Regulasi": Pustaka_Regulasi,
+        "Penelitian": Pustaka_Penelitian,
+        "Pelayanan": Pustaka_Pelayanan,
+        "Peningkatan": Pustaka_Peningkatan,
+        "judul_penelitian":judul_penelitian,
+        "judul_pelayanan":judul_pelayanan,
 
+    }
     return render(request, "web/pustaka.html", context)
+
 
 def Pustakadet(request, publikasi_slug):
     publikasi = Publikasi.objects.get(slug=publikasi_slug)
@@ -514,6 +439,19 @@ def Pustakadet(request, publikasi_slug):
         form = DownloadForm(request.POST, request.FILES)
 
         if form.is_valid():
+            ''' Begin reCAPTCHA validation '''
+            recaptcha_response = request.POST.get('g-recaptcha-response')
+            url = 'https://www.google.com/recaptcha/api/siteverify'
+            values = {
+                'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+                'response': recaptcha_response
+            }
+            data = urllib.parse.urlencode(values).encode()
+            req = urllib.request.Request(url, data=data)
+            response = urllib.request.urlopen(req)
+            result = json.loads(response.read().decode())
+            ''' End reCAPTCHA validation '''
+
             obj = form.save(commit=False)
             obj.dokumen = publikasi.judul
             obj.url = request.build_absolute_uri()
@@ -525,22 +463,70 @@ def Pustakadet(request, publikasi_slug):
         form = DownloadForm()
     return render(request, template_name, {'form': form, 'object':publikasi})
 
-@login_required
 def pustakalist(request):
     slide = HomeSLide.objects.all()
-    Pustaka_HIV = Publikasi.objects.filter(tema='HIV AIDS').order_by('-date_upload').distinct()
-    Pustaka_Publikasi = Publikasi.objects.filter(tema='Publikasi').order_by('-date_upload').distinct()
-    Pustaka_Regulasi = Publikasi.objects.filter(tema='Regulasi').order_by('-date_upload').distinct()
-    Pustaka_List = Publikasi.objects.all().distinct()
+    Pustaka = Publikasi.objects.filter(tema=0).order_by('-date_upload').distinct()
+
 
     context = {
         "Slide": slide,
-        "HIV": Pustaka_HIV,
-        "Publikasi": Pustaka_Publikasi,
-        "Regulasi": Pustaka_Regulasi,
-        "list": Pustaka_List
+        "Pustaka": Pustaka,
+
     }
     return render(request, "web/pustaka-list.html", context)
+
+def pustakalistpelayanan(request):
+    slide = HomeSLide.objects.all()
+    Pustaka = Publikasi.objects.filter(tema=4).order_by('-date_upload').distinct()
+
+    context = {
+        "Slide": slide,
+        "Pustaka": Pustaka,
+
+    }
+    return render(request, "web/pustaka-list-pelayanan.html", context)
+def pustakalistpeningkatan(request):
+    slide = HomeSLide.objects.all()
+    Pustaka = Publikasi.objects.filter(tema=5).order_by('-date_upload').distinct()
+
+    context = {
+        "Slide": slide,
+        "Pustaka": Pustaka,
+
+    }
+    return render(request, "web/pustaka-list-peningkatan.html", context)
+
+def pustakalistpenelitian(request):
+    slide = HomeSLide.objects.all()
+    Pustaka = Publikasi.objects.filter(tema=3).order_by('-date_upload').distinct()
+
+    context = {
+        "Slide": slide,
+        "Pustaka": Pustaka,
+
+    }
+    return render(request, "web/pustaka-list-penelitian.html", context)
+
+def pustakalistpublikasi(request):
+    slide = HomeSLide.objects.all()
+    Pustaka = Publikasi.objects.filter(tema=1).order_by('-date_upload').distinct()
+
+    context = {
+        "Slide": slide,
+        "Pustaka": Pustaka,
+
+    }
+    return render(request, "web/pustaka-list-publikasi.html", context)
+
+def pustakalistregulasi(request):
+    slide = HomeSLide.objects.all()
+    Pustaka = Publikasi.objects.filter(tema=2).order_by('-date_upload').distinct()
+
+    context = {
+        "Slide": slide,
+        "Pustaka": Pustaka,
+    }
+    return render(request, "web/pustaka-list-regulasi.html", context)
 
 class PustakaDetail(DetailView):
     model = Publikasi
@@ -593,26 +579,19 @@ def email_list_signup(request):
 
 def kesjiwdata(request):
     COP = AnotatedCOP.objects.all().order_by('-tanggal').distinct()
-    Pustaka_Regulasi = Publikasi.objects.filter(tema='Regulasi').order_by('-date_upload').distinct()[:6]
-    Pustaka_Publikasi = Publikasi.objects.filter(tema='Publikasi').order_by('-date_upload').distinct()[:6]
-    paginator = Paginator(COP, 9)
-    page = request.GET.get('page')
-    try:
-        COP = paginator.page(page)
-    except PageNotAnInteger:
-        COP = paginator.page(1)
-    except EmptyPage:
-        COP = paginator.page(paginator.num_pages)
+    Pustaka_Regulasi = Publikasi.objects.filter(tema='Regulasi', tagging__slug="cop-keswa").order_by('-date_upload').distinct()
+    Pustaka_Publikasi = Publikasi.objects.filter(tema='Publikasi', tagging__slug="cop-keswa").order_by('-date_upload').distinct()
 
     context = {
         'abstracts': COP,
         'pusreg': Pustaka_Regulasi,
         'puspub': Pustaka_Publikasi,
     }
-    return render(request, "web/copdatalist.html", context )
+    return render(request, "web/keswa-list.html", context )
+
 def kesjiwregulasi(request):
     judul = "Regulasi Kesehatan Jiwa"
-    Pustaka_Regulasi = Publikasi.objects.filter(tema='Regulasi').order_by('-date_upload').distinct()
+    Pustaka_Regulasi = Publikasi.objects.filter(tema='Regulasi', tagging__slug="cop-keswa").order_by('-date_upload').distinct()
     paginator = Paginator(Pustaka_Regulasi, 9)
     page = request.GET.get('page')
     try:
@@ -630,7 +609,7 @@ def kesjiwregulasi(request):
 
 def kesjiwproduk(request):
     judul = "Produk Pengetahuan PPH"
-    Pustaka_Publikasi = Publikasi.objects.filter(tema='Publikasi').order_by('-date_upload').distinct()[:6]
+    Pustaka_Publikasi = Publikasi.objects.filter(tema='Publikasi', tagging__slug="cop-keswa").order_by('-date_upload').distinct()[:6]
     paginator = Paginator(Pustaka_Publikasi, 9)
     page = request.GET.get('page')
     try:
@@ -664,3 +643,12 @@ def kesjiwartikel(request):
 
     }
     return render(request, "web/kesjiwdatajurnal.html", context )
+
+def KesjiwDetail(request, AnotatedCOP_slug):
+    abstracts = AnotatedCOP.objects.get(slug=AnotatedCOP_slug)
+
+    context = {
+        "object": abstracts,
+    }
+    return render(request, 'web/copdatadetail.html', context)
+

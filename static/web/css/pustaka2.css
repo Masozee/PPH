@@ -98,7 +98,7 @@
   }
 
   .tab-item{
-	  padding-right: 16px;
+	  padding-right: 10px;
   }
 
   .tab-link{
@@ -108,7 +108,7 @@
   /* tab link */
   .nav-pills .nav-link {
 	border-radius: 30px;
-	width: 140px;
+	width: 150px;
 	text-align: center;
 	border: solid 1px #d3d3d3;
 	background-color: #F5FBFD;

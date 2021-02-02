@@ -4,6 +4,8 @@
 
 {% block css %}
 <link href="{% static 'web/css/kesehatan-jiwa.css' %}" rel="stylesheet">
+<link href="{% static 'web/css/tables.css' %}" rel="stylesheet">
+<link href="{% static 'web/css/datatable/datatables.min.css' %}" rel="stylesheet">
 {% endblock %}
 
 
@@ -45,43 +47,73 @@
 
     <hr>
 
-    <section>
-        <div class="container">
-            {% for a in berita %}
-            <div class="row">
-                <div class="col-md">
-                    <div class="media">
-                        <a class="d-flex" href="#">
-                            <img class="align-seft-center mr-5 gambar2 rounded img-fluid" src="/media/{{ a.gambar }}" alt="">
-                        </a>
-                        <div class="media-body pl-5">
-                            <h3 class=" judul-artikel"><a class=" f-20 fssb" href="/berita/{{ a.Kategori |lower }}/{{ a.judul |slugify }}" style="text-decoration:none; color: #212529">{{ a.judul }}</a></h3>
-                            <dev class="f-os f-14 f-at pt-2">{{ a.isi |truncatechars:"250" |safe }}</dev>
-                            <ul class="list-inline pt-4">
-                                <li class="list-inline-item f-os fossb f-12 f-am">By {{ a.penulis }}</li>
-                                <li class="list-inline-item f-os f-12 f-am">{{ a.thn }}</li>
-                            </ul>
+    <section id="column-selectors">
+    <div class="container">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title fssb">Layanan Kesehatan Jiwa Nasional</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body card-dashboard">
+                                        <p class="card-text f-os">
+                                        </p>
+                                        <br>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped dataex-html5-selectors">
+                                                <thead>
+                                                    <tr class="fssb">
+                                                        <th>Nama</th>
+                                                        <th>Provinsi</th>
+                                                        <th>Kota</th>
+                                                        <th>Kategori</th>
+                                                        <th>Keterangan</th>
+                                                        <th>No. Telepon</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for a in keswa %}
+                                                    <tr class="f-os">
+                                                        <td>{{ a.nama }}</td>
+                                                        <td>{{ a.provinsi }}</td>
+                                                        <td>{{ a.kota }}</td>
+                                                        <td>{{ a.kategori }}</td>
+                                                        <td>{{ a.alamat }}<hr>
+                                                            {% if a.deskripsi %}
+                                                                <i>{{ a.deskripsi |safe }}</i>
+                                                            {% else %}
+                                                                {{ empty }}
+                                                            {% endif %}
+                                                        </td>
+                                                        <td>{{ a.telpon }}</td>
+                                                    </tr>
+                                                    {% endfor %}
+
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <hr> <!-- pembatas -->
-
-
-            {% endfor %}
-
-             <nav class="">
-            <ul class="pagination justify-content-center f-os fossb">
-            {% if berita.has_previous  %}
-            <li class="page-item"><a class="page-link" href="?page={{ berita.previous_page_number }}">Prev</a></li>
-            {% endif %}
-
-            {% if berita.has_next %}
-            <li class="page-item"><a class="page-link" href="?page={{ berita.next_page_number }}">Next</a></li>
-            {% endif %}
-            </ul>
-    </nav>
-        </div>
+    </div>
     </section>
 
 {% endblock %}
+
+{% block js %}
+    <script src="{% static 'web/js/datatables.js' %}"></script>
+    <script src="{% static 'web/js/datatable/pdfmake.min.js' %}"></script>
+    <script src="{% static 'web/js/datatable/vfs_fonts.js' %}"></script>
+    <script src="{% static 'web/js/datatable/datatables.min.js' %}"></script>
+    <script src="{% static 'web/js/datatable/datatables.buttons.min.js' %}"></script>
+    <script src="{% static 'web/js/datatable/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'web/js/datatable/buttons.print.min.js' %}"></script>
+    <script src="{% static 'web/js/datatable/buttons.bootstrap.min.js' %}"></script>
+    <script src="{% static 'web/js/datatable/datatables.bootstrap4.min.js' %}"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+{% endblock %}
+

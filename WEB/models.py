@@ -13,6 +13,8 @@ from taggit.models import TaggedItemBase
 from taggit.models import TagBase, GenericTaggedItemBase
 from django.utils.translation import ugettext_lazy as _
 
+from django.core.validators import RegexValidator
+
 #berita 
 class BeritaQuerySet(models.QuerySet):
     def search(self, query=None):
@@ -368,3 +370,69 @@ class AnotatedCOP(models.Model):
     @property
     def tgl(self):
         return self.tanggal.strftime('%d %B %Y')
+
+    def thn(self):
+        return self.tanggal.strftime('%Y')
+
+class LayananKeswa(models.Model):
+    KATEGORI_CHOICES = (
+        ('Hotline', 'Hotline'),
+        ('RSUD/RSJ', 'RSUD/RSJ'),
+        ('Puskesmas', 'Puskesmas'),
+        ('Klinik/Layanan Swasta', 'Klinik/Layanan Swasta'),
+    )
+    PROVINSI_CHOICES = (
+        ('Nasional', 'Nasional'),
+        ('Aceh', 'Aceh'),
+        ('Sumatera Utara', 'Sumatera Utara'),
+        ('Sumatera Barat', 'Sumatera Barat'),
+        ('Riau', 'Riau'),
+        ('Kepulauan Riau', 'Kepulauan Riau'),
+        ('Jambi', 'Jambi'),
+        ('Bengkulu', 'Bengkulu'),
+        ('Sumatera Selatan', 'Sumatera Selatan'),
+        ('Kepulauan bangka Belitung', 'Kepulauan bangka Belitung'),
+        ('lampung', 'lampung'),
+        ('Banten', 'Banten'),
+        ('Jawa Barat', 'Jawa Barat'),
+        ('Jakarta', 'Jakarta'),
+        ('Jawa Tengah', 'Jawa Tengah'),
+        ('Yogyakarta', 'Yogyakarta'),
+        ('Jawa Timur', 'Jawa Timur'),
+        ('Bali', 'Bali'),
+        ('Nusa Tenggara Barat', 'Nusa Tenggara Barat'),
+        ('Nusa Tenggara Timur', 'Nusa Tenggara Timur'),
+        ('Kalimantan Barat', 'Kalimantan Barat'),
+        ('Kalimantan Selatan', 'Kalimantan Selatan'),
+        ('Kalimantan Tengah', 'Kalimantan Tengah'),
+        ('Kalimantan Timur', 'Kalimantan Timur'),
+        ('kalimantan Utara', 'kalimantan Utara'),
+        ('Gorontalo', 'Gorontalo'),
+        ('Sulawesi Barat', 'Sulawesi Barat'),
+        ('Sulawesi Selatan', 'Sulawesi Selatan'),
+        ('Sulawesi Tengah', 'Sulawesi Tengah'),
+        ('Sulawesi Tenggara', 'Sulawesi Tenggara'),
+        ('Sulawesi Utara', 'Sulawesi Utara'),
+        ('Maluku', 'Maluku'),
+        ('Maluku Utara', 'Maluku Utara'),
+        ('Papua Barat', 'Papua Barat'),
+        ('Papua', 'Papua'),
+    )
+
+    nama = models.CharField(max_length=150)
+    provinsi = models.CharField(max_length=30, choices=PROVINSI_CHOICES)
+    kota = models.CharField(max_length=50)
+    kategori = models.CharField(max_length=25, choices=KATEGORI_CHOICES)
+    alamat = models.TextField(blank=True)
+    deskripsi = RichTextField(blank=True)
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$',
+                                 message="Nomor Hp menggunakan format: '+999999999'. maksimal nomor hp yaitu 15 karakter.")
+    telpon = models.CharField(validators=[phone_regex], max_length=17, blank=True)
+
+    class Meta:
+        verbose_name = ("layanan Kesehatan Jiwa")
+        verbose_name_plural = ("layanan Kesehatan Jiwa")
+
+    def __str__(self):
+        return self.nama
+

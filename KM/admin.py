@@ -26,7 +26,7 @@ class ExportCsvMixin:
 
 class StaffAdmin (admin.ModelAdmin):
     ordering = ['nama']
-    list_display = ['nama','hp', 'Tempat_Lahir', 'Tanggal_Lahir', 'is_active', 'is_staff']
+    list_display = ['nama','no_urut','hp', 'Tempat_Lahir', 'Tanggal_Lahir', 'is_active', 'is_staff']
     list_filter = ()
     search_fields = ["nama" ]
     list_per_page = 25
@@ -35,7 +35,7 @@ admin.site.register(Staff, StaffAdmin)
 
 class PublikasiAdmin (admin.ModelAdmin, ExportCsvMixin):
     ordering = ['judul']
-    list_display = ['judul', 'kategori', 'date_upload']
+    list_display = ['judul', 'kategori', 'tema', 'date_upload']
     list_filter = ([('date_upload', DateRangeFilter),'kategori'])
     search_fields = ['judul' ]
     list_per_page = 25
@@ -72,7 +72,7 @@ admin.site.register(Penelitian, PenelitianAdmin)
 
 class DokuPenAdmin (admin.ModelAdmin, ExportCsvMixin):
     ordering = ['penelitian']
-    list_display = ['Judul','penelitian','Kategori']
+    list_display = ['pk','Judul','penelitian','Kategori']
     list_filter = (['penelitian'])
     search_fields = ["Judul" ]
     list_per_page = 25
@@ -138,3 +138,4 @@ class PenKapStaffAdmin (admin.ModelAdmin, ExportCsvMixin):
 admin.site.register(PeningkatanKapasitasstaff, PenKapStaffAdmin)
 
 admin.site.register(PersonalEvent)
+admin.site.register(Rak)

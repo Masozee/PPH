@@ -45,7 +45,7 @@ def inventaris(request):
     return render(request, "km/inventaris.html", context)
 
 
-@staff_required
+@login_required
 def stafflist(request):
     staff = Staff.objects.filter(is_active=True, is_staff=True)
     kepakaran = Kepakaran.objects.all()

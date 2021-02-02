@@ -50,7 +50,7 @@ admin.site.register(HomeSLide)
 
 class KontakAdmin (admin.ModelAdmin):
     ordering = ['nama_kntk']
-    list_display = ['nama_kntk', 'email_kntk', 'telp_kntk', 'org_kntk', 'is_answered']
+    list_display = ['nama_kntk', 'email_kntk', 'telp_kntk', 'org_kntk','tanggal_kntk', 'is_answered']
     list_filter = ()
     search_fields = ["nama_kntk" ]
     list_per_page = 25
@@ -70,4 +70,14 @@ class DownloadAdmin (admin.ModelAdmin, ExportCsvMixin):
     actions = ["export_as_csv"]
 
 admin.site.register(downloadForm, DownloadAdmin)
+
 admin.site.register(AnotatedCOP)
+
+class LaKesWa(admin.ModelAdmin, ExportCsvMixin):
+    ordering = ['-nama']
+    list_display = ['nama','provinsi','kota','kategori', 'alamat', 'telpon',]
+    search_fields = ["nama", "kota"]
+    list_per_page = 25
+    actions = ["export_as_csv"]
+
+admin.site.register(LayananKeswa, LaKesWa)

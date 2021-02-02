@@ -28,6 +28,24 @@ aside{
 }
 /* tutup konten artikel */
 
+.unduh {
+      background-color: #212529; /* Green */
+      border: none;
+      border-radius: 10px;
+      color: white;
+      padding: 4px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 15px;
+      transition-duration: 0.4s;
+}
+
+.unduh:hover {
+  background-color: #007BFF; /* Green */
+  color: white;
+}
+
 /* download */
 .download{
     font-family: 'silkasemibold';

@@ -1,61 +1,130 @@
-{% extend 'base.html' %}
+{% extends 'web/base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block css %}
-<link href="{% static 'web/css/copdetail.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{%static 'web/css/detail-artikel.css' %}">
+<link rel="stylesheet" href="{%static 'web/css/copdetail.css' %}">
+{% endblock %}
+
+{% block meta %}
+<meta property="og:title" content="{{object.judul}} ">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:site_name" content="PPH UNIKA Atma Jaya">
+<meta property="og:image" content="https://pph.atmajaya.ac.id/media/media/images/web/homepage/tentangkami-landing_2DJ1HAc.jpg">
 {% endblock %}
 
 
 {% block content %}
-       <section>
-      <div class="container new-entry">
-        <div class="d-flex justify-content-between">
-          <h3>ABSTRAK BARU</h3>
-          <a href="{% url 'abstract' %}"><button type="button" class="btn btn-danger btn-sm" style="padding: .25rem 1.5rem; margin-bottom: .4rem; margin-top: .5rem;">{{ abstractC }} Abstrak</button></a>
-        </div>
-        <hr>
-        <div class="row row-cols-md-3">
-          {% for abstract in abstracts %}
-            <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                      <div class="card-body">
-                        <a href="/abstract/{{abstract.judul | slugify}}/" class="card-title">{{abstract.judul}}</a>
-                        <br><br>
-                        <h6 class="autor"><i style="padding-right:6px;"><img src="{% static 'web/images/cop/autor.svg' %}" alt="" srcset=""></i>
-                        {% for tag in abstract.authors.all %}
-                               <a href="/author/{{ tag.name | slugify}}" class="tagauthor" style="font-size: 14px; font-weight:400;"> {{ tag.name }},</a>
-                        {% endfor %}
-                        </h6>
-                        <h6 class="date"><i style="padding-right:6px; "><img src="{% static 'web/images/cop/date.svg' %}" alt="" style="width:12px; padding-top:0px"></i> {{abstract.tgl}}</h6>
-                        <p class="card-text">{{abstract.abstrak | truncatechars:"200" |safe}}</p>
-                      </div>
-                      <div class="card-footer" style="color:#353D5F !important;">
-                        <ul class="list-inline">
-                          {% if abstract.download %}
-                          <li class="list-inline-item"><i><img src="{% static 'articles/img/download.svg' %}" alt=""></i><a href="/MEDIA/{{abstract.download}}">Unduh</a></li>
-                          {% else %}
-                          {{empty}}
-                          {% endif %}
-                          <li class="list-inline-item">
-                            <div class="dropdown share">
-                              <i><img src="{% static 'articles/img/share.svg' %}" alt=""></i>
-                              <a class="dropdown-togle" href="" role="button" id="dropdown-share" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color : #353d5f !important;">Bagikan</a>
 
-                              <div class="dropdown-menu" aria-labelledby="dropdown-share">
-                                <a class="dropdown-item" href="https://www.facebook.com/sharer.php?u=https://jphiv-ina.net/abstract/{{abstract.judul | slugify |lower}}"><i class="fab fa-facebook-square"></i>Facebook</a>
-                                <a class="dropdown-item" href="https://twitter.com/intent/tweet?url=https://jphiv-ina.net/abstract/{{abstract.judul | slugify |lower}}&text={{abstract.judul}}&hashtags=JPHIV"><i class="fab fa-twitter-square"></i>Twitter</a>
-                                <a class="dropdown-item" href="https://www.linkedin.com/shareArticle?mini=true&url=https://jphiv-ina.net/abstract/{{abstract.judul | slugify |lower}}&title={{abstract.judul}}&summary={{abstract.abstrak| truncatechars:'200' |safe }}&source=JPHIV"><i class="fab fa-linkedin"></i>LinkedIn</a>
-                                <a class="dropdown-item copy_text" href="https://jphiv-ina.net/abstract/{{abstract.judul | slugify |lower}}" data-toggle="tooltip" title="Copy to Clipboard"><i class="fas fa-copy"></i>Copy URL </a>
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
-                        <hr>
+    <!-- end header 2 -->
+    <section class="artikel">
+        <div class="container">
+					<div class="row">
+						<div class="col-md-7 offset-md-1">
+
+                    <h1>{{object.judul}}</h1>
+                      <hr class="space-title">
+                      <div class="d-flex bd-highlight">
+                        <div class="bd-highlight w-100">
+                          <ul class="list-unstyled ">
+                            <li class="list-item"><i><img src="{% static 'web/images/cop/autor.svg' %}" alt="" srcset="" style="width:14px"></i>
+                                {% for tag in object.Author.all %}
+                                    {{ tag.name }},
+                                {% endfor %}
+                            </li>{% if object.sumber %}
+                            <li class="list-item"><i><img src="{% static 'web/images/cop/majalah.svg' %}" alt="" srcset="" style="width:14px"></i>{{ object.sumber }}</li>
+                              {% else %}
+                                {{empty}}
+                              {% endif %}
+                              {% if object.volume %}
+                            <li class="list-item"><i><img src="{% static 'web/images/cop/newspaper.svg' %}" alt="" srcset="" style="width:14px"></i>{{ object.volume }}</li>
+                              {% else %}
+                                {{empty}}
+                              {% endif %}
+                            {% if object.url %}
+                            <li class="list-item"><i><img src="{% static 'web/images/cop/website.svg' %}" alt="" srcset="" style="width:14px"></i><a href="{{ object.url }}">{{ object.url }}</a></li>
+                            {% else %}
+                                {{empty}}
+                            {% endif %}
+                            {% if object.tgl %}
+                            <li class="list-item"><i><img src="{% static 'web/images/cop/date.svg' %}" alt="" srcset="" style="width:14px"></i>{{ object.tgl }}</li>
+                            {% else %}
+                                {{empty}}
+                            {% endif %}
+                            {% if object.DOI %}
+                            <li class="list-item"><i><img src="{% static 'web/images/cop/id-card.svg' %}" alt="" srcset="" style="width:14px"></i>{{ object.DOI }}</li>
+                            {% else %}
+                                {{empty}}
+                            {% endif %}
+                            {% if object.doctype %}
+                            <li class="list-item"><i><img src="{% static 'web/images/cop/document.svg' %}" alt="" srcset="" style="width:14px"></i>{{ object.doctype }}</li>
+                              {% else %}
+                                {{empty}}
+                            {% endif %}
+                          </ul>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-          {% endfor %}
+                        {% if object.download %}
+                        <a href="/MEDIA/{{object.download}}"><button type="button" class="btn btn-danger btn-sm"><i><img src="{% static 'web/images/cop/download-light.svg' %}" alt="" srcset=""></i>Unduh</button></a>
+                        <button type="button" class=" btn btn-outline-danger btn-sm" data-clipboard-target="#bibliotext">SALIN BIBLIOGRAPHY</button>
+                         {% elif object.bibliografi %}
+                        <button type="button" class=" btn btn-outline-danger btn-sm" data-clipboard-target="#bibliotext">SALIN BIBLIOGRAPHY</button>
+                        {% endif %}
+
+                        {% if object.bibliografi %}
+                        <h6 class="biblio">BIBLIOGRAPHY</h6>
+                        <span class="p-biblio pl-4" id="bibliotext">
+                            {{object.bibliografi |safe}}
+                        </span>
+                        {% endif %}
+                            <br>
+                        {% if object.anotated %}
+                        <h6 class="abstrak">ABSTRAK</h6>
+                        <span>{{object.anotated |safe}}</span>
+                        {% endif %}
+
+            </div>
+
+
+                        <div class="col-md-7 offset-md-1" style="padding-bottom: 30px;">
+                        <ul class="list-unstyled list-inline icon-sosmed">
+                        <li class="list-inline-item"><a href="http://www.facebook.com/share.php?u={{ request.build_absolute_uri }}"><img class="py-1" src="{% static 'web/icon/004-facebook-logo-button.svg' %}" alt=""></a></li>
+                        <li class="list-inline-item"><a href="https://twitter.com/share?&url={{ request.build_absolute_uri }}"><img class="py-1" src="{% static 'web/icon/003-twitter-logo-button.svg' %}" alt=""></a></li>
+                        <li class="list-inline-item"><a href="#modal-download" data-toggle="modal"><img class="py-1" src="{% static 'web/icon/008-down-arrow-in-a-circle.svg' %}" alt=""></a></li>
+                        <li class="list-inline-item"><a class="copy_text"  data-toggle="tooltip" title="Copy to Clipboard" href="{{request.build_absolute_uri}}">
+                            <img class="py-1" src="{% static 'web/icon/009-share.svg' %}" alt="Copy to clipboard"></a>
+                        </li>
+                        </ul>
+                         </div>
+						<!-- END MATRIK -->
+					</div>
+            <hr>
+
         </div>
-      </div>
-    </section>
+      </section>
+
+
 {% endblock %}
+
+{% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript">
+    var clipboard = new ClipboardJS('.btn');
+
+    clipboard.on('success', function(e) {
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+
+        e.clearSelection();
+    });
+
+    clipboard.on('error', function(e) {
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+    });
+
+</script>
+{% endblock js %}

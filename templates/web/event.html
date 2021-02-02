@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-9">
-                    <h1 class="display-4 mt-5 pt-5 fsb f-bm ">Upcoming Event {{Judul}}</h1>
+                    <h1 class="display-4 mt-5 pt-5 fsb f-bm ">{{ header }}</h1>
                 </div> 
             </div>
         </div>
@@ -34,13 +34,8 @@
                                         kategori <i class="fa fa-caret-down" aria-hidden="true"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tekan">
-                                <a class="dropdown-item f-am f-os" href="{% url 'event-list' %}">tampilkan semua</a>
-                                <a class="dropdown-item f-am f-os" href="{% url 'event-lalu' %}">acara lalu</a>
-                                <a class="dropdown-item f-am f-os" href="{% url 'event-penelitian' %}">penelitian</a>
-                                <a class="dropdown-item f-am f-os" href="{% url 'event-advokasi' %}">advokasi</a>
-                                <a class="dropdown-item f-am f-os" href="{% url 'event-peningkatan' %}">peningakatan kapasitas</a>
-                                <a class="dropdown-item f-am f-os" href="{% url 'event-pelayanan' %}">pelayanan komunitas</a>
-                                
+                                <a class="dropdown-item f-am f-os" href="{% url 'event-list' %}">semua acara</a>
+                                <a class="dropdown-item f-am f-os" href="{% url 'event-lalu' %}">acara akan datang</a>
                             </div>
                         </div>
 
