@@ -9,8 +9,9 @@ urlpatterns = [
     path('kontak/', webviews.kontak, name = 'kontak'),
     path('subscribe/', webviews.email_list_signup, name= 'subscribe'),
     re_path('tag/(?P<tag>[\w-]+)/$', webviews.Taglist.as_view(), name='tag'),
-
+    re_path('staff/(?P<staff_slug>[\w-]+)/$', webviews.webstaffDetail, name='web-staff-detail'),
     #PUSTAKA-------------------------------
+    path('pelayanan-komunitas/', webviews.pelayananKomunitas, name= 'pelayanankomunitas'),
     path('pustaka/', webviews.pustaka, name= 'pustaka'),
     path('pustaka/penelitian/', webviews.pustakalistpenelitian, name= 'pustaka-penelitian'),
     path('pustaka/publikasi/', webviews.pustakalistpublikasi, name= 'pustaka-publikasi'),
@@ -20,6 +21,7 @@ urlpatterns = [
     path('pustaka/peningkatan-kapasitas/', webviews.pustakalistpeningkatan, name= 'pustaka-peningkatan'),
     re_path('pustaka/(?P<publikasi_slug>[\w-]+)/$', webviews.Pustakadet, name='pusdet-detail'),
     path('kegiatan/', webviews.PublicationList.as_view(), name='kegiatan'),
+    path('research-fellowship/', webviews.Internship, name='fellow'),
 
     path('berita/artikel/', webviews.ArtikelList, name='artikel-list'),
     path('berita/artikel/penelitian/', webviews.ArtikelPenelitian, name='artikel-penelitian'),

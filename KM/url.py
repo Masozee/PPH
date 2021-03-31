@@ -7,7 +7,7 @@ urlpatterns = [
     path('', kmviews.homepage, name = 'KM-home'),
     path('staff/', kmviews.stafflist, name = 'KM-Staff'),
     #path('staff/<str:slug>/', kmviews.Staffdetail, name='staff-detail'),
-    re_path('staff/(?P<staff_slug>[\w-]+)/$', kmviews.staffDetail, name='staff-detail'),
+    re_path('staf/(?P<staff_slug>[\w-]+)/$', kmviews.staffDetail, name='staff-detail'),
     path('staff/peningkatan-kapasitas/add/', kmviews.PeningkatanAdd, name='add-peningkatan'),
     path('staff/publikasi/add/', kmviews.PenelitianAdd, name='add-publikasi'),
 

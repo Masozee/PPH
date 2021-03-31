@@ -220,7 +220,22 @@ class TentangKami (models.Model):
 
     def __str__(self):
         return str(self.tanggal)
-   
+class Internship (models.Model):
+    tanggal = models.DateField(auto_now_add=True)
+    sejarah = RichTextField()
+    history = RichTextField()
+    visi = models.TextField()
+    vison = models.TextField()
+    misi = models.TextField()
+    mission =models.TextField()
+
+    class Meta:
+        verbose_name = ("Tentang Kami")
+        verbose_name_plural = ("tentang Kami")
+
+    def __str__(self):
+        return str(self.tanggal)
+
 class HomeSLide (models.Model):
     tanggal = models.DateField()
     slide1_img = models.ImageField(upload_to='images/web/homepage')
@@ -252,6 +267,8 @@ class HomeSLide (models.Model):
     about_desc_en = RichTextField(null=True)
     cop = RichTextField(null=True)
     about_cop = RichTextField(null=True)
+
+
 
 
     class Meta:

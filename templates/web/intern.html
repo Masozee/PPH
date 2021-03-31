@@ -1,0 +1,227 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+
+{% block css %}
+    <link href="{% static 'web/css/tentang-kami.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'web/css/header-footer.css' %}">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="{% static 'web/css/swiper.min.css' %}">
+
+{% endblock %}
+
+{% block meta %}
+<meta property="og:title" content="Tentang Kami">
+<meta property="og:site_name" content="PPH UNIKA Atma Jaya">
+{% for a in header %}
+<meta property="og:image" content="/media/{{ a.tentang_kami }} ">
+{% endfor %}
+{% endblock %}
+
+{% block content %}
+    <!-- landing -->
+    {% for a in header %}
+    <!-- landing -->
+    <div class="jumbotron" style = "background-image: url({% static 'web/images/bg-intern.jpeg' %})">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p class="lead f-bm fssb">Research Fellowship</p>
+                    <h1 class="display-4 fsb f-bm">Program Magang di PPH</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <!-- tutup landing -->
+
+    <!-- batas -->
+    <div class="container">
+        <div class="row justify-content-start">
+            <div class="col-md-3">
+                <img class="img-fluid" src="{% static 'web/images/tentengkami/batas.png' %}" alt="batas">
+            </div>
+        </div>
+    </div>
+    <!-- tutup batas -->
+
+    {% for a in tentangkami %}
+    <!-- konten sejarah -->
+    <section id="sejarah">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-7 ">
+                    <h2 class="f-36 fsb f-bm" >Magang di PPH</h2>
+                    <div class="f-15 f-os f-at pr-4">PPH Unika Atma Jaya membuka kesempatan belajar dan mengembangkan diri untuk mahasiswa (undergraduate dll.) dalam bidang penelitian dan juga pelayanan komunitas terkait isu HIV AIDS dan kesehatan jiwa.
+                    </div>
+                </div>
+                <div class="col-md-5 ">
+                    <h3 class="f-at fsb f-20 our-history">Research Fellowship</h3>
+                    <div class="f-14 f-am f-os fosl pt-3 pr-5">{{ a.history  |safe}}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- tutup sejarah -->
+
+    <!-- konten visi misi -->
+    <section id="visi">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h2 class="f-20 f-bm fsb">Kebutuhan</h2>
+                    <p class="f-18 f-bm fsb pr-5 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ducimus excepturi facilis labore maxime minima nobis omnis repellendus rerum similique tempora tenetur, voluptate voluptatibus! Consequatur cumque dolore eum libero sit.</p>
+                </div>
+                <div class="col-md-5">
+                    <h3 class="f-20 f-at fsb">Fasilitas</h3>
+                    <p class="f-os f-am pr-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur cum cupiditate dolores eius error est expedita, harum id in officia perspiciatis quas quo rem repellat, repudiandae sunt temporibus veritatis voluptatum.</p>
+                </div>
+            </div>
+            <!-- batas visi -->
+            <div class="row justify-content-end">
+              <div class="col-md-3">
+                  <img src="{% static 'web/images/tentengkami/batas2.png' %}" id="batas2" alt="batas2">
+              </div>
+            </div>
+            <!-- tutup batas visi -->
+            <div class="row">
+                <div class="col-md-7">
+                    <h2 class="f-20 f-bm fsb">Tanggung Jawab</h2>
+                    <p class="f-18 f-bm fsm pr-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur facere fugit minima molestiae praesentium provident quae quaerat recusandae sit veniam vero, voluptatem! Aliquam amet autem cum delectus dolorum quibusdam similique!</p>
+                </div>
+                <div class="col-md-5">
+                    <h4 class="f-20 f-at fsb">Durasi</h4>
+                    <p class="f-14 f-at f-os pr-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad atque corporis debitis dolore, ducimus esse exercitationem, hic impedit in iste iusto libero maiores molestias, nihil nisi quae reiciendis ut.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- tutup konten visi misi -->
+
+    <!-- team -->
+    <section id="tim">
+        <div class="container">
+            <div class="row">
+                <h3 class="f-36 fsb tim-kami">Research Fellowship Kami</h3>
+            </div>
+            <div class="row blog">
+                <div class="col-md-12">
+                    <!-- swiper -->
+                    <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {% for B in staff %}
+                        <!-- OJI ini looping -->
+                        <div class="swiper-slide">
+                            <a class="popup" data-toggle="modal" data-target="#{{ B.nama | slugify }}-{{ B.id }}"> <!-- ini class modal atau popup -->
+                                <img class="rounded img-fluid img-tim" src="/media/{{ B.foto }}" alt="Image" style="max-width:100%;">
+                            </a>
+                        </div>
+                        <!-- ini tutup looping -->
+                        {% endfor %}
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div>
+                    <!-- tutup swiper -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- tutup team -->
+
+  {% for a in staff %}
+    <!-- Modal/popup -->
+    <div class="modal fade" id="{{ a.nama |slugify }}-{{ a.id }}" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content shadow">
+          <div class="modal-body">
+              <div class="card modal-card " >
+                  <img class=" img-modal" src="/media/{{ a.foto }}" alt="Image" > <!-- Modal content-->
+                  <div class="card-body">
+                      <h3 class="nama-tim">{{ a.nama }}</h3>
+                      <h4 class="jab-tim">{{ a.posisi }}</h4>
+                      <p class="konten-tim">{{ a.deskripsi_singkat }}</p>
+                  </div>
+
+              </div>
+          </div>
+          <div class="modal-footer">
+
+                    <button id="detail-btn" type="button" class="btn btn-primary f-os float-left"><a href="/staff/{{ a.nama |slugify }}">Detail</a> </button>
+
+            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- tutup Modal/popup -->
+  {% endfor %}
+
+    <!-- patner -->
+<section id="patner">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-7 ">
+                    <h2 class="f-36 fsb f-bm" >Magang di PPH</h2>
+                    <div class="f-15 f-os f-at pr-4">{{ a.sejarah |safe}}</div>
+                </div>
+                <div class="col-md-5 ">
+                    <h3 class="f-at fsb f-20 our-history">Research Fellowship</h3>
+                    <div class="f-14 f-am f-os fosl pt-3 pr-5">{{ a.history  |safe}}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <hr>
+    <!-- tutup patner -->
+    {% endfor %}
+{% endblock %}
+
+{% block js %}    <!-- link swiper scrip -->
+    <script src="{% static 'web/js/swiper.min.js' %}"></script>
+    <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 4,
+      spaceBetween: 40,
+      // init: false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        }
+      }
+    });
+  </script>
+
+{% endblock %}

@@ -205,6 +205,11 @@ background-position: center top;
     padding-bottom: 0;
 }
 
+#detail-btn {
+    float: left !important;
+    background-color: white;
+    color: white;
+}
 /* tutup modal */
 
 
@@ -264,3 +269,4 @@ background-position: center top;
             font-size: 60px;
         }
     }
+

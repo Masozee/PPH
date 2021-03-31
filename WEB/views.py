@@ -46,6 +46,19 @@ def Tentangkami(request):
 
     return render(request, "web/tentang-kami.html", context)
 
+def Internship(request):
+    staff = Staff.objects.filter(status='Intern & Fellowship').order_by('no_urut')
+    tentangkami = TentangKami.objects.all()
+    header = HomeSLide.objects.all()
+
+    context = {
+        "staff": staff,
+        "tentangkami": tentangkami,
+        "header": header
+    }
+
+    return render(request, "web/404.html", context)
+
 def DokumentasiList(request):
     dokumentasi = Berita.objects.filter(Kategori="Dokumentasi").order_by('-tanggal')
     paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
@@ -62,6 +75,20 @@ def DokumentasiList(request):
     }
 
     return render(request, "web/dukomentasi.html", context)
+
+def webstaffDetail(request, staff_slug):
+    staff = Staff.objects.get(slug=staff_slug)
+    A = Penelitian.objects.filter(tim__id=staff.pk)
+    publikasi = Publikasi.objects.filter(penulis__nama__icontains=staff.nama)
+    berita = Berita.objects.filter(penulis__nama__icontains=staff.nama)
+
+    context = {
+        "staff": staff,
+        "BC": A,
+        "Pub": publikasi,
+        "B": berita,
+    }
+    return render(request, 'web/detail-staff.html', context)
 
 def DokumentasiPenelitian(request):
     dokumentasi = Berita.objects.filter(Kategori="Dokumentasi", Agenda="Penelitian").order_by('-tanggal')
@@ -430,6 +457,31 @@ def pustaka(request):
 
     }
     return render(request, "web/pustaka.html", context)
+def pelayananKomunitas(request):
+    desc_pel = "lorem ipsum dolor sit amet lorem"
+    judul_penelitian = "Produk Pengetahuan dari Penelitian-Penelitian yang telah dilakukan oleh PPH Unika Atma Jaya"
+    judul_pelayanan = "Hasil produk pengetahuan yang dihasilkan dari kegiatan pelayanan dan penguatan masyarakat yang terdampak HIV AIDS oleh PPH Unika Atma Jaya."
+    slide = HomeSLide.objects.all()
+    Pustaka_HIV = Publikasi.objects.filter(tema=0).order_by('-date_upload').distinct()[:6]
+    Pustaka_Publikasi = Publikasi.objects.filter(tema=1).order_by('-date_upload').distinct()[:6]
+    Pustaka_Regulasi = Publikasi.objects.filter(tema=2).order_by('-date_upload').distinct()[:6]
+    Pustaka_Penelitian = Publikasi.objects.filter(tema=3).order_by('-date_upload').distinct()[:6]
+    Pustaka_Pelayanan = Publikasi.objects.filter(tema=4).order_by('-date_upload').distinct()[:6]
+    Pustaka_Peningkatan = Publikasi.objects.filter(tema=5).order_by('-date_upload').distinct()[:6]
+
+    context = {
+        "Slide": slide,
+        "HIV": Pustaka_HIV,
+        "Publikasi": Pustaka_Publikasi,
+        "Regulasi": Pustaka_Regulasi,
+        "Penelitian": Pustaka_Penelitian,
+        "Pelayanan": Pustaka_Pelayanan,
+        "Peningkatan": Pustaka_Peningkatan,
+        "judul_penelitian":judul_penelitian,
+        "judul_pelayanan":judul_pelayanan,
+
+    }
+    return render(request, "web/pelayanankomunitas.html", context)
 
 
 def Pustakadet(request, publikasi_slug):

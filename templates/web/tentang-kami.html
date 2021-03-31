@@ -4,7 +4,7 @@
 
 {% block css %}
     <link href="{% static 'web/css/tentang-kami.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/header-footer.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/header-footer.css' %}">
 
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="{% static 'web/css/swiper.min.css' %}">
@@ -146,9 +146,14 @@
                       <h4 class="jab-tim">{{ a.posisi }}</h4>
                       <p class="konten-tim">{{ a.deskripsi_singkat }}</p>
                   </div>
+
               </div>
           </div>
+
           <div class="modal-footer">
+            {%  if a.status == 'Staff Peneliti' %}
+                    <button id="detail-btn" type="button" class="btn btn-primary f-os float-left"><a href="/staff/{{ a.nama |slugify }}">Detail</a> </button>
+            {%  endif %}
             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></button>
           </div>
         </div>

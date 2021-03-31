@@ -65,19 +65,6 @@
                           </ul>
                         </div>
                       </div>
-                        {% if object.download %}
-                        <a href="/MEDIA/{{object.download}}"><button type="button" class="btn btn-danger btn-sm"><i><img src="{% static 'web/images/cop/download-light.svg' %}" alt="" srcset=""></i>Unduh</button></a>
-                        <button type="button" class=" btn btn-outline-danger btn-sm" data-clipboard-target="#bibliotext">SALIN BIBLIOGRAPHY</button>
-                         {% elif object.bibliografi %}
-                        <button type="button" class=" btn btn-outline-danger btn-sm" data-clipboard-target="#bibliotext">SALIN BIBLIOGRAPHY</button>
-                        {% endif %}
-
-                        {% if object.bibliografi %}
-                        <h6 class="biblio">BIBLIOGRAPHY</h6>
-                        <span class="p-biblio pl-4" id="bibliotext">
-                            {{object.bibliografi |safe}}
-                        </span>
-                        {% endif %}
                             <br>
                         {% if object.anotated %}
                         <h6 class="abstrak">ABSTRAK</h6>

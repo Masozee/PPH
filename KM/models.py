@@ -69,6 +69,14 @@ class StaffManager(models.Manager):
         return self.get_queryset().search(query=query)
 
 class Staff (models.Model):
+    STATUS_CHOICES = (
+        ('Staff Peneliti','Staff Peneliti'),
+        ('Staff Manajemen','Staf Manajemen'),
+        ('Intern & Fellowship', 'Intern & Fellowship'),
+        ('Lainnya', 'Lainnya'),
+    )
+
+
     KATEGORI_CHOICES = (
 
         ('Diploma 3', 'D3'),
@@ -99,11 +107,12 @@ class Staff (models.Model):
     jabatan_struktural = models.CharField(max_length=20, blank=True, null=True)
     kepakaran = models.ForeignKey(Kepakaran, on_delete=models.PROTECT,blank=True, null=True)
     peminatan = models.ForeignKey(Peminatan, on_delete=models.PROTECT,blank=True, null=True)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, null=True, blank=True)
     Tempat_Lahir = models.CharField(max_length=50, blank=True)
     Tanggal_Lahir = models.CharField(max_length=50, blank=True)
     foto = models.ImageField(upload_to="images/web/staff/", height_field=None, width_field=None, max_length=None, blank=True, null=True)
     cv = models.FileField(upload_to="km/staff/cv/", blank=True, null=True)
-    deskripsi_singkat= models.CharField(max_length=200, null=True, blank=True)
+    deskripsi_singkat= models.TextField(blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=True)
     no_urut = models.PositiveIntegerField(null=True)
