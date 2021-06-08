@@ -9,6 +9,7 @@ from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.conf import settings
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from django.db.models import Q
 
 form2 = EmailSignupForm()
 
@@ -78,9 +79,11 @@ def DokumentasiList(request):
 
 def webstaffDetail(request, staff_slug):
     staff = Staff.objects.get(slug=staff_slug)
-    A = Penelitian.objects.filter(tim__id=staff.pk)
-    publikasi = Publikasi.objects.filter(penulis__nama__icontains=staff.nama)
+    A = Publikasi.objects.filter(tema=3, penulis__nama__icontains=staff.nama).order_by('-date_upload').distinct()
+    AB = Penelitian.objects.filter(tim__id=staff.pk)
+    publikasi = Publikasi.objects.filter(tema=1, penulis__nama__icontains=staff.nama).distinct()
     berita = Berita.objects.filter(penulis__nama__icontains=staff.nama)
+
 
     context = {
         "staff": staff,
@@ -631,8 +634,12 @@ def email_list_signup(request):
 
 def kesjiwdata(request):
     COP = AnotatedCOP.objects.all().order_by('-tanggal').distinct()
-    Pustaka_Regulasi = Publikasi.objects.filter(tema='Regulasi', tagging__slug="cop-keswa").order_by('-date_upload').distinct()
-    Pustaka_Publikasi = Publikasi.objects.filter(tema='Publikasi', tagging__slug="cop-keswa").order_by('-date_upload').distinct()
+    Pustaka_Regulasi = Publikasi.objects.filter(tema='2', tagging__slug='keswa').order_by('-date_upload').distinct()
+    Pustaka_Publikasi = Publikasi.objects.filter(tema__in=[1,3], tagging__slug='keswa').order_by('-date_upload').distinct()
+    Pustaka = Publikasi.objects.filter(tema='Regulasi', tagging__slug='keswa').order_by(
+        '-date_upload').distinct()
+    Pustaka_P = Publikasi.objects.filter(tema='Publikasi', tagging__slug='keswa').order_by(
+        '-date_upload').distinct()
 
     context = {
         'abstracts': COP,

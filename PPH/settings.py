@@ -178,3 +178,9 @@ CRISPY_TEMPLATE_PACK ='bootstrap4'
 #rechaptha lama -----------------------------------------------------------------------------------------------------
 GOOGLE_RECAPTCHA_SECRET_KEY = config('SECRET_KEY')
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_POST = 587
+EMAIL_USE_TLS = 1
+EMAIL_HOST_USER = config('EMAIL_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_PASS')

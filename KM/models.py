@@ -455,6 +455,10 @@ class Penelitian(models.Model):
     def pselesai(self):
         return self.selesai.strftime('%d %B %Y')
 
+    @property
+    def thn(self):
+        return self.mulai.strftime('%Y')
+
 class DokuPenelitianQuerySet(models.QuerySet):
     def search(self, query=None):
         qs = self

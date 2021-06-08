@@ -63,16 +63,16 @@ def stafflist(request):
 def staffDetail(request, staff_slug):
     staff = Staff.objects.get(slug=staff_slug)
     A = Penelitian.objects.filter(tim__id=staff.pk)
-    kapasitas = PeningkatanKapasitasstaff.objects.filter(peserta__icontains=CustomUser.email)
-    publikasi = Publikasi_staff.objects.filter(peserta__icontains=CustomUser.email)
+    kapasitas = PeningkatanKapasitasstaff.objects.filter(peserta__icontains=staff.email)
+    publikasi = Publikasi_staff.objects.filter(peserta__icontains=staff.email)
 
     context = {
         "staff": staff,
         "B": A,
-        "kapasitas": kapasitas,
-        "publikasi": publikasi,
+        "Kapasitas": kapasitas,
+        "Publikasi": publikasi,
     }
-    return render(request, 'km/detail-staff.html', context)
+    return render(request, "km/detailstaff.html", context)
 
 
 @staff_required

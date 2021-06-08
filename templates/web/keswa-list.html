@@ -35,7 +35,7 @@
                   <a class=" nav-link tab-link" id="pills-publikasi-tab" data-toggle="pill" href="#pills-publikasi" role="tab" aria-controls="pills-publikasi" aria-selected="true">Produk Pengetahuan PPH</a>
                 </li>
                 <li class="nav-item tab-item">
-                  <a class=" nav-link tab-link " id="pills-regulasi-tab" data-toggle="pill" href="#pills-regulasi" role="tab" aria-controls="pills-regulasi" aria-selected="true">Artikel Jurnal Kesehatan Jiwa</a>
+                  <a class=" nav-link tab-link " id="pills-regulasi-tab"  href="{% url 'kesjiwartikel' %}" role="tab"  >Artikel Jurnal Kesehatan Jiwa</a>
                 </li>
               </ul>
 
@@ -55,7 +55,7 @@
                             {% for a in pusreg %}
                           <tr>
                             <td><a href="/pustaka/{{a.judul|slugify}}">{{a.judul}}</a></td>
-                            <td>{{a.tema}}</td>
+                            <td>{{a.get_tema_display}}</td>
                             <td>{{a.penulis}}</td>
                             <td>{{a.thn}}</td>
                           </tr>
@@ -77,7 +77,7 @@
                             {% for a in puspub %}
                             <tr>
                               <td><a href="/pustaka/{{a.judul|slugify}}">{{a.judul}}</a></td>
-                              <td>{{a.kategori}}</td>
+                              <td>{{a.get_tema_display}}</td>
                               <td>{{a.penulis}}</td>
                               <td>{{a.thn}}</td>
                             </tr>

@@ -89,7 +89,7 @@
                         <img src="/media/{{ a.gambar }}"  class="card-img-top img-fluid rounded-top gambar" alt="...">
                         <div class="card-body konten-utama">
                             <h4 class="judul-a card-title f-20 fssb"><a class="" href="/berita/artikel/{{ a.judul | slugify }}" style="text-decoration:none; color: #212529">{{ a.judul }}</a></h4>
-                            <div class="card-text isi-a f-14 f-at f-os"> {{ a.isi | truncatechars:"500" | safe }}</div>
+                            <div class="card-text isi-a f-14 f-at f-os"> {{ a.isi | truncatechars:"200" | safe }}</div>
                             <div class="clearfix">
                                 <small class="text-muted float-left">{{a.thn}}</small>
                                 <a href="/berita/artikel/{{ a.judul | slugify }}" class="f-k float-right fssb f-14" style="text-decoration: none"> selengkapnya <i class="fa fa-arrow-circle-o-right"></i></a>

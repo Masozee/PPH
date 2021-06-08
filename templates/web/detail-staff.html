@@ -45,7 +45,7 @@
                 <div class="row mb-4">
                  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                       <li class="nav-item">
-                        <a class="nav-link active f-os" id="pills-penelitian-tab" data-toggle="pill" href="#pills-penelitian" role="tab" aria-controls="pills-penelitian" aria-selected="true">artikel</a>
+                        <a class="nav-link active f-os" id="pills-penelitian-tab" data-toggle="pill" href="#pills-penelitian" role="tab" aria-controls="pills-penelitian" aria-selected="true">Publikasi</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link f-os" id="pills-pnkt-kpsts-tab" data-toggle="pill" href="#pills-pnkt-kpsts" role="tab" aria-controls="pills-pnkt-kpsts" aria-selected="false">penelitian</a>
@@ -57,19 +57,19 @@
                     <table id="penelitian" class="table table-striped radius-tabel dt-responsive " style="width:100%">
                     <thead>
                         <tr>
-                            <th>Agenda</th>
+
                             <th>Kategori</th>
                             <th>Judul</th>
-                            <th>Tanggal</th>
+                            <th>Tahun</th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        {% for A in B %}
+                        {% for A in Pub %}
                         <tr>
-                            <td>{{ A.Agenda }}</td>
-                            <td>{{ A.Kategori}}</td>
-                            <td class="tbl-keg"><a href="/berita/{{ A.Kategori | lower}}/{{A.judul | slugify}}">{{ A.judul }}</a></td>
+
+                            <td>{{ A.get_kategori_display }}</td>
+                            <td class="tbl-keg"><a href="/pustaka/{{A.judul | slugify}}">{{ A.judul }}</a></td>
                             <td>{{ A.thn }}</td>
                         </tr>
                         {% endfor %}
@@ -81,23 +81,17 @@
                     <table id="publikasi" class="table table-striped radius-tabel dt-responsive" style="width:100%">
                         <thead>
                         <tr>
+                            <th>Kategori</th>
                             <th>Tahun</th>
                             <th>Judul</th>
-                            <th>Tema</th>
-                            <th>Kategori</th>
-
-
                         </tr>
                     </thead>
                     <tbody>
-                        {% for B in Pub %}
+                        {% for B in BC %}
                         <tr>
+                            <td >{{B.kategori}}</td>
                             <td >{{B.thn}}</td>
-                            <td class="tbl-keg"><a href="/pustaka/{{ B.judul|slugify }}">{{B.judul}}</a></a></td>
-                            <td>{{ B.get_tema_display }}</td>
-                            <td>{{ B.get_kategori_display }}</td>
-
-
+                            <td class="tbl-keg"><a href="/pustaka/{{ B.nama_kegiatan | slugify }}">{{B.nama_kegiatan}}</a></td>
                         </tr>
                         {% endfor %}
                     </tbody>
