@@ -80,7 +80,7 @@ p {
 
 /**! ----- Theme Common colors (Also Used as extend in SCSS ) ---- **/
 mark,
-ins, .bg-color--primary, [class*="bg-color--primary-opacity-"]::before, .btn-bg--primary, .btn-bg--primary--05::after, .btn-hover--primary:hover, .card-hover--bg--primary-shadow.focused, .card-hover--bg--primary-shadow:hover, .preloader .blobs .blob-center, .preloader .blob, .form--v8:after, .ico-progress--v2 .ico-progress__stages:after, .decor, .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-triangle:hover, .label-bg--light--200::before, .pagination .page-item.active .page-link, .sticky .card, .sticky .article__thumbnail-image::before, .widget_calendar tbody a, .post-navigation .meta-nav::before, .navbar-sticky--moved-up.sticky-bg-color--primary, .roadmap--v4 .roadmap-item--current .timeline-line:before {
+ins, .bg-color--primary, [class*="bg-color--primary-opacity-"]::before, .btn-bg--primary, .btn-bg--primary--05::after, .btn-hover--primary:hover, .card-hover--bg--primary-shadow.focused, .card-hover--bg--primary-shadow:hover, .preloader .blobs .blob-center, .preloader .blob, .form--v8:after, .ico-progress--v2 .ico-progress__stages:after, .decor, .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-triangle:hover, .label-bg--light--200::before, .pagination .page-item.active .page-link, .sticky .card, .sticky .article__thumbnail-image::before, .widget_calendar tbody a, .post-navigation .meta-nav::before, .navbar-2-sticky--moved-up.sticky-bg-color--primary, .roadmap--v4 .roadmap-item--current .timeline-line:before {
   background: #3965f4;
 }
 
@@ -103,7 +103,7 @@ ins, .bg-color--primary, [class*="bg-color--primary-opacity-"]::before, .btn-bg-
 }
 
 /*---- Boxed Layout Init----*/
-body.boxed-layout .main, body.boxed-layout .navbar {
+body.boxed-layout .main, body.boxed-layout .navbar-2 {
   max-width: 1366px;
 }
 

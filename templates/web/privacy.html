@@ -1,0 +1,32 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+
+{% block css %}
+    <link href="{% static 'web/css/detail-artikel.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'web/css/header-footer.css' %}">
+    <!-- tabel -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+{% endblock %}
+
+{% block content %}
+    <section class="artikel">
+    <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <h2 class=" f-bm f-os fossb">Kebijakan Privasi</h2><br>
+                    <p class="f-12 f-os">Kami akan mengumpulkan informasi yang dapat diidentifikasi tentang Anda melalui situs web ini sebagaimana diperlukan untuk mendaftar acara atau email. Kami hanya dapat mengakses informasi tersebut jika Anda memilih untuk berbagi dengan kami secara langsung, melalui email atau dengan mengisi dan mengirimkan informasi apa pun yang mungkin disediakan di situs web. Kami tidak akan menjual informasi tentang pengguna situs ini kepada pihak ketiga. Kami juga tidak membagikan informasi Anda kecuali seperti yang dijelaskan di bawah ini.
+
+                            Pada beberapa kasus, kami mungkin membuat kontrak dengan perusahaan non-afiliasi untuk memberikan layanan bagi kami. Jika diperlukan, kami akan mengungkapkan informasi yang kami miliki tentang Anda kepada pihak ketiga ini. Dalam kasus seperti itu, kami hanya akan memberikan informasi yang diperlukan kepada pihak ketiga untuk melaksanakan tanggung jawab yang ditetapkan, dan hanya untuk tujuan itu. Kami meminta pihak ketiga ini untuk memperlakukan informasi pribadi Anda dengan tingkat kerahasiaan yang sama seperti yang kami lakukan. Selain itu, kami hanya akan merilis informasi tentang Anda jika Anda mengarahkan kami, jika kami dipaksa oleh hukum untuk melakukannya, atau dalam keadaan berkaitan dengan hukum lainnya. Jika kami mengusulkan untuk menggunakan informasi pribadi Anda untuk tujuan apa pun selain yang dijelaskan dalam kebijakan privasi ini, kami akan menawarkan Anda pilihan keluar dari penggunaan informasi pribadi untuk tujuan lain tersebut.
+
+                            PUI-PT PPH PUK2IS UAJ melacak alamat IP (alamat Internet komputer) untuk melacak sesi pengguna. Pelacakan alamat IP dapat memberi kami informasi penting tentang pengunjung kami. Misalnya, kami dapat mempelajari bagian mana dari situs web yang dikunjungi pengguna dan berapa lama mereka tinggal. Ketika kami menerima informasi tentang Anda atau sesi Anda, kami dapat menggunakannya untuk meneliti atau meningkatkan situs dan layanan yang kami sediakan untuk Anda.
+
+                            Jika Anda memiliki pertanyaan tentang kebijakan privasi ini, silakan hubungi kami melalui email di pph.atmajaya@gmail.com
+                    </p>
+                </div>
+            </div>
+    </div>
+    </section>
+    <hr>
+{% endblock %}

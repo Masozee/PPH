@@ -1,0 +1,147 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link href="{% static 'web/css/dokumentasi.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block meta %}
+<meta property="og:title" content="{{object.judul}} ">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:site_name" content="PPH UNIKA Atma Jaya">
+<meta property="og:image" content="/media/{{ object.gambar }} ">
+{% endblock %}
+
+
+
+{% block content %}
+    <section id="dokumentasi">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="clearfix">
+                        <h3 class="float-left f-40 f-bt fsb">Dokumentasi</h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb float-right">
+                               <li class="breadcrumb-item f-os f-at f-9"><a href="{% url 'home-web' %}">Home</a></li>
+                               <li class="breadcrumb-item f-os f-at f-9"><a href="{% url 'dokumentasi' %}">Berita</a></li>
+                               <li class="breadcrumb-item f-os f-at f-9 active" aria-current="page">Dokumentasi</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div><hr class="batas">
+        </div>
+    </section>
+
+        <!-- katagori urutan dropdown -->
+
+
+    <section>
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col">
+                    <div-- class="clearfix">
+                        <div class="btn-group float-left">
+                            <button class="btn btn-default dropdown-toggle f-am" type="button" id="tekan" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                        Advokasi <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </button>
+                            <div class="dropdown-menu " aria-labelledby="tekan">
+                                <a class="dropdown-item f-am" href="{% url 'dokumentasi' %}">Tampilkan Semua</a>
+                                <a class="dropdown-item f-am" href="{% url 'dokumentasi-penelitian' %}">Penelitian</a>
+                                <a class="dropdown-item f-am" href="{% url 'dokumentasi-peningkatan' %}">Peningkatan Kapasitas</a>
+                                <a class="dropdown-item f-am" href="{% url 'dokumentasi-pelayanan' %}">Pelayanan Komunitas</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- tutup katagori urutan dropdown-->
+
+
+    <div class="container">
+        <hr>
+    </div>
+
+    <!-- artikel -->
+    <section>
+        <div class="container">
+                {% for a in berita %}
+                <div class="row">
+                    <div class="media"> 
+                        <a class="d-flex" href="#">
+                            <img class="align-seft-center mr-5 rounded img-fluid gambar" src="/media/{{ a.gambar }}" alt="">
+                        </a>
+                        <div class="media-body ml-5">
+                            <h6 class=" penelitian">{{ a.Agenda }}</h6>
+                            <h3><a class="judul" href="/berita/dokumentasi/{{ a.judul|slugify }}">{{ a.judul }}</a></h3>
+                            <ul class="list-inline">
+                                {% if a.penulis %}
+                                <li class="list-inline-item penulis" >By {{ a.penulis }},
+                                {% else %}
+                                    {{ empty }}
+                                {% endif %}
+                                {% for b in a.penulis_luar.all %}
+                                    {{ b.name }},
+                                {% endfor %}
+
+                                </li>
+                                <li class="list-inline-item tanggal">{{ a.thn }}</li>
+                            </ul>
+                            <div class="isi f-os">{{ a.isi | truncatechars:"250" | safe }}</div>
+                            <ul class="list-inline">
+                                <li class="list-inline-item " ><img src="{% static 'web/icon/tag-black-shape.svg' %}"></li>
+                            {% for tag in a.tags.all %}
+                                <li class="list-inline-item"><a class="tag" href="/tag/{{ tag.name | slugify}}">{{ tag.name }}</a></li>
+                            {% endfor %}
+                            </ul>                        
+                            
+                        </div>
+                    </div>
+                </div>
+                <hr> <!-- pembatas -->  
+                {% endfor %}          
+        </div>
+    </section>
+
+    <!-- atur halaman -->
+    <nav class="">
+      <ul class="pagination justify-content-center f-os fossb">
+        {% if berita.has_previous  %}
+       <li class="page-item">
+                  <a class="page-link" href="?page=1" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                {% endif %}
+                {% for n in berita.paginator.page_range %}
+                    {% if berita.number == n %}
+                      <li class="page-item">
+                        <span class="page-link">{{ n }}<span class="sr-only">(current)</span></span>
+                      </li>
+                    {% elif n > berita.number|add:'-2' and n < berita.number|add:'2' %}
+                      <li class="page-item"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if berita.has_next %}
+                  <li class="page-item">
+                    <a class="page-link" href="?page={{ berita.paginator.num_pages }}" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+        {% endif %}
+
+      </ul>
+    </nav>
+
+    <div class="container">
+        <hr>
+    </div>
+
+{% endblock %}

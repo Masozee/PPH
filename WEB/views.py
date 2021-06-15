@@ -108,7 +108,7 @@ def DokumentasiPenelitian(request):
         "berita": dokumentasi,
     }
 
-    return render(request, "web/dukomentasi.html", context)
+    return render(request, "web/dukomentasi-penelitian.html", context)
 def DokumentasiAdvokasi(request):
     dokumentasi = Berita.objects.filter(Kategori="Dokumentasi", Agenda="Advokasi").order_by('-tanggal')
     paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
@@ -124,7 +124,7 @@ def DokumentasiAdvokasi(request):
         "berita": dokumentasi,
     }
 
-    return render(request, "web/dukomentasi.html", context)
+    return render(request, "web/dukomentasi-advokasi.html", context)
 def DokumentasiPeningkatan(request):
     dokumentasi = Berita.objects.filter(Kategori="Dokumentasi", Agenda="Peningkatan Kapasitas").order_by('-tanggal')
     paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
@@ -140,7 +140,7 @@ def DokumentasiPeningkatan(request):
         "berita": dokumentasi,
     }
 
-    return render(request, "web/dukomentasi.html", context)
+    return render(request, "web/dukomentasi-peningkatan.html", context)
 def DokumentasiPelayanan(request):
     dokumentasi = Berita.objects.filter(Kategori="Dokumentasi", Agenda="Pelayanan Komunitas").order_by('-tanggal')
     paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
@@ -156,7 +156,7 @@ def DokumentasiPelayanan(request):
         "berita": dokumentasi,
     }
 
-    return render(request, "web/dukomentasi.html", context)
+    return render(request, "web/dukomentasi-pelayanan.html", context)
 
 class DokumentasiDetail(DetailView):
     model = Berita
@@ -710,4 +710,6 @@ def KesjiwDetail(request, AnotatedCOP_slug):
         "object": abstracts,
     }
     return render(request, 'web/copdatadetail.html', context)
+def PrivacyPolicy(request):
+    return render(request, 'web/privacy.html')
 

@@ -502,7 +502,7 @@ p {
 /**! 03. colors **/
 /**! ----- Theme Common colors (Also Used as extend in SCSS ) ---- **/
 mark,
-ins, .bg-color--primary, [class*="bg-color--primary-opacity-"]::before, .btn-bg--primary, .btn-bg--primary--05::after, .btn-hover--primary:hover, .card-hover--bg--primary-shadow.focused, .card-hover--bg--primary-shadow:hover, .preloader .blobs .blob-center, .preloader .blob, .form--v8:after, .ico-progress--v2 .ico-progress__stages:after, .decor, .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-triangle:hover, .label-bg--light--200::before, .pagination .page-item.active .page-link, .sticky .card, .sticky .article__thumbnail-image::before, .widget_calendar tbody a, .post-navigation .meta-nav::before, .navbar-sticky--moved-up.sticky-bg-color--primary, .roadmap--v4 .roadmap-item--current .timeline-line:before {
+ins, .bg-color--primary, [class*="bg-color--primary-opacity-"]::before, .btn-bg--primary, .btn-bg--primary--05::after, .btn-hover--primary:hover, .card-hover--bg--primary-shadow.focused, .card-hover--bg--primary-shadow:hover, .preloader .blobs .blob-center, .preloader .blob, .form--v8:after, .ico-progress--v2 .ico-progress__stages:after, .decor, .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-triangle:hover, .label-bg--light--200::before, .pagination .page-item.active .page-link, .sticky .card, .sticky .article__thumbnail-image::before, .widget_calendar tbody a, .post-navigation .meta-nav::before, .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .roadmap--v4 .roadmap-item--current .timeline-line:before {
   background: #3965f4;
 }
 
@@ -2010,7 +2010,7 @@ textarea::-webkit-input-placeholder, .form--darkblue
 
 /**! ----- transition---- **/
 .transition-default, .btn, .btn .icon-arrow-right, .btn-media, .card--full-image img, [class*="card-hover"], .card--v2 .card, .card--v2 .card__title, .card--v3 .card, .list-group-item, a.color--primary, a.color--white, a.text-color--200, a.text-color--300, a.text-color--400, a.text-color--500, a.text-color--700, .preloader.loaded .blobs, .icon-group a, .icon-rounded i, .icon-fill--wide .t-icon, .icon-fill--wide .t-icon__brand-icon, .icon-fill--wide .t-icon__brand-name, .pie-chart--flat path:hover, .accordion i, .carosuel-slider--v1 .slick-dots button, .carosuel-triangle, .carosuel-slider--v3 .slide, .carosuel-slider--v3 .slide .card-body,
-.carosuel-slider--v3 .slide .card-footer, .carosuel-cursor, .carosuel-slider--v5 .slick-dots button, .roadmap__year li, .dropdown-module__item, [data-tooltip], .pagination .page-item .page-link, .pagination .page-item--page-gap, .article-author__avatar, .article-author__name, .article__title h2, .blog-details .entry-header .entry-author .url, .blog-details .entry-meta .post-categories a, .blog-sidebar .widget li, .blog-sidebar .widget li a, .widget_calendar tbody a, .post-navigation .post-title, .navbar .navbar-nav .nav-link, .navbar-sticky--transitioned, .dropdown-menu, .dropdown-item, .dropdown-submenu .dropdown-toggle:after, .navbar-language__list a, .documents--v1 .card .card-download, .documents--v1 .card .card-download a, .roadmap--v4 .content-body, .customer-website .item-description, .footer a, .switcher, .switcher-tab__item button, .switcher .theme-variation span, .switcher .theme-variation .demo-item img, .demo-item__options a i {
+.carosuel-slider--v3 .slide .card-footer, .carosuel-cursor, .carosuel-slider--v5 .slick-dots button, .roadmap__year li, .dropdown-module__item, [data-tooltip], .pagination .page-item .page-link, .pagination .page-item--page-gap, .article-author__avatar, .article-author__name, .article__title h2, .blog-details .entry-header .entry-author .url, .blog-details .entry-meta .post-categories a, .blog-sidebar .widget li, .blog-sidebar .widget li a, .widget_calendar tbody a, .post-navigation .post-title, .navbar-2-2 .navbar-2-2-nav .nav-link, .navbar-2-2-sticky--transitioned, .dropdown-menu, .dropdown-item, .dropdown-submenu .dropdown-toggle:after, .navbar-2-2-language__list a, .documents--v1 .card .card-download, .documents--v1 .card .card-download a, .roadmap--v4 .content-body, .customer-website .item-description, .footer a, .switcher, .switcher-tab__item button, .switcher .theme-variation span, .switcher .theme-variation .demo-item img, .demo-item__options a i {
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
@@ -2596,7 +2596,7 @@ body.boxed-layout .main {
   overflow: hidden;
 }
 
-body.boxed-layout .navbar {
+body.boxed-layout .navbar-2-2 {
   max-width: 1366px;
   margin-right: auto;
   margin-left: auto;
@@ -6397,7 +6397,7 @@ body.boxed-layout .switchable__image {
 =================================
 =================================*/
 /**! 45. navigation **/
-.navbar {
+.navbar-2-2 {
   position: absolute;
   top: 0;
   left: 0;
@@ -6409,7 +6409,7 @@ body.boxed-layout .switchable__image {
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1420px) {
-  .navbar {
+  .navbar-2-2 {
     padding-right: 0;
     padding-left: 0;
     margin-right: 0;
@@ -6417,23 +6417,23 @@ body.boxed-layout .switchable__image {
   }
 }
 
-.navbar-bg-white {
+.navbar-2-2-bg-white {
   background: #fff;
 }
 
 @media only screen and (min-width: 1200px) {
-  .navbar .container-fluid {
+  .navbar-2-2 .container-fluid {
     padding-right: 2.1875rem;
     padding-left: 2.1875rem;
   }
 }
 
-.navbar .navbar-nav .nav-link {
+.navbar-2-2 .navbar-2-2-nav .nav-link {
   font-weight: 600;
 }
 
 @media only screen and (min-width: 992px) {
-  .navbar .navbar-nav .nav-link {
+  .navbar-2-2 .navbar-2-2-nav .nav-link {
     padding-right: 0.625rem;
     padding-left: 0.625rem;
     font-size: 0.875rem;
@@ -6441,7 +6441,7 @@ body.boxed-layout .switchable__image {
 }
 
 @media only screen and (min-width: 1200px) {
-  .navbar .navbar-nav .nav-link {
+  .navbar-2-2 .navbar-2-2-nav .nav-link {
     padding-right: 0.625rem;
     padding-left: 0.625rem;
     font-size: 0.875rem;
@@ -6449,7 +6449,7 @@ body.boxed-layout .switchable__image {
 }
 
 @media only screen and (min-width: 1420px) {
-  .navbar .navbar-nav .nav-link {
+  .navbar-2-2 .navbar-2-2-nav .nav-link {
     padding-right: 1rem;
     padding-left: 1rem;
     font-size: 1rem;
@@ -6457,55 +6457,55 @@ body.boxed-layout .switchable__image {
 }
 
 @media only screen and (max-width: 1199px) {
-  .navbar-brand {
+  .navbar-2-2-brand {
     max-width: 120px;
   }
-  .navbar-brand img {
+  .navbar-2-2-brand img {
     max-width: 100%;
   }
 }
 
-/*---------- Navbar button ----------*/
+/*---------- navbar-2-2 button ----------*/
 @media only screen and (min-width: 576px) {
-  .navbar .btn:last-child {
+  .navbar-2-2 .btn:last-child {
     margin-left: 5px;
     margin-top: 0;
   }
 }
 
 @media only screen and (min-width: 992px) {
-  .navbar .btn {
+  .navbar-2-2 .btn {
     padding-right: 1.375rem;
     padding-left: 1.375rem;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .navbar .btn {
+  .navbar-2-2 .btn {
     padding-right: 1.5625rem;
     padding-left: 1.5625rem;
   }
 }
 
 @media only screen and (min-width: 1420px) {
-  .navbar .btn {
+  .navbar-2-2 .btn {
     padding-right: 2.0625rem;
     padding-left: 2.0625rem;
   }
 }
 
 @media only screen and (max-width: 1420px) {
-  .navbar .btn {
+  .navbar-2-2 .btn {
     font-size: 0.9375rem;
   }
-  .navbar .btn i {
+  .navbar-2-2 .btn i {
     font-weight: 400 !important;
     padding-right: 5px !important;
   }
 }
 
 @media only screen and (max-width: 400px) {
-  .navbar .btn {
+  .navbar-2-2 .btn {
     padding-right: 20px;
     padding-left: 20px;
   }
@@ -6515,12 +6515,12 @@ body.boxed-layout .switchable__image {
   top: 2px;
 }
 
-/*---------- navbar style on sticky ----------*/
-.navbar-brand__sticky {
+/*---------- navbar-2-2 style on sticky ----------*/
+.navbar-2-2-brand__sticky {
   display: none;
 }
 
-.navbar-sticky--moved-up {
+.navbar-2-2-sticky--moved-up {
   position: fixed;
   top: 0;
   background: #fff;
@@ -6529,72 +6529,72 @@ body.boxed-layout .switchable__image {
           box-shadow: 0 0.1875rem 0.9375rem 0 rgba(0, 0, 0, 0.15);
 }
 
-.navbar-sticky--moved-up.sticky-bg-color--dark {
+.navbar-2-2-sticky--moved-up.sticky-bg-color--dark {
   background: #1E202D;
 }
 
 @media only screen and (min-width: 992px) {
-  .navbar-sticky--moved-up {
+  .navbar-2-2-sticky--moved-up {
     padding-top: 0.625rem;
     padding-bottom: 0.625rem;
   }
 }
 
-.navbar-sticky--moved-up.sticky-bg-color--darkblue {
+.navbar-2-2-sticky--moved-up.sticky-bg-color--darkblue {
   background: #121871;
   -webkit-box-shadow: 0 0.3125rem 0.9375rem 0 rgba(0, 128, 255, 0.1);
           box-shadow: 0 0.3125rem 0.9375rem 0 rgba(0, 128, 255, 0.1);
 }
 
-.navbar-sticky--moved-up.sticky-bg-color--primary {
+.navbar-2-2-sticky--moved-up.sticky-bg-color--primary {
   -webkit-box-shadow: 0 0.1875rem 0.9375rem 0 rgba(22, 18, 47, 0.1);
           box-shadow: 0 0.1875rem 0.9375rem 0 rgba(22, 18, 47, 0.1);
 }
 
-.navbar-sticky--moved-up .navbar-brand__regular {
+.navbar-2-2-sticky--moved-up .navbar-2-2-brand__regular {
   display: none;
 }
 
-.navbar-sticky--moved-up .navbar-brand__sticky {
+.navbar-2-2-sticky--moved-up .navbar-2-2-brand__sticky {
   display: inline;
 }
 
-.navbar-sticky--moved-up.sticky-bg-color--primary .btn-bg--primary {
+.navbar-2-2-sticky--moved-up.sticky-bg-color--primary .btn-bg--primary {
   background: rgba(255, 255, 255, 0.1) !important;
 }
 
-.navbar-sticky--moved-up.sticky-bg-color--dark.navbar-light .navbar-nav .nav-link, .navbar-sticky--moved-up.sticky-bg-color--primary.navbar-light .navbar-nav .nav-link {
+.navbar-2-2-sticky--moved-up.sticky-bg-color--dark.navbar-2-2-light .navbar-2-2-nav .nav-link, .navbar-2-2-sticky--moved-up.sticky-bg-color--primary.navbar-2-2-light .navbar-2-2-nav .nav-link {
   color: rgba(255, 255, 255, 0.75);
 }
 
-.navbar-sticky--moved-up.sticky-bg-color--dark.navbar-light .navbar-nav .nav-link:hover, .navbar-sticky--moved-up.sticky-bg-color--dark.navbar-light .navbar-nav .nav-link:focus, .navbar-sticky--moved-up.sticky-bg-color--dark.navbar-light .navbar-nav .nav-link.active, .navbar-sticky--moved-up.sticky-bg-color--dark.navbar-light .navbar-nav .nav-link.current-menu-item, .navbar-sticky--moved-up.sticky-bg-color--primary.navbar-light .navbar-nav .nav-link:hover, .navbar-sticky--moved-up.sticky-bg-color--primary.navbar-light .navbar-nav .nav-link:focus, .navbar-sticky--moved-up.sticky-bg-color--primary.navbar-light .navbar-nav .nav-link.active, .navbar-sticky--moved-up.sticky-bg-color--primary.navbar-light .navbar-nav .nav-link.current-menu-item {
+.navbar-2-2-sticky--moved-up.sticky-bg-color--dark.navbar-2-2-light .navbar-2-2-nav .nav-link:hover, .navbar-2-2-sticky--moved-up.sticky-bg-color--dark.navbar-2-2-light .navbar-2-2-nav .nav-link:focus, .navbar-2-2-sticky--moved-up.sticky-bg-color--dark.navbar-2-2-light .navbar-2-2-nav .nav-link.active, .navbar-2-2-sticky--moved-up.sticky-bg-color--dark.navbar-2-2-light .navbar-2-2-nav .nav-link.current-menu-item, .navbar-2-2-sticky--moved-up.sticky-bg-color--primary.navbar-2-2-light .navbar-2-2-nav .nav-link:hover, .navbar-2-2-sticky--moved-up.sticky-bg-color--primary.navbar-2-2-light .navbar-2-2-nav .nav-link:focus, .navbar-2-2-sticky--moved-up.sticky-bg-color--primary.navbar-2-2-light .navbar-2-2-nav .nav-link.active, .navbar-2-2-sticky--moved-up.sticky-bg-color--primary.navbar-2-2-light .navbar-2-2-nav .nav-link.current-menu-item {
   color: #fff;
 }
 
-.navbar-sticky--on {
+.navbar-2-2-sticky--on {
   margin-top: 0;
 }
 
-/*---------- Navbar Dark ----------*/
-.navbar-dark .navbar-nav .nav-link {
+/*---------- navbar-2-2 Dark ----------*/
+.navbar-2-2-dark .navbar-2-2-nav .nav-link {
   color: rgba(255, 255, 255, 0.75);
 }
 
-.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.current-menu-item {
+.navbar-2-2-dark .navbar-2-2-nav .nav-link:hover, .navbar-2-2-dark .navbar-2-2-nav .nav-link:focus, .navbar-2-2-dark .navbar-2-2-nav .nav-link.active, .navbar-2-2-dark .navbar-2-2-nav .nav-link.current-menu-item {
   color: #fff;
 }
 
-/*---------- Navbar light ----------*/
-.sticky-bg-color--white .navbar-nav .nav-link,
-.navbar-light:not(.navbar-sticky--moved-up) .navbar-nav .nav-link {
+/*---------- navbar-2-2 light ----------*/
+.sticky-bg-color--white .navbar-2-2-nav .nav-link,
+.navbar-2-2-light:not(.navbar-2-2-sticky--moved-up) .navbar-2-2-nav .nav-link {
   color: rgba(18, 20, 31, 0.75);
 }
 
-.sticky-bg-color--white .navbar-nav .nav-link:hover, .sticky-bg-color--white .navbar-nav .nav-link:focus, .sticky-bg-color--white .navbar-nav .nav-link.active, .sticky-bg-color--white .navbar-nav .nav-link.current-menu-item,
-.navbar-light:not(.navbar-sticky--moved-up) .navbar-nav .nav-link:hover,
-.navbar-light:not(.navbar-sticky--moved-up) .navbar-nav .nav-link:focus,
-.navbar-light:not(.navbar-sticky--moved-up) .navbar-nav .nav-link.active,
-.navbar-light:not(.navbar-sticky--moved-up) .navbar-nav .nav-link.current-menu-item {
+.sticky-bg-color--white .navbar-2-2-nav .nav-link:hover, .sticky-bg-color--white .navbar-2-2-nav .nav-link:focus, .sticky-bg-color--white .navbar-2-2-nav .nav-link.active, .sticky-bg-color--white .navbar-2-2-nav .nav-link.current-menu-item,
+.navbar-2-2-light:not(.navbar-2-2-sticky--moved-up) .navbar-2-2-nav .nav-link:hover,
+.navbar-2-2-light:not(.navbar-2-2-sticky--moved-up) .navbar-2-2-nav .nav-link:focus,
+.navbar-2-2-light:not(.navbar-2-2-sticky--moved-up) .navbar-2-2-nav .nav-link.active,
+.navbar-2-2-light:not(.navbar-2-2-sticky--moved-up) .navbar-2-2-nav .nav-link.current-menu-item {
   color: #12141f;
 }
 
@@ -6640,7 +6640,7 @@ body.boxed-layout .switchable__image {
   border-bottom: 10px solid #fff;
 }
 
-.navbar-light .dropdown > .dropdown-menu:before {
+.navbar-2-2-light .dropdown > .dropdown-menu:before {
   width: 0;
   height: 0;
   border-left: 10px solid transparent;
@@ -6676,7 +6676,7 @@ body.boxed-layout .switchable__image {
 }
 
 @media only screen and (min-width: 992px) {
-  .navbar-nav li:hover > ul.dropdown-menu {
+  .navbar-2-2-nav li:hover > ul.dropdown-menu {
     opacity: 1;
     -webkit-transform: translateY(0px);
         -ms-transform: translateY(0px);
@@ -6741,7 +6741,7 @@ body.boxed-layout .switchable__image {
   border-left: 5px solid transparent;
 }
 
-.navbar-light:not(.navbar-sticky--on) .dropdown-toggle:after {
+.navbar-2-2-light:not(.navbar-2-2-sticky--on) .dropdown-toggle:after {
   color: rgba(18, 20, 31, 0.65);
 }
 
@@ -6794,7 +6794,7 @@ body.boxed-layout .switchable__image {
     -o-transition: .3s;
     transition: .3s;
   }
-  .navbar-light .main:before {
+  .navbar-2-2-light .main:before {
     background: rgba(255, 255, 255, 0.5);
   }
   .offcanvas--open {
@@ -6804,35 +6804,35 @@ body.boxed-layout .switchable__image {
     opacity: .95;
     visibility: visible;
   }
-  .navbar {
+  .navbar-2-2 {
     padding-top: 0.625rem;
     padding-bottom: 0.625rem;
   }
-  .navbar.active {
+  .navbar-2-2.active {
     display: block;
   }
-  .navbar.active .navbar-inner {
+  .navbar-2-2.active .navbar-2-2-inner {
     right: 0;
   }
-  .navbar .navbar-inner {
+  .navbar-2-2 .navbar-2-2-inner {
     right: -100%;
     -webkit-transition: right 0.3s 0.2s;
     -o-transition: right 0.3s 0.2s;
     transition: right 0.3s 0.2s;
     background: #12141f;
   }
-  [data-appearance=darkblue] .navbar .navbar-inner {
+  [data-appearance=darkblue] .navbar-2-2 .navbar-2-2-inner {
     background: -o-linear-gradient(45deg, #0e0f69 0%, #2b38af 100%);
     background: linear-gradient(45deg, #0e0f69 0%, #2b38af 100%);
   }
-  .navbar .nav-link {
+  .navbar-2-2 .nav-link {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
     padding-right: 1.25rem;
     padding-left: 1.25rem;
   }
-  .navbar-inner {
+  .navbar-2-2-inner {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -6846,7 +6846,7 @@ body.boxed-layout .switchable__image {
     overflow-y: auto;
     z-index: 1050;
   }
-  .navbar-inner .dropdown-menu {
+  .navbar-2-2-inner .dropdown-menu {
     border: medium none;
     background: none;
     border-radius: 0;
@@ -6857,7 +6857,7 @@ body.boxed-layout .switchable__image {
     padding-bottom: 0;
     position: static;
   }
-  .navbar-inner .dropdown-menu:before {
+  .navbar-2-2-inner .dropdown-menu:before {
     content: none;
   }
   .dropdown-item {
@@ -6870,21 +6870,21 @@ body.boxed-layout .switchable__image {
     -webkit-transform: translate3d(-150px, 0, 0);
             transform: translate3d(-150px, 0, 0);
   }
-  .navbar-light .navbar-inner {
+  .navbar-2-2-light .navbar-2-2-inner {
     background: #fff;
   }
-  .navbar-light .nav-link {
+  .navbar-2-2-light .nav-link {
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     color: rgba(18, 20, 31, 0.75) !important;
   }
-  .navbar-light .dropdown-item {
+  .navbar-2-2-light .dropdown-item {
     color: rgba(18, 20, 31, 0.75);
   }
   .dropdown-submenu .dropdown-toggle:after {
     top: 17px;
   }
   /*---------- Mobile Site nav toggler ----------*/
-  .navbar-toggler {
+  .navbar-2-2-toggler {
     position: absolute;
     right: -13px;
     border: none;
@@ -6895,12 +6895,12 @@ body.boxed-layout .switchable__image {
     z-index: 1;
     display: inline-block;
   }
-  .navbar-inner .navbar-toggler {
+  .navbar-2-2-inner .navbar-2-2-toggler {
     position: absolute;
     height: 2.5rem;
     top: 0;
   }
-  .navbar-toggler-icon {
+  .navbar-2-2-toggler-icon {
     position: absolute;
     top: 0;
     right: 0;
@@ -6909,81 +6909,81 @@ body.boxed-layout .switchable__image {
     margin: auto;
     background-image: none !important;
   }
-  .navbar-toggler-icon, .navbar-toggler-icon:before, .navbar-toggler-icon:after {
+  .navbar-2-2-toggler-icon, .navbar-2-2-toggler-icon:before, .navbar-2-2-toggler-icon:after {
     -webkit-transition: .3s ease-in-out;
     -o-transition: .3s ease-in-out;
     transition: .3s ease-in-out;
   }
-  .navbar-toggler-icon {
+  .navbar-2-2-toggler-icon {
     height: 3px;
     width: 50%;
     display: inline-block;
   }
-  .navbar-dark .navbar-toggler-icon,
-  .navbar-sticky--on .navbar-toggler-icon {
+  .navbar-2-2-dark .navbar-2-2-toggler-icon,
+  .navbar-2-2-sticky--on .navbar-2-2-toggler-icon {
     background: #fff;
   }
-  .navbar-light .navbar-toggler-icon,
-  .navbar-light.navbar-sticky--on .navbar-toggler-icon {
+  .navbar-2-2-light .navbar-2-2-toggler-icon,
+  .navbar-2-2-light.navbar-2-2-sticky--on .navbar-2-2-toggler-icon {
     background: #12141f;
   }
-  .sticky-bg-color--primary.navbar-sticky--on .navbar-toggler-icon {
+  .sticky-bg-color--primary.navbar-2-2-sticky--on .navbar-2-2-toggler-icon {
     background: #fff;
   }
-  .navbar-toggler-icon:before, .navbar-toggler-icon:after {
+  .navbar-2-2-toggler-icon:before, .navbar-2-2-toggler-icon:after {
     content: "";
     left: 0;
     height: 100%;
     width: 100%;
     position: absolute;
   }
-  .navbar-dark .navbar-toggler-icon:before,
-  .navbar-sticky--on .navbar-toggler-icon:before, .navbar-dark .navbar-toggler-icon:after,
-  .navbar-sticky--on .navbar-toggler-icon:after {
+  .navbar-2-2-dark .navbar-2-2-toggler-icon:before,
+  .navbar-2-2-sticky--on .navbar-2-2-toggler-icon:before, .navbar-2-2-dark .navbar-2-2-toggler-icon:after,
+  .navbar-2-2-sticky--on .navbar-2-2-toggler-icon:after {
     background: #fff;
   }
-  .navbar-light .navbar-toggler-icon:before,
-  .navbar-light.navbar-sticky--on .navbar-toggler-icon:before, .navbar-light .navbar-toggler-icon:after,
-  .navbar-light.navbar-sticky--on .navbar-toggler-icon:after {
+  .navbar-2-2-light .navbar-2-2-toggler-icon:before,
+  .navbar-2-2-light.navbar-2-2-sticky--on .navbar-2-2-toggler-icon:before, .navbar-2-2-light .navbar-2-2-toggler-icon:after,
+  .navbar-2-2-light.navbar-2-2-sticky--on .navbar-2-2-toggler-icon:after {
     background: #12141f;
   }
-  .sticky-bg-color--primary.navbar-sticky--on .navbar-toggler-icon:before, .sticky-bg-color--primary.navbar-sticky--on .navbar-toggler-icon:after {
+  .sticky-bg-color--primary.navbar-2-2-sticky--on .navbar-2-2-toggler-icon:before, .sticky-bg-color--primary.navbar-2-2-sticky--on .navbar-2-2-toggler-icon:after {
     background: #fff;
   }
-  .navbar-toggler-icon::before {
+  .navbar-2-2-toggler-icon::before {
     top: -0.625rem;
   }
-  .navbar-toggler-icon::after {
+  .navbar-2-2-toggler-icon::after {
     top: 0.625rem;
   }
-  .navbar-toggler-icon.active {
+  .navbar-2-2-toggler-icon.active {
     background-color: transparent !important;
     -webkit-transform: scale(0.85) rotate(270deg);
         -ms-transform: scale(0.85) rotate(270deg);
             transform: scale(0.85) rotate(270deg);
   }
-  .navbar-toggler-icon.active:before {
+  .navbar-2-2-toggler-icon.active:before {
     top: 0;
     -webkit-transform: scale(0.65) rotate(45deg);
         -ms-transform: scale(0.65) rotate(45deg);
             transform: scale(0.65) rotate(45deg);
   }
-  .navbar-light .navbar-toggler-icon.active:before {
+  .navbar-2-2-light .navbar-2-2-toggler-icon.active:before {
     background: #12141f;
   }
-  .navbar-toggler-icon.active:after {
+  .navbar-2-2-toggler-icon.active:after {
     top: 0;
     -webkit-transform: scale(0.65) rotate(-45deg);
         -ms-transform: scale(0.65) rotate(-45deg);
             transform: scale(0.65) rotate(-45deg);
   }
-  .navbar-light .navbar-toggler-icon.active:after {
+  .navbar-2-2-light .navbar-2-2-toggler-icon.active:after {
     background: #12141f;
   }
 }
 
-/*---------- Navbar Language ----------*/
-.navbar-language {
+/*---------- navbar-2-2 Language ----------*/
+.navbar-2-2-language {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -6996,26 +6996,26 @@ body.boxed-layout .switchable__image {
 }
 
 @media only screen and (min-width: 1366px) {
-  .navbar .navbar-language {
+  .navbar-2-2 .navbar-2-2-language {
     border-left: 1px solid rgba(255, 255, 255, 0.2);
     margin-left: 0.3125rem;
     padding-left: 0.9375rem;
   }
 }
 
-.navbar-language__list {
+.navbar-2-2-language__list {
   margin-left: 0.625rem;
   margin-right: 0.625rem;
 }
 
 @media only screen and (min-width: 1366px) {
-  .navbar-language__list {
+  .navbar-2-2-language__list {
     margin-left: 0.9375rem;
     margin-right: 0.9375rem;
   }
 }
 
-.navbar-language__list a {
+.navbar-2-2-language__list a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7025,15 +7025,15 @@ body.boxed-layout .switchable__image {
   opacity: .8;
 }
 
-.navbar-language__list a:hover {
+.navbar-2-2-language__list a:hover {
   opacity: 1;
 }
 
-.navbar-language__flag {
+.navbar-2-2-language__flag {
   margin-right: 0.3125rem;
 }
 
-.navbar-language__name {
+.navbar-2-2-language__name {
   font-size: 0.8125rem;
 }
 
@@ -8031,47 +8031,47 @@ body.boxed-layout.zig-zag-wool {
 /**! 59. themes **/
 /**! ----- Common colors (SCSS extend) ---- **/
 .theme-royal-blue mark,
-.theme-royal-blue ins, .theme-royal-blue .bg-color--primary, .theme-royal-blue [class*="bg-color--primary-opacity-"]::before, .theme-royal-blue .btn-bg--primary, .theme-royal-blue .btn-bg--primary--05::after, .theme-royal-blue .btn-hover--primary:hover, .theme-royal-blue .card-hover--bg--primary-shadow.focused, .theme-royal-blue .card-hover--bg--primary-shadow:hover, .theme-royal-blue .preloader .blobs .blob-center, .preloader .blobs .theme-royal-blue .blob-center, .theme-royal-blue .preloader .blob, .preloader .theme-royal-blue .blob, .theme-royal-blue .form--v8:after, .theme-royal-blue .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-royal-blue .ico-progress__stages:after, .theme-royal-blue .decor, .theme-royal-blue .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-royal-blue button, .theme-royal-blue .carosuel-triangle:hover, .theme-royal-blue .label-bg--light--200::before, .theme-royal-blue .pagination .page-item.active .page-link, .pagination .page-item.active .theme-royal-blue .page-link, .theme-royal-blue .sticky .card, .sticky .theme-royal-blue .card, .theme-royal-blue .sticky .article__thumbnail-image::before, .sticky .theme-royal-blue .article__thumbnail-image::before, .theme-royal-blue .widget_calendar tbody a, .widget_calendar tbody .theme-royal-blue a, .theme-royal-blue .post-navigation .meta-nav::before, .post-navigation .theme-royal-blue .meta-nav::before, .theme-royal-blue .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-royal-blue .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-royal-blue .timeline-line:before {
+.theme-royal-blue ins, .theme-royal-blue .bg-color--primary, .theme-royal-blue [class*="bg-color--primary-opacity-"]::before, .theme-royal-blue .btn-bg--primary, .theme-royal-blue .btn-bg--primary--05::after, .theme-royal-blue .btn-hover--primary:hover, .theme-royal-blue .card-hover--bg--primary-shadow.focused, .theme-royal-blue .card-hover--bg--primary-shadow:hover, .theme-royal-blue .preloader .blobs .blob-center, .preloader .blobs .theme-royal-blue .blob-center, .theme-royal-blue .preloader .blob, .preloader .theme-royal-blue .blob, .theme-royal-blue .form--v8:after, .theme-royal-blue .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-royal-blue .ico-progress__stages:after, .theme-royal-blue .decor, .theme-royal-blue .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-royal-blue button, .theme-royal-blue .carosuel-triangle:hover, .theme-royal-blue .label-bg--light--200::before, .theme-royal-blue .pagination .page-item.active .page-link, .pagination .page-item.active .theme-royal-blue .page-link, .theme-royal-blue .sticky .card, .sticky .theme-royal-blue .card, .theme-royal-blue .sticky .article__thumbnail-image::before, .sticky .theme-royal-blue .article__thumbnail-image::before, .theme-royal-blue .widget_calendar tbody a, .widget_calendar tbody .theme-royal-blue a, .theme-royal-blue .post-navigation .meta-nav::before, .post-navigation .theme-royal-blue .meta-nav::before, .theme-royal-blue .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-royal-blue .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-royal-blue .timeline-line:before {
   background: #264eee;
 }
 
 .theme-blue mark,
-.theme-blue ins, .theme-blue .bg-color--primary, .theme-blue [class*="bg-color--primary-opacity-"]::before, .theme-blue .btn-bg--primary, .theme-blue .btn-bg--primary--05::after, .theme-blue .btn-hover--primary:hover, .theme-blue .card-hover--bg--primary-shadow.focused, .theme-blue .card-hover--bg--primary-shadow:hover, .theme-blue .preloader .blobs .blob-center, .preloader .blobs .theme-blue .blob-center, .theme-blue .preloader .blob, .preloader .theme-blue .blob, .theme-blue .form--v8:after, .theme-blue .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-blue .ico-progress__stages:after, .theme-blue .decor, .theme-blue .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-blue button, .theme-blue .carosuel-triangle:hover, .theme-blue .label-bg--light--200::before, .theme-blue .pagination .page-item.active .page-link, .pagination .page-item.active .theme-blue .page-link, .theme-blue .sticky .card, .sticky .theme-blue .card, .theme-blue .sticky .article__thumbnail-image::before, .sticky .theme-blue .article__thumbnail-image::before, .theme-blue .widget_calendar tbody a, .widget_calendar tbody .theme-blue a, .theme-blue .post-navigation .meta-nav::before, .post-navigation .theme-blue .meta-nav::before, .theme-blue .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-blue .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-blue .timeline-line:before {
+.theme-blue ins, .theme-blue .bg-color--primary, .theme-blue [class*="bg-color--primary-opacity-"]::before, .theme-blue .btn-bg--primary, .theme-blue .btn-bg--primary--05::after, .theme-blue .btn-hover--primary:hover, .theme-blue .card-hover--bg--primary-shadow.focused, .theme-blue .card-hover--bg--primary-shadow:hover, .theme-blue .preloader .blobs .blob-center, .preloader .blobs .theme-blue .blob-center, .theme-blue .preloader .blob, .preloader .theme-blue .blob, .theme-blue .form--v8:after, .theme-blue .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-blue .ico-progress__stages:after, .theme-blue .decor, .theme-blue .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-blue button, .theme-blue .carosuel-triangle:hover, .theme-blue .label-bg--light--200::before, .theme-blue .pagination .page-item.active .page-link, .pagination .page-item.active .theme-blue .page-link, .theme-blue .sticky .card, .sticky .theme-blue .card, .theme-blue .sticky .article__thumbnail-image::before, .sticky .theme-blue .article__thumbnail-image::before, .theme-blue .widget_calendar tbody a, .widget_calendar tbody .theme-blue a, .theme-blue .post-navigation .meta-nav::before, .post-navigation .theme-blue .meta-nav::before, .theme-blue .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-blue .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-blue .timeline-line:before {
   background: #3965f4;
 }
 
 .theme-amethyst mark,
-.theme-amethyst ins, .theme-amethyst .bg-color--primary, .theme-amethyst [class*="bg-color--primary-opacity-"]::before, .theme-amethyst .btn-bg--primary, .theme-amethyst .btn-bg--primary--05::after, .theme-amethyst .btn-hover--primary:hover, .theme-amethyst .card-hover--bg--primary-shadow.focused, .theme-amethyst .card-hover--bg--primary-shadow:hover, .theme-amethyst .preloader .blobs .blob-center, .preloader .blobs .theme-amethyst .blob-center, .theme-amethyst .preloader .blob, .preloader .theme-amethyst .blob, .theme-amethyst .form--v8:after, .theme-amethyst .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-amethyst .ico-progress__stages:after, .theme-amethyst .decor, .theme-amethyst .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-amethyst button, .theme-amethyst .carosuel-triangle:hover, .theme-amethyst .label-bg--light--200::before, .theme-amethyst .pagination .page-item.active .page-link, .pagination .page-item.active .theme-amethyst .page-link, .theme-amethyst .sticky .card, .sticky .theme-amethyst .card, .theme-amethyst .sticky .article__thumbnail-image::before, .sticky .theme-amethyst .article__thumbnail-image::before, .theme-amethyst .widget_calendar tbody a, .widget_calendar tbody .theme-amethyst a, .theme-amethyst .post-navigation .meta-nav::before, .post-navigation .theme-amethyst .meta-nav::before, .theme-amethyst .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-amethyst .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-amethyst .timeline-line:before {
+.theme-amethyst ins, .theme-amethyst .bg-color--primary, .theme-amethyst [class*="bg-color--primary-opacity-"]::before, .theme-amethyst .btn-bg--primary, .theme-amethyst .btn-bg--primary--05::after, .theme-amethyst .btn-hover--primary:hover, .theme-amethyst .card-hover--bg--primary-shadow.focused, .theme-amethyst .card-hover--bg--primary-shadow:hover, .theme-amethyst .preloader .blobs .blob-center, .preloader .blobs .theme-amethyst .blob-center, .theme-amethyst .preloader .blob, .preloader .theme-amethyst .blob, .theme-amethyst .form--v8:after, .theme-amethyst .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-amethyst .ico-progress__stages:after, .theme-amethyst .decor, .theme-amethyst .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-amethyst button, .theme-amethyst .carosuel-triangle:hover, .theme-amethyst .label-bg--light--200::before, .theme-amethyst .pagination .page-item.active .page-link, .pagination .page-item.active .theme-amethyst .page-link, .theme-amethyst .sticky .card, .sticky .theme-amethyst .card, .theme-amethyst .sticky .article__thumbnail-image::before, .sticky .theme-amethyst .article__thumbnail-image::before, .theme-amethyst .widget_calendar tbody a, .widget_calendar tbody .theme-amethyst a, .theme-amethyst .post-navigation .meta-nav::before, .post-navigation .theme-amethyst .meta-nav::before, .theme-amethyst .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-amethyst .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-amethyst .timeline-line:before {
   background: #C04DD0;
 }
 
 .theme-roman mark,
-.theme-roman ins, .theme-roman .bg-color--primary, .theme-roman [class*="bg-color--primary-opacity-"]::before, .theme-roman .btn-bg--primary, .theme-roman .btn-bg--primary--05::after, .theme-roman .btn-hover--primary:hover, .theme-roman .card-hover--bg--primary-shadow.focused, .theme-roman .card-hover--bg--primary-shadow:hover, .theme-roman .preloader .blobs .blob-center, .preloader .blobs .theme-roman .blob-center, .theme-roman .preloader .blob, .preloader .theme-roman .blob, .theme-roman .form--v8:after, .theme-roman .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-roman .ico-progress__stages:after, .theme-roman .decor, .theme-roman .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-roman button, .theme-roman .carosuel-triangle:hover, .theme-roman .label-bg--light--200::before, .theme-roman .pagination .page-item.active .page-link, .pagination .page-item.active .theme-roman .page-link, .theme-roman .sticky .card, .sticky .theme-roman .card, .theme-roman .sticky .article__thumbnail-image::before, .sticky .theme-roman .article__thumbnail-image::before, .theme-roman .widget_calendar tbody a, .widget_calendar tbody .theme-roman a, .theme-roman .post-navigation .meta-nav::before, .post-navigation .theme-roman .meta-nav::before, .theme-roman .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-roman .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-roman .timeline-line:before {
+.theme-roman ins, .theme-roman .bg-color--primary, .theme-roman [class*="bg-color--primary-opacity-"]::before, .theme-roman .btn-bg--primary, .theme-roman .btn-bg--primary--05::after, .theme-roman .btn-hover--primary:hover, .theme-roman .card-hover--bg--primary-shadow.focused, .theme-roman .card-hover--bg--primary-shadow:hover, .theme-roman .preloader .blobs .blob-center, .preloader .blobs .theme-roman .blob-center, .theme-roman .preloader .blob, .preloader .theme-roman .blob, .theme-roman .form--v8:after, .theme-roman .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-roman .ico-progress__stages:after, .theme-roman .decor, .theme-roman .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-roman button, .theme-roman .carosuel-triangle:hover, .theme-roman .label-bg--light--200::before, .theme-roman .pagination .page-item.active .page-link, .pagination .page-item.active .theme-roman .page-link, .theme-roman .sticky .card, .sticky .theme-roman .card, .theme-roman .sticky .article__thumbnail-image::before, .sticky .theme-roman .article__thumbnail-image::before, .theme-roman .widget_calendar tbody a, .widget_calendar tbody .theme-roman a, .theme-roman .post-navigation .meta-nav::before, .post-navigation .theme-roman .meta-nav::before, .theme-roman .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-roman .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-roman .timeline-line:before {
   background: #da5d5d;
 }
 
 .theme-amaranth mark,
-.theme-amaranth ins, .theme-amaranth .bg-color--primary, .theme-amaranth [class*="bg-color--primary-opacity-"]::before, .theme-amaranth .btn-bg--primary, .theme-amaranth .btn-bg--primary--05::after, .theme-amaranth .btn-hover--primary:hover, .theme-amaranth .card-hover--bg--primary-shadow.focused, .theme-amaranth .card-hover--bg--primary-shadow:hover, .theme-amaranth .preloader .blobs .blob-center, .preloader .blobs .theme-amaranth .blob-center, .theme-amaranth .preloader .blob, .preloader .theme-amaranth .blob, .theme-amaranth .form--v8:after, .theme-amaranth .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-amaranth .ico-progress__stages:after, .theme-amaranth .decor, .theme-amaranth .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-amaranth button, .theme-amaranth .carosuel-triangle:hover, .theme-amaranth .label-bg--light--200::before, .theme-amaranth .pagination .page-item.active .page-link, .pagination .page-item.active .theme-amaranth .page-link, .theme-amaranth .sticky .card, .sticky .theme-amaranth .card, .theme-amaranth .sticky .article__thumbnail-image::before, .sticky .theme-amaranth .article__thumbnail-image::before, .theme-amaranth .widget_calendar tbody a, .widget_calendar tbody .theme-amaranth a, .theme-amaranth .post-navigation .meta-nav::before, .post-navigation .theme-amaranth .meta-nav::before, .theme-amaranth .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-amaranth .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-amaranth .timeline-line:before {
+.theme-amaranth ins, .theme-amaranth .bg-color--primary, .theme-amaranth [class*="bg-color--primary-opacity-"]::before, .theme-amaranth .btn-bg--primary, .theme-amaranth .btn-bg--primary--05::after, .theme-amaranth .btn-hover--primary:hover, .theme-amaranth .card-hover--bg--primary-shadow.focused, .theme-amaranth .card-hover--bg--primary-shadow:hover, .theme-amaranth .preloader .blobs .blob-center, .preloader .blobs .theme-amaranth .blob-center, .theme-amaranth .preloader .blob, .preloader .theme-amaranth .blob, .theme-amaranth .form--v8:after, .theme-amaranth .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-amaranth .ico-progress__stages:after, .theme-amaranth .decor, .theme-amaranth .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-amaranth button, .theme-amaranth .carosuel-triangle:hover, .theme-amaranth .label-bg--light--200::before, .theme-amaranth .pagination .page-item.active .page-link, .pagination .page-item.active .theme-amaranth .page-link, .theme-amaranth .sticky .card, .sticky .theme-amaranth .card, .theme-amaranth .sticky .article__thumbnail-image::before, .sticky .theme-amaranth .article__thumbnail-image::before, .theme-amaranth .widget_calendar tbody a, .widget_calendar tbody .theme-amaranth a, .theme-amaranth .post-navigation .meta-nav::before, .post-navigation .theme-amaranth .meta-nav::before, .theme-amaranth .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-amaranth .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-amaranth .timeline-line:before {
   background: #FF4B36;
 }
 
 .theme-orange mark,
-.theme-orange ins, .theme-orange .bg-color--primary, .theme-orange [class*="bg-color--primary-opacity-"]::before, .theme-orange .btn-bg--primary, .theme-orange .btn-bg--primary--05::after, .theme-orange .btn-hover--primary:hover, .theme-orange .card-hover--bg--primary-shadow.focused, .theme-orange .card-hover--bg--primary-shadow:hover, .theme-orange .preloader .blobs .blob-center, .preloader .blobs .theme-orange .blob-center, .theme-orange .preloader .blob, .preloader .theme-orange .blob, .theme-orange .form--v8:after, .theme-orange .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-orange .ico-progress__stages:after, .theme-orange .decor, .theme-orange .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-orange button, .theme-orange .carosuel-triangle:hover, .theme-orange .label-bg--light--200::before, .theme-orange .pagination .page-item.active .page-link, .pagination .page-item.active .theme-orange .page-link, .theme-orange .sticky .card, .sticky .theme-orange .card, .theme-orange .sticky .article__thumbnail-image::before, .sticky .theme-orange .article__thumbnail-image::before, .theme-orange .widget_calendar tbody a, .widget_calendar tbody .theme-orange a, .theme-orange .post-navigation .meta-nav::before, .post-navigation .theme-orange .meta-nav::before, .theme-orange .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-orange .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-orange .timeline-line:before {
+.theme-orange ins, .theme-orange .bg-color--primary, .theme-orange [class*="bg-color--primary-opacity-"]::before, .theme-orange .btn-bg--primary, .theme-orange .btn-bg--primary--05::after, .theme-orange .btn-hover--primary:hover, .theme-orange .card-hover--bg--primary-shadow.focused, .theme-orange .card-hover--bg--primary-shadow:hover, .theme-orange .preloader .blobs .blob-center, .preloader .blobs .theme-orange .blob-center, .theme-orange .preloader .blob, .preloader .theme-orange .blob, .theme-orange .form--v8:after, .theme-orange .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-orange .ico-progress__stages:after, .theme-orange .decor, .theme-orange .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-orange button, .theme-orange .carosuel-triangle:hover, .theme-orange .label-bg--light--200::before, .theme-orange .pagination .page-item.active .page-link, .pagination .page-item.active .theme-orange .page-link, .theme-orange .sticky .card, .sticky .theme-orange .card, .theme-orange .sticky .article__thumbnail-image::before, .sticky .theme-orange .article__thumbnail-image::before, .theme-orange .widget_calendar tbody a, .widget_calendar tbody .theme-orange a, .theme-orange .post-navigation .meta-nav::before, .post-navigation .theme-orange .meta-nav::before, .theme-orange .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-orange .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-orange .timeline-line:before {
   background: #eb7939;
 }
 
 .theme-green mark,
-.theme-green ins, .theme-green .bg-color--primary, .theme-green [class*="bg-color--primary-opacity-"]::before, .theme-green .btn-bg--primary, .theme-green .btn-bg--primary--05::after, .theme-green .btn-hover--primary:hover, .theme-green .card-hover--bg--primary-shadow.focused, .theme-green .card-hover--bg--primary-shadow:hover, .theme-green .preloader .blobs .blob-center, .preloader .blobs .theme-green .blob-center, .theme-green .preloader .blob, .preloader .theme-green .blob, .theme-green .form--v8:after, .theme-green .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-green .ico-progress__stages:after, .theme-green .decor, .theme-green .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-green button, .theme-green .carosuel-triangle:hover, .theme-green .label-bg--light--200::before, .theme-green .pagination .page-item.active .page-link, .pagination .page-item.active .theme-green .page-link, .theme-green .sticky .card, .sticky .theme-green .card, .theme-green .sticky .article__thumbnail-image::before, .sticky .theme-green .article__thumbnail-image::before, .theme-green .widget_calendar tbody a, .widget_calendar tbody .theme-green a, .theme-green .post-navigation .meta-nav::before, .post-navigation .theme-green .meta-nav::before, .theme-green .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-green .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-green .timeline-line:before {
+.theme-green ins, .theme-green .bg-color--primary, .theme-green [class*="bg-color--primary-opacity-"]::before, .theme-green .btn-bg--primary, .theme-green .btn-bg--primary--05::after, .theme-green .btn-hover--primary:hover, .theme-green .card-hover--bg--primary-shadow.focused, .theme-green .card-hover--bg--primary-shadow:hover, .theme-green .preloader .blobs .blob-center, .preloader .blobs .theme-green .blob-center, .theme-green .preloader .blob, .preloader .theme-green .blob, .theme-green .form--v8:after, .theme-green .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-green .ico-progress__stages:after, .theme-green .decor, .theme-green .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-green button, .theme-green .carosuel-triangle:hover, .theme-green .label-bg--light--200::before, .theme-green .pagination .page-item.active .page-link, .pagination .page-item.active .theme-green .page-link, .theme-green .sticky .card, .sticky .theme-green .card, .theme-green .sticky .article__thumbnail-image::before, .sticky .theme-green .article__thumbnail-image::before, .theme-green .widget_calendar tbody a, .widget_calendar tbody .theme-green a, .theme-green .post-navigation .meta-nav::before, .post-navigation .theme-green .meta-nav::before, .theme-green .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-green .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-green .timeline-line:before {
   background: #1ED660;
 }
 
 .theme-fern mark,
-.theme-fern ins, .theme-fern .bg-color--primary, .theme-fern [class*="bg-color--primary-opacity-"]::before, .theme-fern .btn-bg--primary, .theme-fern .btn-bg--primary--05::after, .theme-fern .btn-hover--primary:hover, .theme-fern .card-hover--bg--primary-shadow.focused, .theme-fern .card-hover--bg--primary-shadow:hover, .theme-fern .preloader .blobs .blob-center, .preloader .blobs .theme-fern .blob-center, .theme-fern .preloader .blob, .preloader .theme-fern .blob, .theme-fern .form--v8:after, .theme-fern .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-fern .ico-progress__stages:after, .theme-fern .decor, .theme-fern .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-fern button, .theme-fern .carosuel-triangle:hover, .theme-fern .label-bg--light--200::before, .theme-fern .pagination .page-item.active .page-link, .pagination .page-item.active .theme-fern .page-link, .theme-fern .sticky .card, .sticky .theme-fern .card, .theme-fern .sticky .article__thumbnail-image::before, .sticky .theme-fern .article__thumbnail-image::before, .theme-fern .widget_calendar tbody a, .widget_calendar tbody .theme-fern a, .theme-fern .post-navigation .meta-nav::before, .post-navigation .theme-fern .meta-nav::before, .theme-fern .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-fern .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-fern .timeline-line:before {
+.theme-fern ins, .theme-fern .bg-color--primary, .theme-fern [class*="bg-color--primary-opacity-"]::before, .theme-fern .btn-bg--primary, .theme-fern .btn-bg--primary--05::after, .theme-fern .btn-hover--primary:hover, .theme-fern .card-hover--bg--primary-shadow.focused, .theme-fern .card-hover--bg--primary-shadow:hover, .theme-fern .preloader .blobs .blob-center, .preloader .blobs .theme-fern .blob-center, .theme-fern .preloader .blob, .preloader .theme-fern .blob, .theme-fern .form--v8:after, .theme-fern .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-fern .ico-progress__stages:after, .theme-fern .decor, .theme-fern .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-fern button, .theme-fern .carosuel-triangle:hover, .theme-fern .label-bg--light--200::before, .theme-fern .pagination .page-item.active .page-link, .pagination .page-item.active .theme-fern .page-link, .theme-fern .sticky .card, .sticky .theme-fern .card, .theme-fern .sticky .article__thumbnail-image::before, .sticky .theme-fern .article__thumbnail-image::before, .theme-fern .widget_calendar tbody a, .widget_calendar tbody .theme-fern a, .theme-fern .post-navigation .meta-nav::before, .post-navigation .theme-fern .meta-nav::before, .theme-fern .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-fern .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-fern .timeline-line:before {
   background: #52B570;
 }
 
 .theme-gradient-1 mark,
-.theme-gradient-1 ins, .theme-gradient-1 .bg-color--primary, .theme-gradient-1 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-1 .btn-bg--primary, .theme-gradient-1 .btn-bg--primary--05::after, .theme-gradient-1 .btn-hover--primary:hover, .theme-gradient-1 .card-hover--bg--primary-shadow.focused, .theme-gradient-1 .card-hover--bg--primary-shadow:hover, .theme-gradient-1 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-1 .blob-center, .theme-gradient-1 .preloader .blob, .preloader .theme-gradient-1 .blob, .theme-gradient-1 .form--v8:after, .theme-gradient-1 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-1 .ico-progress__stages:after, .theme-gradient-1 .decor, .theme-gradient-1 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-1 button, .theme-gradient-1 .carosuel-triangle:hover, .theme-gradient-1 .label-bg--light--200::before, .theme-gradient-1 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-1 .page-link, .theme-gradient-1 .sticky .card, .sticky .theme-gradient-1 .card, .theme-gradient-1 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-1 .article__thumbnail-image::before, .theme-gradient-1 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-1 a, .theme-gradient-1 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-1 .meta-nav::before, .theme-gradient-1 .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-1 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-1 .timeline-line:before {
+.theme-gradient-1 ins, .theme-gradient-1 .bg-color--primary, .theme-gradient-1 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-1 .btn-bg--primary, .theme-gradient-1 .btn-bg--primary--05::after, .theme-gradient-1 .btn-hover--primary:hover, .theme-gradient-1 .card-hover--bg--primary-shadow.focused, .theme-gradient-1 .card-hover--bg--primary-shadow:hover, .theme-gradient-1 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-1 .blob-center, .theme-gradient-1 .preloader .blob, .preloader .theme-gradient-1 .blob, .theme-gradient-1 .form--v8:after, .theme-gradient-1 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-1 .ico-progress__stages:after, .theme-gradient-1 .decor, .theme-gradient-1 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-1 button, .theme-gradient-1 .carosuel-triangle:hover, .theme-gradient-1 .label-bg--light--200::before, .theme-gradient-1 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-1 .page-link, .theme-gradient-1 .sticky .card, .sticky .theme-gradient-1 .card, .theme-gradient-1 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-1 .article__thumbnail-image::before, .theme-gradient-1 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-1 a, .theme-gradient-1 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-1 .meta-nav::before, .theme-gradient-1 .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-1 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-1 .timeline-line:before {
   background: -webkit-gradient(linear, left top, right top, from(#5179f5), to(#66e4cd));
   background: -o-linear-gradient(left, #5179f5 0%, #66e4cd 100%);
   background: linear-gradient(to right, #5179f5 0%, #66e4cd 100%);
@@ -8079,48 +8079,48 @@ body.boxed-layout.zig-zag-wool {
 }
 
 .theme-gradient-1 .btn-bg--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-1 .btn-bg--primary, .theme-gradient-1 .btn-bg--primary.btn-bg--primary--05::after, .theme-gradient-1 .preloader .blobs .btn-bg--primary.blob-center, .preloader .blobs .theme-gradient-1 .btn-bg--primary.blob-center, .theme-gradient-1 .btn-bg--primary.form--v8:after, .theme-gradient-1 .ico-progress--v2 .btn-bg--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-1 .btn-bg--primary.ico-progress__stages:after, .theme-gradient-1 .carosuel-slider--v1 .slick-dots .slick-active button.btn-bg--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-1 button.btn-bg--primary, .theme-gradient-1 .btn-bg--primary.label-bg--light--200::before, .theme-gradient-1 .pagination .page-item.active .btn-bg--primary.page-link, .pagination .page-item.active .theme-gradient-1 .btn-bg--primary.page-link, .theme-gradient-1 .sticky .btn-bg--primary.article__thumbnail-image::before, .sticky .theme-gradient-1 .btn-bg--primary.article__thumbnail-image::before, .theme-gradient-1 .post-navigation .btn-bg--primary.meta-nav::before, .post-navigation .theme-gradient-1 .btn-bg--primary.meta-nav::before, .theme-gradient-1 .roadmap--v4 .roadmap-item--current .btn-bg--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-1 .btn-bg--primary.timeline-line:before, .theme-gradient-1 mark.btn-hover--primary,
-.theme-gradient-1 ins.btn-hover--primary, .theme-gradient-1 .btn-hover--primary.bg-color--primary, .theme-gradient-1 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-1 .btn-hover--primary.btn-bg--primary, .theme-gradient-1 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-1 .btn-hover--primary:hover, .theme-gradient-1 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-1 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-1 .btn-hover--primary.blob-center, .theme-gradient-1 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-1 .btn-hover--primary.blob, .theme-gradient-1 .btn-hover--primary.form--v8:after, .theme-gradient-1 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-1 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-1 .btn-hover--primary.decor, .theme-gradient-1 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-1 button.btn-hover--primary, .theme-gradient-1 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-1 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-1 .btn-hover--primary.page-link, .theme-gradient-1 .sticky .btn-hover--primary.card, .sticky .theme-gradient-1 .btn-hover--primary.card, .theme-gradient-1 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-1 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-1 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-1 a.btn-hover--primary, .theme-gradient-1 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-1 .btn-hover--primary.meta-nav::before, .theme-gradient-1 .btn-hover--primary.navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-1 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-1 .btn-hover--primary.timeline-line:before {
+.theme-gradient-1 ins.btn-hover--primary, .theme-gradient-1 .btn-hover--primary.bg-color--primary, .theme-gradient-1 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-1 .btn-hover--primary.btn-bg--primary, .theme-gradient-1 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-1 .btn-hover--primary:hover, .theme-gradient-1 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-1 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-1 .btn-hover--primary.blob-center, .theme-gradient-1 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-1 .btn-hover--primary.blob, .theme-gradient-1 .btn-hover--primary.form--v8:after, .theme-gradient-1 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-1 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-1 .btn-hover--primary.decor, .theme-gradient-1 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-1 button.btn-hover--primary, .theme-gradient-1 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-1 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-1 .btn-hover--primary.page-link, .theme-gradient-1 .sticky .btn-hover--primary.card, .sticky .theme-gradient-1 .btn-hover--primary.card, .theme-gradient-1 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-1 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-1 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-1 a.btn-hover--primary, .theme-gradient-1 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-1 .btn-hover--primary.meta-nav::before, .theme-gradient-1 .btn-hover--primary.navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-1 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-1 .btn-hover--primary.timeline-line:before {
   background: #5b7fec;
 }
 
 .theme-gradient-2 mark,
-.theme-gradient-2 ins, .theme-gradient-2 .bg-color--primary, .theme-gradient-2 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-2 .btn-bg--primary, .theme-gradient-2 .btn-bg--primary--05::after, .theme-gradient-2 .btn-hover--primary:hover, .theme-gradient-2 .card-hover--bg--primary-shadow.focused, .theme-gradient-2 .card-hover--bg--primary-shadow:hover, .theme-gradient-2 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-2 .blob-center, .theme-gradient-2 .preloader .blob, .preloader .theme-gradient-2 .blob, .theme-gradient-2 .form--v8:after, .theme-gradient-2 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-2 .ico-progress__stages:after, .theme-gradient-2 .decor, .theme-gradient-2 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-2 button, .theme-gradient-2 .carosuel-triangle:hover, .theme-gradient-2 .label-bg--light--200::before, .theme-gradient-2 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-2 .page-link, .theme-gradient-2 .sticky .card, .sticky .theme-gradient-2 .card, .theme-gradient-2 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-2 .article__thumbnail-image::before, .theme-gradient-2 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-2 a, .theme-gradient-2 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-2 .meta-nav::before, .theme-gradient-2 .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-2 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-2 .timeline-line:before {
+.theme-gradient-2 ins, .theme-gradient-2 .bg-color--primary, .theme-gradient-2 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-2 .btn-bg--primary, .theme-gradient-2 .btn-bg--primary--05::after, .theme-gradient-2 .btn-hover--primary:hover, .theme-gradient-2 .card-hover--bg--primary-shadow.focused, .theme-gradient-2 .card-hover--bg--primary-shadow:hover, .theme-gradient-2 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-2 .blob-center, .theme-gradient-2 .preloader .blob, .preloader .theme-gradient-2 .blob, .theme-gradient-2 .form--v8:after, .theme-gradient-2 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-2 .ico-progress__stages:after, .theme-gradient-2 .decor, .theme-gradient-2 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-2 button, .theme-gradient-2 .carosuel-triangle:hover, .theme-gradient-2 .label-bg--light--200::before, .theme-gradient-2 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-2 .page-link, .theme-gradient-2 .sticky .card, .sticky .theme-gradient-2 .card, .theme-gradient-2 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-2 .article__thumbnail-image::before, .theme-gradient-2 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-2 a, .theme-gradient-2 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-2 .meta-nav::before, .theme-gradient-2 .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-2 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-2 .timeline-line:before {
   background: -o-linear-gradient(45deg, #23a6e2 0%, #64c5a7 100%);
   background: linear-gradient(45deg, #23a6e2 0%, #64c5a7 100%);
   background-size: 105% 105%;
 }
 
 .theme-gradient-2 .btn-bg--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-2 .btn-bg--primary, .theme-gradient-2 .btn-bg--primary.btn-bg--primary--05::after, .theme-gradient-2 .preloader .blobs .btn-bg--primary.blob-center, .preloader .blobs .theme-gradient-2 .btn-bg--primary.blob-center, .theme-gradient-2 .btn-bg--primary.form--v8:after, .theme-gradient-2 .ico-progress--v2 .btn-bg--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-2 .btn-bg--primary.ico-progress__stages:after, .theme-gradient-2 .carosuel-slider--v1 .slick-dots .slick-active button.btn-bg--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-2 button.btn-bg--primary, .theme-gradient-2 .btn-bg--primary.label-bg--light--200::before, .theme-gradient-2 .pagination .page-item.active .btn-bg--primary.page-link, .pagination .page-item.active .theme-gradient-2 .btn-bg--primary.page-link, .theme-gradient-2 .sticky .btn-bg--primary.article__thumbnail-image::before, .sticky .theme-gradient-2 .btn-bg--primary.article__thumbnail-image::before, .theme-gradient-2 .post-navigation .btn-bg--primary.meta-nav::before, .post-navigation .theme-gradient-2 .btn-bg--primary.meta-nav::before, .theme-gradient-2 .roadmap--v4 .roadmap-item--current .btn-bg--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-2 .btn-bg--primary.timeline-line:before, .theme-gradient-2 mark.btn-hover--primary,
-.theme-gradient-2 ins.btn-hover--primary, .theme-gradient-2 .btn-hover--primary.bg-color--primary, .theme-gradient-2 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-2 .btn-hover--primary.btn-bg--primary, .theme-gradient-2 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-2 .btn-hover--primary:hover, .theme-gradient-2 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-2 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-2 .btn-hover--primary.blob-center, .theme-gradient-2 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-2 .btn-hover--primary.blob, .theme-gradient-2 .btn-hover--primary.form--v8:after, .theme-gradient-2 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-2 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-2 .btn-hover--primary.decor, .theme-gradient-2 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-2 button.btn-hover--primary, .theme-gradient-2 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-2 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-2 .btn-hover--primary.page-link, .theme-gradient-2 .sticky .btn-hover--primary.card, .sticky .theme-gradient-2 .btn-hover--primary.card, .theme-gradient-2 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-2 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-2 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-2 a.btn-hover--primary, .theme-gradient-2 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-2 .btn-hover--primary.meta-nav::before, .theme-gradient-2 .btn-hover--primary.navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-2 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-2 .btn-hover--primary.timeline-line:before {
+.theme-gradient-2 ins.btn-hover--primary, .theme-gradient-2 .btn-hover--primary.bg-color--primary, .theme-gradient-2 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-2 .btn-hover--primary.btn-bg--primary, .theme-gradient-2 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-2 .btn-hover--primary:hover, .theme-gradient-2 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-2 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-2 .btn-hover--primary.blob-center, .theme-gradient-2 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-2 .btn-hover--primary.blob, .theme-gradient-2 .btn-hover--primary.form--v8:after, .theme-gradient-2 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-2 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-2 .btn-hover--primary.decor, .theme-gradient-2 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-2 button.btn-hover--primary, .theme-gradient-2 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-2 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-2 .btn-hover--primary.page-link, .theme-gradient-2 .sticky .btn-hover--primary.card, .sticky .theme-gradient-2 .btn-hover--primary.card, .theme-gradient-2 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-2 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-2 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-2 a.btn-hover--primary, .theme-gradient-2 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-2 .btn-hover--primary.meta-nav::before, .theme-gradient-2 .btn-hover--primary.navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-2 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-2 .btn-hover--primary.timeline-line:before {
   background: #4abdaf;
 }
 
 .theme-gradient-3 mark,
-.theme-gradient-3 ins, .theme-gradient-3 .bg-color--primary, .theme-gradient-3 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-3 .btn-bg--primary, .theme-gradient-3 .btn-bg--primary--05::after, .theme-gradient-3 .btn-hover--primary:hover, .theme-gradient-3 .card-hover--bg--primary-shadow.focused, .theme-gradient-3 .card-hover--bg--primary-shadow:hover, .theme-gradient-3 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-3 .blob-center, .theme-gradient-3 .preloader .blob, .preloader .theme-gradient-3 .blob, .theme-gradient-3 .form--v8:after, .theme-gradient-3 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-3 .ico-progress__stages:after, .theme-gradient-3 .decor, .theme-gradient-3 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-3 button, .theme-gradient-3 .carosuel-triangle:hover, .theme-gradient-3 .label-bg--light--200::before, .theme-gradient-3 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-3 .page-link, .theme-gradient-3 .sticky .card, .sticky .theme-gradient-3 .card, .theme-gradient-3 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-3 .article__thumbnail-image::before, .theme-gradient-3 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-3 a, .theme-gradient-3 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-3 .meta-nav::before, .theme-gradient-3 .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-3 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-3 .timeline-line:before {
+.theme-gradient-3 ins, .theme-gradient-3 .bg-color--primary, .theme-gradient-3 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-3 .btn-bg--primary, .theme-gradient-3 .btn-bg--primary--05::after, .theme-gradient-3 .btn-hover--primary:hover, .theme-gradient-3 .card-hover--bg--primary-shadow.focused, .theme-gradient-3 .card-hover--bg--primary-shadow:hover, .theme-gradient-3 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-3 .blob-center, .theme-gradient-3 .preloader .blob, .preloader .theme-gradient-3 .blob, .theme-gradient-3 .form--v8:after, .theme-gradient-3 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-3 .ico-progress__stages:after, .theme-gradient-3 .decor, .theme-gradient-3 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-3 button, .theme-gradient-3 .carosuel-triangle:hover, .theme-gradient-3 .label-bg--light--200::before, .theme-gradient-3 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-3 .page-link, .theme-gradient-3 .sticky .card, .sticky .theme-gradient-3 .card, .theme-gradient-3 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-3 .article__thumbnail-image::before, .theme-gradient-3 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-3 a, .theme-gradient-3 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-3 .meta-nav::before, .theme-gradient-3 .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-3 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-3 .timeline-line:before {
   background: -o-linear-gradient(225deg, #EF8F6D 0%, #EB699D 100%);
   background: linear-gradient(225deg, #EF8F6D 0%, #EB699D 100%);
   background-size: 105% 105%;
 }
 
 .theme-gradient-3 .btn-bg--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-3 .btn-bg--primary, .theme-gradient-3 .btn-bg--primary.btn-bg--primary--05::after, .theme-gradient-3 .preloader .blobs .btn-bg--primary.blob-center, .preloader .blobs .theme-gradient-3 .btn-bg--primary.blob-center, .theme-gradient-3 .btn-bg--primary.form--v8:after, .theme-gradient-3 .ico-progress--v2 .btn-bg--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-3 .btn-bg--primary.ico-progress__stages:after, .theme-gradient-3 .carosuel-slider--v1 .slick-dots .slick-active button.btn-bg--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-3 button.btn-bg--primary, .theme-gradient-3 .btn-bg--primary.label-bg--light--200::before, .theme-gradient-3 .pagination .page-item.active .btn-bg--primary.page-link, .pagination .page-item.active .theme-gradient-3 .btn-bg--primary.page-link, .theme-gradient-3 .sticky .btn-bg--primary.article__thumbnail-image::before, .sticky .theme-gradient-3 .btn-bg--primary.article__thumbnail-image::before, .theme-gradient-3 .post-navigation .btn-bg--primary.meta-nav::before, .post-navigation .theme-gradient-3 .btn-bg--primary.meta-nav::before, .theme-gradient-3 .roadmap--v4 .roadmap-item--current .btn-bg--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-3 .btn-bg--primary.timeline-line:before, .theme-gradient-3 mark.btn-hover--primary,
-.theme-gradient-3 ins.btn-hover--primary, .theme-gradient-3 .btn-hover--primary.bg-color--primary, .theme-gradient-3 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-3 .btn-hover--primary.btn-bg--primary, .theme-gradient-3 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-3 .btn-hover--primary:hover, .theme-gradient-3 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-3 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-3 .btn-hover--primary.blob-center, .theme-gradient-3 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-3 .btn-hover--primary.blob, .theme-gradient-3 .btn-hover--primary.form--v8:after, .theme-gradient-3 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-3 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-3 .btn-hover--primary.decor, .theme-gradient-3 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-3 button.btn-hover--primary, .theme-gradient-3 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-3 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-3 .btn-hover--primary.page-link, .theme-gradient-3 .sticky .btn-hover--primary.card, .sticky .theme-gradient-3 .btn-hover--primary.card, .theme-gradient-3 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-3 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-3 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-3 a.btn-hover--primary, .theme-gradient-3 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-3 .btn-hover--primary.meta-nav::before, .theme-gradient-3 .btn-hover--primary.navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-3 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-3 .btn-hover--primary.timeline-line:before {
+.theme-gradient-3 ins.btn-hover--primary, .theme-gradient-3 .btn-hover--primary.bg-color--primary, .theme-gradient-3 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-3 .btn-hover--primary.btn-bg--primary, .theme-gradient-3 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-3 .btn-hover--primary:hover, .theme-gradient-3 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-3 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-3 .btn-hover--primary.blob-center, .theme-gradient-3 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-3 .btn-hover--primary.blob, .theme-gradient-3 .btn-hover--primary.form--v8:after, .theme-gradient-3 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-3 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-3 .btn-hover--primary.decor, .theme-gradient-3 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-3 button.btn-hover--primary, .theme-gradient-3 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-3 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-3 .btn-hover--primary.page-link, .theme-gradient-3 .sticky .btn-hover--primary.card, .sticky .theme-gradient-3 .btn-hover--primary.card, .theme-gradient-3 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-3 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-3 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-3 a.btn-hover--primary, .theme-gradient-3 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-3 .btn-hover--primary.meta-nav::before, .theme-gradient-3 .btn-hover--primary.navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-3 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-3 .btn-hover--primary.timeline-line:before {
   background: #df8685;
 }
 
 .theme-gradient-4 mark,
-.theme-gradient-4 ins, .theme-gradient-4 .bg-color--primary, .theme-gradient-4 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-4 .btn-bg--primary, .theme-gradient-4 .btn-bg--primary--05::after, .theme-gradient-4 .btn-hover--primary:hover, .theme-gradient-4 .card-hover--bg--primary-shadow.focused, .theme-gradient-4 .card-hover--bg--primary-shadow:hover, .theme-gradient-4 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-4 .blob-center, .theme-gradient-4 .preloader .blob, .preloader .theme-gradient-4 .blob, .theme-gradient-4 .form--v8:after, .theme-gradient-4 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-4 .ico-progress__stages:after, .theme-gradient-4 .decor, .theme-gradient-4 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-4 button, .theme-gradient-4 .carosuel-triangle:hover, .theme-gradient-4 .label-bg--light--200::before, .theme-gradient-4 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-4 .page-link, .theme-gradient-4 .sticky .card, .sticky .theme-gradient-4 .card, .theme-gradient-4 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-4 .article__thumbnail-image::before, .theme-gradient-4 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-4 a, .theme-gradient-4 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-4 .meta-nav::before, .theme-gradient-4 .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-4 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-4 .timeline-line:before {
+.theme-gradient-4 ins, .theme-gradient-4 .bg-color--primary, .theme-gradient-4 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-4 .btn-bg--primary, .theme-gradient-4 .btn-bg--primary--05::after, .theme-gradient-4 .btn-hover--primary:hover, .theme-gradient-4 .card-hover--bg--primary-shadow.focused, .theme-gradient-4 .card-hover--bg--primary-shadow:hover, .theme-gradient-4 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-4 .blob-center, .theme-gradient-4 .preloader .blob, .preloader .theme-gradient-4 .blob, .theme-gradient-4 .form--v8:after, .theme-gradient-4 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-4 .ico-progress__stages:after, .theme-gradient-4 .decor, .theme-gradient-4 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-4 button, .theme-gradient-4 .carosuel-triangle:hover, .theme-gradient-4 .label-bg--light--200::before, .theme-gradient-4 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-4 .page-link, .theme-gradient-4 .sticky .card, .sticky .theme-gradient-4 .card, .theme-gradient-4 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-4 .article__thumbnail-image::before, .theme-gradient-4 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-4 a, .theme-gradient-4 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-4 .meta-nav::before, .theme-gradient-4 .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-4 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-4 .timeline-line:before {
   background: -o-linear-gradient(45deg, #ff4bc4 0%, #375aeb 66%, #2b5bed 100%);
   background: linear-gradient(45deg, #ff4bc4 0%, #375aeb 66%, #2b5bed 100%);
   background-size: 105% 105%;
 }
 
 .theme-gradient-4 .btn-bg--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-4 .btn-bg--primary, .theme-gradient-4 .btn-bg--primary.btn-bg--primary--05::after, .theme-gradient-4 .preloader .blobs .btn-bg--primary.blob-center, .preloader .blobs .theme-gradient-4 .btn-bg--primary.blob-center, .theme-gradient-4 .btn-bg--primary.form--v8:after, .theme-gradient-4 .ico-progress--v2 .btn-bg--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-4 .btn-bg--primary.ico-progress__stages:after, .theme-gradient-4 .carosuel-slider--v1 .slick-dots .slick-active button.btn-bg--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-4 button.btn-bg--primary, .theme-gradient-4 .btn-bg--primary.label-bg--light--200::before, .theme-gradient-4 .pagination .page-item.active .btn-bg--primary.page-link, .pagination .page-item.active .theme-gradient-4 .btn-bg--primary.page-link, .theme-gradient-4 .sticky .btn-bg--primary.article__thumbnail-image::before, .sticky .theme-gradient-4 .btn-bg--primary.article__thumbnail-image::before, .theme-gradient-4 .post-navigation .btn-bg--primary.meta-nav::before, .post-navigation .theme-gradient-4 .btn-bg--primary.meta-nav::before, .theme-gradient-4 .roadmap--v4 .roadmap-item--current .btn-bg--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-4 .btn-bg--primary.timeline-line:before, .theme-gradient-4 mark.btn-hover--primary,
-.theme-gradient-4 ins.btn-hover--primary, .theme-gradient-4 .btn-hover--primary.bg-color--primary, .theme-gradient-4 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-4 .btn-hover--primary.btn-bg--primary, .theme-gradient-4 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-4 .btn-hover--primary:hover, .theme-gradient-4 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-4 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-4 .btn-hover--primary.blob-center, .theme-gradient-4 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-4 .btn-hover--primary.blob, .theme-gradient-4 .btn-hover--primary.form--v8:after, .theme-gradient-4 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-4 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-4 .btn-hover--primary.decor, .theme-gradient-4 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-4 button.btn-hover--primary, .theme-gradient-4 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-4 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-4 .btn-hover--primary.page-link, .theme-gradient-4 .sticky .btn-hover--primary.card, .sticky .theme-gradient-4 .btn-hover--primary.card, .theme-gradient-4 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-4 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-4 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-4 a.btn-hover--primary, .theme-gradient-4 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-4 .btn-hover--primary.meta-nav::before, .theme-gradient-4 .btn-hover--primary.navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-4 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-4 .btn-hover--primary.timeline-line:before {
+.theme-gradient-4 ins.btn-hover--primary, .theme-gradient-4 .btn-hover--primary.bg-color--primary, .theme-gradient-4 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-4 .btn-hover--primary.btn-bg--primary, .theme-gradient-4 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-4 .btn-hover--primary:hover, .theme-gradient-4 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-4 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-4 .btn-hover--primary.blob-center, .theme-gradient-4 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-4 .btn-hover--primary.blob, .theme-gradient-4 .btn-hover--primary.form--v8:after, .theme-gradient-4 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-4 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-4 .btn-hover--primary.decor, .theme-gradient-4 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-4 button.btn-hover--primary, .theme-gradient-4 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-4 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-4 .btn-hover--primary.page-link, .theme-gradient-4 .sticky .btn-hover--primary.card, .sticky .theme-gradient-4 .btn-hover--primary.card, .theme-gradient-4 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-4 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-4 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-4 a.btn-hover--primary, .theme-gradient-4 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-4 .btn-hover--primary.meta-nav::before, .theme-gradient-4 .btn-hover--primary.navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-4 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-4 .btn-hover--primary.timeline-line:before {
   background: #3965f4;
 }
 
 .theme-gradient-5 mark,
-.theme-gradient-5 ins, .theme-gradient-5 .bg-color--primary, .theme-gradient-5 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-5 .btn-bg--primary, .theme-gradient-5 .btn-bg--primary--05::after, .theme-gradient-5 .btn-hover--primary:hover, .theme-gradient-5 .card-hover--bg--primary-shadow.focused, .theme-gradient-5 .card-hover--bg--primary-shadow:hover, .theme-gradient-5 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-5 .blob-center, .theme-gradient-5 .preloader .blob, .preloader .theme-gradient-5 .blob, .theme-gradient-5 .form--v8:after, .theme-gradient-5 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-5 .ico-progress__stages:after, .theme-gradient-5 .decor, .theme-gradient-5 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-5 button, .theme-gradient-5 .carosuel-triangle:hover, .theme-gradient-5 .label-bg--light--200::before, .theme-gradient-5 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-5 .page-link, .theme-gradient-5 .sticky .card, .sticky .theme-gradient-5 .card, .theme-gradient-5 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-5 .article__thumbnail-image::before, .theme-gradient-5 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-5 a, .theme-gradient-5 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-5 .meta-nav::before, .theme-gradient-5 .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-5 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-5 .timeline-line:before {
+.theme-gradient-5 ins, .theme-gradient-5 .bg-color--primary, .theme-gradient-5 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-5 .btn-bg--primary, .theme-gradient-5 .btn-bg--primary--05::after, .theme-gradient-5 .btn-hover--primary:hover, .theme-gradient-5 .card-hover--bg--primary-shadow.focused, .theme-gradient-5 .card-hover--bg--primary-shadow:hover, .theme-gradient-5 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-5 .blob-center, .theme-gradient-5 .preloader .blob, .preloader .theme-gradient-5 .blob, .theme-gradient-5 .form--v8:after, .theme-gradient-5 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-5 .ico-progress__stages:after, .theme-gradient-5 .decor, .theme-gradient-5 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-5 button, .theme-gradient-5 .carosuel-triangle:hover, .theme-gradient-5 .label-bg--light--200::before, .theme-gradient-5 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-5 .page-link, .theme-gradient-5 .sticky .card, .sticky .theme-gradient-5 .card, .theme-gradient-5 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-5 .article__thumbnail-image::before, .theme-gradient-5 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-5 a, .theme-gradient-5 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-5 .meta-nav::before, .theme-gradient-5 .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-5 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-5 .timeline-line:before {
   background: -webkit-gradient(linear, left top, right top, from(#0099FF), to(#6610f2));
   background: -o-linear-gradient(left, #0099FF 0%, #6610f2 100%);
   background: linear-gradient(90deg, #0099FF 0%, #6610f2 100%);
@@ -8128,36 +8128,36 @@ body.boxed-layout.zig-zag-wool {
 }
 
 .theme-gradient-5 .btn-bg--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-5 .btn-bg--primary, .theme-gradient-5 .btn-bg--primary.btn-bg--primary--05::after, .theme-gradient-5 .preloader .blobs .btn-bg--primary.blob-center, .preloader .blobs .theme-gradient-5 .btn-bg--primary.blob-center, .theme-gradient-5 .btn-bg--primary.form--v8:after, .theme-gradient-5 .ico-progress--v2 .btn-bg--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-5 .btn-bg--primary.ico-progress__stages:after, .theme-gradient-5 .carosuel-slider--v1 .slick-dots .slick-active button.btn-bg--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-5 button.btn-bg--primary, .theme-gradient-5 .btn-bg--primary.label-bg--light--200::before, .theme-gradient-5 .pagination .page-item.active .btn-bg--primary.page-link, .pagination .page-item.active .theme-gradient-5 .btn-bg--primary.page-link, .theme-gradient-5 .sticky .btn-bg--primary.article__thumbnail-image::before, .sticky .theme-gradient-5 .btn-bg--primary.article__thumbnail-image::before, .theme-gradient-5 .post-navigation .btn-bg--primary.meta-nav::before, .post-navigation .theme-gradient-5 .btn-bg--primary.meta-nav::before, .theme-gradient-5 .roadmap--v4 .roadmap-item--current .btn-bg--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-5 .btn-bg--primary.timeline-line:before, .theme-gradient-5 mark.btn-hover--primary,
-.theme-gradient-5 ins.btn-hover--primary, .theme-gradient-5 .btn-hover--primary.bg-color--primary, .theme-gradient-5 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-5 .btn-hover--primary.btn-bg--primary, .theme-gradient-5 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-5 .btn-hover--primary:hover, .theme-gradient-5 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-5 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-5 .btn-hover--primary.blob-center, .theme-gradient-5 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-5 .btn-hover--primary.blob, .theme-gradient-5 .btn-hover--primary.form--v8:after, .theme-gradient-5 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-5 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-5 .btn-hover--primary.decor, .theme-gradient-5 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-5 button.btn-hover--primary, .theme-gradient-5 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-5 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-5 .btn-hover--primary.page-link, .theme-gradient-5 .sticky .btn-hover--primary.card, .sticky .theme-gradient-5 .btn-hover--primary.card, .theme-gradient-5 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-5 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-5 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-5 a.btn-hover--primary, .theme-gradient-5 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-5 .btn-hover--primary.meta-nav::before, .theme-gradient-5 .btn-hover--primary.navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-5 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-5 .btn-hover--primary.timeline-line:before {
+.theme-gradient-5 ins.btn-hover--primary, .theme-gradient-5 .btn-hover--primary.bg-color--primary, .theme-gradient-5 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-5 .btn-hover--primary.btn-bg--primary, .theme-gradient-5 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-5 .btn-hover--primary:hover, .theme-gradient-5 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-5 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-5 .btn-hover--primary.blob-center, .theme-gradient-5 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-5 .btn-hover--primary.blob, .theme-gradient-5 .btn-hover--primary.form--v8:after, .theme-gradient-5 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-5 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-5 .btn-hover--primary.decor, .theme-gradient-5 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-5 button.btn-hover--primary, .theme-gradient-5 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-5 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-5 .btn-hover--primary.page-link, .theme-gradient-5 .sticky .btn-hover--primary.card, .sticky .theme-gradient-5 .btn-hover--primary.card, .theme-gradient-5 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-5 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-5 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-5 a.btn-hover--primary, .theme-gradient-5 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-5 .btn-hover--primary.meta-nav::before, .theme-gradient-5 .btn-hover--primary.navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-5 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-5 .btn-hover--primary.timeline-line:before {
   background: #3965f4;
 }
 
 .theme-gradient-6 mark,
-.theme-gradient-6 ins, .theme-gradient-6 .bg-color--primary, .theme-gradient-6 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-6 .btn-bg--primary, .theme-gradient-6 .btn-bg--primary--05::after, .theme-gradient-6 .btn-hover--primary:hover, .theme-gradient-6 .card-hover--bg--primary-shadow.focused, .theme-gradient-6 .card-hover--bg--primary-shadow:hover, .theme-gradient-6 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-6 .blob-center, .theme-gradient-6 .preloader .blob, .preloader .theme-gradient-6 .blob, .theme-gradient-6 .form--v8:after, .theme-gradient-6 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-6 .ico-progress__stages:after, .theme-gradient-6 .decor, .theme-gradient-6 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-6 button, .theme-gradient-6 .carosuel-triangle:hover, .theme-gradient-6 .label-bg--light--200::before, .theme-gradient-6 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-6 .page-link, .theme-gradient-6 .sticky .card, .sticky .theme-gradient-6 .card, .theme-gradient-6 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-6 .article__thumbnail-image::before, .theme-gradient-6 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-6 a, .theme-gradient-6 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-6 .meta-nav::before, .theme-gradient-6 .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-6 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-6 .timeline-line:before {
+.theme-gradient-6 ins, .theme-gradient-6 .bg-color--primary, .theme-gradient-6 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-6 .btn-bg--primary, .theme-gradient-6 .btn-bg--primary--05::after, .theme-gradient-6 .btn-hover--primary:hover, .theme-gradient-6 .card-hover--bg--primary-shadow.focused, .theme-gradient-6 .card-hover--bg--primary-shadow:hover, .theme-gradient-6 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-6 .blob-center, .theme-gradient-6 .preloader .blob, .preloader .theme-gradient-6 .blob, .theme-gradient-6 .form--v8:after, .theme-gradient-6 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-6 .ico-progress__stages:after, .theme-gradient-6 .decor, .theme-gradient-6 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-6 button, .theme-gradient-6 .carosuel-triangle:hover, .theme-gradient-6 .label-bg--light--200::before, .theme-gradient-6 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-6 .page-link, .theme-gradient-6 .sticky .card, .sticky .theme-gradient-6 .card, .theme-gradient-6 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-6 .article__thumbnail-image::before, .theme-gradient-6 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-6 a, .theme-gradient-6 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-6 .meta-nav::before, .theme-gradient-6 .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-6 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-6 .timeline-line:before {
   background: -o-linear-gradient(45deg, #8448ff 0%, #21007b 80%);
   background: linear-gradient(45deg, #8448ff 0%, #21007b 80%);
   background-size: 105% 105%;
 }
 
 .theme-gradient-6 .btn-bg--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-6 .btn-bg--primary, .theme-gradient-6 .btn-bg--primary.btn-bg--primary--05::after, .theme-gradient-6 .preloader .blobs .btn-bg--primary.blob-center, .preloader .blobs .theme-gradient-6 .btn-bg--primary.blob-center, .theme-gradient-6 .btn-bg--primary.form--v8:after, .theme-gradient-6 .ico-progress--v2 .btn-bg--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-6 .btn-bg--primary.ico-progress__stages:after, .theme-gradient-6 .carosuel-slider--v1 .slick-dots .slick-active button.btn-bg--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-6 button.btn-bg--primary, .theme-gradient-6 .btn-bg--primary.label-bg--light--200::before, .theme-gradient-6 .pagination .page-item.active .btn-bg--primary.page-link, .pagination .page-item.active .theme-gradient-6 .btn-bg--primary.page-link, .theme-gradient-6 .sticky .btn-bg--primary.article__thumbnail-image::before, .sticky .theme-gradient-6 .btn-bg--primary.article__thumbnail-image::before, .theme-gradient-6 .post-navigation .btn-bg--primary.meta-nav::before, .post-navigation .theme-gradient-6 .btn-bg--primary.meta-nav::before, .theme-gradient-6 .roadmap--v4 .roadmap-item--current .btn-bg--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-6 .btn-bg--primary.timeline-line:before, .theme-gradient-6 mark.btn-hover--primary,
-.theme-gradient-6 ins.btn-hover--primary, .theme-gradient-6 .btn-hover--primary.bg-color--primary, .theme-gradient-6 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-6 .btn-hover--primary.btn-bg--primary, .theme-gradient-6 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-6 .btn-hover--primary:hover, .theme-gradient-6 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-6 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-6 .btn-hover--primary.blob-center, .theme-gradient-6 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-6 .btn-hover--primary.blob, .theme-gradient-6 .btn-hover--primary.form--v8:after, .theme-gradient-6 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-6 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-6 .btn-hover--primary.decor, .theme-gradient-6 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-6 button.btn-hover--primary, .theme-gradient-6 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-6 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-6 .btn-hover--primary.page-link, .theme-gradient-6 .sticky .btn-hover--primary.card, .sticky .theme-gradient-6 .btn-hover--primary.card, .theme-gradient-6 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-6 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-6 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-6 a.btn-hover--primary, .theme-gradient-6 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-6 .btn-hover--primary.meta-nav::before, .theme-gradient-6 .btn-hover--primary.navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-6 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-6 .btn-hover--primary.timeline-line:before {
+.theme-gradient-6 ins.btn-hover--primary, .theme-gradient-6 .btn-hover--primary.bg-color--primary, .theme-gradient-6 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-6 .btn-hover--primary.btn-bg--primary, .theme-gradient-6 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-6 .btn-hover--primary:hover, .theme-gradient-6 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-6 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-6 .btn-hover--primary.blob-center, .theme-gradient-6 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-6 .btn-hover--primary.blob, .theme-gradient-6 .btn-hover--primary.form--v8:after, .theme-gradient-6 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-6 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-6 .btn-hover--primary.decor, .theme-gradient-6 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-6 button.btn-hover--primary, .theme-gradient-6 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-6 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-6 .btn-hover--primary.page-link, .theme-gradient-6 .sticky .btn-hover--primary.card, .sticky .theme-gradient-6 .btn-hover--primary.card, .theme-gradient-6 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-6 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-6 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-6 a.btn-hover--primary, .theme-gradient-6 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-6 .btn-hover--primary.meta-nav::before, .theme-gradient-6 .btn-hover--primary.navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-6 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-6 .btn-hover--primary.timeline-line:before {
   background: #9313db;
 }
 
 .theme-gradient-7 mark,
-.theme-gradient-7 ins, .theme-gradient-7 .bg-color--primary, .theme-gradient-7 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-7 .btn-bg--primary, .theme-gradient-7 .btn-bg--primary--05::after, .theme-gradient-7 .btn-hover--primary:hover, .theme-gradient-7 .card-hover--bg--primary-shadow.focused, .theme-gradient-7 .card-hover--bg--primary-shadow:hover, .theme-gradient-7 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-7 .blob-center, .theme-gradient-7 .preloader .blob, .preloader .theme-gradient-7 .blob, .theme-gradient-7 .form--v8:after, .theme-gradient-7 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-7 .ico-progress__stages:after, .theme-gradient-7 .decor, .theme-gradient-7 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-7 button, .theme-gradient-7 .carosuel-triangle:hover, .theme-gradient-7 .label-bg--light--200::before, .theme-gradient-7 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-7 .page-link, .theme-gradient-7 .sticky .card, .sticky .theme-gradient-7 .card, .theme-gradient-7 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-7 .article__thumbnail-image::before, .theme-gradient-7 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-7 a, .theme-gradient-7 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-7 .meta-nav::before, .theme-gradient-7 .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-7 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-7 .timeline-line:before {
+.theme-gradient-7 ins, .theme-gradient-7 .bg-color--primary, .theme-gradient-7 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-7 .btn-bg--primary, .theme-gradient-7 .btn-bg--primary--05::after, .theme-gradient-7 .btn-hover--primary:hover, .theme-gradient-7 .card-hover--bg--primary-shadow.focused, .theme-gradient-7 .card-hover--bg--primary-shadow:hover, .theme-gradient-7 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-7 .blob-center, .theme-gradient-7 .preloader .blob, .preloader .theme-gradient-7 .blob, .theme-gradient-7 .form--v8:after, .theme-gradient-7 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-7 .ico-progress__stages:after, .theme-gradient-7 .decor, .theme-gradient-7 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-7 button, .theme-gradient-7 .carosuel-triangle:hover, .theme-gradient-7 .label-bg--light--200::before, .theme-gradient-7 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-7 .page-link, .theme-gradient-7 .sticky .card, .sticky .theme-gradient-7 .card, .theme-gradient-7 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-7 .article__thumbnail-image::before, .theme-gradient-7 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-7 a, .theme-gradient-7 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-7 .meta-nav::before, .theme-gradient-7 .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-7 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-7 .timeline-line:before {
   background: -o-linear-gradient(160deg, #8131c6 0%, #211e8c 100%), -o-linear-gradient(160deg, #8131c6 0%, #211e8c 100%);
   background: linear-gradient(-70deg, #8131c6 0%, #211e8c 100%), linear-gradient(-70deg, #8131c6 0%, #211e8c 100%);
   background-size: 105% 105%;
 }
 
 .theme-gradient-7 .btn-bg--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-7 .btn-bg--primary, .theme-gradient-7 .btn-bg--primary.btn-bg--primary--05::after, .theme-gradient-7 .preloader .blobs .btn-bg--primary.blob-center, .preloader .blobs .theme-gradient-7 .btn-bg--primary.blob-center, .theme-gradient-7 .btn-bg--primary.form--v8:after, .theme-gradient-7 .ico-progress--v2 .btn-bg--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-7 .btn-bg--primary.ico-progress__stages:after, .theme-gradient-7 .carosuel-slider--v1 .slick-dots .slick-active button.btn-bg--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-7 button.btn-bg--primary, .theme-gradient-7 .btn-bg--primary.label-bg--light--200::before, .theme-gradient-7 .pagination .page-item.active .btn-bg--primary.page-link, .pagination .page-item.active .theme-gradient-7 .btn-bg--primary.page-link, .theme-gradient-7 .sticky .btn-bg--primary.article__thumbnail-image::before, .sticky .theme-gradient-7 .btn-bg--primary.article__thumbnail-image::before, .theme-gradient-7 .post-navigation .btn-bg--primary.meta-nav::before, .post-navigation .theme-gradient-7 .btn-bg--primary.meta-nav::before, .theme-gradient-7 .roadmap--v4 .roadmap-item--current .btn-bg--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-7 .btn-bg--primary.timeline-line:before, .theme-gradient-7 mark.btn-hover--primary,
-.theme-gradient-7 ins.btn-hover--primary, .theme-gradient-7 .btn-hover--primary.bg-color--primary, .theme-gradient-7 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-7 .btn-hover--primary.btn-bg--primary, .theme-gradient-7 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-7 .btn-hover--primary:hover, .theme-gradient-7 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-7 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-7 .btn-hover--primary.blob-center, .theme-gradient-7 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-7 .btn-hover--primary.blob, .theme-gradient-7 .btn-hover--primary.form--v8:after, .theme-gradient-7 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-7 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-7 .btn-hover--primary.decor, .theme-gradient-7 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-7 button.btn-hover--primary, .theme-gradient-7 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-7 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-7 .btn-hover--primary.page-link, .theme-gradient-7 .sticky .btn-hover--primary.card, .sticky .theme-gradient-7 .btn-hover--primary.card, .theme-gradient-7 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-7 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-7 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-7 a.btn-hover--primary, .theme-gradient-7 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-7 .btn-hover--primary.meta-nav::before, .theme-gradient-7 .btn-hover--primary.navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-7 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-7 .btn-hover--primary.timeline-line:before {
+.theme-gradient-7 ins.btn-hover--primary, .theme-gradient-7 .btn-hover--primary.bg-color--primary, .theme-gradient-7 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-7 .btn-hover--primary.btn-bg--primary, .theme-gradient-7 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-7 .btn-hover--primary:hover, .theme-gradient-7 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-7 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-7 .btn-hover--primary.blob-center, .theme-gradient-7 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-7 .btn-hover--primary.blob, .theme-gradient-7 .btn-hover--primary.form--v8:after, .theme-gradient-7 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-7 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-7 .btn-hover--primary.decor, .theme-gradient-7 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-7 button.btn-hover--primary, .theme-gradient-7 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-7 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-7 .btn-hover--primary.page-link, .theme-gradient-7 .sticky .btn-hover--primary.card, .sticky .theme-gradient-7 .btn-hover--primary.card, .theme-gradient-7 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-7 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-7 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-7 a.btn-hover--primary, .theme-gradient-7 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-7 .btn-hover--primary.meta-nav::before, .theme-gradient-7 .btn-hover--primary.navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-7 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-7 .btn-hover--primary.timeline-line:before {
   background: #9313db;
 }
 
 .theme-gradient-8 mark,
-.theme-gradient-8 ins, .theme-gradient-8 .bg-color--primary, .theme-gradient-8 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-8 .btn-bg--primary, .theme-gradient-8 .btn-bg--primary--05::after, .theme-gradient-8 .btn-hover--primary:hover, .theme-gradient-8 .card-hover--bg--primary-shadow.focused, .theme-gradient-8 .card-hover--bg--primary-shadow:hover, .theme-gradient-8 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-8 .blob-center, .theme-gradient-8 .preloader .blob, .preloader .theme-gradient-8 .blob, .theme-gradient-8 .form--v8:after, .theme-gradient-8 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-8 .ico-progress__stages:after, .theme-gradient-8 .decor, .theme-gradient-8 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-8 button, .theme-gradient-8 .carosuel-triangle:hover, .theme-gradient-8 .label-bg--light--200::before, .theme-gradient-8 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-8 .page-link, .theme-gradient-8 .sticky .card, .sticky .theme-gradient-8 .card, .theme-gradient-8 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-8 .article__thumbnail-image::before, .theme-gradient-8 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-8 a, .theme-gradient-8 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-8 .meta-nav::before, .theme-gradient-8 .navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-8 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-8 .timeline-line:before {
+.theme-gradient-8 ins, .theme-gradient-8 .bg-color--primary, .theme-gradient-8 [class*="bg-color--primary-opacity-"]::before, .theme-gradient-8 .btn-bg--primary, .theme-gradient-8 .btn-bg--primary--05::after, .theme-gradient-8 .btn-hover--primary:hover, .theme-gradient-8 .card-hover--bg--primary-shadow.focused, .theme-gradient-8 .card-hover--bg--primary-shadow:hover, .theme-gradient-8 .preloader .blobs .blob-center, .preloader .blobs .theme-gradient-8 .blob-center, .theme-gradient-8 .preloader .blob, .preloader .theme-gradient-8 .blob, .theme-gradient-8 .form--v8:after, .theme-gradient-8 .ico-progress--v2 .ico-progress__stages:after, .ico-progress--v2 .theme-gradient-8 .ico-progress__stages:after, .theme-gradient-8 .decor, .theme-gradient-8 .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-8 button, .theme-gradient-8 .carosuel-triangle:hover, .theme-gradient-8 .label-bg--light--200::before, .theme-gradient-8 .pagination .page-item.active .page-link, .pagination .page-item.active .theme-gradient-8 .page-link, .theme-gradient-8 .sticky .card, .sticky .theme-gradient-8 .card, .theme-gradient-8 .sticky .article__thumbnail-image::before, .sticky .theme-gradient-8 .article__thumbnail-image::before, .theme-gradient-8 .widget_calendar tbody a, .widget_calendar tbody .theme-gradient-8 a, .theme-gradient-8 .post-navigation .meta-nav::before, .post-navigation .theme-gradient-8 .meta-nav::before, .theme-gradient-8 .navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-8 .roadmap--v4 .roadmap-item--current .timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-8 .timeline-line:before {
   background: -webkit-gradient(linear, left top, right top, from(#642B73), to(#C6426E));
   background: -o-linear-gradient(left, #642B73 0%, #C6426E 100%);
   background: linear-gradient(to right, #642B73 0%, #C6426E 100%);
@@ -8165,7 +8165,7 @@ body.boxed-layout.zig-zag-wool {
 }
 
 .theme-gradient-8 .btn-bg--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-8 .btn-bg--primary, .theme-gradient-8 .btn-bg--primary.btn-bg--primary--05::after, .theme-gradient-8 .preloader .blobs .btn-bg--primary.blob-center, .preloader .blobs .theme-gradient-8 .btn-bg--primary.blob-center, .theme-gradient-8 .btn-bg--primary.form--v8:after, .theme-gradient-8 .ico-progress--v2 .btn-bg--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-8 .btn-bg--primary.ico-progress__stages:after, .theme-gradient-8 .carosuel-slider--v1 .slick-dots .slick-active button.btn-bg--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-8 button.btn-bg--primary, .theme-gradient-8 .btn-bg--primary.label-bg--light--200::before, .theme-gradient-8 .pagination .page-item.active .btn-bg--primary.page-link, .pagination .page-item.active .theme-gradient-8 .btn-bg--primary.page-link, .theme-gradient-8 .sticky .btn-bg--primary.article__thumbnail-image::before, .sticky .theme-gradient-8 .btn-bg--primary.article__thumbnail-image::before, .theme-gradient-8 .post-navigation .btn-bg--primary.meta-nav::before, .post-navigation .theme-gradient-8 .btn-bg--primary.meta-nav::before, .theme-gradient-8 .roadmap--v4 .roadmap-item--current .btn-bg--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-8 .btn-bg--primary.timeline-line:before, .theme-gradient-8 mark.btn-hover--primary,
-.theme-gradient-8 ins.btn-hover--primary, .theme-gradient-8 .btn-hover--primary.bg-color--primary, .theme-gradient-8 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-8 .btn-hover--primary.btn-bg--primary, .theme-gradient-8 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-8 .btn-hover--primary:hover, .theme-gradient-8 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-8 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-8 .btn-hover--primary.blob-center, .theme-gradient-8 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-8 .btn-hover--primary.blob, .theme-gradient-8 .btn-hover--primary.form--v8:after, .theme-gradient-8 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-8 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-8 .btn-hover--primary.decor, .theme-gradient-8 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-8 button.btn-hover--primary, .theme-gradient-8 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-8 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-8 .btn-hover--primary.page-link, .theme-gradient-8 .sticky .btn-hover--primary.card, .sticky .theme-gradient-8 .btn-hover--primary.card, .theme-gradient-8 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-8 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-8 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-8 a.btn-hover--primary, .theme-gradient-8 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-8 .btn-hover--primary.meta-nav::before, .theme-gradient-8 .btn-hover--primary.navbar-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-8 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-8 .btn-hover--primary.timeline-line:before {
+.theme-gradient-8 ins.btn-hover--primary, .theme-gradient-8 .btn-hover--primary.bg-color--primary, .theme-gradient-8 .btn-hover--primary[class*="bg-color--primary-opacity-"]::before, .theme-gradient-8 .btn-hover--primary.btn-bg--primary, .theme-gradient-8 .btn-hover--primary.btn-bg--primary--05::after, .theme-gradient-8 .btn-hover--primary:hover, .theme-gradient-8 .btn-hover--primary.card-hover--bg--primary-shadow.focused, .theme-gradient-8 .preloader .blobs .btn-hover--primary.blob-center, .preloader .blobs .theme-gradient-8 .btn-hover--primary.blob-center, .theme-gradient-8 .preloader .btn-hover--primary.blob, .preloader .theme-gradient-8 .btn-hover--primary.blob, .theme-gradient-8 .btn-hover--primary.form--v8:after, .theme-gradient-8 .ico-progress--v2 .btn-hover--primary.ico-progress__stages:after, .ico-progress--v2 .theme-gradient-8 .btn-hover--primary.ico-progress__stages:after, .theme-gradient-8 .btn-hover--primary.decor, .theme-gradient-8 .carosuel-slider--v1 .slick-dots .slick-active button.btn-hover--primary, .carosuel-slider--v1 .slick-dots .slick-active .theme-gradient-8 button.btn-hover--primary, .theme-gradient-8 .btn-hover--primary.label-bg--light--200::before, .theme-gradient-8 .pagination .page-item.active .btn-hover--primary.page-link, .pagination .page-item.active .theme-gradient-8 .btn-hover--primary.page-link, .theme-gradient-8 .sticky .btn-hover--primary.card, .sticky .theme-gradient-8 .btn-hover--primary.card, .theme-gradient-8 .sticky .btn-hover--primary.article__thumbnail-image::before, .sticky .theme-gradient-8 .btn-hover--primary.article__thumbnail-image::before, .theme-gradient-8 .widget_calendar tbody a.btn-hover--primary, .widget_calendar tbody .theme-gradient-8 a.btn-hover--primary, .theme-gradient-8 .post-navigation .btn-hover--primary.meta-nav::before, .post-navigation .theme-gradient-8 .btn-hover--primary.meta-nav::before, .theme-gradient-8 .btn-hover--primary.navbar-2-2-sticky--moved-up.sticky-bg-color--primary, .theme-gradient-8 .roadmap--v4 .roadmap-item--current .btn-hover--primary.timeline-line:before, .roadmap--v4 .roadmap-item--current .theme-gradient-8 .btn-hover--primary.timeline-line:before {
   background: #a9486e;
 }
 

@@ -55,7 +55,7 @@ class Berita (models.Model):
     KATEGORI_CHOICES = (
         ('Artikel','Artikel'),
         ('Dokumentasi', 'Dokumentasi'),
-        ('Newsletter', 'Newsletter'),
+
     )
     AGENDA_CHOICES = (
         ('Penelitian', 'Penelitian'),

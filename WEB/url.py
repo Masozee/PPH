@@ -58,5 +58,6 @@ urlpatterns = [
     path('kesehatan-jiwa/artikel-jurnal-kesehatan-jiwa/', webviews.kesjiwartikel, name='kesjiwartikel'),
     re_path('kesehatan-jiwa/jurnal/(?P<AnotatedCOP_slug>[\w-]+)/$', webviews.KesjiwDetail, name='anotate-detail'),
     path('cop/', webviews.cop, name='cop'),
+    path('privacy-policy/', webviews.PrivacyPolicy, name='privacy'),
 
 ]
