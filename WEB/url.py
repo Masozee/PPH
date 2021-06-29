@@ -1,5 +1,6 @@
 from django.urls import path, re_path,include
 from WEB import views as webviews
+from django.views.generic import TemplateView
 
 
 
@@ -59,5 +60,5 @@ urlpatterns = [
     re_path('kesehatan-jiwa/jurnal/(?P<AnotatedCOP_slug>[\w-]+)/$', webviews.KesjiwDetail, name='anotate-detail'),
     path('cop/', webviews.cop, name='cop'),
     path('privacy-policy/', webviews.PrivacyPolicy, name='privacy'),
-
+    path('internship/', TemplateView.as_view(template_name='web/internship.html'), name='internship'),
 ]

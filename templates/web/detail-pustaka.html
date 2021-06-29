@@ -24,10 +24,8 @@
                     <h6 class="f-12 f-bm f-os fossb"><a href="/pustaka/{{object.get_tema_display | slugify}}">{{object.get_tema_display}}</a> / {{ object.get_kategori_display }} </h6>
                     <h2 class="f-36 fssb">{{object.judul}}</h2>
                     <ul class="list-unstyled list-inline">
-                        <li class="list-inline-item f-12 f-os f-at fossb">by {{object.penulis}}</li>
                         <li class="list-inline-item f-12 f-os f-am">{{object.tanggal | date:'d F Y'}}</li>
                     </ul>
-                    
                     <div class="f-15 f-os f-at">
                         {{object.deskripsi | safe}}
                     </div>

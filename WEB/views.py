@@ -58,7 +58,7 @@ def Internship(request):
         "header": header
     }
 
-    return render(request, "web/404.html", context)
+    return render(request, "web/intern.html", context)
 
 def DokumentasiList(request):
     dokumentasi = Berita.objects.filter(Kategori="Dokumentasi").order_by('-tanggal')
@@ -460,6 +460,7 @@ def pustaka(request):
 
     }
     return render(request, "web/pustaka.html", context)
+
 def pelayananKomunitas(request):
     desc_pel = "lorem ipsum dolor sit amet lorem"
     judul_penelitian = "Produk Pengetahuan dari Penelitian-Penelitian yang telah dilakukan oleh PPH Unika Atma Jaya"

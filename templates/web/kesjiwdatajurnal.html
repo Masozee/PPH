@@ -50,7 +50,7 @@
                   <div class="col-md-4 mb-4">
                     <div class="card h-100">
                       <div class="card-body">
-                        <a href="/pustaka/{{ a.judul |slugify }} " class="card-title">{{ a.judul }}</a>
+                        <a href="/kesehatan-jiwa/jurnal/{{ a.judul |slugify }} " class="card-title">{{ a.judul }}</a>
                         <h6 class="autor"><i><img src="{% static 'web/images/cop/autor.svg' %}" alt="" srcset=""></i>
                             {% for tag in a.Author.all %}
                             {{ tag.name }},
