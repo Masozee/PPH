@@ -41,6 +41,7 @@ urlpatterns = [
     path('berita/dokumentasi/advokasi/', webviews.DokumentasiAdvokasi, name='dokumentasi-advokasi'),
     path('berita/dokumentasi/peningkatan-kapasitas/', webviews.DokumentasiPeningkatan, name='dokumentasi-peningkatan'),
     path('berita/dokumentasi/pelayanan-komunitas/', webviews.DokumentasiPelayanan, name='dokumentasi-pelayanan'),
+    path('berita/dokumentasi/newsletter/', webviews.DokumentasiNewsletter, name='newsletter'),
     re_path('berita/dokumentasi/(?P<berita_slug>[\w-]+)/$', webviews.Dokumendetail, name='dak-detail'),
 
     path('berita/newsletter/', webviews.NewsletterList, name='newsletter'),

@@ -421,7 +421,7 @@ class Penelitian(models.Model):
     mata_uang = models.CharField(max_length=10)
     nominal = models.IntegerField()
     principal_investigator = models.ForeignKey(Staff, related_name='Principal_investigator', verbose_name="Principal Investigator", on_delete=models.PROTECT, default=True)
-    PIC = models.ForeignKey(Staff, related_name='PIC_penelitian', verbose_name="PIC Penelitian", on_delete=models.PROTECT)
+    PIC = models.ForeignKey(Staff, related_name='PIC_penelitian', verbose_name="PIC Penelitian", on_delete=models.PROTECT, blank=True)
     tim = models.ManyToManyField(Staff)
     status = models.CharField(max_length=10, choices=Status_CHOICES)
 

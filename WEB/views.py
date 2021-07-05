@@ -109,6 +109,22 @@ def DokumentasiPenelitian(request):
     }
 
     return render(request, "web/dukomentasi-penelitian.html", context)
+def DokumentasiNewsletter(request):
+    dokumentasi = Berita.objects.filter(Kategori="Dokumentasi", Agenda="Newsletter").order_by('-tanggal')
+    paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        dokumentasi = paginator.page(page)
+    except PageNotAnInteger:
+        dokumentasi = paginator.page(1)
+    except EmptyPage:
+        dokumentasi = paginator.page(paginator.num_pages)
+    context = {
+        "berita": dokumentasi,
+    }
+
+    return render(request, "web/dukomentasi-penelitian.html", context)
 def DokumentasiAdvokasi(request):
     dokumentasi = Berita.objects.filter(Kategori="Dokumentasi", Agenda="Advokasi").order_by('-tanggal')
     paginator = Paginator(dokumentasi, 5)  # Show 25 contacts per page
